@@ -1,0 +1,16 @@
+{
+  "name": "@eodm-productions/mdc-line-ripple",
+  "description": "The Material Components for Vue line-ripple component.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material components vue",
+    "material design",
+    "lineripple",
+    "line-ripple"
+  ],
+  "dependencies": {
+    "@material/line-ripple": "^7.0.0"
+  }
+}

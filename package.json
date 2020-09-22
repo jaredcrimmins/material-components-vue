@@ -1,0 +1,25 @@
+{
+    "dependencies": {
+        "vue": "^2.6.12"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^4.5.4",
+        "@vue/cli-plugin-eslint": "^4.5.4",
+        "@vue/cli-service": "^4.5.4",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.2.2",
+        "extract-loader": "^5.1.0",
+        "material-components-web": "^7.0.0",
+        "node-sass": "^4.14.1",
+        "sass": "^1.26.10",
+        "sass-loader": "^8.0.2",
+        "style-loader": "^1.2.1",
+        "vue-template-compiler": "^2.6.12"
+    },
+    "scripts": {
+        "serve": "vue-cli-service serve testing/serve/app.js",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
+    }
+}
