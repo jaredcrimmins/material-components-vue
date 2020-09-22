@@ -21,6 +21,10 @@
             this.init();
         },
 
+        beforeDestroy() {
+            this.deinit();
+        },
+
         render(c) {
             return c(
                 "span",
@@ -34,6 +38,10 @@
             init() {
                 this.mdcFoundation = new MDCLineRippleFoundation(this);
                 this.mdcFoundation.init();
+            },
+
+            deinit() {
+                this.mdcFoundation.destroy();
             },
 
             // Adapter methods
