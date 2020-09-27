@@ -9,6 +9,7 @@
     "material design",
     "menu surface"
   ],
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://source.developers.google.com/p/eodm-productions-website/r/material-components-vuejs",
