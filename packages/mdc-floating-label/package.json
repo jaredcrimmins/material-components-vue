@@ -1,0 +1,22 @@
+{
+  "name": "@eodm-productions/mdc-floating-label",
+  "description": "The Material Components for Vue floating label component.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material components vue",
+    "material design",
+    "floating label"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://source.developers.google.com/p/eodm-productions-website/r/material-components-vuejs",
+    "directory": "packages/mdc-floating-label"
+  },
+  "dependencies": {
+    "@material/dom": "^7.0.0",
+    "@material/floating-label": "^7.0.0"
+  }
+}
