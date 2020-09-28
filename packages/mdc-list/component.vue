@@ -38,6 +38,11 @@
             this.init();
         },
 
+        beforeDestory() {
+            this.deinit();
+        },
+
+
         render(c) {
             return c(
                 "ul",
@@ -61,6 +66,10 @@
             init() {
                 this.mdcFoundation = new MDCListFoundation(this);
                 this.mdcFoundation.init();
+            },
+
+            deinit() {
+                this.mdcFoundation.destroy();
             },
 
             genListItems(c) {
