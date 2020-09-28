@@ -1,0 +1,24 @@
+{
+  "name": "@eodm-productions/mdc-menu",
+  "description": "The Material Components for Vue menu component.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material components vue",
+    "material design",
+    "menu"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://source.developers.google.com/p/eodm-productions-website/r/material-components-vuejs",
+    "directory": "packages/mdc-menu"
+  },
+  "dependencies": {
+    "@eodm-productions/mdc-list": "^0.1.1",
+    "@eodm-productions/mdc-menu-surface": "^0.2.0",
+    "@material/dom": "^7.0.0",
+    "@material/menu": "7.0.0"
+  }
+}
