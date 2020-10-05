@@ -11,7 +11,7 @@
             ref="notchElement"
             class="mdc-notched-outline__notch"
         >
-            <mdc-floating-label :float="floatLabel" :content="label"></mdc-floating-label>
+            <mdc-floating-label ref="floatingLabel" :float="floatLabel" :content="label"></mdc-floating-label>
         </div>
         <div class="mdc-notched-outline__trailing"></div>
     </div>
