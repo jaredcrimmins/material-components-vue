@@ -33,17 +33,12 @@
                 lineRippleActive: false,
                 lineRippleCenter: 0,
                 shakeLabel_: false,
-                valid: true,
-                value: this.defaultValue
+                valid: true
             };
         },
 
         props: {
             characterCounter: Boolean,
-            defaultValue: {
-                default: "",
-                type: String
-            },
             filled: Boolean,
             fullWidth: Boolean,
             helperText: {
@@ -72,7 +67,10 @@
             required: Boolean,
             size: Number,
             spellcheck: String,
-            type: String
+            type: String,
+            value: {
+                default: ""
+            }
         },
 
         mounted() {
@@ -108,7 +106,7 @@
                                 {
                                     ref: "inputEl",
                                     staticClass: "mdc-text-field__input",
-                                    props: {
+                                    attrs: {
                                         autocomplete: this.autocomplete,
                                         disabled: this.disabled,
                                         maxlength: this.maxlength,
@@ -253,7 +251,6 @@
             onInputElInput(event) {
                 this.mdcFoundation.handleInput();
 
-                this.value = event.target.value;
                 this.$emit("input", event.target.value);
             },
 
