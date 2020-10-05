@@ -1,7 +1,7 @@
 {
   "name": "@eodm-productions/mdc-notched-outline",
   "description": "The Material Components for Vue notched outline component.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "keywords": [
     "material components",
