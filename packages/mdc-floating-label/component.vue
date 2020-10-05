@@ -19,6 +19,10 @@
             float: {
                 default: false,
                 type: Boolean
+            },
+            shake: {
+                default: false,
+                type: Boolean
             }
         },
 
@@ -70,6 +74,10 @@
         watch: {
             float() {
                 this.mdcFoundation.float(this.float);
+            },
+
+            shake() {
+                this.mdcFoundation.shake(this.shake);
             }
         }
     }
