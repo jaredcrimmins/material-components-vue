@@ -17,7 +17,7 @@
     "directory": "packages/mdc-notched-outline"
   },
   "dependencies": {
-    "@eodm-productions/mdc-floating-label": "^0.1.0",
+    "@eodm-productions/mdc-floating-label": "^0.2.0",
     "@material/notched-outline": "^7.0.0"
   }
 }
