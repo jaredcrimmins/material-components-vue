@@ -1,22 +1,3 @@
-<template>
-    <div
-        class="mdc-notched-outline"
-        :class="{
-            'mdc-notched-outline--no-label': !label 
-        }"
-    >
-        <div class="mdc-notched-outline__leading"></div>
-        <div
-            v-show="label"
-            ref="notchElement"
-            class="mdc-notched-outline__notch"
-        >
-            <mdc-floating-label ref="floatingLabel" :float="floatLabel" :content="label"></mdc-floating-label>
-        </div>
-        <div class="mdc-notched-outline__trailing"></div>
-    </div>
-</template>
-
 <script>
     "use-strict"
 
@@ -34,7 +15,8 @@
             floatLabel: Boolean,
             label: String,
             notched: Boolean,
-            notchWidth: Number
+            notchWidth: Number,
+            shakeLabel: Boolean
         },
 
         data() {
@@ -51,6 +33,42 @@
             this.deinit();
         },
 
+        render(c) {
+            return c(
+                "div",
+                {
+                    staticClass: "mdc-notched-outline",
+                    class: {
+                        "mdc-notched-outline--no-label": !this.label
+                    }
+                },
+                [
+                    c(
+                        "div",
+                        {
+                            staticClass: "mdc-notched-outline__leading"
+                        }
+                    ),
+                    c(
+                        "div",
+                        {
+                            staticClass: "mdc-notched-outline__notch",
+                            ref: "notchEl"
+                        },
+                        [
+                            this.genFloatingLabel(c)
+                        ]
+                    ),
+                    c(
+                        "div",
+                        {
+                            staticClass: "mdc-notched-outline__trailing"
+                        }
+                    )
+                ]
+            )
+        },
+
         methods: {
             init() {
                 this.mdcFoundation = new MDCNotchedOutlineFoundation(this);
@@ -59,6 +77,28 @@
 
             deinit() {
                 this.mdcFoundation.destroy();
+            },
+
+            genFloatingLabel(c) {
+                if(this.label) {
+                    return c(
+                        "mdc-floating-label",
+                        {
+                            props: {
+                                content: this.label,
+                                float: this.floatLabel,
+                                shake: this.shakeLabel
+                            },
+                            ref: "floatingLabel"
+                        }
+                    );
+                }
+            },
+
+            getLabelWidth() {
+                if(this.$refs.floatingLabel) {
+                    return this.$refs.floatingLabel.getWidth();
+                }
             },
 
             // Adapter
@@ -71,17 +111,17 @@
             },
 
             setNotchWidthProperty(width) {
-                this.$refs.notchElement.style.setProperty("width", width + "px");
+                this.$refs.notchEl.style.setProperty("width", width + "px");
             },
 
             removeNotchWidthProperty() {
-                this.$refs.notchElement.style.removeProperty("width");
+                this.$refs.notchEl.style.removeProperty("width");
             }
         },
 
         watch: {
             notched() {
-                this.notched ? this.mdcFoundation.notch(this.notchWidth) : this.mdcFoundation.closeNotch();
+                this.notched ? this.mdcFoundation.notch(this.notchWidth || this.getLabelWidth()) : this.mdcFoundation.closeNotch();
             }
         }
     }
