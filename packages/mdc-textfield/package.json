@@ -17,9 +17,9 @@
     "directory": "packages/mdc-textfield"
   },
   "dependencies": {
-    "@eodm-productions/mdc-floating-label": "^0.2.0",
-    "@eodm-productions/mdc-line-ripple": "^0.1.0",
-    "@eodm-productions/mdc-notched-outline": "^0.4.0",
+    "@eodm-productions/mdc-floating-label": "file:../mdc-floating-label",
+    "@eodm-productions/mdc-line-ripple": "file:../mdc-line-ripple",
+    "@eodm-productions/mdc-notched-outline": "file:../mdc-notched-outline",
     "@material/dom": "^7.0.0",
     "@material/textfield": "^7.0.0"
   }
