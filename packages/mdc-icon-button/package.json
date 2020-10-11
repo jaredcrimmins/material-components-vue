@@ -1,0 +1,20 @@
+{
+  "name": "@eodm-productions/mdc-icon-button",
+  "description": "The Material Components for Vue icon button component.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material components vue",
+    "material design"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://source.developers.google.com/p/eodm-productions-website/r/material-components-vuejs",
+    "directory": "packages/mdc-icon-button"
+  },
+  "dependencies": {
+    "@material/ripple": "^7.0.0"
+  }
+}
