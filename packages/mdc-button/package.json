@@ -1,0 +1,20 @@
+{
+  "name": "@eodm-productions/mdc-button",
+  "description": "The Material Components for Vue button component.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material components vue",
+    "material design",
+    "button"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://source.developers.google.com/p/eodm-productions-website/r/material-components-vuejs",
+    "directory": "packages/mdc-button"
+  },
+  "dependencies": {
+    "@material/button": "^7.0.0"
+  }
+}
