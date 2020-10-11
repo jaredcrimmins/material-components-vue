@@ -1,0 +1,21 @@
+{
+  "name": "@eodm-productions/mdc-snackbar",
+  "description": "The Material Components for Vue snackbar component.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material components vue",
+    "material design",
+    "snackbar"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://source.developers.google.com/p/eodm-productions-website/r/material-components-vuejs",
+    "directory": "packages/mdc-snackbar"
+  },
+  "dependencies": {
+    "@eodm-productions/mdc-icon-button": "file:../mdc-icon-button",
+    "@material/snackbar": "^7.0.0"
+  }
+}
