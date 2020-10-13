@@ -43,6 +43,7 @@
             },
             fixedPosition: Boolean,
             fullWidth: Boolean,
+            hasTypeahead: Boolean,
             menuItems: {
                 default() {
                     return [];
@@ -64,17 +65,30 @@
 
         data() {
             return {
+                mdcFoundation: null,
                 open: false
             };
         },
 
         mounted() {
-            this.mdcFoundation = new MDCMenuFoundation(this);
-            this.mdcFoundation.init();
-            this.open = this.value || false;
+            this.init();
+        },
+
+        beforeDestroy() {
+            this.deinit();
         },
 
         methods: {
+            init() {
+                this.mdcFoundation = new MDCMenuFoundation(this);
+                this.mdcFoundation.init();
+                this.open = this.value || false;
+            },
+
+            deinit() {
+                this.mdcFoundation.destroy();
+            },
+
             getMenuItemElements() {
                 return Array.from(this.$el.querySelectorAll(".mdc-list-item"));
             },
