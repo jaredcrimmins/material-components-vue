@@ -1,0 +1,24 @@
+{
+  "name": "@eodm-productions/mdc-data-table",
+  "description": "The Material Components for Vue data table component.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material components vue",
+    "material design",
+    "data table"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://source.developers.google.com/p/eodm-productions-website/r/material-components-vuejs",
+    "directory": "packages/mdc-data-table"
+  },
+  "dependencies": {
+    "@eodm-productions/mdc-icon-button": "file:../mdc-icon-button",
+    "@eodm-productions/mdc-select": "file:../mdc-select",
+    "@material/data-table": "^7.0.0",
+    "@material/dom": "^7.0.0"
+  }
+}
