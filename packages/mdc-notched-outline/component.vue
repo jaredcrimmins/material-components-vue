@@ -37,7 +37,7 @@
             return c(
                 "div",
                 {
-                    staticClass: "mdc-notched-outline",
+                    staticClass: "mdc-notched-outline mdc-notched-outline--upgraded",
                     class: {
                         "mdc-notched-outline--no-label": !this.label
                     }
