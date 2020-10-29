@@ -14,6 +14,7 @@
                 default: "button",
                 type: String
             },
+            unelevated: Boolean,
             to: String,
 
             // HTML attributes
