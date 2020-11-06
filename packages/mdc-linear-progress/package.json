@@ -13,7 +13,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://source.developers.google.com/p/eodm-productions-website/r/material-components-vuejs",
-    "directory": "packages/mdc-line-ripple"
+    "directory": "packages/mdc-linear-progress"
   },
   "author": {
     "email": "jared@crimmins.io",
