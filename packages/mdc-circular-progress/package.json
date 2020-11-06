@@ -1,0 +1,26 @@
+{
+  "name": "@eodm-productions/mdc-circular-progress",
+  "description": "The Material Components for the Vue circular progress indicator component.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "material components",
+    "material components vue",
+    "material design",
+    "circular-progress"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://source.developers.google.com/p/eodm-productions-website/r/material-components-vuejs",
+    "directory": "packages/mdc-circular-progress"
+  },
+  "author": {
+    "email": "jared@crimmins.io",
+    "name": "Jared Crimmins",
+    "url": "https://crimmins.io"
+  },
+  "dependencies": {
+    "@material/circular-progress": "^7.0.0"
+  }
+}
