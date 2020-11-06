@@ -397,6 +397,23 @@
         watch: {
             valid() {
                 this.mdcFoundation.setValid(this.valid);
+            },
+
+            value() {
+                setTimeout(() => {
+                    if(this.mdcFoundation.validateOnValueChange_) {
+                        const isValid = this.mdcFoundation.isValid();
+                        this.mdcFoundation.styleValidity_(isValid);
+                    }
+                    if(this.hasLabel()) {
+                        this.mdcFoundation.notchOutline(this.mdcFoundation.shouldFloat);
+                        this.floatLabel(this.mdcFoundation.shouldFloat);
+                        this.mdcFoundation.styleFloating_(this.mdcFoundation.shouldFloat);
+                        if(this.mdcFoundation.validateOnValueChange_) {
+                            this.shakeLabel(this.mdcFoundation.shouldShake);
+                        }
+                    }
+                }, 0);
             }
         }
     }
