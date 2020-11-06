@@ -1,0 +1,26 @@
+{
+  "name": "@eodm-productions/mdc-linear-progress",
+  "description": "The Material Components for the Vue linear progress indicator component.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "material components",
+    "material components vue",
+    "material design",
+    "linear progress"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://source.developers.google.com/p/eodm-productions-website/r/material-components-vuejs",
+    "directory": "packages/mdc-line-ripple"
+  },
+  "author": {
+    "email": "jared@crimmins.io",
+    "name": "Jared Crimmins",
+    "url": "https://crimmins.io"
+  },
+  "dependencies": {
+    "@material/linear-progress": "^7.0.0"
+  }
+}
