@@ -1,17 +1,12 @@
 <template>
     <button
-        class="mdc-icon-button"
-        :class="{
-            'material-icons': regular,
-            'material-icons-outlined': outlined,
-            'material-icons-round': round,
-            'material-icons-two-tone': twoTone
-        }"
+        class="mdc-icon-button material-icons"
         :disabled="disabled"
     >
         <div class="mdc-button__icon">
             <slot></slot>
         </div>
+        <!-- <img class="mdc-icon-button__icon" :src="src"> -->
     </button>
 </template>
 
@@ -24,27 +19,13 @@
         name: "mdc-icon-button",
 
         props: {
-            disabled: Boolean,
-            iconTheme: {
-                type: String,
-                default: () => ("regular"),
-                validator(value) {
-                    return ["regular", "outlined", "round", "sharp", "two-tone"].indexOf(value) !== -1;
-                }
-            }
+            disabled: Boolean
         },
 
         data() {
             return {
                 mdcRipple: null
-            };
-        },
-
-        computed: {
-            regular() { return this.iconTheme === "regular"; },
-            outlined() { return this.iconTheme === "outlined"; },
-            round() { return this.iconTheme === "round"; },
-            twoTone() { return this.iconTheme === "two-tone"; }
+            }
         },
 
         mounted() {
@@ -62,4 +43,5 @@
 
 <style lang="scss">
     @use "@material/icon-button/mdc-icon-button";
+    @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 </style>
