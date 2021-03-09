@@ -1,0 +1,1 @@
+export {default as MDCMenu} from "./mdc-menu";
