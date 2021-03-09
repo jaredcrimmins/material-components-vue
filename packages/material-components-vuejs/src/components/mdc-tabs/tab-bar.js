@@ -197,6 +197,7 @@ export default {
 
     notifyTabActivated(index) {
       emitCustomEvent(this.$el, strings.TAB_ACTIVATED_EVENT, {index}, true);
+      this.$emit("input", index);
     }
   }
 }
