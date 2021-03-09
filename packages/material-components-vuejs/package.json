@@ -1,0 +1,60 @@
+{
+  "name": "@jaredcrimmins/eodm-productions__material-components-vuejs",
+  "version": "0.2.0-alpha.1",
+  "description": "Material components for Vue.",
+  "main": "dist/material-components-vuejs.js",
+  "module": "src/index.js",
+  "scripts": {
+    "prepare": "npm run clean && npm run build:production",
+    "build": "npm run build:production",
+    "build:development": "webpack --config build/webpack.dev.config.js --progress",
+    "build:production": "webpack --config build/webpack.prod.config.js --progress",
+    "clean": "rm -fr dist/",
+    "dev": "webpack serve --config build/webpack.dev.config.js --progress",
+    "help": "webpack --help"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "@material/feature-targeting": "^10.0.0",
+    "@material/floating-label": "^10.0.0",
+    "@material/theme": "^10.0.0",
+    "@material/typography": "^10.0.0",
+    "@webpack-cli/serve": "^1.3.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "core-js": "^3.9.1",
+    "css-loader": "^5.1.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "extract-loader": "^5.1.0",
+    "html-webpack-plugin": "^4.5.2",
+    "material-components-web": "^7.0.0",
+    "mini-css-extract-plugin": "^1.3.9",
+    "postcss": "^8.2.7",
+    "postcss-loader": "^4.2.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^8.0.2",
+    "terser-webpack-plugin": "^4.2.3",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.6",
+    "vue-style-loader": "^4.1.3",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-merge": "^5.7.3",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "peerDependencies": {
+    "material-components-web": "^7.0.0" 
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "url": "https://source.cloud.google.com/p/eodm-productions-website/r/material-components-vuejs",
+    "directory": "/packages/material-components-vuejs"
+  },
+  "sideEffects": [
+    "dev/*"
+  ]
+}
