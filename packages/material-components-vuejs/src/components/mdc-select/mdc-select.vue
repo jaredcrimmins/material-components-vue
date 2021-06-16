@@ -64,23 +64,21 @@
       v-on:MDCMenuSurface:closed="onMDCMenuSurfaceClosed"
       v-model="menuOpen"
     >
-      <mdc-list ref="list">
-        <mdc-list-item
-          ref="menuItems"
-          v-for="(item, index) in items"
-          :key="index"
-          :value="item.value"
-        >
-        {{ item.text }}</mdc-list-item>
-      </mdc-list>
+      <mdc-menu-item
+        ref="menuItems"
+        v-for="(item, index) in items"
+        :key="index"
+        :value="item.value"
+      >
+        {{ item.text }}
+      </mdc-menu-item>
     </mdc-menu>
   </div>
 </template>
 
 <script>
   import {MDCFloatingLabel} from "./../mdc-floating-label";
-  import {MDCMenu} from "./../mdc-menu";
-  import {MDCSelectFoundation} from "@material/select";
+  import {MDCMenu, MDCMenuItem} from "./../mdc-menu";
   import {MDCLineRipple} from "./../mdc-line-ripple";
   import {MDCNotchedOutline} from "./../mdc-notched-outline";
   import {estimateScrollWidth} from "@material/dom/ponyfill";
@@ -91,6 +89,7 @@
     components: {
       "mdc-floating-label": MDCFloatingLabel,
       "mdc-menu": MDCMenu,
+      "mdc-menu-item": MDCMenuItem,
       "mdc-line-ripple": MDCLineRipple,
       "mdc-notched-outline": MDCNotchedOutline
     },
@@ -198,7 +197,7 @@
       },
 
       getSelectedMenuItem() {
-        return this.$refs.list.$el.querySelector(".mdc-list-item--selected");
+        return this.$refs.menu.$el.querySelector(".mdc-list-item--selected");
       },
 
       hasLabel() {
