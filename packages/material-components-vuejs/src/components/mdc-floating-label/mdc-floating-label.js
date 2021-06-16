@@ -16,7 +16,8 @@ export default {
     shake: {
       default: false,
       type: Boolean
-    }
+    },
+    required: Boolean
   },
 
   data() {
@@ -47,6 +48,7 @@ export default {
     init() {
       this.mdcFoundation = new MDCFloatingLabelFoundation(this);
       this.mdcFoundation.init();
+      this.mdcFoundation.setRequired(this.required);
     },
 
     deinit() {
@@ -79,8 +81,8 @@ export default {
       this.mdcFoundation.float(this.float);
     },
 
-    shake() {
-      this.mdcFoundation.shake(this.shake);
+    required(value) {
+      this.mdcFoundation.setRequired(value);
     }
   }
 }
