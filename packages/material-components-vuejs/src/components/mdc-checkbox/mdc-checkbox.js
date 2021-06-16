@@ -4,14 +4,10 @@ export default {
   name: "mdc-checkbox",
 
   props: {
-    disabled: {
-      default: false,
-      type: Boolean
-    },
-    indeterminate: {
-      default: false,
-      type: Boolean
-    }
+    checked: Boolean,
+    disabled: Boolean,
+    indeterminate: Boolean,
+    value: Boolean
   },
 
   data() {
