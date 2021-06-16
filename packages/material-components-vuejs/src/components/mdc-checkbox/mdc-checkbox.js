@@ -12,7 +12,7 @@ export default {
 
   data() {
     return {
-      mdcFoundation: null
+      mdcFoundation: new MDCCheckboxFoundation(MDCCheckboxFoundation.defaultAdapter)
     };
   },
 
