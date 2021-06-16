@@ -23,8 +23,22 @@ export default {
   },
 
   computed: {
-    role() {
-      return "option";
+    checkbox() {
+      return !!this.$slots.checkbox;
+    },
+
+    graphic() {
+      return !!this.slots.radio;
+    },
+
+    radio() {
+      return !!this.$slots.radio;
+    },
+
+    roleAttr() {
+      if(this.checkbox) return "checkbox";
+      else if(this.radio) return "radio";
+      else return "option";
     }
   },
 
@@ -45,8 +59,7 @@ export default {
       {
         attrs: {
           "data-value": this.value,
-          role: "option",
-          tabindex: 0
+          role: this.roleAttr
         },
         staticClass: "mdc-list-item"
       },
