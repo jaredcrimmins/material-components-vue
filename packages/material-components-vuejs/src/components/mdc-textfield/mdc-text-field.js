@@ -151,8 +151,8 @@ export default {
         spellcheck: this.spellcheck
       };
 
-      if(this.multiline) {
-        if(this.resizable) {
+      if (this.multiline) {
+        if (this.resizable) {
           return c(
             'span',
             {
@@ -203,7 +203,7 @@ export default {
     },
 
     genLineRipple(c) {
-      if(!this.outlined && !this.multiline) {
+      if (!this.outlined && !this.multiline) {
         return c(
           'mdc-line-ripple',
           {
@@ -219,7 +219,7 @@ export default {
     genNotchedOutline(c) {
       const label = this.label;
 
-      if(this.isOutlined) {
+      if (this.isOutlined) {
         return c(
           'mdc-notched-outline',
           {
@@ -237,7 +237,7 @@ export default {
     },
 
     genFloatingLabel(c) {
-      if(this.hasFloatingLabel) {
+      if (this.hasFloatingLabel) {
         return c(
           'mdc-floating-label',
           {
@@ -252,7 +252,7 @@ export default {
     },
 
     genHelperLine(c) {
-      if(this.helperTextValue_ || this.characterCounter) {
+      if (this.helperTextValue_ || this.characterCounter) {
         return c(
           'div',
           {
@@ -267,7 +267,7 @@ export default {
     },
 
     genHelperText(c) {
-      if(this.helperTextValue_) {
+      if (this.helperTextValue_) {
         return c(
           'mdc-text-field-helper-text',
           {
@@ -282,7 +282,7 @@ export default {
     },
 
     genCharacterCounter(c) {
-      if(this.characterCounter) {
+      if (this.characterCounter) {
         return c(
           'mdc-text-field-character-counter',
           {
@@ -319,11 +319,11 @@ export default {
 
     // MDC root adapter methods
     addClass(className) {
-      this.$el.querySelector(`.${ cssClasses.ROOT }`).classList.add(className);
+      this.$el.querySelector(`.${cssClasses.ROOT}`).classList.add(className);
     },
 
     deregisterTextFieldInteractionHandler(evtType, handler) {
-      this.$el.querySelector(`.${ cssClasses.ROOT }`).removeEventListener(evtType, handler);
+      this.$el.querySelector(`.${cssClasses.ROOT}`).removeEventListener(evtType, handler);
     },
 
     deregisterValidationAttributeChangeHandler(observer) {
@@ -331,15 +331,15 @@ export default {
     },
 
     hasClass(className) {
-      return this.$el.querySelector(`.${ cssClasses.ROOT }`).classList.contains(className);
+      return this.$el.querySelector(`.${cssClasses.ROOT}`).classList.contains(className);
     },
 
     removeClass(className) {
-      this.$el.querySelector(`.${ cssClasses.ROOT }`).classList.remove(className);
+      this.$el.querySelector(`.${cssClasses.ROOT}`).classList.remove(className);
     },
 
     registerTextFieldInteractionHandler(evtType, handler) {
-      this.$el.querySelector(`.${ cssClasses.ROOT }`).addEventListener(evtType, handler);
+      this.$el.querySelector(`.${cssClasses.ROOT}`).addEventListener(evtType, handler);
     },
 
     registerValidationAttributeChangeHandler(handler) {
@@ -380,7 +380,7 @@ export default {
 
     // MDC label adapter methods
     floatLabel(shouldFloat) {
-      if(this.hasLabel()) {
+      if (this.hasLabel()) {
         this.floatLabel_ = shouldFloat;
       }
     },
