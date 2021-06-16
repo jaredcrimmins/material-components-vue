@@ -152,6 +152,10 @@
     },
 
     methods: {
+      //
+      // Private methods
+      //
+
       init() {
         this.mdcFoundation = new MDCSelectFoundation(this);
         this.mdcFoundation.init();
@@ -196,7 +200,10 @@
         this.mdcFoundation.handleMenuOpened();
       },
 
+      //
       // Adapter methods
+      //
+
       addClass(className) {
         this.$el.classList.add(className);
       },
