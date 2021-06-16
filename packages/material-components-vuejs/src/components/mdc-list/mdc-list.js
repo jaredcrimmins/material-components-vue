@@ -72,15 +72,15 @@ export default {
       return Array.from(this.$el.querySelectorAll(".mdc-list-item"));
     },
 
-    getListItemElements() {
-      return this.itemElements = Array.from(this.$el.querySelectorAll(".mdc-list-item"));
+    getListItemEls() {
+      return Array.from(this.$el.querySelectorAll(strings.LIST_ITEM_SELECTOR));
     },
 
     getListItemIndex(event) {
-      let target = event.target;
-      let nearestParent = closest(target, ".mdc-list-item, .mdc-list");
+      const {target} = event;
+      const nearestParent = closest(target, `.${cssClasses.LIST_ITEM_CLASS}, .${cssClasses.ROOT}`);
 
-      if(nearestParent && matches(nearestParent , ".mdc-list-item")) {
+      if(nearestParent && matches(nearestParent , strings.LIST_ITEM_SELECTOR)) {
         return this.getListItemEls().indexOf(nearestParent);
       }
 
@@ -157,8 +157,8 @@ export default {
     },
 
     setTabIndexForListItemChildren(listItemIndex, tabIndexValue) {
-      let element = this.getListItemEls()[listItemIndex];
-      let listItemChildren = [].slice.call(element.querySelectorAll(cssClasses.CHILD_ELEMENTS_TO_TOGGLE_TABINDEX));
+      const element = this.getListItemEls()[listItemIndex];
+      const listItemChildren = [].slice.call(element.querySelectorAll(cssClasses.CHILD_ELEMENTS_TO_TOGGLE_TABINDEX));
       
       listItemChildren
       .forEach(el => {
@@ -210,10 +210,18 @@ export default {
       let primaryTextElement = null;
 
       if(listItemElement) {
-        primaryTextElement = listItemElement.querySelector("mdc-list-item__primary-text");
+        primaryTextElement = listItemElement.querySelector(strings.LIST_ITEM_PRIMARY_TEXT_SELECTOR);
 
         if(primaryTextElement) {
-          return primaryTextElement.textContent;
+          return primaryTextElement.textContent || "";
+        }
+        else {
+          const singleLineText =
+            listItemElement.querySelector(`.${cssClasses.LIST_ITEM_TEXT_CLASS}`);
+          
+          if(singleLineText) {
+            return singleLineText.textContent || "";
+          }
         }
       }
     }
