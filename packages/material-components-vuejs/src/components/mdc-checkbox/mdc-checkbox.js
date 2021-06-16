@@ -135,6 +135,10 @@ export default {
       );
     },
 
+    setDisabled(disabled) {
+      this.mdcFoundation.setDisabled(disabled);
+    },
+
     onNativeControlElChange() {
       if(!this.indeterminate) this.checked = !this.checked;
 
