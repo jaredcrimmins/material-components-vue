@@ -182,6 +182,10 @@ export default {
       return this.mdcFoundation.isTypeaheadInProgress();
     },
 
+    typeaheadMatchItem(nextChar) {
+      return this.mdcFoundation.typeaheadMatchItem(nextChar);
+    },
+
     // Adapter methods
     getListItemCount() {
       return this.getListItemEls().length;
