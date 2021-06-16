@@ -67,6 +67,10 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCNotchedOutlineFoundation(this);
       this.mdcFoundation.init();
@@ -114,7 +118,10 @@ export default {
       }
     },
 
-    // Adapter
+    //
+    // Adapter methods
+    //
+
     addClass(className) {
       this.$el.classList.add(className);
     },
