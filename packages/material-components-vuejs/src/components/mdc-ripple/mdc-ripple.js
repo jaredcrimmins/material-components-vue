@@ -20,7 +20,7 @@ export default {
 
   data() {
     return {
-      mdcFoundation: null
+      mdcFoundation: new MDCRippleFoundation(MDCRippleFoundation.defaultAdapter)
     };
   },
 
