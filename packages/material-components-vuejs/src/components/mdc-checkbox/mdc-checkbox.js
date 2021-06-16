@@ -41,6 +41,11 @@ export default {
         staticClass: cssClasses.ROOT,
         class: {
           [cssClasses.DISABLED]: this.disabled
+        },
+        on: {
+          "animationend": () => {
+            this.mdcFoundation.handleAnimationEnd();
+          }
         }
       },
       [
