@@ -6,7 +6,6 @@ export default {
   inheritAttrs: true,
 
   props: {
-    elevated: Boolean,
     outlined: Boolean,
     raised: Boolean,
     unelevated: Boolean,
