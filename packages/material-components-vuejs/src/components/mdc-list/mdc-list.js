@@ -17,6 +17,7 @@ export default {
 
   props: {
     checkboxItems: Boolean,
+    radioGroup: Boolean,
     twoLine: Boolean,
     wrapFocus: Boolean
   },
