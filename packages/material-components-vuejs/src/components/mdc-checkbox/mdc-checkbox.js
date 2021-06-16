@@ -75,7 +75,7 @@ export default {
       return c(
         "input",
         {
-          ref: "nativeControl",
+          ref: "nativeControlEl",
           staticClass: cssClasses.NATIVE_CONTROL,
           attrs: {
             type: "checkbox",
