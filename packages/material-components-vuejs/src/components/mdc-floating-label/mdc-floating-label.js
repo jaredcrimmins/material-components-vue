@@ -1,12 +1,12 @@
-import {MDCFloatingLabelFoundation, cssClasses} from "@material/floating-label";
-import {estimateScrollWidth} from "@material/dom/ponyfill";
+import {MDCFloatingLabelFoundation, cssClasses} from '@material/floating-label';
+import {estimateScrollWidth} from '@material/dom/ponyfill';
 
 export default {
-  name: "mdc-floating-label",
+  name: 'mdc-floating-label',
 
   props: {
     content: {
-      default: "",
+      default: '',
       type: String
     },
     float: {
@@ -35,7 +35,7 @@ export default {
 
   render(c) {
     return c(
-      "label",
+      'label',
       {
         staticClass: cssClasses.ROOT
       },
