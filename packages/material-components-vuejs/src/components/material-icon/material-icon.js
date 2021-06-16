@@ -3,7 +3,10 @@ export default {
 
   props: {
     icon: String,
-    tag: { type: String, default: "i" },
+    tag: {
+      type: String,
+      default: "i"
+    }
   },
 
   render(c) {
