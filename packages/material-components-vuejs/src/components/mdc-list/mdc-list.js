@@ -124,8 +124,8 @@ export default {
       this.domObserver.disconnect();
     },
 
-    initTabindex() {
-      this.setAttributeForElementIndex(0, "tabindex", "0");
+    getListItemEls() {
+      return Array.from(this.$el.querySelectorAll(".mdc-list-item"));
     },
 
     getListItemEls() {
@@ -151,13 +151,13 @@ export default {
     },
 
     onFocusIn(event) {
-      let index = this.getListItemIndex(event);
+      const index = this.getListItemIndex(event);
 
       this.mdcFoundation.handleFocusIn(event, index);
     },
 
     onFocusOut(event) {
-      let index = this.getListItemIndex(event);
+      const index = this.getListItemIndex(event);
 
       this.mdcFoundation.handleFocusOut(event, index);
     },
@@ -256,14 +256,14 @@ export default {
     },
 
     listItemAtIndexHasClass(index, className) {
-      let element = this.getListItemEls()[index];
+      const element = this.getListItemEls()[index];
 
       if(element) return element.classList.contains(className);
       return false;
     },
 
     getPrimaryTextAtIndex(index) {
-      let listItemElement = this.getListItemEls()[index];
+      const listItemElement = this.getListItemEls()[index];
       let primaryTextElement = null;
 
       if(listItemElement) {
