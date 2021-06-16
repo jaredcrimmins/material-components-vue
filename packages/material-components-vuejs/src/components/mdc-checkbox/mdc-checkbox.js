@@ -173,7 +173,7 @@ export default {
     },
 
     setNativeControlDisabled(disabled) {
-      this.$refs.disabled = disabled;
+      this.$refs.nativeControlEl.disabled = disabled;
     },
 
     setNativeControlAttr(attr, value) {
