@@ -181,7 +181,7 @@ export default {
     },
 
     removeNativeControlAttr(attr) {
-      this.$refs.removeAttribute(attr);
+      this.$refs.nativeControlEl.removeAttribute(attr);
     }
   }
 }
