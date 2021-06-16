@@ -1,2 +1,6 @@
-build/
-dev/
+/*
+
+!dist/
+!src/
+
+!package.json
