@@ -148,10 +148,13 @@ export default {
     },
 
     onClick(event) {
-      let index = this.getListItemIndex(event);
+      const index = this.getListItemIndex(event);
+      const {target} = event;
+      // Toggle the checkbox only if it's not the target of the event, or the
+      // checkbox will have 2 change events.
+      const toggleCheckbox = !matches(target, strings.CHECKBOX_RADIO_SELECTOR);
 
-      // TODO: Add checkbox support.
-      this.mdcFoundation.handleClick(index, false);
+      this.mdcFoundation.handleClick(index, toggleCheckbox);
     },
 
     onFocusIn(event) {
@@ -241,23 +244,30 @@ export default {
       });
     },
 
-    // TODO: Add radio support.
-    hasRadioAtIndex() {
-      return false;
+    hasRadioAtIndex(index) {
+      const listItemEl = this.getListItemEls()[index];
+
+      return !!listItemEl.querySelector(strings.RADIO_SELECTOR);
     },
 
-    // TODO: Add checkbox support.
-    hasCheckboxAtIndex() {
-      return false;
+    hasCheckboxAtIndex(index) {
+      const listItemEl = this.getListItemEls()[index];
+
+      return !!listItemEl.querySelector(strings.CHECKBOX_SELECTOR);
     },
 
-    isCheckboxCheckedAtIndex() {
-      return false;
+    isCheckboxCheckedAtIndex(index) {
+      const listItemEl = this.getListItemEls()[index];
+      const toggleEl = listItemEl.querySelector(strings.CHECKBOX_SELECTOR);
+
+      return toggleEl.checked;
     },
 
-    // TODO: Add checkbox support.
-    setCheckedCheckboxOrRadioAtIndex() {
+    setCheckedCheckboxOrRadioAtIndex(index, isChecked) {
+      const listItemEl = this.getListItemEls()[index];
+      const toggleEl = listItemEl.querySelector(strings.CHECKBOX_RADIO_SELECTOR);
 
+      toggleEl.checked = isChecked;
     },
 
     notifyAction(index) {
