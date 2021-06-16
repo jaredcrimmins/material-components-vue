@@ -81,6 +81,10 @@ export default {
       this.mdcFoundation.float(value);
     },
 
+    shake(value) {
+      this.mdcFoundation.shake(value);
+    },
+
     required(value) {
       this.mdcFoundation.setRequired(value);
     }
