@@ -36,6 +36,10 @@ export default {
     label: String,
     multiline: Boolean,
     outlined: Boolean,
+    requiredAsterisk: {
+      type: Boolean,
+      default: true
+    },
     resizable: Boolean,
     rules: Array,
     useNativeValidation: Boolean,
@@ -60,6 +64,7 @@ export default {
   data() {
     return {
       floatLabel_: false,
+      labelRequired: false,
       helperTextValue_: this.helperText.value,
       mdcFoundation: null,
       notchedOutlineNotched: false,
@@ -227,6 +232,7 @@ export default {
             props: {
               floatLabel: this.floatLabel_,
               label,
+              labelRequired: this.labelRequired,
               notched: this.notchedOutlineNotched,
               notchWidth: this.notchedOutlineNotchWidth,
               shakeLabel: this.shakeLabel_
@@ -244,6 +250,7 @@ export default {
             props: {
               content: this.label,
               float: this.floatLabel_,
+              required: this.labelRequired,
               shake: this.shakeLabel_
             }
           }
@@ -317,6 +324,11 @@ export default {
       this.mdcFoundation.activateFocus();
     },
 
+    setLabelRequired_(isRequired) {
+      if (this.label && this.requiredAsterisk) {
+        this.labelRequired = isRequired;
+      }
+    },
     // MDC root adapter methods
     addClass(className) {
       this.$el.querySelector(`.${cssClasses.ROOT}`).classList.add(className);
@@ -399,6 +411,10 @@ export default {
       }
     },
 
+    setLabelRequired(isRequired) {
+      this.setLabelRequired_(isRequired);
+    },
+
     // MDC line ripple adapter methods
     activateLineRipple() {
       this.lineRippleActive = true;
@@ -430,18 +446,10 @@ export default {
       }
     },
 
-    // Custom methods
-    evaluateRules() {
-      for(let rule in this.rules) {
-        let ruleResult = this.rules[rule](this.value);
-
-        if(ruleResult === true) {
-          this.helperTextValue_ = "";
-          this.valid = true;
-        }
-        else {
-          this.helperTextValue_ = ruleResult;
-          this.valid = false;
+  watch: {
+    required(value) {
+      this.setLabelRequired_(value);
+    },
 
           break;
         }
