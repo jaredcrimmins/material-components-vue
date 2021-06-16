@@ -24,6 +24,16 @@ export default {
     this.deinit();
   },
 
+  watch: {
+    checked(value) {
+      this.$emit("change", value);
+    },
+
+    disabled(value) {
+      this.setDisabled(value);
+    }
+  },
+
   render(c) {
     return c(
       "div",
