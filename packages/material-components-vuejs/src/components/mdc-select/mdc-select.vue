@@ -85,8 +85,6 @@
   import {MDCNotchedOutline} from "./../mdc-notched-outline";
   import {estimateScrollWidth} from "@material/dom/ponyfill";
 
-  let foundation = null;
-
   export default {
     name: "mdc-select",
 
@@ -127,21 +125,22 @@
     },
 
     mounted() {
-      foundation = new MDCSelectFoundation(this);
-      foundation.init();
-
       this.init();
     },
 
     watch: {
       value(value) {
-        if(foundation) foundation.setValue(value);
+        if(this.mdcFoundation) this.mdcFoundation.setValue(value);
       }
     },
 
     methods: {
       init() {
-        foundation.setValue(this.value);
+        this.mdcFoundation = new MDCSelectFoundation(this);
+        this.mdcFoundation.init();
+        this.mdcFoundation.setDisabled(this.disabled);
+        this.mdcFoundation.setRequired(this.required);
+        this.mdcFoundation.setValue(this.value);
 
         this.menuAnchorElement = this.getAnchorElement();
       },
@@ -149,35 +148,35 @@
       refreshIndex() {
         let menuItemValues = this.getMenuItemValues();
 
-        foundation.setSelectedIndex(menuItemValues.indexOf(this.value));
+        this.mdcFoundation.setSelectedIndex(menuItemValues.indexOf(this.value));
       },
 
       onBlur() {
-        foundation.handleBlur();
+        this.mdcFoundation.handleBlur();
       },
 
       onClick() {
-        foundation.handleClick();
+        this.mdcFoundation.handleClick();
       },
 
       onFocus() {
-        foundation.handleFocus();
+        this.mdcFoundation.handleFocus();
       },
 
       onKeydown(event) {
-        foundation.handleKeydown(event);
+        this.mdcFoundation.handleKeydown(event);
       },
 
       onMenuSelected(event) {
-        foundation.handleMenuItemAction(event.index);
+        this.mdcFoundation.handleMenuItemAction(event.index);
       },
 
       onMDCMenuSurfaceClosed() {
-        foundation.handleMenuClosed();
+        this.mdcFoundation.handleMenuClosed();
       },
 
       onMDCMenuSurfaceOpened() {
-        foundation.handleMenuOpened();
+        this.mdcFoundation.handleMenuOpened();
       },
 
       // Adapter methods
