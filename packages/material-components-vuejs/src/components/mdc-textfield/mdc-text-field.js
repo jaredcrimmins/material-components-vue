@@ -341,6 +341,36 @@ export default {
         this.labelRequired = isRequired;
       }
     },
+
+    //
+    // Public methods
+    //
+
+    evaluateRules(silent) {
+      let evaluationResult = true;
+
+      for (const rule in this.rules) {
+        const ruleResult = this.rules[rule](this.internalValue);
+
+        if (ruleResult === true) {
+          this.helperTextValue_ = '';
+          if (!silent) this.valid = true;
+        } else {
+          evaluationResult = false;
+          this.helperTextValue_ = ruleResult;
+          if (!silent) this.valid = false;
+
+          break;
+        }
+      }
+
+      return evaluationResult;
+    },
+
+    //
+    // Adapter methods
+    //
+
     // MDC root adapter methods
     addClass(className) {
       this.$el.querySelector(`.${cssClasses.ROOT}`).classList.add(className);
