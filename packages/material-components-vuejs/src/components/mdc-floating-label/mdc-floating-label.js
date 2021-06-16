@@ -1,12 +1,12 @@
-import {MDCFloatingLabelFoundation, cssClasses} from "@material/floating-label";
-import {estimateScrollWidth} from "@material/dom/ponyfill";
+import {MDCFloatingLabelFoundation, cssClasses} from '@material/floating-label';
+import {estimateScrollWidth} from '@material/dom/ponyfill';
 
 export default {
-  name: "mdc-floating-label",
+  name: 'mdc-floating-label',
 
   props: {
     content: {
-      default: "",
+      default: '',
       type: String
     },
     float: {
@@ -16,12 +16,15 @@ export default {
     shake: {
       default: false,
       type: Boolean
-    }
+    },
+    required: Boolean
   },
 
   data() {
     return {
-      mdcFoundation: null
+      mdcFoundation: new MDCFloatingLabelFoundation(
+        MDCFloatingLabelFoundation.defaultAdapter
+      )
     };
   },
 
@@ -35,7 +38,7 @@ export default {
 
   render(c) {
     return c(
-      "label",
+      'label',
       {
         staticClass: cssClasses.ROOT
       },
@@ -44,14 +47,23 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCFloatingLabelFoundation(this);
       this.mdcFoundation.init();
+      this.mdcFoundation.setRequired(this.required);
     },
 
     deinit() {
       this.mdcFoundation.destroy();
     },
+
+    //
+    // Adapter methods
+    //
 
     addClass(className) {
       this.$el.classList.add(className);
@@ -75,12 +87,16 @@ export default {
   },
 
   watch: {
-    float() {
-      this.mdcFoundation.float(this.float);
+    float(value) {
+      this.mdcFoundation.float(value);
     },
 
-    shake() {
-      this.mdcFoundation.shake(this.shake);
+    shake(value) {
+      this.mdcFoundation.shake(value);
+    },
+
+    required(value) {
+      this.mdcFoundation.setRequired(value);
     }
   }
 }
