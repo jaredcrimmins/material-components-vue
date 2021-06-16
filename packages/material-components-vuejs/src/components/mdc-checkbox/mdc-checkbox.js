@@ -62,6 +62,10 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCCheckboxFoundation(this);
       this.mdcFoundation.init();
@@ -137,13 +141,18 @@ export default {
       this.mdcFoundation.handleChange();
     },
 
+    //
     // Public methods
+    //
 
     setChecked(checked) {
       this.checked = checked;
     },
 
+    //
     // Adapter methods
+    //
+
     addClass(className) {
       this.$el.classList.add(className);
     },
