@@ -160,9 +160,13 @@ export default {
       return !!this.$el.parentNode;
     },
 
-    isIndeterminate: () => this.indeterminate,
+    isIndeterminate() {
+      return this.indeterminate;
+    },
 
-    isChecked: () => this.checked,
+    isChecked() {
+      return this.checked;
+    },
 
     hasNativeControl() {
       return (this.$refs.nativeControl);
