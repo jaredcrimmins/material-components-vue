@@ -17,6 +17,7 @@ export default {
 
   props: {
     checkboxItems: Boolean,
+    hasTypeahead: Boolean,
     radioGroup: Boolean,
     selectedIndex: Number,
     singleSelection: Boolean,
@@ -52,6 +53,10 @@ export default {
   },
 
   watch: {
+    hasTypeahead(value) {
+      this.mdcFoundation.setHasTypeahead(value);
+    },
+
     selectedIndex(value) {
       this.mdcFoundation.setSelectedIndex(value);
     },
