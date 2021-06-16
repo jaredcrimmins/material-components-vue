@@ -265,6 +265,7 @@ export default {
     },
 
     isRootFocused() {
+      console.log(document.activeElement === this.$el);
       return document.activeElement === this.$el;
     },
 
