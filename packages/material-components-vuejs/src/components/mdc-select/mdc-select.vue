@@ -90,6 +90,7 @@
   import {MDCMenu, MDCMenuItem} from "./../mdc-menu";
   import {MDCLineRipple} from "./../mdc-line-ripple";
   import {MDCNotchedOutline} from "./../mdc-notched-outline";
+  import {emitCustomEvent} from "./../../utils";
   import {estimateScrollWidth} from "@material/dom/ponyfill";
 
   export default {
@@ -252,6 +253,7 @@
       },
 
       notifyChange(value) {
+        emitCustomEvent(this.$el, strings.CHANGE_EVENT, {value}, true);
         this.$emit("change", value);
       },
 
