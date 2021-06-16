@@ -13,13 +13,10 @@
     "dev": "webpack serve --config build/webpack.dev.config.js --progress",
     "help": "webpack --help"
   },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
-    "@material/feature-targeting": "^10.0.0",
-    "@material/floating-label": "^10.0.0",
-    "@material/theme": "^10.0.0",
-    "@material/typography": "^10.0.0",
     "@webpack-cli/serve": "^1.4.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
