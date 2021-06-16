@@ -412,7 +412,7 @@ export default {
     },
 
     hasLabel() {
-      return this.label ? true : false;
+      return !!this.label;
     },
 
     shakeLabel(shouldShake) {
