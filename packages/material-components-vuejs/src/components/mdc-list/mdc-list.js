@@ -113,8 +113,7 @@ export default {
       }); this.mdcFoundation.setVerticalOrientation(this.vertical);
       this.mdcFoundation.setWrapFocus(this.wrapFocus);
 
-      domObserver = new MutationObserver(this.getListItemElements);
-      domObserver.observe(this.$el, {childList: true});
+      this.initTabindex();
     },
 
     deinit() {
