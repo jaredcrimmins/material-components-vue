@@ -43,6 +43,6 @@ MaterialComponentsVuejs.install = function(Vue) {
   Vue.component('mdc-textfield', components.MDCTextField);
 }
 
-MaterialComponentsVuejs.version = "__VERSION__";
+MaterialComponentsVuejs.version = '__VERSION__';
 
 export default MaterialComponentsVuejs;
