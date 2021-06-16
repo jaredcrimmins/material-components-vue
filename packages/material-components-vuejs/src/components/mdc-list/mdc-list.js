@@ -71,6 +71,10 @@ export default {
 
     vertical(value) {
       this.mdcFoundation.setVerticalOrientation(value);
+    },
+
+    wrapFocus(value) {
+      this.mdcFoundation.setWrapFocus(value);
     }
   },
 
