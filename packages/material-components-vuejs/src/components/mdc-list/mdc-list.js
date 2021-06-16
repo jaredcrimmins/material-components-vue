@@ -15,6 +15,8 @@ Object.assign(strings, {
 export default {
   name: "mdc-list",
 
+  inject: ["menu"],
+
   props: {
     checkboxItems: Boolean,
     hasTypeahead: Boolean,
