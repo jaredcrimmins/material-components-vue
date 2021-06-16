@@ -44,7 +44,7 @@ module.exports = env => {
   return merge(base(env), {
     devServer: {
       publicPath: "/",
-      contentBase: ["./dist", "./public"],
+      contentBase: ["./dist", path.join(process.cwd(), "dev/public")],
       hot: true,
       historyApiFallback: true,
       stats: "minimal"
