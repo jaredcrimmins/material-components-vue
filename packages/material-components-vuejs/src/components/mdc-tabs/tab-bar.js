@@ -156,7 +156,7 @@ export default {
       return this.tabList[index].computeIndicatorClientRect();
     },
 
-    getTabDimensionsAtIndex() {
+    getTabDimensionsAtIndex(index) {
       return this.tabList[index].computeDimensions();
     },
 
