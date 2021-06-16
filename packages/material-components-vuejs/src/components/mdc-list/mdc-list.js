@@ -170,6 +170,14 @@ export default {
         event, target.classList.contains(cssClasses.LIST_ITEM_CLASS), index);
     },
 
+    //
+    // Public methods
+    //
+
+    getListItemElements() {
+      return this.getListItemEls();
+    },
+
     // Adapter methods
     getListItemCount() {
       return this.getListItemEls().length;
