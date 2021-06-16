@@ -2,7 +2,6 @@ export default {
   name: "material-icon",
 
   props: {
-    icon: String,
     tag: { type: String, default: "i" },
   },
 
@@ -12,7 +11,7 @@ export default {
       {
         staticClass: "material-icons"
       },
-      this.icon
+      this.$slots.default
     );
   }
 };
