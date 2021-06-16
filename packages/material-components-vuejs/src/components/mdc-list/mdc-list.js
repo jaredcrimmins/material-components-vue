@@ -40,9 +40,9 @@ export default {
     return c(
       "ul",
       {
-        staticClass: "mdc-list",
+        staticClass: cssClasses.ROOT,
         class: {
-          "mdc-list--two-line": this.twoLine
+          [cssClasses.LIST_TWO_LINE_CLASS]: this.twoLine
         },
         on: {
           click: this.onClick,
