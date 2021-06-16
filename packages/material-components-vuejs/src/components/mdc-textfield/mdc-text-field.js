@@ -136,6 +136,7 @@ export default {
       this.mdcFoundation = new MDCTextFieldFoundation(this);
       this.mdcFoundation.init();
       this.mdcFoundation.setUseNativeValidation(this.useNativeValidation);
+      this.mdcFoundation.setValid(this.valid);
     },
 
     deinit() {
