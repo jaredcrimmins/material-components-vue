@@ -107,6 +107,10 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCListFoundation(this);
       this.mdcFoundation.init();
@@ -201,7 +205,10 @@ export default {
       return this.mdcFoundation.typeaheadMatchItem(nextChar);
     },
 
+    //
     // Adapter methods
+    //
+
     getListItemCount() {
       return this.getListItemEls().length;
     },
