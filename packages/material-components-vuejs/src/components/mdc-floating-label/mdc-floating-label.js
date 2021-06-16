@@ -22,7 +22,9 @@ export default {
 
   data() {
     return {
-      mdcFoundation: null
+      mdcFoundation: new MDCFloatingLabelFoundation(
+        MDCFloatingLabelFoundation.defaultAdapter
+      )
     };
   },
 
