@@ -174,12 +174,17 @@ export default {
       return c(
         'input',
         {
-          ref: "inputEl",
-          staticClass: "mdc-text-field__input",
-          attrs: Object.assign(baseAttrs, {
-            type: this.type,
-            value: this.value
-          }),
+          ref: 'inputEl',
+          staticClass: 'mdc-text-field__input',
+          attrs: Object.assign(
+            {},
+            this.$attrs,
+            baseAttrs,
+            {
+              type: this.type,
+              value: this.internalValue
+            }
+          ),
           on: {
             change: this.onInputElChange,
             focus: this.onInputElFocus,
@@ -193,9 +198,13 @@ export default {
         return c(
           'textarea',
           {
-            ref: "inputEl",
-            staticClass: "mdc-text-field__input",
-            attrs: Object.assign(baseAttrs, self.$attrs),
+            ref: 'inputEl',
+            staticClass: 'mdc-text-field__input',
+            attrs: Object.assign(
+              {},
+              self.$attrs,
+              baseAttrs
+            ),
             on: {
               change: self.onInputElChange,
               focus: self.onInputElFocus,
@@ -445,7 +454,8 @@ export default {
         this.notchedOutlineNotchWidth = labelWidth;
         this.notchedOutlineNotched = true;
       }
-    },
+    }
+  },
 
   watch: {
     required(value) {
@@ -458,7 +468,6 @@ export default {
     }
   },
 
-  watch: {
     valid() {
       this.mdcFoundation.setValid(this.valid);
     },
