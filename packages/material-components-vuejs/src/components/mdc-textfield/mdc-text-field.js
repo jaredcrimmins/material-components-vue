@@ -132,6 +132,10 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCTextFieldFoundation(this);
       this.mdcFoundation.init();
@@ -389,6 +393,7 @@ export default {
     //
 
     // MDC root adapter methods
+
     addClass(className) {
       this.$el.querySelector(`.${cssClasses.ROOT}`).classList.add(className);
     },
@@ -433,6 +438,7 @@ export default {
     },
 
     // MDC input adapter methods
+
     deregisterInputInteractionHandler(evtType, handler) {
       this.$refs.inputEl.removeEventListener(evtType, handler, applyPassive());
     },
@@ -450,6 +456,7 @@ export default {
     },
 
     // MDC label adapter methods
+
     floatLabel(shouldFloat) {
       if (this.hasLabel()) {
         this.floatLabel_ = shouldFloat;
@@ -475,6 +482,7 @@ export default {
     },
 
     // MDC line ripple adapter methods
+
     activateLineRipple() {
       this.lineRippleActive = true;
     },
@@ -488,6 +496,7 @@ export default {
     },
 
     // MDC outline adapter methods
+
     closeOutline() {
       if(this.hasOutline()) {
         this.notchedOutlineNotched = false;
