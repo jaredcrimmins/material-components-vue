@@ -1,9 +1,8 @@
 import {MDCListFoundation} from "@material/list";
 import {closest, matches} from "@material/dom/ponyfill";
-import {cssClasses} from "@material/list/constants";
 import {emitCustomEvent} from "./../../utils";
 
-let domObserver = null;
+const {cssClasses, strings} = MDCListFoundation;
 
 export default {
   name: "mdc-list",
