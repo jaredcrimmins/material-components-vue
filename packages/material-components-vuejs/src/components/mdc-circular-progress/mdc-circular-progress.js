@@ -83,6 +83,10 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCCircularProgressFoundation(this);
       this.mdcFoundation.init();
@@ -330,6 +334,10 @@ export default {
         [ this.genIndeterminateCircleGraphic(c, circleGraphicAttrs) ]
       );
     },
+
+    //
+    // Adapter methods
+    //
 
     addClass(className) {
       this.$el.classList.add(className);
