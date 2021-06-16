@@ -18,6 +18,7 @@ export default {
   props: {
     checkboxItems: Boolean,
     radioGroup: Boolean,
+    selectedIndex: Number,
     singleSelection: Boolean,
     twoLine: Boolean,
     wrapFocus: Boolean
@@ -47,6 +48,10 @@ export default {
   },
 
   watch: {
+    selectedIndex(value) {
+      this.mdcFoundation.setSelectedIndex(value);
+    },
+
     singleSelection(value) {
       this.mdcFoundation.setSingleSelection(value);
     },
