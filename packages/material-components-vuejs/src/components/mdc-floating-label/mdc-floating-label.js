@@ -77,8 +77,8 @@ export default {
   },
 
   watch: {
-    float() {
-      this.mdcFoundation.float(this.float);
+    float(value) {
+      this.mdcFoundation.float(value);
     },
 
     required(value) {
