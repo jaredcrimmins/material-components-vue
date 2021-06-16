@@ -18,6 +18,7 @@ export default {
   props: {
     checkboxItems: Boolean,
     radioGroup: Boolean,
+    singleSelection: Boolean,
     twoLine: Boolean,
     wrapFocus: Boolean
   },
@@ -35,6 +36,12 @@ export default {
 
   beforeDestory() {
     this.deinit();
+  },
+
+  watch: {
+    singleSelection(value) {
+      this.mdcFoundation.setSingleSelection(value);
+    }
   },
 
   render(c) {
