@@ -16,7 +16,6 @@ export default {
   name: "mdc-list",
 
   props: {
-    radio: Boolean,
     twoLine: Boolean,
     wrapFocus: Boolean
   },
