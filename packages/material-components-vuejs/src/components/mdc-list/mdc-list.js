@@ -132,6 +132,10 @@ export default {
       return Array.from(this.$el.querySelectorAll(strings.LIST_ITEM_SELECTOR));
     },
 
+    /*
+    * Used to figure out which list item this event is targetting. Or returns -1 if
+    * there is no list item
+    */
     getListItemIndex(event) {
       const {target} = event;
       const nearestParent = closest(target, `.${cssClasses.LIST_ITEM_CLASS}, .${cssClasses.ROOT}`);
