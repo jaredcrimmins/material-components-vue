@@ -31,6 +31,7 @@ export default {
 
   data() {
     return {
+      domObserver: null,
       itemElements: null,
       mdcFoundation: null
     };
@@ -114,10 +115,13 @@ export default {
       this.mdcFoundation.setWrapFocus(this.wrapFocus);
 
       this.initTabindex();
+      this.domObserver = new MutationObserver(this.getListItemEls);
+      this.domObserver.observe(this.$el, {childList: true});
     },
 
     deinit() {
       this.mdcFoundation.destroy();
+      this.domObserver.disconnect();
     },
 
     getListItemEls() {
