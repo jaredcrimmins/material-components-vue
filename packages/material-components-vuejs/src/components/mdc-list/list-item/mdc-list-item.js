@@ -30,6 +30,7 @@ export default {
 
   data() {
     return {
+      checkedCheckboxOrRadio: false,
       mdcRipple: null
     };
   },
@@ -90,6 +91,14 @@ export default {
           )
         ];
       }
+    },
+
+    //
+    // Public methods
+    //
+
+    setCheckedCheckboxOrRadio(checked) {
+      this.checkedCheckboxOrRadio = checked;
     }
   }
 }
