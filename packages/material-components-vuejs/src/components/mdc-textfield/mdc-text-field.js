@@ -1,22 +1,22 @@
-import {MDCFloatingLabel} from "./../mdc-floating-label";
-import {MDCNotchedOutline} from "./../mdc-notched-outline";
-import {MDCLineRipple} from "./../mdc-line-ripple";
-import {MDCTextFieldCharacterCounter} from "./character-counter";
-import {MDCTextFieldFoundation, cssClasses} from "@material/textfield";
-import {MDCTextFieldHelperText} from "./helper-text";
-import {applyPassive} from "@material/dom/events";
+import {MDCFloatingLabel} from '../mdc-floating-label';
+import {MDCNotchedOutline} from '../mdc-notched-outline';
+import {MDCLineRipple} from '../mdc-line-ripple';
+import {MDCTextFieldCharacterCounter} from './character-counter';
+import {MDCTextFieldFoundation, cssClasses} from '@material/textfield';
+import {MDCTextFieldHelperText} from './helper-text';
+import {applyPassive} from '@material/dom/events';
 
 export default {
-  name: "mdc-text-field",
+  name: 'mdc-text-field',
 
   inheritAttrs: false,
 
   components: {
-    "mdc-floating-label": MDCFloatingLabel,
-    "mdc-line-ripple": MDCLineRipple,
-    "mdc-notched-outline": MDCNotchedOutline,
-    "mdc-text-field-character-counter": MDCTextFieldCharacterCounter,
-    "mdc-text-field-helper-text": MDCTextFieldHelperText
+    'mdc-floating-label': MDCFloatingLabel,
+    'mdc-line-ripple': MDCLineRipple,
+    'mdc-notched-outline': MDCNotchedOutline,
+    'mdc-text-field-character-counter': MDCTextFieldCharacterCounter,
+    'mdc-text-field-helper-text': MDCTextFieldHelperText
   },
 
   props: {
@@ -27,7 +27,7 @@ export default {
       default() {
         return {
           persistent: false,
-          value: ""
+          value: ''
         };
       },
       type: Object
@@ -53,7 +53,7 @@ export default {
     spellcheck: String,
     type: String,
     value: {
-      default: () => ("")
+      default: () => ('')
     }
   },
 
@@ -96,18 +96,18 @@ export default {
 
   render(c) {
     return c(
-      "div",
+      'div',
       [
         c(
-          "div",
+          'div',
           {
-            staticClass: "mdc-text-field",
+            staticClass: 'mdc-text-field',
             class: {
-              "mdc-text-field--disabled": this.disabled,
-              "mdc-text-field--filled": this.filled,
-              "mdc-text-field--no-label": !this.hasFloatingLabel,
-              "mdc-text-field--outlined": this.outlined,
-              "mdc-text-field--textarea": this.multiline
+              'mdc-text-field--disabled': this.disabled,
+              'mdc-text-field--filled': this.filled,
+              'mdc-text-field--no-label': !this.hasFloatingLabel,
+              'mdc-text-field--outlined': this.outlined,
+              'mdc-text-field--textarea': this.multiline
             },
             on: {
               click: this.onClick
@@ -154,9 +154,9 @@ export default {
       if(this.multiline) {
         if(this.resizable) {
           return c(
-            "span",
+            'span',
             {
-              staticClass: "mdc-text-field__resizer"
+              staticClass: 'mdc-text-field__resizer'
             },
             genTextarea(c)
           );
@@ -166,7 +166,7 @@ export default {
       }
 
       return c(
-        "input",
+        'input',
         {
           ref: "inputEl",
           staticClass: "mdc-text-field__input",
@@ -185,7 +185,7 @@ export default {
 
       function genTextarea(c) {
         return c(
-          "textarea",
+          'textarea',
           {
             ref: "inputEl",
             staticClass: "mdc-text-field__input",
@@ -205,7 +205,7 @@ export default {
     genLineRipple(c) {
       if(!this.outlined && !this.multiline) {
         return c(
-          "mdc-line-ripple",
+          'mdc-line-ripple',
           {
             props: {
               active: this.lineRippleActive,
@@ -221,9 +221,9 @@ export default {
 
       if(this.isOutlined) {
         return c(
-          "mdc-notched-outline",
+          'mdc-notched-outline',
           {
-            ref: "notchedOutline",
+            ref: 'notchedOutline',
             props: {
               floatLabel: this.floatLabel_,
               label,
@@ -239,7 +239,7 @@ export default {
     genFloatingLabel(c) {
       if(this.hasFloatingLabel) {
         return c(
-          "mdc-floating-label",
+          'mdc-floating-label',
           {
             props: {
               content: this.label,
@@ -254,9 +254,9 @@ export default {
     genHelperLine(c) {
       if(this.helperTextValue_ || this.characterCounter) {
         return c(
-          "div",
+          'div',
           {
-            staticClass: "mdc-text-field-helper-line"
+            staticClass: 'mdc-text-field-helper-line'
           },
           [
             this.genHelperText(c),
@@ -269,9 +269,9 @@ export default {
     genHelperText(c) {
       if(this.helperTextValue_) {
         return c(
-          "mdc-text-field-helper-text",
+          'mdc-text-field-helper-text',
           {
-            ref: "helperText",
+            ref: 'helperText',
             props: {
               content: this.helperTextValue_,
               persistent: this.helperText.persistent
@@ -284,7 +284,7 @@ export default {
     genCharacterCounter(c) {
       if(this.characterCounter) {
         return c(
-          "mdc-text-field-character-counter",
+          'mdc-text-field-character-counter',
           {
             props: {
               currentLength: this.value.length,
