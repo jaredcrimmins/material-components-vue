@@ -2,7 +2,10 @@ export default {
   name: "material-icon",
 
   props: {
-    tag: { type: String, default: "i" },
+    tag: {
+      type: String,
+      default: "i"
+    },
   },
 
   render(c) {
