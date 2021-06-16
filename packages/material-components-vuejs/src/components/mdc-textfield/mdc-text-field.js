@@ -138,7 +138,7 @@ export default {
 
     genInput(c) {
       const self = this;
-      let baseAttrs = {
+      const baseAttrs = {
         autocomplete: this.autocomplete,
         disabled: this.disabled,
         maxlength: this.maxlength,
@@ -217,7 +217,7 @@ export default {
     },
 
     genNotchedOutline(c) {
-      let label = this.label;
+      const label = this.label;
 
       if(this.isOutlined) {
         return c(
@@ -343,12 +343,12 @@ export default {
     },
 
     registerValidationAttributeChangeHandler(handler) {
-      let getAttributesList = mutationsList => {
+      const getAttributesList = mutationsList => {
         return mutationsList
         .map(function (mutation) { return mutation.attributeName; })
         .filter(function (attributeName) { return attributeName; });
       };
-      let observer = new MutationObserver(function(mutationsList) {
+      const observer = new MutationObserver(function(mutationsList) {
         return handler(getAttributesList(mutationsList));
       });
 
