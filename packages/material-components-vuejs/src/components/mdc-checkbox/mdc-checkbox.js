@@ -169,7 +169,7 @@ export default {
     },
 
     hasNativeControl() {
-      return (this.$refs.nativeControl);
+      return !!this.$refs.nativeControlEl;
     },
 
     setNativeControlDisabled(disabled) {
