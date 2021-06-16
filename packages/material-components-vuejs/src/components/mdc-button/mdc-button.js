@@ -62,9 +62,7 @@ export default {
           {
             staticClass: 'mdc-button__label'
           },
-          [
-            this.$slots.default
-          ]
+          this.$slots.default
         ),
         this.$slots.trailing
       ]
