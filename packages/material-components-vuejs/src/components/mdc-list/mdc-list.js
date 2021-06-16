@@ -16,6 +16,7 @@ export default {
   name: "mdc-list",
 
   props: {
+    checkboxItems: Boolean,
     twoLine: Boolean,
     wrapFocus: Boolean
   },
