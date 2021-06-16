@@ -6,6 +6,7 @@ export default {
   inheritAttrs: true,
 
   props: {
+    disabled: Boolean,
     outlined: Boolean,
     raised: Boolean,
     unelevated: Boolean,
@@ -31,6 +32,9 @@ export default {
       tagName,
       {
         staticClass: 'mdc-button',
+        attrs: {
+          disabled: this.disabled
+        },
         class: {
           'mdc-button--outlined': this.outlined,
           'mdc-button--raised': this.raised,
