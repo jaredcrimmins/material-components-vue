@@ -1,1 +1,1 @@
-export {default as MDCMenuSurface} from "./component";
+export {default as MDCMenuSurface} from "./mdc-menu-surface";

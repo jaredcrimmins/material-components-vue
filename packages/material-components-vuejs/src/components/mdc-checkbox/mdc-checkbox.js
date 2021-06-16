@@ -4,19 +4,15 @@ export default {
   name: "mdc-checkbox",
 
   props: {
-    disabled: {
-      default: false,
-      type: Boolean
-    },
-    indeterminate: {
-      default: false,
-      type: Boolean
-    }
+    checked: Boolean,
+    disabled: Boolean,
+    indeterminate: Boolean,
+    value: Boolean
   },
 
   data() {
     return {
-      mdcFoundation: null
+      mdcFoundation: new MDCCheckboxFoundation(MDCCheckboxFoundation.defaultAdapter)
     };
   },
 
@@ -28,6 +24,16 @@ export default {
     this.deinit();
   },
 
+  watch: {
+    checked(value) {
+      this.$emit("change", value);
+    },
+
+    disabled(value) {
+      this.setDisabled(value);
+    }
+  },
+
   render(c) {
     return c(
       "div",
@@ -35,6 +41,11 @@ export default {
         staticClass: cssClasses.ROOT,
         class: {
           [cssClasses.DISABLED]: this.disabled
+        },
+        on: {
+          "animationend": () => {
+            this.mdcFoundation.handleAnimationEnd();
+          }
         }
       },
       [
@@ -51,12 +62,13 @@ export default {
   },
 
   methods: {
+    //
+    // Private
+    //
+
     init() {
       this.mdcFoundation = new MDCCheckboxFoundation(this);
       this.mdcFoundation.init();
-      this.setDeterminate(this.determinate);
-      this.setProgress(this.progress);
-      this.open ? this.mdcFoundation.open() : this.mdcFoundation.close();
     },
 
     deinit() {
@@ -67,12 +79,19 @@ export default {
       return c(
         "input",
         {
-          ref: "nativeControl",
+          ref: "nativeControlEl",
           staticClass: cssClasses.NATIVE_CONTROL,
           attrs: {
             type: "checkbox",
+            checked: this.checked,
             disabled: this.disabled,
-            "data-indeterminate": this.indeterminate ? "true" : "false"
+            "data-indeterminate": this.indeterminate ? "true" : "false",
+            value: this.value
+          },
+          on: {
+            "change": () => {
+              this.onNativeControlElChange();
+            }
           }
         }
       );
@@ -116,7 +135,28 @@ export default {
       );
     },
 
+    setDisabled(disabled) {
+      this.mdcFoundation.setDisabled(disabled);
+    },
+
+    onNativeControlElChange() {
+      if(!this.indeterminate) this.checked = !this.checked;
+
+      this.mdcFoundation.handleChange();
+    },
+
+    //
+    // Public methods
+    //
+
+    setChecked(checked) {
+      this.checked = checked;
+    },
+
+    //
     // Adapter methods
+    //
+
     addClass(className) {
       this.$el.classList.add(className);
     },
@@ -130,27 +170,31 @@ export default {
     },
 
     isAttachedToDOM() {
-      return (this.$el.parentNode);
+      return !!this.$el.parentNode;
     },
 
-    isIndeterminate: () => this.indeterminate,
+    isIndeterminate() {
+      return this.indeterminate;
+    },
 
-    isChecked: () => this.checked,
+    isChecked() {
+      return this.checked;
+    },
 
     hasNativeControl() {
-      return (this.$refs.nativeControl);
+      return !!this.$refs.nativeControlEl;
     },
 
     setNativeControlDisabled(disabled) {
-      this.$refs.disabled = disabled;
+      this.$refs.nativeControlEl.disabled = disabled;
     },
 
     setNativeControlAttr(attr, value) {
-      this.$refs.setAttribute(attr, value);
+      this.$refs.nativeControlEl.setAttribute(attr, value);
     },
 
     removeNativeControlAttr(attr) {
-      this.$refs.removeAttribute(attr);
+      this.$refs.nativeControlEl.removeAttribute(attr);
     }
   }
 }

@@ -1,22 +1,22 @@
-import {MDCFloatingLabel} from "./../mdc-floating-label";
-import {MDCNotchedOutline} from "./../mdc-notched-outline";
-import {MDCLineRipple} from "./../mdc-line-ripple";
-import {MDCTextFieldCharacterCounter} from "./character-counter";
-import {MDCTextFieldFoundation, cssClasses} from "@material/textfield";
-import {MDCTextFieldHelperText} from "./helper-text";
-import {applyPassive} from "@material/dom/events";
+import {MDCFloatingLabel} from '../mdc-floating-label';
+import {MDCNotchedOutline} from '../mdc-notched-outline';
+import {MDCLineRipple} from '../mdc-line-ripple';
+import {MDCTextFieldCharacterCounter} from './character-counter';
+import {MDCTextFieldFoundation, cssClasses} from '@material/textfield';
+import {MDCTextFieldHelperText} from './helper-text';
+import {applyPassive} from '@material/dom/events';
 
 export default {
-  name: "mdc-text-field",
+  name: 'mdc-text-field',
 
   inheritAttrs: false,
 
   components: {
-    "mdc-floating-label": MDCFloatingLabel,
-    "mdc-line-ripple": MDCLineRipple,
-    "mdc-notched-outline": MDCNotchedOutline,
-    "mdc-text-field-character-counter": MDCTextFieldCharacterCounter,
-    "mdc-text-field-helper-text": MDCTextFieldHelperText
+    'mdc-floating-label': MDCFloatingLabel,
+    'mdc-line-ripple': MDCLineRipple,
+    'mdc-notched-outline': MDCNotchedOutline,
+    'mdc-text-field-character-counter': MDCTextFieldCharacterCounter,
+    'mdc-text-field-helper-text': MDCTextFieldHelperText
   },
 
   props: {
@@ -27,7 +27,7 @@ export default {
       default() {
         return {
           persistent: false,
-          value: ""
+          value: ''
         };
       },
       type: Object
@@ -36,6 +36,10 @@ export default {
     label: String,
     multiline: Boolean,
     outlined: Boolean,
+    requiredAsterisk: {
+      type: Boolean,
+      default: true
+    },
     resizable: Boolean,
     rules: Array,
     useNativeValidation: Boolean,
@@ -53,14 +57,16 @@ export default {
     spellcheck: String,
     type: String,
     value: {
-      default: () => ("")
+      default: () => ('')
     }
   },
 
   data() {
     return {
       floatLabel_: false,
+      labelRequired: false,
       helperTextValue_: this.helperText.value,
+      internalValue: this.value,
       mdcFoundation: null,
       notchedOutlineNotched: false,
       notchedOutlineNotchWidth: 0,
@@ -96,18 +102,18 @@ export default {
 
   render(c) {
     return c(
-      "div",
+      'div',
       [
         c(
-          "div",
+          'div',
           {
-            staticClass: "mdc-text-field",
+            staticClass: 'mdc-text-field',
             class: {
-              "mdc-text-field--disabled": this.disabled,
-              "mdc-text-field--filled": this.filled,
-              "mdc-text-field--no-label": !this.hasFloatingLabel,
-              "mdc-text-field--outlined": this.outlined,
-              "mdc-text-field--textarea": this.multiline
+              'mdc-text-field--disabled': this.disabled,
+              'mdc-text-field--filled': this.filled,
+              'mdc-text-field--no-label': !this.hasFloatingLabel,
+              'mdc-text-field--outlined': this.outlined,
+              'mdc-text-field--textarea': this.multiline
             },
             on: {
               click: this.onClick
@@ -126,10 +132,15 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCTextFieldFoundation(this);
       this.mdcFoundation.init();
       this.mdcFoundation.setUseNativeValidation(this.useNativeValidation);
+      this.mdcFoundation.setValid(this.valid);
     },
 
     deinit() {
@@ -138,7 +149,7 @@ export default {
 
     genInput(c) {
       const self = this;
-      let baseAttrs = {
+      const baseAttrs = {
         autocomplete: this.autocomplete,
         disabled: this.disabled,
         maxlength: this.maxlength,
@@ -151,12 +162,12 @@ export default {
         spellcheck: this.spellcheck
       };
 
-      if(this.multiline) {
-        if(this.resizable) {
+      if (this.multiline) {
+        if (this.resizable) {
           return c(
-            "span",
+            'span',
             {
-              staticClass: "mdc-text-field__resizer"
+              staticClass: 'mdc-text-field__resizer'
             },
             genTextarea(c)
           );
@@ -166,14 +177,19 @@ export default {
       }
 
       return c(
-        "input",
+        'input',
         {
-          ref: "inputEl",
-          staticClass: "mdc-text-field__input",
-          attrs: Object.assign(baseAttrs, {
-            type: this.type,
-            value: this.value
-          }),
+          ref: 'inputEl',
+          staticClass: 'mdc-text-field__input',
+          attrs: Object.assign(
+            {},
+            this.$attrs,
+            baseAttrs,
+            {
+              type: this.type,
+              value: this.internalValue
+            }
+          ),
           on: {
             change: this.onInputElChange,
             focus: this.onInputElFocus,
@@ -185,11 +201,15 @@ export default {
 
       function genTextarea(c) {
         return c(
-          "textarea",
+          'textarea',
           {
-            ref: "inputEl",
-            staticClass: "mdc-text-field__input",
-            attrs: Object.assign(baseAttrs, self.$attrs),
+            ref: 'inputEl',
+            staticClass: 'mdc-text-field__input',
+            attrs: Object.assign(
+              {},
+              self.$attrs,
+              baseAttrs
+            ),
             on: {
               change: self.onInputElChange,
               focus: self.onInputElFocus,
@@ -197,15 +217,15 @@ export default {
               input: self.onInputElInput
             }
           },
-          self.value
+          self.internalValue
         );
       }
     },
 
     genLineRipple(c) {
-      if(!this.outlined && !this.multiline) {
+      if (!this.outlined && !this.multiline) {
         return c(
-          "mdc-line-ripple",
+          'mdc-line-ripple',
           {
             props: {
               active: this.lineRippleActive,
@@ -217,16 +237,17 @@ export default {
     },
 
     genNotchedOutline(c) {
-      let label = this.label;
+      const label = this.label;
 
-      if(this.isOutlined) {
+      if (this.isOutlined) {
         return c(
-          "mdc-notched-outline",
+          'mdc-notched-outline',
           {
-            ref: "notchedOutline",
+            ref: 'notchedOutline',
             props: {
               floatLabel: this.floatLabel_,
               label,
+              labelRequired: this.labelRequired,
               notched: this.notchedOutlineNotched,
               notchWidth: this.notchedOutlineNotchWidth,
               shakeLabel: this.shakeLabel_
@@ -237,13 +258,14 @@ export default {
     },
 
     genFloatingLabel(c) {
-      if(this.hasFloatingLabel) {
+      if (this.hasFloatingLabel) {
         return c(
-          "mdc-floating-label",
+          'mdc-floating-label',
           {
             props: {
               content: this.label,
               float: this.floatLabel_,
+              required: this.labelRequired,
               shake: this.shakeLabel_
             }
           }
@@ -252,11 +274,11 @@ export default {
     },
 
     genHelperLine(c) {
-      if(this.helperTextValue_ || this.characterCounter) {
+      if (this.helperTextValue_ || this.characterCounter) {
         return c(
-          "div",
+          'div',
           {
-            staticClass: "mdc-text-field-helper-line"
+            staticClass: 'mdc-text-field-helper-line'
           },
           [
             this.genHelperText(c),
@@ -267,11 +289,11 @@ export default {
     },
 
     genHelperText(c) {
-      if(this.helperTextValue_) {
+      if (this.helperTextValue_) {
         return c(
-          "mdc-text-field-helper-text",
+          'mdc-text-field-helper-text',
           {
-            ref: "helperText",
+            ref: 'helperText',
             props: {
               content: this.helperTextValue_,
               persistent: this.helperText.persistent
@@ -282,9 +304,9 @@ export default {
     },
 
     genCharacterCounter(c) {
-      if(this.characterCounter) {
+      if (this.characterCounter) {
         return c(
-          "mdc-text-field-character-counter",
+          'mdc-text-field-character-counter',
           {
             props: {
               currentLength: this.value.length,
@@ -299,14 +321,16 @@ export default {
       this.mdcFoundation.handleTextFieldInteraction(event);
     },
 
-    onInputElChange() {
-      this.evaluateRules();
+    onInputElChange(event) {
+      this.internalValue = event.target.value;
+      !this.useNativeValidation && this.evaluateRules();
     },
 
     onInputElInput(event) {
       this.mdcFoundation.handleInput();
 
-      this.$emit("input", event.target.value);
+      this.internalValue = event.target.value;
+      this.$emit('input', event.target.value);
     },
 
     onInputElBlur() {
@@ -317,13 +341,65 @@ export default {
       this.mdcFoundation.activateFocus();
     },
 
+    setLabelRequired_(isRequired) {
+      if (this.label && this.requiredAsterisk) {
+        this.labelRequired = isRequired;
+      }
+    },
+
+    //
+    // Public methods
+    //
+
+    evaluateRules(silent) {
+      let evaluationResult = true;
+
+      for (const rule in this.rules) {
+        const ruleResult = this.rules[rule](this.internalValue);
+
+        if (ruleResult === true) {
+          this.helperTextValue_ = '';
+          if (!silent) this.valid = true;
+        } else {
+          evaluationResult = false;
+          this.helperTextValue_ = ruleResult;
+          if (!silent) this.valid = false;
+
+          break;
+        }
+      }
+
+      return evaluationResult;
+    },
+
+    isValid(evaluateRules = true, silent) {
+      let isValid = false;
+
+      isValid = this.mdcFoundation.isValid();
+
+
+      if (this.required) {
+        isValid = !!this.internalValue;
+      }
+      if (!this.useNativeValidation && evaluateRules) {
+        isValid = this.evaluateRules(silent);
+      }
+
+      return isValid;
+    },
+
+    //
+    // Adapter methods
+    //
+
     // MDC root adapter methods
+
     addClass(className) {
-      this.$el.querySelector(`.${ cssClasses.ROOT }`).classList.add(className);
+      this.$el.querySelector(`.${cssClasses.ROOT}`).classList.add(className);
     },
 
     deregisterTextFieldInteractionHandler(evtType, handler) {
-      this.$el.querySelector(`.${ cssClasses.ROOT }`).removeEventListener(evtType, handler);
+      this.$el.querySelector(`.${cssClasses.ROOT}`).removeEventListener(evtType, handler);
     },
 
     deregisterValidationAttributeChangeHandler(observer) {
@@ -331,24 +407,24 @@ export default {
     },
 
     hasClass(className) {
-      return this.$el.querySelector(`.${ cssClasses.ROOT }`).classList.contains(className);
+      return this.$el.querySelector(`.${cssClasses.ROOT}`).classList.contains(className);
     },
 
     removeClass(className) {
-      this.$el.querySelector(`.${ cssClasses.ROOT }`).classList.remove(className);
+      this.$el.querySelector(`.${cssClasses.ROOT}`).classList.remove(className);
     },
 
     registerTextFieldInteractionHandler(evtType, handler) {
-      this.$el.querySelector(`.${ cssClasses.ROOT }`).addEventListener(evtType, handler);
+      this.$el.querySelector(`.${cssClasses.ROOT}`).addEventListener(evtType, handler);
     },
 
     registerValidationAttributeChangeHandler(handler) {
-      let getAttributesList = mutationsList => {
+      const getAttributesList = mutationsList => {
         return mutationsList
         .map(function (mutation) { return mutation.attributeName; })
         .filter(function (attributeName) { return attributeName; });
       };
-      let observer = new MutationObserver(function(mutationsList) {
+      const observer = new MutationObserver(function(mutationsList) {
         return handler(getAttributesList(mutationsList));
       });
 
@@ -362,6 +438,7 @@ export default {
     },
 
     // MDC input adapter methods
+
     deregisterInputInteractionHandler(evtType, handler) {
       this.$refs.inputEl.removeEventListener(evtType, handler, applyPassive());
     },
@@ -379,8 +456,9 @@ export default {
     },
 
     // MDC label adapter methods
+
     floatLabel(shouldFloat) {
-      if(this.hasLabel()) {
+      if (this.hasLabel()) {
         this.floatLabel_ = shouldFloat;
       }
     },
@@ -390,7 +468,7 @@ export default {
     },
 
     hasLabel() {
-      return this.label ? true : false;
+      return !!this.label;
     },
 
     shakeLabel(shouldShake) {
@@ -399,7 +477,12 @@ export default {
       }
     },
 
+    setLabelRequired(isRequired) {
+      this.setLabelRequired_(isRequired);
+    },
+
     // MDC line ripple adapter methods
+
     activateLineRipple() {
       this.lineRippleActive = true;
     },
@@ -413,6 +496,7 @@ export default {
     },
 
     // MDC outline adapter methods
+
     closeOutline() {
       if(this.hasOutline()) {
         this.notchedOutlineNotched = false;
@@ -428,47 +512,24 @@ export default {
         this.notchedOutlineNotchWidth = labelWidth;
         this.notchedOutlineNotched = true;
       }
-    },
-
-    // Custom methods
-    evaluateRules() {
-      for(let rule in this.rules) {
-        let ruleResult = this.rules[rule](this.value);
-
-        if(ruleResult === true) {
-          this.helperTextValue_ = "";
-          this.valid = true;
-        }
-        else {
-          this.helperTextValue_ = ruleResult;
-          this.valid = false;
-
-          break;
-        }
-      }
     }
   },
 
   watch: {
+    required(value) {
+      this.setLabelRequired_(value);
+    },
+
+    useNativeValidation(value) {
+      this.mdcFoundation.setUseNativeValidation(value);
+    },
+
     valid() {
       this.mdcFoundation.setValid(this.valid);
     },
 
-    value() {
-      setTimeout(() => {
-        if(this.mdcFoundation.validateOnValueChange_) {
-          const isValid = this.mdcFoundation.isValid();
-          this.mdcFoundation.styleValidity_(isValid);
-        }
-        if(this.hasLabel()) {
-          this.mdcFoundation.notchOutline(this.mdcFoundation.shouldFloat);
-          this.floatLabel(this.mdcFoundation.shouldFloat);
-          this.mdcFoundation.styleFloating_(this.mdcFoundation.shouldFloat);
-          if(this.mdcFoundation.validateOnValueChange_) {
-            this.shakeLabel(this.mdcFoundation.shouldShake);
-          }
-        }
-      }, 0);
+    value(value) {
+      this.internalValue = value;
     }
   }
 }

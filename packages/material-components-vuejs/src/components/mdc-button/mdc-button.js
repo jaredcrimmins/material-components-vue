@@ -1,12 +1,12 @@
-import {MDCRipple} from "@material/ripple";
+import {MDCRipple} from '@material/ripple';
 
 export default {
-  name: "mdc-button",
+  name: 'mdc-button',
   
   inheritAttrs: true,
 
   props: {
-    elevated: Boolean,
+    disabled: Boolean,
     outlined: Boolean,
     raised: Boolean,
     unelevated: Boolean,
@@ -24,23 +24,25 @@ export default {
   },
 
   render(c) {
-    let self = this;
-    let tagName = "button";
+    let tagName = 'button';
 
-    if(this.to) tagName = "router-link";
+    if (this.to) tagName = 'router-link';
 
     return c(
       tagName,
       {
-        staticClass: "mdc-button",
+        staticClass: 'mdc-button',
+        attrs: {
+          disabled: this.disabled
+        },
         class: {
-          "mdc-button--outlined": this.outlined,
-          "mdc-button--raised": this.raised,
-          "mdc-button--unelevated": this.unelevated
+          'mdc-button--outlined': this.outlined,
+          'mdc-button--raised': this.raised,
+          'mdc-button--unelevated': this.unelevated
         },
         on: {
-          click(event) {
-            self.$emit("click", event);
+          click: event => {
+            this.$emit('click', event);
           }
         },
         props: {
@@ -49,20 +51,18 @@ export default {
       },
       [
         c(
-          "div",
+          'div',
           {
-            staticClass: "mdc-button__ripple"
+            staticClass: 'mdc-button__ripple'
           }
         ),
         this.$slots.append,
         c(
-          "span",
+          'span',
           {
-            staticClass: "mdc-button__label"
+            staticClass: 'mdc-button__label'
           },
-          [
-            this.$slots.default
-          ]
+          this.$slots.default
         ),
         this.$slots.trailing
       ]

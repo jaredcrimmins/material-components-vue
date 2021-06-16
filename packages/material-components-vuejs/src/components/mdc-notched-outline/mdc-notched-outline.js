@@ -1,16 +1,17 @@
-import {MDCFloatingLabel} from "./../mdc-floating-label";
-import {MDCNotchedOutlineFoundation} from "@material/notched-outline";
+import {MDCFloatingLabel} from './../mdc-floating-label';
+import {MDCNotchedOutlineFoundation} from '@material/notched-outline';
 
 export default {
-  name: "mdc-notched-outline",
+  name: 'mdc-notched-outline',
 
   components: {
-    "mdc-floating-label": MDCFloatingLabel
+    'mdc-floating-label': MDCFloatingLabel
   },
   
   props: {
     floatLabel: Boolean,
     label: String,
+    labelRequired: Boolean,
     notched: Boolean,
     notchWidth: Number,
     shakeLabel: Boolean
@@ -18,7 +19,9 @@ export default {
 
   data() {
     return {
-      mdcFoundation: null
+      mdcFoundation: new MDCNotchedOutlineFoundation(
+        MDCNotchedOutlineFoundation.defaultAdapter
+      )
     };
   },
   
@@ -32,25 +35,25 @@ export default {
   
   render(c) {
     return c(
-      "div",
+      'div',
       {
-        staticClass: "mdc-notched-outline mdc-notched-outline--upgraded",
+        staticClass: 'mdc-notched-outline mdc-notched-outline--upgraded',
         class: {
-          "mdc-notched-outline--no-label": !this.label
+          'mdc-notched-outline--no-label': !this.label
         }
       },
       [
         c(
-          "div",
+          'div',
           {
-            staticClass: "mdc-notched-outline__leading"
+            staticClass: 'mdc-notched-outline__leading'
           }
         ),
         this.genNotch(c),
         c(
-          "div",
+          'div',
           {
-            staticClass: "mdc-notched-outline__trailing"
+            staticClass: 'mdc-notched-outline__trailing'
           }
         )
       ]
@@ -64,6 +67,10 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCNotchedOutlineFoundation(this);
       this.mdcFoundation.init();
@@ -76,10 +83,10 @@ export default {
     genNotch(c) {
       if(this.label) {
         return c(
-          "div",
+          'div',
           {
-            ref: "notchEl",
-            staticClass: "mdc-notched-outline__notch"
+            ref: 'notchEl',
+            staticClass: 'mdc-notched-outline__notch'
           },
           [
             this.genFloatingLabel(c)
@@ -90,12 +97,13 @@ export default {
 
     genFloatingLabel(c) {
       return c(
-        "mdc-floating-label",
+        'mdc-floating-label',
         {
-          ref: "floatingLabel",
+          ref: 'floatingLabel',
           props: {
             content: this.label,
             float: this.floatLabel,
+            required: this.labelRequired,
             shake: this.shakeLabel
           }
         }
@@ -103,12 +111,17 @@ export default {
     },
 
     getLabelWidth() {
-      if(this.$refs.floatingLabel) {
-        return this.$refs.floatingLabel.getWidth();
+      const floatingLabel = this.$refs.floatingLabel;
+
+      if(floatingLabel) {
+        return floatingLabel.getWidth();
       }
     },
 
-    // Adapter
+    //
+    // Adapter methods
+    //
+
     addClass(className) {
       this.$el.classList.add(className);
     },
@@ -121,7 +134,7 @@ export default {
       const notchEl = this.$refs.notchEl;
 
       if(notchEl) {
-        notchEl.style.setProperty("width", width + "px");
+        notchEl.style.setProperty('width', width + 'px');
       }
     },
 
@@ -129,7 +142,7 @@ export default {
       const notchEl = this.$refs.notchEl;
 
       if(notchEl) {
-        notchEl.style.removeProperty("width");
+        notchEl.style.removeProperty('width');
       }
     }
   }
