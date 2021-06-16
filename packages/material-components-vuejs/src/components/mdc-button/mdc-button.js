@@ -41,8 +41,8 @@ export default {
           'mdc-button--unelevated': this.unelevated
         },
         on: {
-          click(event) {
-            self.$emit('click', event);
+          click: event => {
+            this.$emit('click', event);
           }
         },
         props: {
