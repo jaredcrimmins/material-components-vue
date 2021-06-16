@@ -10,10 +10,6 @@ export default {
 
   props: {
     title: String,
-    titleTag: {
-      type: String,
-      default: 'h2'
-    },
     value: Boolean
   },
 
@@ -124,46 +120,6 @@ export default {
           }
         },
         this.$slots.default
-      );
-    },
-
-    genTitle(c) {
-      if (!this.title) return;
-
-      return c(
-        this.titleTag,
-        {
-          staticClass: 'mdc-dialog__title',
-          attrs: {
-            id: this.titleID
-          }
-        },
-        this.title
-      );
-    },
-
-    genContent(c) {
-      return c(
-        'div',
-        {
-          staticClass: 'mdc-dialog__content',
-          attrs: {
-            id: this.contentID
-          }
-        },
-        this.$slots.content
-      );
-    },
-
-    genActions(c) {
-      if (!this.$slots.actions) return;
-
-      return c(
-        'div',
-        {
-          staticClass: 'mdc-dialog__actions'
-        },
-        this.$slots.actions
       );
     },
 
