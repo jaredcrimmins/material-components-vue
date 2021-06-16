@@ -66,6 +66,7 @@ export default {
       floatLabel_: false,
       labelRequired: false,
       helperTextValue_: this.helperText.value,
+      internalValue: this.value,
       mdcFoundation: null,
       notchedOutlineNotched: false,
       notchedOutlineNotchWidth: 0,
@@ -202,7 +203,7 @@ export default {
               input: self.onInputElInput
             }
           },
-          self.value
+          self.internalValue
         );
       }
     },
@@ -306,14 +307,14 @@ export default {
       this.mdcFoundation.handleTextFieldInteraction(event);
     },
 
-    onInputElChange() {
-      this.evaluateRules();
+    onInputElChange(event) {
+      this.internalValue = event.target.value;
     },
 
     onInputElInput(event) {
       this.mdcFoundation.handleInput();
 
-      this.$emit("input", event.target.value);
+      this.internalValue = event.target.value;
     },
 
     onInputElBlur() {
@@ -462,21 +463,8 @@ export default {
       this.mdcFoundation.setValid(this.valid);
     },
 
-    value() {
-      setTimeout(() => {
-        if(this.mdcFoundation.validateOnValueChange_) {
-          const isValid = this.mdcFoundation.isValid();
-          this.mdcFoundation.styleValidity_(isValid);
-        }
-        if(this.hasLabel()) {
-          this.mdcFoundation.notchOutline(this.mdcFoundation.shouldFloat);
-          this.floatLabel(this.mdcFoundation.shouldFloat);
-          this.mdcFoundation.styleFloating_(this.mdcFoundation.shouldFloat);
-          if(this.mdcFoundation.validateOnValueChange_) {
-            this.shakeLabel(this.mdcFoundation.shouldShake);
-          }
-        }
-      }, 0);
+    value(value) {
+      this.internalValue = value;
     }
   }
 }
