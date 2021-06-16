@@ -47,6 +47,10 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCFloatingLabelFoundation(this);
       this.mdcFoundation.init();
@@ -56,6 +60,10 @@ export default {
     deinit() {
       this.mdcFoundation.destroy();
     },
+
+    //
+    // Adapter methods
+    //
 
     addClass(className) {
       this.$el.classList.add(className);
