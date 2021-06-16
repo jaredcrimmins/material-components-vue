@@ -1,7 +1,14 @@
+import {MDCCheckbox, MDCMaterialIcon, MDCRadio} from "./../../";
 import {MDCRipple} from "@material/ripple";
 
 export default {
   name: "mdc-list-item",
+
+  components: {
+    "mdc-checkbox": MDCCheckbox,
+    "material-icon": MDCMaterialIcon,
+    "mdc-radio": MDCRadio
+  },
 
   props: {
     preselected: Boolean,
