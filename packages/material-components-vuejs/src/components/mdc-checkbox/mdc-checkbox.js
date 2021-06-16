@@ -65,9 +65,6 @@ export default {
     init() {
       this.mdcFoundation = new MDCCheckboxFoundation(this);
       this.mdcFoundation.init();
-      this.setDeterminate(this.determinate);
-      this.setProgress(this.progress);
-      this.open ? this.mdcFoundation.open() : this.mdcFoundation.close();
     },
 
     deinit() {
