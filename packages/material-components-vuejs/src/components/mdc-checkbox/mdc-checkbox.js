@@ -81,7 +81,8 @@ export default {
             type: "checkbox",
             checked: this.checked,
             disabled: this.disabled,
-            "data-indeterminate": this.indeterminate ? "true" : "false"
+            "data-indeterminate": this.indeterminate ? "true" : "false",
+            value: this.value
           }
         }
       );
