@@ -1,131 +1,80 @@
 <template>
   <div id="app">
-    <mdc-linear-progress :open="mdcLinearProgressOpen"></mdc-linear-progress>
+    <the-debug-mdc-button></the-debug-mdc-button>
 
-    <mdc-circular-progress :open="mdcCircularProgressOpen"></mdc-circular-progress>
+    <the-debug-mdc-checkbox></the-debug-mdc-checkbox>
 
-    <mdc-list
-      :listItems="[
-        {
-          text: 'Hello'
-        }
-      ]"
-    ></mdc-list>
+    <the-debug-mdc-circular-progress></the-debug-mdc-circular-progress>
 
-    <button v-on:click="mdcMenuOpen = !mdcMenuOpen">Open MDCMenu</button>
-    <div class="mdc-menu-surface--anchor">
-      <mdc-menu
-        v-model="mdcMenuOpen"
-        :menuItems="[{ text: 'Hello world!' }]"
-        :twoLine="false"
-      ></mdc-menu>
-    </div>
+    <the-debug-mdc-dialog></the-debug-mdc-dialog>
 
-    <!-- <mdc-select
-      label="Label"
-      :outlined="false"
-      :menuItems="[
-        { text: '' },
-        { text: 'Hello world!' }
-      ]"
-    ></mdc-select> -->
+    <the-debug-mdc-icon-button></the-debug-mdc-icon-button>
 
-    <mdc-tab-bar
-      :indicatorSpanContent="mdcTabBarIndicatorSpanContent"
-      automaticActivation
-      focusOnActivate
-    >
-      <mdc-tab icon="star" indicatorIcon="star">Hello World!</mdc-tab>
-      <mdc-tab icon="star" indicatorIcon="recommend">Hello World?</mdc-tab>
-    </mdc-tab-bar>
-    
-    <mdc-text-field
-      characterCounter
-      fullWidth
-      :outlined="true"
-      label="Label"
-      :rules="[ this.rules.isEmail ]"
-      v-model="mdcTextFieldVModel"
-    ></mdc-text-field>
+    <the-debug-mdc-image-list></the-debug-mdc-image-list>
 
-    <mdc-image-list>
-      <mdc-image-list-item
-        src="https://freesvg.org/storage/zip/blog/Pizza_Pepperoni.svg"
-        label="Hello world!"
-        constrainAspectRatio
-      >
-      </mdc-image-list-item>
-      <mdc-image-list-item
-        src="https://freesvg.org/storage/zip/blog/Hello-World-In-Several-Languages.svg"
-        label="Hello world!"
-        constrainAspectRatio
-      >
-      </mdc-image-list-item>
-      <mdc-image-list-item
-        src="https://freesvg.org/storage/zip/blog/Hello-World-In-Several-Languages.svg"
-        label="Hello world!"
-        constrainAspectRatio
-      >
-      </mdc-image-list-item>
-    </mdc-image-list>
-    
-    <mdc-button v-on:click="mdcSnackbarOpen = !mdcSnackbarOpen" unelevated>Open/close MDCSnackbar</mdc-button>
+    <the-debug-mdc-linear-progress></the-debug-mdc-linear-progress>
 
-    <mdc-icon-button iconTheme="two-tone">alarm</mdc-icon-button>
+    <the-debug-mdc-list></the-debug-mdc-list>
 
-    <mdc-snackbar label="Woah" v-model="mdcSnackbarOpen">
-      <template v-slot:action="{ staticClass }">
-        <mdc-button
-          :class="staticClass"
-          label="Label"
-          v-on:click="mdcSnackbarOpen = false"
-        ></mdc-button>
-      </template>
-    </mdc-snackbar>
+    <the-debug-mdc-menu></the-debug-mdc-menu>
+
+    <the-debug-mdc-radio></the-debug-mdc-radio>
+
+    <the-debug-mdc-select></the-debug-mdc-select>
+
+    <the-debug-mdc-tabs></the-debug-mdc-tabs>
+
+    <the-debug-mdc-text-field></the-debug-mdc-text-field>
+
+    <the-debug-mdc-snackbar></the-debug-mdc-snackbar>
   </div>
 </template>
 
 <script>
-  import cryptoRandomString from "crypto-random-string";
+  import * as components from './components';
+  import cryptoRandomString from 'crypto-random-string';
     
   export default {
+    components: {
+      'the-debug-mdc-button': components.TheDebugMDCButton,
+      'the-debug-mdc-checkbox': components.TheDebugMDCCheckbox,
+      'the-debug-mdc-circular-progress': components.TheDebugMDCCircularProgress,
+      'the-debug-mdc-dialog': components.TheDebugMDCDialog,
+      'the-debug-mdc-icon-button': components.TheDebugMDCIconButton,
+      'the-debug-mdc-image-list': components.TheDebugMDCImageList,
+      'the-debug-mdc-linear-progress': components.TheDebugMDCLinearProgress,
+      'the-debug-mdc-list': components.TheDebugMDCList,
+      'the-debug-mdc-menu': components.TheDebugMDCMenu,
+      'the-debug-mdc-radio': components.TheDebugMDCRadio,
+      'the-debug-mdc-snackbar': components.TheDebugMDCSnackbar,
+      'the-debug-mdc-select': components.TheDebugMDCSelect,
+      'the-debug-mdc-tabs': components.TheDebugMDCTabs,
+      'the-debug-mdc-text-field': components.TheDebugMDCTextField
+    },
+
     data() {
       return {
-        mdcMenuOpen: false,
-        mdcCircularProgressOpen: true,
         mdcDataTableHeaders: [
           {
-            text: "Email",
-            value: "email"
+            text: 'Email',
+            value: 'email'
           },
           {
-            text: "Given name",
-            value: "givenName"
+            text: 'Given name',
+            value: 'givenName'
           },
           {
-            text: "Family name",
-            value: "familyName"
+            text: 'Family name',
+            value: 'familyName'
           }
         ],
         mdcDataTableItems: [],
-        mdcLinearProgressOpen: true,
-        rules: {
-          isEmail(value) {
-            return /^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$/i.test(value) || "Please enter a valid email address.";
-          }
-        },
-        mdcTabBarIndicatorSpanContent: false,
-        mdcTextFieldVModel: "",
         mdcSnackbarOpen: true
       };
     },
     
     mounted() {
       this.mdcDataTableItems = this.genRandomDataTableItems(75);
-
-      setTimeout(() => {
-        this.mdcTabBarIndicatorSpanContent = false;
-      }, 100);
     },
     
     methods: {
@@ -136,9 +85,9 @@
           items.push(
             {
               id: x,
-              givenName: "Jared",
-              familyName: "Crimmins",
-              email: cryptoRandomString({length: 10, type: "url-safe"}) + "@example.com"
+              givenName: 'Jared',
+              familyName: 'Crimmins',
+              email: cryptoRandomString({length: 10, type: 'url-safe'}) + '@example.com'
             }
           );
         }
@@ -159,35 +108,40 @@
   }
 </script>
 
-<style lang="scss">
-  @use "@material/button/_index.scss" as button;
-  @use "@material/circular-progress/_index.scss" as circular-progress;
-  @use "@material/floating-label/_index.scss" as floating-label;
-  @use "@material/form-field/_index.scss" as form-field;
-  @use "@material/icon-button/_index.scss" as icon-button;
-  @use "@material/image-list/_index.scss" as image-list;
-  @use "@material/list/_index.scss" as list;
-  @use "@material/line-ripple/_index.scss" as line-ripple;
-  @use "@material/notched-outline/_index.scss" as notched-outline;
-  @use "@material/menu/_index.scss" as menu;
-  @use "@material/menu-surface/_index.scss" as menu-surface;
-  @use "@material/select/_index.scss" as select;
-  @use "@material/snackbar/_index.scss" as snackbar;
-  @use "@material/switch/_index.scss" as switch;
-  @use "@material/tab/_index.scss" as tab;
-  @use "@material/tab-bar/_index.scss" as tab-bar;
-  @use "@material/tab-indicator/_index.scss" as tab-indicator;
-  @use "@material/tab-scroller/_index.scss" as tab-scroller;
-  @use "@material/textfield/_index.scss" as textfield;
+<style lang='scss'>
+  @use '@material/button/_index.scss' as button;
+  @use '@material/checkbox/_index.scss' as checkbox;
+  @use '@material/circular-progress/_index.scss' as circular-progress;
+  @use '@material/dialog/_index.scss' as dialog;
+  @use '@material/floating-label/_index.scss' as floating-label;
+  @use '@material/form-field/_index.scss' as form-field;
+  @use '@material/icon-button/_index.scss' as icon-button;
+  @use '@material/image-list/_index.scss' as image-list;
+  @use '@material/list/_index.scss' as list;
+  @use '@material/line-ripple/_index.scss' as line-ripple;
+  @use '@material/notched-outline/_index.scss' as notched-outline;
+  @use '@material/menu/_index.scss' as menu;
+  @use '@material/menu-surface/_index.scss' as menu-surface;
+  @use '@material/radio/_index.scss' as radio;
+  @use '@material/select/_index.scss' as select;
+  @use '@material/snackbar/_index.scss' as snackbar;
+  @use '@material/switch/_index.scss' as switch;
+  @use '@material/tab/_index.scss' as tab;
+  @use '@material/tab-bar/_index.scss' as tab-bar;
+  @use '@material/tab-indicator/_index.scss' as tab-indicator;
+  @use '@material/tab-scroller/_index.scss' as tab-scroller;
+  @use '@material/textfield/_index.scss' as textfield;
 
-  @import "https://fonts.googleapis.com/icon?family=Material+Icons";
-  @import "https://fonts.googleapis.com/icon?family=Material+Icons+Outlined";
-  @import "https://fonts.googleapis.com/icon?family=Material+Icons+Round";
-  @import "https://fonts.googleapis.com/icon?family=Material+Icons+Sharp";
-  @import "https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone";
+  @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+  @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Outlined';
+  @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Round';
+  @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Sharp';
+  @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone';
 
   @include button.core-styles;
+  @include checkbox.core-styles;
   @include circular-progress.core-styles;
+  @include dialog.core-styles();
   @include floating-label.core-styles;
   @include form-field.core-styles;
   @include icon-button.core-styles;
@@ -197,6 +151,7 @@
   @include notched-outline.core-styles;
   @include menu.core-styles;
   @include menu-surface.core-styles;
+  @include radio.core-styles;
   @include select.core-styles;
   @include snackbar.core-styles;
   @include switch.core-styles;
