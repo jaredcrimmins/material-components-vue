@@ -148,7 +148,8 @@ export default {
       let index = this.getListItemIndex(event);
       let target = event.target;
 
-      this.mdcFoundation.handleKeydown(event, target.classList.contains("mdc-list-item"), index);
+      this.mdcFoundation.handleKeydown(
+        event, target.classList.contains(cssClasses.LIST_ITEM_CLASS), index);
     },
 
     // Adapter methods
