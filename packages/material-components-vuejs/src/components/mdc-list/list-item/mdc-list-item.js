@@ -70,39 +70,85 @@ export default {
             staticClass: "mdc-list-item__ripple"
           }
         ),
-        c(
-          "span",
-          {
-            staticClass: "mdc-list-item__text"
-          },
-          this.genListItemText(c)
-        )
+        this.genGraphic(c),
+        this.genText(c)
       ]
     );
   },
 
   methods: {
-    genListItemText(c) {
-      if(this.$slots.default) {
-        return this.$slots.default;
+    //
+    // Private methods
+    //
+
+    genGraphic(c) {
+      let graphic;
+
+      if(this.menuSelectionGroup) {
+        if(this.$slots.graphic) graphic = this.$slots.graphic;
+        else {
+          graphic = c("material-icon", {
+            props: {
+              icon: this.menuSelectionGroupIcon
+            }
+          });
+        }
       }
       else {
-        return [
-          c(
-            "span",
-            {
-              staticClass: "mdc-list-item__primary-text"
-            },
-            this.primaryText
-          ),
-          c(
-            "span",
-            {
-              staticClass: "mdc-list-item__secondary-text"
-            },
-            this.secondaryText
-          )
-        ];
+        if(this.checkbox) graphic = this.$slots.checkbox;
+        else if(this.radio) graphic = this.$slots.radio;
+        else graphic = this.$slots.graphic;
+      }
+
+      if(graphic) {
+        return c(
+          "span",
+          {
+            staticClass: "mdc-list-item__graphic",
+            class: {
+              "mdc-menu__selection-group-icon": this.menuSelectionGroup
+            }
+          },
+          [
+            graphic
+          ]
+        );
+      }
+    },
+
+    genText(c) {
+      if(!this.twoLine) {
+        return c(
+          "label",
+          {
+            staticClass: "mdc-list-item__text"
+          },
+          this.$slots.default
+        );
+      }
+      else {
+        return c(
+          "span",
+          {
+            staticClass: "mdc-list-item__text"
+          },
+          [
+            c(
+              "span",
+              {
+                staticClass: "mdc-list-item__primary-text"
+              },
+              this.primaryText
+            ),
+            c(
+              "span",
+              {
+                staticClass: "mdc-list-item__secondary-text"
+              },
+              this.secondaryText
+            )
+          ]
+        );
       }
     },
 
