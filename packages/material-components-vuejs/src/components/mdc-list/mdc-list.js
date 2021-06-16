@@ -206,8 +206,6 @@ export default {
     addClassForElementIndex(index, className) {
       let element = this.getListItemEls()[index];
 
-      console.log(className);
-
       if(element) {
         element.classList.add(className);
       }
