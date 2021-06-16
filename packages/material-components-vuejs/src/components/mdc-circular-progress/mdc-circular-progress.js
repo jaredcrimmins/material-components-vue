@@ -49,6 +49,20 @@ export default {
     };
   },
 
+  watch: {
+    determinate(value) {
+      this.setDeterminate(value);
+    },
+
+    open(value) {
+      value ? this.mdcFoundation.open() : this.mdcFoundation.close();
+    },
+
+    progress(value) {
+      this.setProgress(value);
+    }
+  },
+
   mounted() {
     this.init();
   },
@@ -365,20 +379,6 @@ export default {
 
     setDeterminateCircleAttribute(attributeName, value) {
       this.$refs.determinateCirlceEl.setAttribute(attributeName, value);
-    }
-  },
-
-  watch: {
-    determinate(value) {
-      this.setDeterminate(value);
-    },
-
-    open(value) {
-      value ? this.mdcFoundation.open() : this.mdcFoundation.close();
-    },
-
-    progress(value) {
-      this.setProgress(value);
     }
   }
 }
