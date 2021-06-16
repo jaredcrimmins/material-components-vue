@@ -257,8 +257,7 @@ export default {
     },
 
     notifyAction(index) {
-      emitCustomEvent(this.$el, "MDCList:action", {index});
-      this.$emit("MDCList:action", {index});
+      emitCustomEvent(this.$el, strings.ACTION_EVENT, {index});
     },
 
     isFocusInsideList() {
