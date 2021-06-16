@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       foundation: null,
-      id: null
+      id: ""
     };
   },
 

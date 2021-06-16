@@ -28,10 +28,19 @@
         :notchWidth="notchedOutlineWidth"
       >
       </mdc-notched-outline>
-      <mdc-floating-label ref="floatingLabel" v-if="!outlined" :content="label" :float="floatingLabelFloat"></mdc-floating-label>
+      <mdc-floating-label
+        ref="floatingLabel"
+        v-if="!outlined"
+        :content="label"
+        :float="floatingLabelFloat"
+      ></mdc-floating-label>
       <span class="mdc-select__selected-text">{{ selectedText }}</span>
       <span class="mdc-select__dropdown-icon">
-        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+        <svg
+          class="mdc-select__dropdown-icon-graphic"
+          viewBox="7 10 10 5"
+          focusable="false"
+        >
           <polygon
             class="mdc-select__dropdown-icon-inactive"
             stroke="none"
@@ -57,35 +66,33 @@
       :anchorElement="menuAnchorElement"
       :anchorCorner="menuAnchorCorner"
       fullWidth
-      :items="items"
+      :hasTypeahead="hasTypeahead"
       :wrapFocus="menuWrapFocus"
       v-on:select="onMenuSelected"
       v-on:MDCMenuSurface:opened="onMDCMenuSurfaceOpened"
       v-on:MDCMenuSurface:closed="onMDCMenuSurfaceClosed"
       v-model="menuOpen"
     >
-      <mdc-list ref="list">
-        <mdc-list-item
-          ref="menuItems"
-          v-for="(item, index) in items"
-          :key="index"
-          :value="item.value"
-        >
-        {{ item.text }}</mdc-list-item>
-      </mdc-list>
+      <mdc-menu-item
+        ref="menuItems"
+        v-for="(item, index) in items"
+        :key="index"
+        :value="item.value"
+      >
+        {{ item.text }}
+      </mdc-menu-item>
     </mdc-menu>
   </div>
 </template>
 
 <script>
   import {MDCFloatingLabel} from "./../mdc-floating-label";
-  import {MDCMenu} from "./../mdc-menu";
-  import {MDCSelectFoundation} from "@material/select";
+  import {MDCMenu, MDCMenuItem} from "./../mdc-menu";
+  import {MDCSelectFoundation, strings} from "@material/select";
   import {MDCLineRipple} from "./../mdc-line-ripple";
   import {MDCNotchedOutline} from "./../mdc-notched-outline";
+  import {emitCustomEvent} from "./../../utils";
   import {estimateScrollWidth} from "@material/dom/ponyfill";
-
-  let foundation = null;
 
   export default {
     name: "mdc-select",
@@ -93,19 +100,19 @@
     components: {
       "mdc-floating-label": MDCFloatingLabel,
       "mdc-menu": MDCMenu,
+      "mdc-menu-item": MDCMenuItem,
       "mdc-line-ripple": MDCLineRipple,
       "mdc-notched-outline": MDCNotchedOutline
     },
 
     props: {
-      disabled: {
-        default: false,
-        type: Boolean
-      },
+      disabled: Boolean,
       filled: Boolean,
-      label: String,
+      hasTypeahead: Boolean,
       items: Array,
+      label: String,
       outlined: Boolean,
+      required: Boolean,
       value: String
     },
 
@@ -115,6 +122,7 @@
         isDisabled: this.disabled,
         lineRippleActive: false,
         lineRippleCenter: 0,
+        mdcFoundation: new MDCSelectFoundation(MDCSelectFoundation.defaultAdapter),
         menuAnchorCorner: null,
         menuAnchorElement: "mdc-select__anchor",
         menuOpen: false,
@@ -126,60 +134,76 @@
     },
 
     mounted() {
-      foundation = new MDCSelectFoundation(this);
-      foundation.init();
-
       this.init();
     },
 
     watch: {
+      disabled(value) {
+        this.mdcFoundation.setDisabled(value);
+      },
+
+      required(value) {
+        this.mdcFoundation.setRequired(value);
+      },
+
       value(value) {
-        if(foundation) foundation.setValue(value);
+        if(this.mdcFoundation) this.mdcFoundation.setValue(value);
       }
     },
 
     methods: {
+      //
+      // Private methods
+      //
+
       init() {
-        foundation.setValue(this.value);
+        this.mdcFoundation = new MDCSelectFoundation(this);
+        this.mdcFoundation.init();
+        this.mdcFoundation.setDisabled(this.disabled);
+        this.mdcFoundation.setRequired(this.required);
+        this.mdcFoundation.setValue(this.value);
 
         this.menuAnchorElement = this.getAnchorElement();
       },
 
       refreshIndex() {
-        let menuItemValues = this.getMenuItemValues();
+        const menuItemValues = this.getMenuItemValues();
 
-        foundation.setSelectedIndex(menuItemValues.indexOf(this.value));
+        this.mdcFoundation.setSelectedIndex(menuItemValues.indexOf(this.value));
       },
 
       onBlur() {
-        foundation.handleBlur();
+        this.mdcFoundation.handleBlur();
       },
 
       onClick() {
-        foundation.handleClick();
+        this.mdcFoundation.handleClick();
       },
 
       onFocus() {
-        foundation.handleFocus();
+        this.mdcFoundation.handleFocus();
       },
 
       onKeydown(event) {
-        foundation.handleKeydown(event);
+        this.mdcFoundation.handleKeydown(event);
       },
 
       onMenuSelected(event) {
-        foundation.handleMenuItemAction(event.index);
+        this.mdcFoundation.handleMenuItemAction(event.index);
       },
 
       onMDCMenuSurfaceClosed() {
-        foundation.handleMenuClosed();
+        this.mdcFoundation.handleMenuClosed();
       },
 
       onMDCMenuSurfaceOpened() {
-        foundation.handleMenuOpened();
+        this.mdcFoundation.handleMenuOpened();
       },
 
+      //
       // Adapter methods
+      //
+
       addClass(className) {
         this.$el.classList.add(className);
       },
@@ -201,7 +225,7 @@
       },
 
       getSelectedMenuItem() {
-        return this.$refs.list.$el.querySelector(".mdc-list-item--selected");
+        return this.$refs.menu.$el.querySelector(".mdc-list-item--selected");
       },
 
       hasLabel() {
@@ -238,6 +262,7 @@
       },
 
       notifyChange(value) {
+        emitCustomEvent(this.$el, strings.CHANGE_EVENT, {value}, true);
         this.$emit("change", value);
       },
 
@@ -335,14 +360,12 @@
         this.$refs.menu.mdcFoundation.setSelectedIndex(index);
       },
 
-      // Add typeahead support
       isTypeaheadInProgress() {
-        return false;
+        return this.$refs.menu.isTypeaheadInProgress();
       },
 
-      // Add typeahead support
-      typeaheadMatchItem() {
-
+      typeaheadMatchItem(nextChar) {
+        return this.$refs.menu.typeaheadMatchItem(nextChar);
       }
     }
   }

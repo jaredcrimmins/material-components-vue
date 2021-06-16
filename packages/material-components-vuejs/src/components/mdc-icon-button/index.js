@@ -1,1 +1,1 @@
-export {default as MDCIconButton} from "./component";
+export {default as MDCIconButton} from "./mdc-icon-button";
