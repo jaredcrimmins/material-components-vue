@@ -7,6 +7,7 @@ const webpack = require("webpack");
  
 module.exports = env => {
   const devPath = path.resolve(process.cwd(), "dev");
+  const componentsPath = path.resolve(process.cwd(), "components");
   let baseStyleLoaders = [];
   let cssLoaders = [];
   let scssLoaders = [];
@@ -32,7 +33,7 @@ module.exports = env => {
       loader: "sass-loader",
       options: {
         sassOptions: {
-          includePaths: ["./node_modules"],
+          includePaths: ["./node_modules", componentsPath],
           indentedSyntax: false
         },
         implementation: require("sass")
