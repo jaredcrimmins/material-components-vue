@@ -66,7 +66,7 @@
       :anchorElement="menuAnchorElement"
       :anchorCorner="menuAnchorCorner"
       fullWidth
-      :items="items"
+      :hasTypeahead="hasTypeahead"
       :wrapFocus="menuWrapFocus"
       v-on:select="onMenuSelected"
       v-on:MDCMenuSurface:opened="onMDCMenuSurfaceOpened"
@@ -88,6 +88,7 @@
 <script>
   import {MDCFloatingLabel} from "./../mdc-floating-label";
   import {MDCMenu, MDCMenuItem} from "./../mdc-menu";
+  import {MDCSelectFoundation, strings} from "@material/select";
   import {MDCLineRipple} from "./../mdc-line-ripple";
   import {MDCNotchedOutline} from "./../mdc-notched-outline";
   import {emitCustomEvent} from "./../../utils";
@@ -107,6 +108,7 @@
     props: {
       disabled: Boolean,
       filled: Boolean,
+      hasTypeahead: Boolean,
       label: String,
       items: Array,
       outlined: Boolean,
@@ -351,14 +353,12 @@
         this.$refs.menu.mdcFoundation.setSelectedIndex(index);
       },
 
-      // Add typeahead support
       isTypeaheadInProgress() {
-        return false;
+        return this.$refs.menu.isTypeaheadInProgress();
       },
 
-      // Add typeahead support
-      typeaheadMatchItem() {
-
+      typeaheadMatchItem(nextChar) {
+        return this.$refs.menu.typeaheadMatchItem(nextChar);
       }
     }
   }
