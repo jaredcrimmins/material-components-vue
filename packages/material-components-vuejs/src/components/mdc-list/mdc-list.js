@@ -49,6 +49,10 @@ export default {
   watch: {
     singleSelection(value) {
       this.mdcFoundation.setSingleSelection(value);
+    },
+
+    twoLine(value) {
+      this.mdcFoundation.setTwoLine(value);
     }
   },
 
