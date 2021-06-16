@@ -115,6 +115,7 @@
         isDisabled: this.disabled,
         lineRippleActive: false,
         lineRippleCenter: 0,
+        mdcFoundation: new MDCSelectFoundation(MDCSelectFoundation.defaultAdapter),
         menuAnchorCorner: null,
         menuAnchorElement: "mdc-select__anchor",
         menuOpen: false,
