@@ -30,6 +30,14 @@ export default {
     };
   },
 
+  computed: {
+    roleAttr() {
+      if(this.checkboxItems) return "group";
+      else if(this.radioGroup) return "radiogroup";
+      else if(this.singleSelection) return "listbox";
+    }
+  },
+
   mounted() {
     this.init();
   },
