@@ -178,6 +178,10 @@ export default {
       return this.getListItemEls();
     },
 
+    isTypeaheadInProgress() {
+      return this.mdcFoundation.isTypeaheadInProgress();
+    },
+
     // Adapter methods
     getListItemCount() {
       return this.getListItemEls().length;
