@@ -18,7 +18,9 @@ export default {
 
   data() {
     return {
-      mdcFoundation: null
+      mdcFoundation: new MDCNotchedOutlineFoundation(
+        MDCNotchedOutlineFoundation.defaultAdapter
+      )
     };
   },
   
