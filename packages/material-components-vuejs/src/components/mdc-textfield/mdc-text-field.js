@@ -324,6 +324,7 @@ export default {
       this.mdcFoundation.handleInput();
 
       this.internalValue = event.target.value;
+      this.$emit('input', event.target.value);
     },
 
     onInputElBlur() {
