@@ -16,7 +16,10 @@ export default {
     preselected: Boolean,
     primaryText: String,
     secondaryText: String,
-    value: String
+    value: {
+      type: String,
+      default: ""
+    }
   },
 
   computed: {
