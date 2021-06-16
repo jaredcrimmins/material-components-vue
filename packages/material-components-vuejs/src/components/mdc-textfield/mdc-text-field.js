@@ -319,6 +319,7 @@ export default {
 
     onInputElChange(event) {
       this.internalValue = event.target.value;
+      !this.useNativeValidation && this.evaluateRules();
     },
 
     onInputElInput(event) {
@@ -365,6 +366,22 @@ export default {
       }
 
       return evaluationResult;
+    },
+
+    isValid(evaluateRules = true, silent) {
+      let isValid = false;
+
+      isValid = this.mdcFoundation.isValid();
+
+
+      if (this.required) {
+        isValid = !!this.internalValue;
+      }
+      if (!this.useNativeValidation && evaluateRules) {
+        isValid = this.evaluateRules(silent);
+      }
+
+      return isValid;
     },
 
     //
