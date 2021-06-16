@@ -135,6 +135,10 @@
     },
 
     watch: {
+      disabled(value) {
+        this.mdcFoundation.setDisabled(value);
+      },
+
       required(value) {
         this.mdcFoundation.setRequired(value);
       },
