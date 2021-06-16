@@ -4,6 +4,14 @@ import {emitCustomEvent} from "./../../utils";
 
 const {cssClasses, strings} = MDCListFoundation;
 
+Object.assign(cssClasses, {
+  LIST_TWO_LINE_CLASS: "mdc-list--two-line"
+});
+Object.assign(strings, {
+  LIST_ITEM_SELECTOR: `.${cssClasses.LIST_ITEM_CLASS}`,
+  LIST_ITEM_PRIMARY_TEXT_SELECTOR: `.${cssClasses.LIST_ITEM_PRIMARY_TEXT_CLASS}`
+});
+
 export default {
   name: "mdc-list",
 
