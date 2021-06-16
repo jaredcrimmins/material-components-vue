@@ -101,6 +101,17 @@ export default {
     init() {
       this.mdcFoundation = new MDCListFoundation(this);
       this.mdcFoundation.init();
+      this.mdcFoundation.setHasTypeahead(this.hasTypeahead);
+      this.mdcFoundation.setSingleSelection(this.singleSelection);
+      this.mdcFoundation.setSelectedIndex(this.selectedIndex);
+      Object.assign(cssClasses, {
+        LIST_TWO_LINE_CLASS: "mdc-list--two-line"
+      });
+      Object.assign(strings, {
+        LIST_ITEM_SELECTOR: `.${cssClasses.LIST_ITEM_CLASS}`,
+        LIST_ITEM_PRIMARY_TEXT_SELECTOR: `.${cssClasses.LIST_ITEM_PRIMARY_TEXT_CLASS}`
+      }); this.mdcFoundation.setVerticalOrientation(this.vertical);
+      this.mdcFoundation.setWrapFocus(this.wrapFocus);
 
       domObserver = new MutationObserver(this.getListItemElements);
       domObserver.observe(this.$el, {childList: true});
