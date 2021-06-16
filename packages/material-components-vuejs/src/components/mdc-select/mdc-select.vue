@@ -143,7 +143,7 @@
       },
 
       refreshIndex() {
-        let menuItemValues = this.getMenuItemValues();
+        const menuItemValues = this.getMenuItemValues();
 
         this.mdcFoundation.setSelectedIndex(menuItemValues.indexOf(this.value));
       },
