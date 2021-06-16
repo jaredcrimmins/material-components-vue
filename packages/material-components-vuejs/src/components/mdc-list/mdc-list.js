@@ -124,8 +124,8 @@ export default {
       this.domObserver.disconnect();
     },
 
-    getListItemEls() {
-      return Array.from(this.$el.querySelectorAll(".mdc-list-item"));
+    initTabindex() {
+      this.setAttributeForElementIndex(0, "tabindex", "0");
     },
 
     getListItemEls() {
