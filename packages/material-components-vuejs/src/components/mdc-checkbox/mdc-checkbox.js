@@ -157,7 +157,7 @@ export default {
     },
 
     isAttachedToDOM() {
-      return (this.$el.parentNode);
+      return !!this.$el.parentNode;
     },
 
     isIndeterminate: () => this.indeterminate,
