@@ -47,6 +47,12 @@ export default {
     }
   },
 
+  provide() {
+    return {
+      twoLine: this.twoLine
+    };
+  },
+
   mounted() {
     this.init();
   },
