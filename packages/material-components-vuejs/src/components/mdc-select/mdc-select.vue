@@ -100,6 +100,7 @@
       label: String,
       items: Array,
       outlined: Boolean,
+      required: Boolean,
       value: String
     },
 
@@ -125,6 +126,10 @@
     },
 
     watch: {
+      required(value) {
+        this.mdcFoundation.setRequired(value);
+      },
+
       value(value) {
         if(this.mdcFoundation) this.mdcFoundation.setValue(value);
       }
