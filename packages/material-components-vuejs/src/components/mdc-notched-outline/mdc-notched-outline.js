@@ -107,8 +107,10 @@ export default {
     },
 
     getLabelWidth() {
-      if(this.$refs.floatingLabel) {
-        return this.$refs.floatingLabel.getWidth();
+      const floatingLabel = this.$refs.floatingLabel;
+
+      if(floatingLabel) {
+        return floatingLabel.getWidth();
       }
     },
 
