@@ -83,6 +83,11 @@ export default {
             disabled: this.disabled,
             "data-indeterminate": this.indeterminate ? "true" : "false",
             value: this.value
+          },
+          on: {
+            "change": () => {
+              this.onNativeControlElChange();
+            }
           }
         }
       );
@@ -124,6 +129,12 @@ export default {
           )
         ]
       );
+    },
+
+    onNativeControlElChange() {
+      if(!this.indeterminate) this.checked = !this.checked;
+
+      this.mdcFoundation.handleChange();
     },
 
     // Adapter methods
