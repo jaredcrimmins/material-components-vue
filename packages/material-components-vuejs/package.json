@@ -52,7 +52,7 @@
   "peerDependencies": {
     "material-components-web": "^7.0.0"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "url": "https://source.cloud.google.com/p/eodm-productions-website/r/material-components-vuejs",
     "directory": "/packages/material-components-vuejs"
