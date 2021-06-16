@@ -462,11 +462,9 @@ export default {
       this.setLabelRequired_(value);
     },
 
-          break;
-        }
-      }
-    }
-  },
+    useNativeValidation(value) {
+      this.mdcFoundation.setUseNativeValidation(value);
+    },
 
     valid() {
       this.mdcFoundation.setValid(this.valid);
