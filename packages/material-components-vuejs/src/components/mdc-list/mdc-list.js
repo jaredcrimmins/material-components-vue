@@ -21,7 +21,11 @@ export default {
     selectedIndex: Number,
     singleSelection: Boolean,
     twoLine: Boolean,
-    wrapFocus: Boolean
+    wrapFocus: Boolean,
+    vertical: {
+      type: Boolean,
+      default: true
+    }
   },
 
   data() {
@@ -58,6 +62,10 @@ export default {
 
     twoLine(value) {
       this.mdcFoundation.setTwoLine(value);
+    },
+
+    vertical(value) {
+      this.mdcFoundation.setVerticalOrientation(value);
     }
   },
 
