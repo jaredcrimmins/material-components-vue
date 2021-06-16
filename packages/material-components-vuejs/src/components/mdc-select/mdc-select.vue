@@ -96,10 +96,7 @@
     },
 
     props: {
-      disabled: {
-        default: false,
-        type: Boolean
-      },
+      disabled: Boolean,
       filled: Boolean,
       label: String,
       items: Array,
