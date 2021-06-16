@@ -79,6 +79,7 @@ export default {
           staticClass: cssClasses.NATIVE_CONTROL,
           attrs: {
             type: "checkbox",
+            checked: this.checked,
             disabled: this.disabled,
             "data-indeterminate": this.indeterminate ? "true" : "false"
           }
