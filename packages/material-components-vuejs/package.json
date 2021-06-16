@@ -59,5 +59,8 @@
   },
   "sideEffects": [
     "dev/*"
-  ]
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  }
 }
