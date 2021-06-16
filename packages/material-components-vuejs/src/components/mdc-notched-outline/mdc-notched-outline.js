@@ -1,11 +1,11 @@
-import {MDCFloatingLabel} from "./../mdc-floating-label";
-import {MDCNotchedOutlineFoundation} from "@material/notched-outline";
+import {MDCFloatingLabel} from './../mdc-floating-label';
+import {MDCNotchedOutlineFoundation} from '@material/notched-outline';
 
 export default {
-  name: "mdc-notched-outline",
+  name: 'mdc-notched-outline',
 
   components: {
-    "mdc-floating-label": MDCFloatingLabel
+    'mdc-floating-label': MDCFloatingLabel
   },
   
   props: {
@@ -32,25 +32,25 @@ export default {
   
   render(c) {
     return c(
-      "div",
+      'div',
       {
-        staticClass: "mdc-notched-outline mdc-notched-outline--upgraded",
+        staticClass: 'mdc-notched-outline mdc-notched-outline--upgraded',
         class: {
-          "mdc-notched-outline--no-label": !this.label
+          'mdc-notched-outline--no-label': !this.label
         }
       },
       [
         c(
-          "div",
+          'div',
           {
-            staticClass: "mdc-notched-outline__leading"
+            staticClass: 'mdc-notched-outline__leading'
           }
         ),
         this.genNotch(c),
         c(
-          "div",
+          'div',
           {
-            staticClass: "mdc-notched-outline__trailing"
+            staticClass: 'mdc-notched-outline__trailing'
           }
         )
       ]
@@ -76,10 +76,10 @@ export default {
     genNotch(c) {
       if(this.label) {
         return c(
-          "div",
+          'div',
           {
-            ref: "notchEl",
-            staticClass: "mdc-notched-outline__notch"
+            ref: 'notchEl',
+            staticClass: 'mdc-notched-outline__notch'
           },
           [
             this.genFloatingLabel(c)
@@ -90,9 +90,9 @@ export default {
 
     genFloatingLabel(c) {
       return c(
-        "mdc-floating-label",
+        'mdc-floating-label',
         {
-          ref: "floatingLabel",
+          ref: 'floatingLabel',
           props: {
             content: this.label,
             float: this.floatLabel,
@@ -121,7 +121,7 @@ export default {
       const notchEl = this.$refs.notchEl;
 
       if(notchEl) {
-        notchEl.style.setProperty("width", width + "px");
+        notchEl.style.setProperty('width', width + 'px');
       }
     },
 
@@ -129,7 +129,7 @@ export default {
       const notchEl = this.$refs.notchEl;
 
       if(notchEl) {
-        notchEl.style.removeProperty("width");
+        notchEl.style.removeProperty('width');
       }
     }
   }
