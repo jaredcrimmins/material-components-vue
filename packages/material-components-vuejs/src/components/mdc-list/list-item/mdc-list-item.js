@@ -61,13 +61,13 @@ export default {
           "data-value": this.value,
           role: this.roleAttr
         },
-        staticClass: "mdc-list-item"
+        staticClass: "mdc-deprecated-list-item"
       },
       [
         c(
           "span",
           {
-            staticClass: "mdc-list-item__ripple"
+            staticClass: "mdc-deprecated-list-item__ripple"
           }
         ),
         this.genGraphic(c),
@@ -104,7 +104,7 @@ export default {
         return c(
           "span",
           {
-            staticClass: "mdc-list-item__graphic",
+            staticClass: "mdc-deprecated-list-item__graphic",
             class: {
               "mdc-menu__selection-group-icon": this.menuSelectionGroup
             }
@@ -121,7 +121,7 @@ export default {
         return c(
           "label",
           {
-            staticClass: "mdc-list-item__text"
+            staticClass: "mdc-deprecated-list-item__text"
           },
           this.$slots.default
         );
@@ -130,20 +130,20 @@ export default {
         return c(
           "span",
           {
-            staticClass: "mdc-list-item__text"
+            staticClass: "mdc-deprecated-list-item__text"
           },
           [
             c(
               "span",
               {
-                staticClass: "mdc-list-item__primary-text"
+                staticClass: "mdc-deprecated-list-item__primary-text"
               },
               this.primaryText
             ),
             c(
               "span",
               {
-                staticClass: "mdc-list-item__secondary-text"
+                staticClass: "mdc-deprecated-list-item__secondary-text"
               },
               this.secondaryText
             )
