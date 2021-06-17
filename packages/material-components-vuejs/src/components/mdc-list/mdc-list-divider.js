@@ -5,7 +5,7 @@ export default {
     return c(
       "li",
       {
-        staticClass: "mdc-list-divider",
+        staticClass: "mdc-deprecated-list-divider",
         attrs: {
           role: "seperator"
         }
