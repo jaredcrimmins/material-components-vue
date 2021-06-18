@@ -1,7 +1,7 @@
 import {cssClasses} from "@material/menu";
 
 export default {
-  name: "mdc-selection-group",
+  name: "mdc-menu-selection-group",
 
   props: {
     icon: {
