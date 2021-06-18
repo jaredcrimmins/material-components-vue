@@ -1,5 +1,6 @@
 import {MDCMenuFoundation} from "@material/menu";
 import {MDCList, MDCMenuSurface} from "./../";
+import {absolutelyPositionable} from "../../mixins";
 import {closest} from "@material/dom/ponyfill";
 import {emitCustomEvent} from '../../utils';
 
@@ -11,6 +12,8 @@ Object.assign(strings, {
 
 export default {
   name: "mdc-menu",
+
+  mixins: [absolutelyPositionable],
 
   components: {
     "mdc-list": MDCList,
@@ -31,8 +34,8 @@ export default {
     fixedPosition: Boolean,
     fullWidth: Boolean,
     hasTypeahead: Boolean,
+    hoisted: Boolean,
     quickOpen: Boolean,
-    singleSelection: Boolean,
     twoLine: Boolean,
     value: {
       default: false,
@@ -69,9 +72,12 @@ export default {
         ref: "menuSurface",
         staticClass: "mdc-menu",
         props: {
+          absolutePosition: this.absolutePosition,
           anchorCorner: this.anchorCorner,
           anchorElement: this.anchorElement,
+          fixedPosition: this.fixedPosition,
           fullWidth: this.fullWidth,
+          hoisted: this.hoisted,
           quickOpen: this.quickOpen,
           value: this.open
         },
@@ -106,7 +112,6 @@ export default {
             props: {
               hasTypeahead: this.hasTypeahead,
               twoLine: this.twoLine,
-              singleSelection: this.singleSelection,
               wrapFocus: this.wrapFocus
             },
             nativeOn: {
@@ -123,17 +128,17 @@ export default {
 
   watch: {
     defaultFocusState(value) {
-      this.mdcFoundation.setDefaultFocusState(value);
+      this.setDefaultFocusState(value);
     },
 
-    open() {
-      if(this.open !== this.value) {
-        this.$emit("input", this.open);
+    open(value) {
+      if (value !== this.value) {
+        this.$emit("input", value);
       }
     },
 
-    value() {
-      this.open = this.value;
+    value(value) {
+      this.open = value;
     }
   },
 
@@ -145,7 +150,7 @@ export default {
     init() {
       this.mdcFoundation = new MDCMenuFoundation(this);
       this.mdcFoundation.init();
-      this.mdcFoundation.setDefaultFocusState(this.defaultFocusState);
+      this.setDefaultFocusState(this.defaultFocusState);
     },
 
     deinit() {
@@ -154,6 +159,10 @@ export default {
 
     getMenuItemElements() {
       return this.$refs.list.getListItemElements();
+    },
+
+    setDefaultFocusState(focusState) {
+      this.mdcFoundation.setDefaultFocusState(focusState);
     },
 
     onMDCMenuSurfaceClosed() {
@@ -181,6 +190,20 @@ export default {
 
     isTypeaheadInProgress() {
       return this.$refs.list.isTypeaheadInProgress();
+    },
+
+    setEnabled(index, isEnabled) {
+      this.mdcFoundation.setEnabled(index, isEnabled);
+    },
+
+    getSelectedIndex() {
+      const selectedItemEl = this.$el.querySelector(`.${cssClasses.MENU_SELECTED_LIST_ITEM}`);
+
+      return this.getMenuItemElements().indexOf(selectedItemEl);
+    },
+
+    setSelectedIndex(index) {
+      this.mdcFoundation.setSelectedIndex(index);
     },
 
     typeaheadMatchItem(nextChar) {
@@ -254,7 +277,7 @@ export default {
     },
 
     isSelectableItemAtIndex(index) {
-      return closest(this.getMenuItemElements()[index], strings.MENU_SELECTION_GROUP_SELECTOR) ? true : false;
+      return !!closest(this.getMenuItemElements()[index], strings.MENU_SELECTION_GROUP_SELECTOR);
     }
   }
 }
