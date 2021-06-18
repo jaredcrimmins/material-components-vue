@@ -13,8 +13,9 @@
 </template>
 
 <script>
-  import {MDCMenuSurfaceFoundation, util} from "@material/menu-surface";
+  import {MDCMenuSurfaceFoundation} from "@material/menu-surface";
   import {emitCustomEvent} from "./../../utils";
+  import {getCorrectPropertyName} from "@material/animation/util";
 
   const {cssClasses, strings} = MDCMenuSurfaceFoundation;
 
@@ -36,10 +37,7 @@
           return ["string", "object"].includes(typeof value);
         }
       },
-      fixed: {
-        default: false,
-        type: Boolean
-      },
+      fixedPosition: Boolean,
       fullWidth: Boolean,
       hoisted: Boolean,
       quickOpen: Boolean,
@@ -69,12 +67,12 @@
     },
 
     watch: {
-      absolutePosition() {
-        this.setAbsolutePosition(this.absolutePosition.x, this.absolutePosition.y);
+      absolutePosition(value) {
+        this.setAbsolutePosition(value.x, value.y);
       },
 
-      anchorCorner() {
-        this.mdcFoundation.setAnchorCorner(this.anchorCorner);
+      anchorCorner(value) {
+        this.setAnchorCorner(value);
       },
 
       anchorElement() {
@@ -83,28 +81,28 @@
         }
       },
 
-      fixed(value) {
+      fixedPosition(value) {
         this.setFixedPosition(value);
       },
 
-      hoisted() {
-        this.setIsHoisted();
+      hoisted(value) {
+        this.setIsHoisted(value);
       },
 
       quickOpen(value) {
-        this.mdcFoundation.setQuickOpen(value);
+        this.setQuickOpen(value);
       },
 
-      open() {
-        this.open ? this.mdcFoundation.open() : this.mdcFoundation.close();
+      open(value) {
+        value ? this.mdcFoundation.open() : this.mdcFoundation.close();
 
-        if(this.value !== this.open) {
-          this.$emit("input", this.open);
+        if(this.value !== value) {
+          this.$emit("input", value);
         }
       },
 
-      value() {
-        this.open = this.value;
+      value(value) {
+        this.open = value;
       }
     },
 
@@ -117,9 +115,9 @@
         this.getAnchorElement();
         this.mdcFoundation = new MDCMenuSurfaceFoundation(this);
         this.mdcFoundation.init();
-        this.setFixedPosition(this.fixed);
-        this.setIsHoisted();
-        this.mdcFoundation.setQuickOpen(this.quickOpen);
+        this.setFixedPosition(this.fixedPosition);
+        this.setIsHoisted(this.hoisted);
+        this.setQuickOpen(this.quickOpen);
         this.initListeners();
       },
 
@@ -160,20 +158,24 @@
         this.open ? this.mdcFoundation.open() : this.mdcFoundation.close();
       },
 
-      setAnchorCorner(Corner) {
-        this.mdcFoundation.setAnchorCorner(Corner);
+      setAbsolutePosition(x, y) {
+        this.mdcFoundation.setAbsolutePosition(x, y);
+      },
+
+      setAnchorCorner(corner) {
+        this.mdcFoundation.setAnchorCorner(corner);
       },
 
       setFixedPosition(isFixed) {
         this.mdcFoundation.setFixedPosition(isFixed);
       },
 
-      setAbsolutePosition(x, y) {
-        this.mdcFoundation.setAbsolutePosition(x, y);
+      setIsHoisted(isHoisted) {
+        this.mdcFoundation.setIsHoisted(isHoisted);
       },
 
-      setIsHoisted() {
-        this.mdcFoundation.setIsHoisted(this.hoisted);
+      setQuickOpen(quickOpen) {
+        this.mdcFoundation.setQuickOpen(quickOpen);
       },
 
       onBodyClick(event) {
@@ -239,7 +241,7 @@
       },
 
       setTransformOrigin(value) {
-        let propertyName = `${util.getTransformPropertyName(window)}-origin`;
+        let propertyName = `${getCorrectPropertyName(window, "transform")}-origin`;
 
         this.$el.style.setProperty(propertyName, value);
       },
@@ -271,17 +273,17 @@
         return this.anchorElement_ ? this.anchorElement_.getBoundingClientRect() : null;
       },
 
-      getWindowDimensions() {
-        return {
-          width: window.innerWidth,
-          height: window.innerHeight
-        };
-      },
-
       getBodyDimensions() {
         return {
           width: document.body.clientWidth,
           height: document.body.clientHeight
+        };
+      },
+
+      getWindowDimensions() {
+        return {
+          width: window.innerWidth,
+          height: window.innerHeight
         };
       },
 
