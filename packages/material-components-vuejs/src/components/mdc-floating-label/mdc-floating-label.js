@@ -36,6 +36,20 @@ export default {
     this.deinit();
   },
 
+  watch: {
+    float(value) {
+      this.setFloat(value);
+    },
+
+    shake(value) {
+      this.setShake(value);
+    },
+
+    required(value) {
+      this.setRequired(value);
+    }
+  },
+
   render(c) {
     return c(
       'label',
@@ -95,20 +109,6 @@ export default {
 
     registerInteractionHandler(evtType, handler) {
       this.$el.addEventListener(evtType, handler);
-    }
-  },
-
-  watch: {
-    float(value) {
-      this.setFloat(value);
-    },
-
-    shake(value) {
-      this.setShake(value);
-    },
-
-    required(value) {
-      this.setRequired(value);
     }
   }
 }
