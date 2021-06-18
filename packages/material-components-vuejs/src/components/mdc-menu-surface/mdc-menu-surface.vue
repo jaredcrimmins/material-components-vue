@@ -15,6 +15,7 @@
 <script>
   import {MDCMenuSurfaceFoundation} from "@material/menu-surface";
   import {emitCustomEvent} from "./../../utils";
+  import {absolutelyPositionable} from "../../mixins";
   import {getCorrectPropertyName} from "@material/animation/util";
 
   const {cssClasses, strings} = MDCMenuSurfaceFoundation;
@@ -22,15 +23,9 @@
   export default {
     name: "mdc-menu-surface",
 
-    props: {
-      absolutePosition: {
-        type: Object,
-        validator: value => {
-          if(typeof value.x === "number" && typeof value.y === "number") return true;
+    mixins: [absolutelyPositionable],
 
-          return false;
-        }
-      },
+    props: {
       anchorCorner: Number,
       anchorElement: {
         validator: value => {
