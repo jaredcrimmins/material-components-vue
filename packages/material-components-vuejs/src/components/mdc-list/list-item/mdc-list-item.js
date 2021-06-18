@@ -6,7 +6,7 @@ export default {
 
   components: {
     "mdc-checkbox": MDCCheckbox,
-    "material-icon": MDCMaterialIcon,
+    "mdc-material-icon": MDCMaterialIcon,
     "mdc-radio": MDCRadio
   },
 
@@ -25,10 +25,6 @@ export default {
   computed: {
     checkbox() {
       return !!this.$slots.checkbox;
-    },
-
-    graphic() {
-      return !!this.slots.radio;
     },
 
     radio() {
@@ -87,11 +83,14 @@ export default {
       if(this.menuSelectionGroup) {
         if(this.$slots.graphic) graphic = this.$slots.graphic;
         else {
-          graphic = c("material-icon", {
-            props: {
-              icon: this.menuSelectionGroupIcon
-            }
-          });
+          graphic = c(
+            "mdc-material-icon", {
+              props: {
+                icon: this.menuSelectionGroupIcon
+              }
+            },
+            this.menuSelectionGroupIcon
+          );
         }
       }
       else {
