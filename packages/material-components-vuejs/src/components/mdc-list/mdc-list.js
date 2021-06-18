@@ -148,7 +148,7 @@ export default {
       this.mdcFoundation.setWrapFocus(this.wrapFocus);
 
       this.initTabindex();
-      this.domObserver = new MutationObserver(this.getListItemEls);
+      this.domObserver = new MutationObserver(this.getListItemElements);
       this.domObserver.observe(this.$el, {childList: true});
     },
 
@@ -159,10 +159,6 @@ export default {
 
     initTabindex() {
       this.setAttributeForElementIndex(0, "tabindex", "0");
-    },
-
-    getListItemEls() {
-      return Array.from(this.$el.querySelectorAll(strings.LIST_ITEM_SELECTOR));
     },
 
     /*
@@ -177,7 +173,7 @@ export default {
             this.classNameMap[cssClasses.ROOT]}`);
 
       if(nearestParent && matches(nearestParent , strings.LIST_ITEM_SELECTOR)) {
-        return this.getListItemEls().indexOf(nearestParent);
+        return this.getListItemElements().indexOf(nearestParent);
       }
 
       return -1;
@@ -218,7 +214,7 @@ export default {
     //
 
     getListItemElements() {
-      return this.getListItemEls();
+      return Array.from(this.$el.querySelectorAll(strings.LIST_ITEM_SELECTOR));
     },
 
     isTypeaheadInProgress() {
@@ -234,15 +230,15 @@ export default {
     //
 
     getListItemCount() {
-      return this.getListItemEls().length;
+      return this.getListItemElements().length;
     },
 
     getFocusedElementIndex() {
-      return this.getListItemEls().indexOf(document.activeElement);
+      return this.getListItemElements().indexOf(document.activeElement);
     },
 
     setAttributeForElementIndex(index, attribute, value) {
-      let element = this.getListItemEls()[index];
+      let element = this.getListItemElements()[index];
 
       if(element) {
         element.setAttribute(attribute, value);
@@ -250,7 +246,7 @@ export default {
     },
     
     addClassForElementIndex(index, className) {
-      let element = this.getListItemEls()[index];
+      let element = this.getListItemElements()[index];
 
       if(element) {
         element.classList.add(className);
@@ -258,7 +254,7 @@ export default {
     },
 
     removeClassForElementIndex(index, className) {
-      let element = this.getListItemEls()[index];
+      let element = this.getListItemElements()[index];
 
       if(element) {
         element.classList.remove(className);
@@ -266,7 +262,7 @@ export default {
     },
 
     focusItemAtIndex(index) {
-      let element = this.getListItemEls()[index];
+      let element = this.getListItemElements()[index];
 
       if(element) {
         element.focus();
@@ -274,7 +270,7 @@ export default {
     },
 
     setTabIndexForListItemChildren(listItemIndex, tabIndexValue) {
-      const element = this.getListItemEls()[listItemIndex];
+      const element = this.getListItemElements()[listItemIndex];
       const listItemChildren = [].slice.call(element.querySelectorAll(
         strings.CHILD_ELEMENTS_TO_TOGGLE_TABINDEX
       ));
@@ -286,26 +282,26 @@ export default {
     },
 
     hasRadioAtIndex(index) {
-      const listItemEl = this.getListItemEls()[index];
+      const listItemEl = this.getListItemElements()[index];
 
       return !!listItemEl.querySelector(strings.RADIO_SELECTOR);
     },
 
     hasCheckboxAtIndex(index) {
-      const listItemEl = this.getListItemEls()[index];
+      const listItemEl = this.getListItemElements()[index];
 
       return !!listItemEl.querySelector(strings.CHECKBOX_SELECTOR);
     },
 
     isCheckboxCheckedAtIndex(index) {
-      const listItemEl = this.getListItemEls()[index];
+      const listItemEl = this.getListItemElements()[index];
       const toggleEl = listItemEl.querySelector(strings.CHECKBOX_SELECTOR);
 
       return toggleEl.checked;
     },
 
     setCheckedCheckboxOrRadioAtIndex(index, isChecked) {
-      const listItemEl = this.getListItemEls()[index];
+      const listItemEl = this.getListItemElements()[index];
       const toggleEl = listItemEl.querySelector(strings.CHECKBOX_RADIO_SELECTOR);
 
       toggleEl.checked = isChecked;
@@ -325,14 +321,14 @@ export default {
     },
 
     listItemAtIndexHasClass(index, className) {
-      const element = this.getListItemEls()[index];
+      const element = this.getListItemElements()[index];
 
       if(element) return element.classList.contains(className);
       return false;
     },
 
     getPrimaryTextAtIndex(index) {
-      const listItemElement = this.getListItemEls()[index];
+      const listItemElement = this.getListItemElements()[index];
       let primaryTextElement = null;
 
       if(listItemElement) {
