@@ -69,6 +69,10 @@ export default {
       this.$el.classList.add(className);
     },
 
+    removeClass(className) {
+      this.$el.classList.remove(className);
+    },
+
     deregisterInteractionHandler(evtType, handler) {
       this.$el.removeEventListener(evtType, handler);
     },
@@ -79,10 +83,6 @@ export default {
 
     registerInteractionHandler(evtType, handler) {
       this.$el.addEventListener(evtType, handler);
-    },
-
-    removeClass(className) {
-      this.$el.classList.remove(className);
     }
   },
 
