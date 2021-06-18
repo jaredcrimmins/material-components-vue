@@ -34,7 +34,9 @@
         :content="label"
         :float="floatingLabelFloat"
       ></mdc-floating-label>
-      <span class="mdc-select__selected-text">{{ selectedText }}</span>
+      <span class="mdc-select__selected-text-container">
+        <span class="mdc-select__selected-text">{{selectedText}}</span>
+      </span>
       <span class="mdc-select__dropdown-icon">
         <svg
           class="mdc-select__dropdown-icon-graphic"
@@ -67,20 +69,23 @@
       :anchorCorner="menuAnchorCorner"
       fullWidth
       :hasTypeahead="hasTypeahead"
+      :selectedIndex="selectedIndex"
       :wrapFocus="menuWrapFocus"
       v-on:select="onMenuSelected"
       v-on:MDCMenuSurface:opened="onMDCMenuSurfaceOpened"
       v-on:MDCMenuSurface:closed="onMDCMenuSurfaceClosed"
       v-model="menuOpen"
     >
-      <mdc-menu-item
-        ref="menuItems"
-        v-for="(item, index) in items"
-        :key="index"
-        :value="item.value"
-      >
-        {{ item.text }}
-      </mdc-menu-item>
+      <mdc-menu-selection-group icon="">
+        <mdc-menu-item
+          ref="menuItems"
+          v-for="(item, index) in items"
+          :key="index"
+          :value="item.value"
+        >
+          {{ item.text }}
+        </mdc-menu-item>
+      </mdc-menu-selection-group>
     </mdc-menu>
   </div>
 </template>
@@ -113,6 +118,7 @@
       label: String,
       outlined: Boolean,
       required: Boolean,
+      selectedIndex: Number,
       value: String
     },
 
@@ -137,17 +143,25 @@
       this.init();
     },
 
+    beforeDestroy() {
+      this.deinit();
+    },
+
     watch: {
       disabled(value) {
-        this.mdcFoundation.setDisabled(value);
+        this.setDisabled_(value);
       },
 
       required(value) {
-        this.mdcFoundation.setRequired(value);
+        this.setRequired(value);
+      },
+
+      selectedIndex(value) {
+        this.setSelectedIndex(value);
       },
 
       value(value) {
-        if(this.mdcFoundation) this.mdcFoundation.setValue(value);
+        this.setValue(value);
       }
     },
 
@@ -159,17 +173,33 @@
       init() {
         this.mdcFoundation = new MDCSelectFoundation(this);
         this.mdcFoundation.init();
-        this.mdcFoundation.setDisabled(this.disabled);
-        this.mdcFoundation.setRequired(this.required);
-        this.mdcFoundation.setValue(this.value);
+        this.setDisabled_(this.disabled);
+        this.setRequired(this.required);
+        this.setValue(this.value);
 
         this.menuAnchorElement = this.getAnchorElement();
+      },
+
+      deinit() {
+        this.mdcFoundation.destroy();
+      },
+
+      setDisabled_(isDisabled) {
+        this.mdcFoundation.setDisabled(isDisabled);
+      },
+
+      setRequired(value) {
+        this.mdcFoundation.setRequired(value);
+      },
+
+      setValue(value) {
+        value && this.mdcFoundation.setValue(value);
       },
 
       refreshIndex() {
         const menuItemValues = this.getMenuItemValues();
 
-        this.mdcFoundation.setSelectedIndex(menuItemValues.indexOf(this.value));
+        this.setSelectedIndex(menuItemValues.indexOf(this.value));
       },
 
       onBlur() {
@@ -201,6 +231,21 @@
       },
 
       //
+      // Private/adapter methods
+      //
+
+      getMenuItemValues() {
+        return this.$refs.menuItems
+        .map(listItem => {
+          return listItem.$el.getAttribute("data-value") || "";
+        });
+      },
+
+      setSelectedIndex(index) {
+        this.$refs.menu.setSelectedIndex(index);
+      },
+
+      //
       // Adapter methods
       //
 
@@ -225,7 +270,7 @@
       },
 
       getSelectedMenuItem() {
-        return this.$refs.menu.$el.querySelector(".mdc-list-item--selected");
+        return this.$refs.menu.$el.querySelector(".mdc-deprecated-list-item--selected");
       },
 
       hasLabel() {
@@ -237,7 +282,9 @@
       },
 
       getLabelWidth() {
-        return estimateScrollWidth(this.$refs.floatingLabel.$el);
+        const floatingLabelEl = this.$el.querySelector('.mdc-floating-label');
+
+        return estimateScrollWidth(floatingLabelEl);
       },
 
       hasOutline() {
@@ -318,13 +365,6 @@
         this.$refs.menu.focusItemAtIndex(index);
       },
 
-      getMenuItemValues() {
-        return this.$refs.menuItems
-        .map(listItem => {
-          return listItem.$el.getAttribute("data-value") || "";
-        });
-      },
-
       getMenuItemCount() {
         return this.items.length;
       },
@@ -356,8 +396,8 @@
         this.$refs.menuItems[index].$el.classList.remove(className);
       },
 
-      setSelectedIndex(index) {
-        this.$refs.menu.mdcFoundation.setSelectedIndex(index);
+      getSelectedIndex() {
+        return this.$refs.menu.getSelectedIndex();
       },
 
       isTypeaheadInProgress() {
