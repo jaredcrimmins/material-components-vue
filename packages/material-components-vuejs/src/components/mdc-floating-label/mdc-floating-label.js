@@ -15,6 +15,7 @@ export default {
       default: false,
       type: Boolean
     },
+    id: String,
     shake: {
       default: false,
       type: Boolean
@@ -56,7 +57,10 @@ export default {
     return c(
       'label',
       {
-        staticClass: cssClasses.ROOT
+        staticClass: cssClasses.ROOT,
+        attrs: {
+          id: this.id
+        }
       },
       this.content
     );
