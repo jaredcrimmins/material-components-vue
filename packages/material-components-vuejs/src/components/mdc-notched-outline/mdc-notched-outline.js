@@ -11,6 +11,7 @@ export default {
   props: {
     floatLabel: Boolean,
     label: String,
+    labelID: String,
     labelRequired: Boolean,
     notched: Boolean,
     notchWidth: Number,
@@ -105,6 +106,7 @@ export default {
           props: {
             content: this.label,
             float: this.floatLabel,
+            id: this.labelID,
             required: this.labelRequired,
             shake: this.shakeLabel
           }
