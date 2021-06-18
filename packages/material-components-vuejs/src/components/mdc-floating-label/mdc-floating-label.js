@@ -61,6 +61,18 @@ export default {
       this.mdcFoundation.destroy();
     },
 
+    setFloat(shouldFloat) {
+      this.mdcFoundation.float(shouldFloat);
+    },
+
+    setRequired(isRequired) {
+      this.mdcFoundation.setRequired(isRequired);
+    },
+
+    setShake(shouldShake) {
+      this.mdcFoundation.shake(shouldShake);
+    },
+
     //
     // Adapter methods
     //
@@ -88,15 +100,15 @@ export default {
 
   watch: {
     float(value) {
-      this.mdcFoundation.float(value);
+      this.setFloat(value);
     },
 
     shake(value) {
-      this.mdcFoundation.shake(value);
+      this.setShake(value);
     },
 
     required(value) {
-      this.mdcFoundation.setRequired(value);
+      this.setRequired(value);
     }
   }
 }
