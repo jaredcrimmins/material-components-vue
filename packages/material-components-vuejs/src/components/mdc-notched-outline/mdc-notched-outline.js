@@ -1,5 +1,5 @@
 import {MDCFloatingLabel} from './../mdc-floating-label';
-import {MDCNotchedOutlineFoundation} from '@material/notched-outline';
+import {MDCNotchedOutlineFoundation, cssClasses} from '@material/notched-outline';
 
 export default {
   name: 'mdc-notched-outline',
@@ -37,7 +37,7 @@ export default {
     return c(
       'div',
       {
-        staticClass: 'mdc-notched-outline mdc-notched-outline--upgraded',
+        staticClass: 'mdc-notched-outline',
         class: {
           'mdc-notched-outline--no-label': !this.label
         }
@@ -74,6 +74,8 @@ export default {
     init() {
       this.mdcFoundation = new MDCNotchedOutlineFoundation(this);
       this.mdcFoundation.init();
+
+      this.$el.classList.add(cssClasses.OUTLINE_UPGRADED);
     },
 
     deinit() {
