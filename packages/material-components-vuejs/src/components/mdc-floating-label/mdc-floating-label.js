@@ -4,6 +4,8 @@ import {estimateScrollWidth} from '@material/dom/ponyfill';
 export default {
   name: 'mdc-floating-label',
 
+  inheritAttrs: true,
+
   props: {
     content: {
       default: '',
