@@ -2,8 +2,13 @@
   <div>
     <h2 id="mdc-dialog">MDCDialog</h2>
 
-    <button v-on:click="onToggleButtonClick">Open Dialog</button>
-    <mdc-dialog v-model="open">
+    <h3>Variants</h3>
+
+    <h4>Confirmation</h4>
+
+    <button v-on:click="onConfirmationToggleButtonClick">Open Dialog</button>
+
+    <mdc-dialog v-model="confirmationOpen">
       <mdc-dialog-title>Title</mdc-dialog-title>
       <form v-on:submit="onSubmit">
         <mdc-dialog-content>
@@ -42,39 +47,6 @@
           >Confirm</mdc-dialog-button>
         </mdc-dialog-actions>
       </form>
-      <!-- <template v-slot:content>
-        After you save, this demo will reset!
-        <form v-on:submit="onSubmit">
-          <mdc-text-field
-            ref="firstNameTextField"
-            label="First name"
-            :rules="[isValidFirstName]"
-            outlined
-            required
-            useNativeValidation
-          ></mdc-text-field>
-          <mdc-text-field
-            label="Last name"
-            outlined
-            required
-            useNativeValidation
-          ></mdc-text-field>
-          <mdc-text-field
-            ref="emailTextField"
-            label="Email"
-            :rules="[isEmail]"
-            pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$"
-            outlined
-            required
-            :requiredAsterisk="false"
-            useNativeValidation
-          ></mdc-text-field>
-          <button v-on:click="onTestClick">Test</button>
-        </form>
-      </template>
-      <template v-slot:actions>
-        <mdc-dialog-button action="confirm" disabled>Confirm</mdc-dialog-button>
-      </template> -->
     </mdc-dialog>
   </div>
 </template>
@@ -85,26 +57,24 @@
 
     data() {
       return {
-        open: false,
+        confirmationOpen: false,
+        emailRegEx: /^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$/i,
         isValidFirstName() {
           return false;
         },
         isEmail(value) {
-          return /^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$/i.test(value) || 'Please enter a valid email address.';
+          return this.emailRegEx.test(value) || 'Please enter a valid email address.';
         }
       };
     },
 
     methods: {
       onSubmit(event) {
-        // const firstNameValidity = this.$refs.firstNameTextField.isValid();
-        // const emailValidity = this.$refs.emailTextField.isValid();
-
         event.preventDefault();
       },
 
-      onToggleButtonClick() {
-        this.open = !this.open;
+      onConfirmationToggleButtonClick() {
+        this.confirmationOpen = !this.confirmationOpen;
       },
 
       onTestClick() {

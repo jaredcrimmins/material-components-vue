@@ -16,7 +16,5 @@
 </script>
 
 <style lang="scss">
-  @use "@material/radio/_index.scss" as radio;
-
-  @include radio.core-styles;
+  @use "@material/radio/mdc-radio";
 </style>
