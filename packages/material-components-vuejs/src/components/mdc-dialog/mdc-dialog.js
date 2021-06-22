@@ -222,7 +222,13 @@ export default {
     },
 
     reverseButtons() {
-
+      const buttons = [].slice.call(
+        this.$el.querySelectorAll(strings.BUTTON_SELECTOR));
+      
+      buttons.reverse();
+      buttons.forEach(button => {
+        button.parentElement.appendChild(button);
+      });
     },
 
     notifyOpening() {
