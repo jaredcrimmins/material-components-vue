@@ -14,7 +14,7 @@
       role="button"
       aria-haspopup="listbox"
       aria-expanded="false"
-      aria-labelledby="demo-label demo-selected-text"
+      :aria-labelledby="ariaLabelledBy"
       v-on:blur="onBlur"
       v-on:click="onClick"
       v-on:focus="onFocus"
@@ -24,6 +24,7 @@
         v-if="outlined === true"
         :floatLabel="floatingLabelFloat"
         :label="label"
+        :labelID="labelID"
         :notched="notchedOutlineNotched"
         :notchWidth="notchedOutlineWidth"
       >
@@ -31,11 +32,12 @@
       <mdc-floating-label
         ref="floatingLabel"
         v-if="!outlined"
+        :id="labelID"
         :content="label"
         :float="floatingLabelFloat"
       ></mdc-floating-label>
       <span class="mdc-select__selected-text-container">
-        <span class="mdc-select__selected-text">{{selectedText}}</span>
+        <span :id="selectedTextID" class="mdc-select__selected-text">{{selectedText}}</span>
       </span>
       <span class="mdc-select__dropdown-icon">
         <svg
@@ -99,6 +101,8 @@
   import {emitCustomEvent} from "./../../utils";
   import {estimateScrollWidth} from "@material/dom/ponyfill";
 
+  let selectID_ = 0;
+
   export default {
     name: "mdc-select",
 
@@ -126,6 +130,7 @@
       return {
         floatingLabelFloat: false,
         isDisabled: this.disabled,
+        labelID: '',
         lineRippleActive: false,
         lineRippleCenter: 0,
         mdcFoundation: new MDCSelectFoundation(MDCSelectFoundation.defaultAdapter),
@@ -135,8 +140,20 @@
         menuWrapFocus: false,
         notchedOutlineNotched: false,
         notchedOutlineWidth: 0,
-        selectedText: ""
+        selectedText: "",
+        selectedTextID: ''
       };
+    },
+
+    computed: {
+      ariaLabelledBy() {
+        return `${this.labelID} ${this.selectedTextID}`;
+      }
+    },
+
+    created() {
+      this.labelID = `__mdc-select-label${selectID_}`;
+      this.selectedTextID = `__mdc-select-selected-text${selectID_}`;
     },
 
     mounted() {
