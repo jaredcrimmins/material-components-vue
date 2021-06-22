@@ -1,4 +1,4 @@
-import {MDCListFoundation, deprecatedClassNameMap, evolutionAttribute, evolutionClassNameMap} from "@material/list";
+import {MDCListFoundation} from "@material/list";
 import {closest, matches} from "@material/dom/ponyfill";
 import {emitCustomEvent} from "./../../utils";
 
@@ -8,14 +8,8 @@ Object.assign(cssClasses, {
   LIST_TWO_LINE_CLASS: "mdc-list--two-line"
 });
 Object.assign(strings, {
-  LIST_ITEM_SELECTOR: `
-    .${cssClasses.LIST_ITEM_CLASS},
-    .${deprecatedClassNameMap[cssClasses.LIST_ITEM_CLASS]}
-  `,
-  LIST_ITEM_PRIMARY_TEXT_SELECTOR: `
-    .${cssClasses.LIST_ITEM_PRIMARY_TEXT_CLASS},
-    .${deprecatedClassNameMap[cssClasses.LIST_ITEM_PRIMARY_TEXT_CLASS]}
-  `
+  LIST_ITEM_SELECTOR: `.${cssClasses.LIST_ITEM_CLASS}`,
+  LIST_ITEM_PRIMARY_TEXT_SELECTOR: `.${cssClasses.LIST_ITEM_PRIMARY_TEXT_CLASS}`
 });
 
 export default {
@@ -39,9 +33,7 @@ export default {
 
   data() {
     return {
-      classNameMap: {},
       domObserver: null,
-      isEvolutionEnabled: false,
       itemElements: null,
       mdcFoundation: null
     };
@@ -99,9 +91,9 @@ export default {
     return c(
       "ul",
       {
-        staticClass: 'mdc-deprecated-list',
+        staticClass: cssClasses.ROOT,
         class: {
-          'mdc-deprecated-list--two-line': this.twoLine
+          [cssClasses.LIST_TWO_LINE_CLASS]: this.twoLine
         },
         on: {
           click: this.onClick,
@@ -120,22 +112,6 @@ export default {
     //
 
     init() {
-      this.isEvolutionEnabled = evolutionAttribute in this.$el.dataset;
-
-      if (this.isEvolutionEnabled) {
-        this.classNameMap = evolutionClassNameMap;
-      } else if (matches(this.$el, strings.DEPRECATED_SELECTOR)) {
-        this.classNameMap = deprecatedClassNameMap;
-      } else {
-        this.classNameMap =
-        Object.values(cssClasses)
-            .reduce((obj, className) => {
-              obj[className] = className;
-
-              return obj;
-            }, {});
-      }
-
       this.mdcFoundation = new MDCListFoundation(this);
       this.mdcFoundation.init();
       this.mdcFoundation.setHasTypeahead(this.hasTypeahead);
@@ -172,10 +148,9 @@ export default {
       const {target} = event;
       const nearestParent = closest(
         target,
-        `.${this.classNameMap[cssClasses.LIST_ITEM_CLASS]}, .${
-            this.classNameMap[cssClasses.ROOT]}`);
+        `.${cssClasses.LIST_ITEM_CLASS}, .${cssClasses.ROOT}`);
 
-      if(nearestParent && matches(nearestParent , strings.LIST_ITEM_SELECTOR)) {
+      if(nearestParent && matches(nearestParent , `.${cssClasses.LIST_ITEM_CLASS}`)) {
         return this.getListItemElements().indexOf(nearestParent);
       }
 
@@ -209,7 +184,7 @@ export default {
       let target = event.target;
 
       this.mdcFoundation.handleKeydown(
-        event, target.classList.contains(this.classNameMap[cssClasses.LIST_ITEM_CLASS]), index);
+        event, target.classList.contains(cssClasses.LIST_ITEM_CLASS), index);
     },
 
     //
@@ -342,10 +317,7 @@ export default {
         }
         else {
           const singleLineText =
-            listItemElement.querySelector(`
-              .${cssClasses.LIST_ITEM_TEXT_CLASS},
-              .${this.classNameMap[cssClasses.LIST_ITEM_TEXT_CLASS]}
-            `);
+            listItemElement.querySelector(`.${cssClasses.LIST_ITEM_TEXT_CLASS}`);
 
           if(singleLineText) {
             return singleLineText.textContent || "";

@@ -5,7 +5,7 @@ export default {
     return c(
       "div",
       {
-        staticClass: "mdc-deprecated-list-group"
+        staticClass: "mdc-list-group"
       },
       this.$slots.default
     );
