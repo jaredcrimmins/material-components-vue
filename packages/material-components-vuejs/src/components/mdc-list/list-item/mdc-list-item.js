@@ -1,5 +1,6 @@
 import {MDCCheckbox, MDCMaterialIcon, MDCRadio} from "./../../";
 import {MDCRipple} from "@material/ripple";
+import {cssClasses} from "@material/list";
 
 export default {
   name: "mdc-list-item",
@@ -57,13 +58,13 @@ export default {
           "data-value": this.value,
           role: this.roleAttr
         },
-        staticClass: "mdc-deprecated-list-item"
+        staticClass: `${cssClasses.LIST_ITEM_CLASS}`
       },
       [
         c(
           "span",
           {
-            staticClass: "mdc-deprecated-list-item__ripple"
+            staticClass: "mdc-list-item__ripple"
           }
         ),
         this.genGraphic(c),
@@ -103,7 +104,7 @@ export default {
         return c(
           "span",
           {
-            staticClass: "mdc-deprecated-list-item__graphic",
+            staticClass: "mdc-list-item__graphic",
             class: {
               "mdc-menu__selection-group-icon": this.menuSelectionGroup
             }
@@ -120,7 +121,7 @@ export default {
         return c(
           "label",
           {
-            staticClass: "mdc-deprecated-list-item__text"
+            staticClass: `${cssClasses.LIST_ITEM_TEXT_CLASS}`
           },
           this.$slots.default
         );
@@ -129,20 +130,20 @@ export default {
         return c(
           "span",
           {
-            staticClass: "mdc-deprecated-list-item__text"
+            staticClass: `${cssClasses.LIST_ITEM_TEXT_CLASS}`
           },
           [
             c(
               "span",
               {
-                staticClass: "mdc-deprecated-list-item__primary-text"
+                staticClass: `${cssClasses.LIST_ITEM_PRIMARY_TEXT_CLASS}`
               },
               this.primaryText
             ),
             c(
               "span",
               {
-                staticClass: "mdc-deprecated-list-item__secondary-text"
+                staticClass: `mdc-list-item__secondary-text`
               },
               this.secondaryText
             )
