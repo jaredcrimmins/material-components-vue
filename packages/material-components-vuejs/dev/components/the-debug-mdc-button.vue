@@ -13,7 +13,5 @@
 </script>
 
 <style lang="scss">
-  @use "@material/button/_index.scss" as button;
-
-  @include button.core-styles;
+  @use "@material/button/mdc-button";
 </style>
