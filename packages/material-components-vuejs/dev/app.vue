@@ -109,7 +109,7 @@
 </script>
 
 <style lang='scss'>
-  @use '@material/button/_index.scss' as button;
+  @use '@material/button/mdc-button';
   @use '@material/checkbox/_index.scss' as checkbox;
   @use '@material/circular-progress/_index.scss' as circular-progress;
   @use '@material/dialog/_index.scss' as dialog;
@@ -122,8 +122,8 @@
   @use '@material/notched-outline/_index.scss' as notched-outline;
   @use '@material/menu/_index.scss' as menu;
   @use '@material/menu-surface/_index.scss' as menu-surface;
-  @use '@material/radio/_index.scss' as radio;
-  @use '@material/select/_index.scss' as select;
+  @use '@material/radio/mdc-radio';
+  @use '@material/select/mdc-select';
   @use '@material/snackbar/_index.scss' as snackbar;
   @use '@material/switch/_index.scss' as switch;
   @use '@material/tab/_index.scss' as tab;
@@ -138,7 +138,6 @@
   @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Sharp';
   @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone';
 
-  @include button.core-styles;
   @include checkbox.core-styles;
   @include circular-progress.core-styles;
   @include dialog.core-styles();
@@ -151,8 +150,6 @@
   @include notched-outline.core-styles;
   @include menu.core-styles;
   @include menu-surface.core-styles;
-  @include radio.core-styles;
-  @include select.core-styles;
   @include snackbar.core-styles;
   @include switch.core-styles;
   @include tab.core-styles;
