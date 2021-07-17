@@ -60,6 +60,10 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCLinearProgressFoundation(this);
       this.mdcFoundation.init();
@@ -132,6 +136,10 @@ export default {
         { staticClass: "mdc-linear-progress__bar-inner" }
       );
     },
+
+    //
+    // Adapter methods
+    //
 
     addClass(className) {
       this.$el.classList.add(className);
