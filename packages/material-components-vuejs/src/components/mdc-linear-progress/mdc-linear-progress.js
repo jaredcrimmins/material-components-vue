@@ -27,7 +27,11 @@ export default {
   },
 
   data() {
-    return { mdcFoundation: null };
+    return {
+      mdcFoundation: new MDCLinearProgressFoundation(
+        MDCLinearProgressFoundation.defaultAdapter
+      )
+    };
   },
 
   mounted() {
