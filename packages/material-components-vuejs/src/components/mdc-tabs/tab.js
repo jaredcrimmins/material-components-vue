@@ -15,7 +15,17 @@ export default {
     "mdc-tab-indicator": MDCTabIndicator
   },
 
-  inject: ["focusOnActivate", "tabList", "indicatorSpanContent"],
+  inject: {
+    focusOnActivate: {
+      default: false
+    },
+    tabList: {
+      default: []
+    },
+    indicatorSpanContent: {
+      default: false
+    }
+  },
 
   props: {
     icon: String,
