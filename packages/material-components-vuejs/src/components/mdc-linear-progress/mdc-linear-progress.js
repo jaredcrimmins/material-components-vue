@@ -42,7 +42,7 @@ export default {
     return c(
       "div",
       {
-        staticClass: "progress-bar mdc-linear-progress",
+        staticClass: "mdc-linear-progress",
         attrs: {
           role: "progress-bar"
         }
