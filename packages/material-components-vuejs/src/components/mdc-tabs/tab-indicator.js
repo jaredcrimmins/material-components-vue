@@ -5,9 +5,11 @@ export default {
 
   inject: {
     fade: {
+      from: 'mdcTabBarFade__',
       default: false
     },
     underline: {
+      from: 'mdcTabBarUnderline__',
       default: false
     }
   },
