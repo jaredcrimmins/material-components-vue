@@ -4,16 +4,11 @@ export default {
   name: "mdc-circular-progress",
 
   computed: {
-    small() {
-      return this.size === "small";
-    },
-
-    medium() {
-      return this.size === "medium";
-    },
-
-    large() {
-      return this.size === "large";
+    actualSize() {
+      if (this.size === "large") return `${48}px`;
+      else if (this.size === "medium") return `${36}px`;
+      else if (this.size === "small") return `${24}px`;
+      else return this.size;
     }
   },
 
@@ -35,11 +30,7 @@ export default {
     },
     size: {
       default: "large",
-      type: String,
-      validator(value) {
-        // Size prop must match one of these strings.
-        return ["small", "medium", "large"].indexOf(value) !== -1;
-      }
+      type: String
     }
   },
 
@@ -80,15 +71,14 @@ export default {
       "div",
       {
         staticClass: "mdc-circular-progress",
-        class: {
-          "mdc-circular-progress--small": this.small,
-          "mdc-circular-progress--medium": this.medium,
-          "mdc-circular-progress--large": this.large
-        },
         attrs: {
           "aria-valuemax": "1",
           "aria-valuemin": "0",
           "role": "progress-bar"
+        },
+        style: {
+          height: this.actualSize,
+          width: this.actualSize
         }
       },
       [
