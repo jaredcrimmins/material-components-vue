@@ -51,12 +51,6 @@ export default {
     };
   },
 
-  provide() {
-    return {
-      menu: true
-    };
-  },
-
   mounted() {
     this.init();
   },
