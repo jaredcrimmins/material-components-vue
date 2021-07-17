@@ -34,6 +34,28 @@ export default {
     };
   },
 
+  watch: {
+    buffer(value) {
+      this.setBuffer(value);
+    },
+
+    determinate(value) {
+      this.setDeterminate(value);
+    },
+
+    open(value) {
+      value ? this.mdcFoundation.open() : this.mdcFoundation.close();
+    },
+
+    progress(value) {
+      this.setProgress(value);
+    },
+
+    reverse(value) {
+      this.setReverse(value);
+    }
+  },
+
   mounted() {
     this.init();
   },
@@ -179,28 +201,6 @@ export default {
 
     setAttribute(attributeName, value) {
       this.$el.setAttribute(attributeName, value);
-    }
-  },
-
-  watch: {
-    buffer(value) {
-      this.setBuffer(value);
-    },
-
-    determinate(value) {
-      this.setDeterminate(value);
-    },
-
-    open(value) {
-      value ? this.mdcFoundation.open() : this.mdcFoundation.close();
-    },
-
-    progress(value) {
-      this.setProgress(value);
-    },
-
-    reverse(value) {
-      this.setReverse(value);
     }
   }
 }
