@@ -17,12 +17,15 @@ export default {
 
   inject: {
     focusOnActivate: {
+      from: 'mdcTabBarFocusOnActivate__',
       default: false
     },
     tabList: {
+      from: 'mdcTabBarTabList__',
       default: []
     },
     indicatorSpanContent: {
+      from: 'mdcTabBarIndicatorSpanContent__',
       default: false
     }
   },
