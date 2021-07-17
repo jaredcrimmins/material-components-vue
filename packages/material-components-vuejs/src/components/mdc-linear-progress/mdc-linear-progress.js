@@ -1,5 +1,3 @@
-"use-strict"
-
 import {MDCLinearProgressFoundation} from "@material/linear-progress";
 
 export default {
