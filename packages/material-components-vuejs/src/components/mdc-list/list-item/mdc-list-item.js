@@ -11,7 +11,17 @@ export default {
     "mdc-radio": MDCRadio
   },
 
-  inject: ["twoLine", "menuSelectionGroup", "menuSelectionGroupIcon"],
+  inject: {
+    twoLine: {
+      default: false
+    },
+    menuSelectionGroup: {
+      default: false
+    },
+    menuSelectionGroupIcon: {
+      default: false
+    }
+  },
 
   props: {
     preselected: Boolean,

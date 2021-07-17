@@ -3,7 +3,14 @@ import {MDCFadingTabIndicatorFoundation, MDCSlidingTabIndicatorFoundation} from 
 export default {
   name: "mdc-tab-indicator",
 
-  inject: ["fade", "underline"],
+  inject: {
+    fade: {
+      default: false
+    },
+    underline: {
+      default: false
+    }
+  },
 
   data() {
     return {
