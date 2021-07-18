@@ -70,6 +70,8 @@ export default {
       {
         staticClass: "mdc-linear-progress",
         attrs: {
+          "aria-valuemax": "1",
+          "aria-valuemin": "0",
           role: "progress-bar"
         }
       },
@@ -90,6 +92,7 @@ export default {
       this.mdcFoundation = new MDCLinearProgressFoundation(this);
       this.mdcFoundation.init();
       this.setDeterminate(this.determinate);
+      this.setProgress(this.progress);
       this.open ? this.open_() : this.close();
     },
 
