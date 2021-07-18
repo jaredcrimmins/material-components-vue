@@ -20,6 +20,20 @@ export default {
     };
   },
 
+  watch: {
+    open(value) {
+      value ? this.mdcFoundation.open() : this.mdcFoundation.close();
+
+      if(value !== this.value) {
+        this.$emit("input", value);
+      }
+    },
+
+    value(value) {
+      this.open = value;
+    }
+  },
+
   mounted() {
     this.init();
   },
@@ -173,20 +187,6 @@ export default {
       }
 
       this.$emit("MDCSnackbar:closed", event);
-    }
-  },
-
-  watch: {
-    open(value) {
-      value ? this.mdcFoundation.open() : this.mdcFoundation.close();
-
-      if(value !== this.value) {
-        this.$emit("input", value);
-      }
-    },
-
-    value(value) {
-      this.open = value;
     }
   }
 }
