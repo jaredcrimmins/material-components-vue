@@ -18,7 +18,10 @@ export default {
     },
     progress: {
       default: 0,
-      type: Number
+      type: Number,
+      validator(value) {
+        return value >= 0 && value <= 1;
+      }
     },
     reverse: {
       default: false,
