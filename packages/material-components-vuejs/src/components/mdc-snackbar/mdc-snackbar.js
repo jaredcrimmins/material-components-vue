@@ -15,7 +15,9 @@ export default {
 
   data() {
     return {
-      mdcFoundation: null,
+      mdcFoundation: new MDCSnackbarFoundation(
+        MDCSnackbarFoundation.defaultAdapter
+      ),
       open: this.value
     };
   },
