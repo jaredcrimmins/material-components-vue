@@ -44,7 +44,7 @@ export default {
     },
 
     open(value) {
-      value ? this.mdcFoundation.open() : this.mdcFoundation.close();
+      value ? this.open_() : this.close();
     },
 
     progress(value) {
@@ -90,7 +90,7 @@ export default {
       this.mdcFoundation = new MDCLinearProgressFoundation(this);
       this.mdcFoundation.init();
       this.setDeterminate(this.determinate);
-      this.open ? this.mdcFoundation.open() : this.mdcFoundation.close();
+      this.open ? this.open_() : this.close();
     },
 
     deinit() {
@@ -111,6 +111,14 @@ export default {
 
     setReverse(value) {
       this.mdcFoundation.setReverse(value);
+    },
+
+    open_() {
+      this.mdcFoundation.open();
+    },
+
+    close() {
+      this.mdcFoundation.close();
     },
 
     genBuffer(c) {
