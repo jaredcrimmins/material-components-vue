@@ -8,6 +8,7 @@ export {default as TheDebugMDCLinearProgress} from './the-debug-mdc-linear-progr
 export {default as TheDebugMDCList} from './the-debug-mdc-list.vue';
 export {default as TheDebugMDCMenu} from './the-debug-mdc-menu.vue';
 export {default as TheDebugMDCRadio} from './the-debug-mdc-radio.vue';
+export {default as TheDebugMDCRipple} from './the-debug-mdc-ripple.vue';
 export {default as TheDebugMDCSnackbar} from './the-debug-mdc-snackbar.vue';
 export {default as TheDebugMDCSelect} from './the-debug-mdc-select.vue';
 export {default as TheDebugMDCTabs} from './the-debug-mdc-tabs.vue';
