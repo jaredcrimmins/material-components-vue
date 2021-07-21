@@ -24,11 +24,11 @@
 
     <the-debug-mdc-select></the-debug-mdc-select>
 
+    <the-debug-mdc-snackbar></the-debug-mdc-snackbar>
+
     <the-debug-mdc-tabs></the-debug-mdc-tabs>
 
     <the-debug-mdc-text-field></the-debug-mdc-text-field>
-
-    <the-debug-mdc-snackbar></the-debug-mdc-snackbar>
   </div>
 </template>
 
