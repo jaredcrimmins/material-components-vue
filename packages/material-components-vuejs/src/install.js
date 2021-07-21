@@ -34,6 +34,7 @@ MaterialComponentsVuejs.install = function(Vue) {
   Vue.component('mdc-menu-surface', components.MDCMenuSurface);
   Vue.component('mdc-notched-outline', components.MDCNotchedOutline);
   Vue.component('mdc-radio', components.MDCRadio);
+  Vue.component('mdc-ripple', components.MDCRipple);
   Vue.component('mdc-select', components.MDCSelect);
   Vue.component('mdc-snackbar', components.MDCSnackbar);
   Vue.component('mdc-switch', components.MDCSwitch);
