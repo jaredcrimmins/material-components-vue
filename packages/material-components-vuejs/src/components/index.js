@@ -13,6 +13,7 @@ export {MDCMenu, MDCMenuAnchor, MDCMenuDivider, MDCMenuItem, MDCMenuSelectionGro
 export {MDCMenuSurface} from './mdc-menu-surface';
 export {MDCNotchedOutline} from './mdc-notched-outline';
 export {MDCRadio} from './mdc-radio';
+export {MDCRipple} from './mdc-ripple';
 export {MDCSelect} from './mdc-select';
 export {MDCSnackbar} from './mdc-snackbar';
 export {MDCSwitch} from './mdc-switch';
