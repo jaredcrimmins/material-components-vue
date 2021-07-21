@@ -16,7 +16,13 @@ export default {
 
   data() {
     return {
-      mdcFoundation: null
+      mdcFoundation: this.fade
+        ? new MDCFadingTabIndicatorFoundation(
+          MDCFadingTabIndicatorFoundation.defaultAdapter
+        )
+        : new MDCSlidingTabIndicatorFoundation(
+          MDCSlidingTabIndicatorFoundation.defaultAdapter
+        )
     };
   },
 
