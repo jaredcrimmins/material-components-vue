@@ -4,13 +4,19 @@
 
     <button v-on:click="onToggleButtonClick">Open/close MDCSnackbar</button>
 
-    <mdc-snackbar label="MDCSnackbar label" v-model="open">
-      <template v-slot:action="{staticClass}">
+    <mdc-snackbar
+      v-model="open"
+      label="MDCSnackbar label"
+      close-on-escape
+      dismissButton
+    >
+      <template v-slot:action="{staticClass, onClick}">
         <mdc-button
           :class="staticClass"
-          label="Label"
-          v-on:click="onActionButtonClick"
-        ></mdc-button>
+          v-on:click="onClick"
+        >
+          Retry
+        </mdc-button>
       </template>
     </mdc-snackbar>
   </div>
