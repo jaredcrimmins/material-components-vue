@@ -3,7 +3,6 @@
     <h2 id="mdc-icon-button">MDCIconButton</h2>
 
     <mdc-icon-button
-      icon-theme="two-tone"
       icon="favorite_border"
       on-icon="favorite"
       toggleable
