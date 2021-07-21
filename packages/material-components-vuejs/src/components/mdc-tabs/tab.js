@@ -37,7 +37,9 @@ export default {
 
   data() {
     return {
-      foundation: null,
+      foundation: new MDCTabFoundation(
+        MDCTabFoundation.defaultAdapter
+      ),
       id: ""
     };
   },
