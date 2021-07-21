@@ -37,7 +37,7 @@ export default {
 
   data() {
     return {
-      foundation: new MDCTabFoundation(
+      mdcFoundation: new MDCTabFoundation(
         MDCTabFoundation.defaultAdapter
       ),
       id: ""
@@ -47,7 +47,7 @@ export default {
   render(c) {
     const children = [this.genContent(c)];
 
-    if(!this.indicatorSpanContent) children.push(this.genTabIndicator(c));
+    if (!this.indicatorSpanContent) children.push(this.genTabIndicator(c));
 
     children.push(
       c(
@@ -56,7 +56,8 @@ export default {
           ref: "ripple",
           staticClass: "mdc-tab__ripple",
           props: {
-            standalone: false
+            standalone: false,
+            tagName: "span"
           }
         }
       )
@@ -71,15 +72,7 @@ export default {
           role: "tab"
         },
         on: {
-          click: () => {
-            this.foundation.handleClick();
-          },
-          focus: () => {
-            this.$refs.ripple.handleFocus();
-          },
-          blur: () => {
-            this.$refs.ripple.handleBlur();
-          }
+          click: this.onClick
         }
       },
       children
@@ -93,12 +86,12 @@ export default {
   mounted() {
     const instance = this;
     const activate = computeIndicatorClientRect =>
-      instance.foundation.activate(computeIndicatorClientRect);
-    const deactivate = () => instance.foundation.deactivate();
+      instance.mdcFoundation.activate(computeIndicatorClientRect);
+    const deactivate = () => instance.mdcFoundation.deactivate();
     const computeIndicatorClientRect = () => {
       return this.$refs.tabIndicator.computeContentClientRect();
     };
-    const computeDimensions = () => instance.foundation.computeDimensions();
+    const computeDimensions = () => instance.mdcFoundation.computeDimensions();
     const focus = () => {this.$el.focus();};
 
     this.tabList.push({
@@ -109,19 +102,38 @@ export default {
       focus,
       id: this.id
     });
-    this.foundation = new MDCTabFoundation(this);
-    this.foundation.init();
-    this.foundation.setFocusOnActivate(this.focusOnActivate);
+
+    this.init();
   },
 
   beforeDestroy() {
-    this.foundation.destroy();
+    this.deinit();
   },
 
   methods: {
     //
     // Private methods
     //
+
+    init() {
+      this.mdcFoundation = new MDCTabFoundation(this);
+      this.mdcFoundation.init();
+
+      this.setFocusOnActivate(this.focusOnActivate);
+    },
+
+    deinit() {
+      this.mdcFoundation.destroy();
+    },
+
+    setFocusOnActivate(focusOnActivate) {
+      this.mdcFoundation.setFocusOnActivate(focusOnActivate);
+    },
+
+    onClick() {
+      this.mdcFoundation.handleClick();
+    },
+
     genContent(c) {
       const children = [];
 
@@ -177,7 +189,7 @@ export default {
     },
 
     //
-    // Both Public and adapter methods
+    // Both public and adapter methods
     //
 
     focus() {
