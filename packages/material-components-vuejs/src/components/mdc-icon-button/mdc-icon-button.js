@@ -1,6 +1,5 @@
 import {MDCIconButtonToggleFoundation} from '@material/icon-button';
-import {MDCMaterialIcon} from '../';
-import {MDCRipple} from '@material/ripple';
+import {MDCMaterialIcon, MDCRipple} from '../';
 import {emitCustomEvent} from '../../utils';
 
 const {cssClasses, strings} = MDCIconButtonToggleFoundation;
@@ -16,11 +15,13 @@ export default {
   inheritAttrs: true,
 
   components: {
-    'mdc-material-icon': MDCMaterialIcon
+    'mdc-material-icon': MDCMaterialIcon,
+    'mdc-ripple': MDCRipple
   },
 
   props: {
     disabled: Boolean,
+    rippleDisabled: Boolean,
     icon: String,
     tagName: {
       type: String,
@@ -35,9 +36,16 @@ export default {
 
   data() {
     return {
-      mdcFoundation: new MDCIconButtonToggleFoundation(MDCIconButtonToggleFoundation.defaultAdapter),
-      mdcRipple: null
+      mdcFoundation: new MDCIconButtonToggleFoundation(
+        MDCIconButtonToggleFoundation.defaultAdapter
+      )
     };
+  },
+
+  computed: {
+    isTagNameButton() {
+      return this.tagName === 'button';
+    }
   },
 
   mounted() {
@@ -50,22 +58,49 @@ export default {
 
   render(c) {
     return c(
-      'button',
+      'mdc-ripple',
       {
         staticClass: cssClasses.ROOT,
-        attrs: {
-          disabled: this.disabled
+        props: {
+          disabled: this.rippleDisabled,
+          unbounded: true
         },
-        on: {
-          click: event => {
-            this.onClick(event);
+        attrs: {
+          disabled: this.disabled && this.isTagNameButton
+        },
+        nativeOn: {
+          click: this.onClick
+        },
+        scopedSlots: {
+          default: ({cssClass, on}) => {
+            if (this.$scopedSlots['on-icon'] || this.onIcon) {
+              return c(
+                this.tagName,
+                {
+                  class: cssClass,
+                  on: on
+                },
+                [
+                  this.genIcon(c),
+                  this.genOnIcon(c)
+                ]
+              );
+            }
+
+            return c(
+              'mdc-material-icon',
+              {
+                class: cssClass,
+                props: {
+                  tag: this.tagName
+                },
+                nativeOn: on
+              },
+              this.icon
+            );
           }
         }
-      },
-      [
-        this.genIcon(c),
-        this.genOnIcon(c)
-      ]
+      }
     );
   },
 
@@ -77,56 +112,53 @@ export default {
     init() {
       this.mdcFoundation = new MDCIconButtonToggleFoundation(this);
       this.mdcFoundation.init();
-      this.mdcRipple = new MDCRipple(this.$el);
-      this.mdcRipple.unbounded = true;
     },
 
     deinit() {
       this.mdcFoundation.destroy();
     },
 
-    genIcon(c) {
-      const icon = this.icon;
-      const iconScopedSlot = this.$scopedSlots.icon;
-
-      if(iconScopedSlot) {
-        return iconScopedSlot({
-          staticClass: cssClasses.ICON_BUTTON_ICON
-        });
-      }
-      else if(icon) {
-        return c(
-          'mdc-material-icon',
-          {
-            staticClass: cssClasses.ICON_BUTTON_ICON
-          },
-          icon
-        );
-      }
-    },
-
-    genOnIcon(c) {
-      const onIcon = this.onIcon;
-      const onIconScopedSlot = this.$scopedSlots['on-icon'];
-
-      if(onIconScopedSlot) {
-        return onIconScopedSlot({
-          staticClass: `${cssClasses.ICON_BUTTON_ICON} ${cssClasses.ICON_BUTTON_ICON_ON}`
-        });
-      }
-      else if(onIcon) {
-        return c(
-          'mdc-material-icon',
-          {
-            staticClass: `${cssClasses.ICON_BUTTON_ICON} ${cssClasses.ICON_BUTTON_ICON_ON}`
-          },
-          onIcon
-        );
-      }
-    },
-
     onClick() {
       this.mdcFoundation.handleClick();
+    },
+
+    genToggleIcons(c) {
+      const iconScopedSlot = this.$scopedSlots.icon;
+      const onIconScopedSlot = this.$scopedSlots['on-icon'];
+      const onIconCSSClass = `${cssClasses.ICON_BUTTON_ICON} ${cssClasses.ICON_BUTTON_ICON_ON}`;
+      const vNodes = [];
+
+      if (iconScopedSlot) {
+        vNodes.push(iconScopedSlot({
+          staticClass: cssClasses.ICON_BUTTON_ICON
+        }));
+      } else {
+        vNodes.push(
+          c(
+            'mdc-material-icon',
+            {
+              staticClass: cssClasses.ICON_BUTTON_ICON
+            },
+            this.icon
+          )
+        );
+      }
+
+      if (onIconScopedSlot) {
+        vNodes.push(onIconScopedSlot({
+          staticClass: onIconCSSClass
+        }));
+      } else {
+        vNodes.push(
+          c(
+            'mdc-material-icon',
+            {
+              staticClass: onIconCSSClass
+            },
+            this.onIcon
+          )
+        );
+      }
     },
 
     //
