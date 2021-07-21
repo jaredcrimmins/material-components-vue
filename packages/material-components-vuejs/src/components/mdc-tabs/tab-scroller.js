@@ -13,7 +13,9 @@ export default {
 
   data() {
     return {
-      mdcFoundation: null
+      mdcFoundation: new MDCTabScrollerFoundation(
+        MDCTabScrollerFoundation.defaultAdapter
+      )
     };
   },
 
