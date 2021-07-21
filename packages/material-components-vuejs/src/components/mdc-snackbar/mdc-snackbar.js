@@ -1,5 +1,6 @@
-import {MDCIconButton} from "./../mdc-icon-button";
-import {MDCSnackbarFoundation, util} from "@material/snackbar";
+import {MDCIconButton} from "../mdc-icon-button";
+import {MDCSnackbarFoundation, strings, util} from "@material/snackbar";
+import {emitCustomEvent} from "../../utils";
 
 export default {
   name: "mdc-snackbar",
@@ -9,7 +10,12 @@ export default {
   },
 
   props: {
+    closeOnEscape: Boolean,
+    dismissButton: Boolean,
     label: String,
+    leading: Boolean,
+    stacked: Boolean,
+    timeoutMs: Number,
     value: {}
   },
 
@@ -26,9 +32,13 @@ export default {
     open(value) {
       value ? this.mdcFoundation.open() : this.mdcFoundation.close();
 
-      if(value !== this.value) {
+      if (value !== this.value) {
         this.$emit("input", value);
       }
+    },
+
+    timeoutMs(value) {
+      this.setTimeoutMs(value);
     },
 
     value(value) {
@@ -49,6 +59,10 @@ export default {
       "div",
       {
         staticClass: "mdc-snackbar",
+        class: {
+          "mdc-snackbar--leading": this.leading,
+          "mdc-snackbar--stacked": this.stacked
+        },
         on: {
           keydown: this.onKeyDown
         }
@@ -60,13 +74,28 @@ export default {
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
     init() {
       this.mdcFoundation = new MDCSnackbarFoundation(this);
       this.mdcFoundation.init();
+
+      this.setCloseOnEscape(this.closeOnEscape);
+      this.setTimeoutMs(this.timeoutMs);
     },
 
     deinit() {
       this.mdcFoundation.destroy();
+    },
+
+    setCloseOnEscape(closeOnEscape) {
+      this.mdcFoundation.setCloseOnEscape(closeOnEscape);
+    },
+
+    setTimeoutMs(timeoutMs) {
+      if (timeoutMs) this.mdcFoundation.setTimeoutMs(timeoutMs);
     },
 
     onKeyDown(event) {
@@ -85,7 +114,11 @@ export default {
       return c(
         "div",
         {
-          staticClass: "mdc-snackbar__surface"
+          staticClass: "mdc-snackbar__surface",
+          attrs: {
+            role: "status",
+            "aria-relevant": "additions"
+          }
         },
         [
           this.genLabel(c),
@@ -101,8 +134,7 @@ export default {
           ref: "labelEl",
           staticClass: "mdc-snackbar__label",
           attrs: {
-            role: "status",
-            "aria-live": "polite"
+            "aria-atomic": "false"
           }
         },
         this.label
@@ -113,7 +145,10 @@ export default {
       return c(
         "div",
         {
-          staticClass: "mdc-snackbar__actions"
+          staticClass: "mdc-snackbar__actions",
+          attrs: {
+            "aria-atomic": "true"
+          }
         },
         [
           this.genActionSlot(),
@@ -123,32 +158,38 @@ export default {
     },
 
     genActionSlot() {
-      let actionSlot = this.$scopedSlots.action;
-      let data = {};
+      const actionSlot = this.$scopedSlots.action;
 
-      if(actionSlot) {
-        data = {
-          staticClass: "mdc-snackbar__action"
-        };
-
-        return actionSlot(data);
+      if (actionSlot) {
+        return actionSlot({
+          staticClass: "mdc-snackbar__action",
+          onClick: this.onActionButtonClick
+        });
       }
     },
 
     genDismissButton(c) {
+      if (!this.dismissButton) return;
+
       return c(
         "mdc-icon-button",
         {
           staticClass: "mdc-snackbar__dismiss",
+          props: {
+            icon: "close",
+            rippleDisabled: true
+          },
           nativeOn: {
             click: this.onDismissButtonClick
           }
-        },
-        "close"
+        }
       );
     },
 
+    //
     // Adapter methods
+    //
+
     addClass(className) {
       this.$el.classList.add(className);
     },
@@ -162,33 +203,34 @@ export default {
     },
 
     notifyOpening() {
-      this.$emit("MDCSnackbar:opening", { detail: {}});
+      emitCustomEvent(this.$el, strings.OPENING_EVENT, {});
       this.open = true;
     },
 
     notifyOpened() {
-      this.$emit("MDCSnackbar:opened", { detail: {}});
+      emitCustomEvent(this.$el, strings.OPENED_EVENT, {});
     },
 
     notifyClosing(reason) {
-      let event = { detail: {}};
+      const eventData = {};
 
-      if(reason) {
-        event.detail.reason = reason;
+      if (reason) {
+        eventData.reason = reason;
       }
 
-      this.$emit("MDCSnackbar:closing", event);
+      emitCustomEvent(this.$el, strings.CLOSING_EVENT, eventData);
+
       this.open = false;
     },
 
     notifyClosed(reason) {
-      let event = { detail: {}};
+      const eventData = {};
 
-      if(reason) {
-        event.detail.reason = reason;
+      if (reason) {
+        eventData.reason = reason;
       }
 
-      this.$emit("MDCSnackbar:closed", event);
+      emitCustomEvent(this.$el, strings.CLOSED_EVENT, eventData);
     }
   }
 }
