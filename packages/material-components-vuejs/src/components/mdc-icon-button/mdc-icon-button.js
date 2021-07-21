@@ -80,10 +80,7 @@ export default {
                   class: cssClass,
                   on: on
                 },
-                [
-                  this.genIcon(c),
-                  this.genOnIcon(c)
-                ]
+                this.genToggleIcons(c)
               );
             }
 
@@ -159,6 +156,8 @@ export default {
           )
         );
       }
+
+      return vNodes;
     },
 
     //
