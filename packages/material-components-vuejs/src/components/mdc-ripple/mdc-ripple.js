@@ -1,9 +1,11 @@
-import {MDCRippleFoundation, util} from "@material/ripple";
-import {applyPassive} from "@material/dom/events";
-import {matches} from "@material/dom/ponyfill";
+import {MDCRippleFoundation, util} from '@material/ripple';
+import {applyPassive} from '@material/dom/events';
+import {matches} from '@material/dom/ponyfill';
 
 export default {
-  name: "mdc-ripple",
+  name: 'mdc-ripple',
+
+  inheritAttrs: true,
 
   props: {
     disabled: Boolean,
@@ -13,50 +15,108 @@ export default {
     },
     tagName: {
       type: String,
-      default: () => "div"
+      default: () => 'div'
     },
     unbounded: Boolean
   },
 
   data() {
     return {
-      mdcFoundation: new MDCRippleFoundation(MDCRippleFoundation.defaultAdapter)
+      mdcFoundation: new MDCRippleFoundation(
+        MDCRippleFoundation.defaultAdapter
+      )
     };
   },
 
+  watch: {
+    disabled(value) {
+      value ? this.downgradeRipple() : this.upgradeRipple();
+    },
+
+    unbounded(value) {
+      this.setUnbounded(value);
+    }
+  },
+
   mounted() {
-    this.mdcFoundation = new MDCRippleFoundation(this);
-    this.mdcFoundation.init();
-    this.mdcFoundation.setUnbounded(this.unbounded);
+    this.init();
   },
 
   beforeDestroy() {
-    this.mdcFoundation.destroy();
+    this.deinit();
   },
 
   render(c) {
+    const defaultScopedSlot = this.$scopedSlots.default;
+    const cssClass = {
+      'mdc-ripple-surface': this.standalone
+    };
+    const on = {
+      blur: this.onBlur,
+      focus: this.onFocus
+    };
+
+    if (defaultScopedSlot) {
+      return defaultScopedSlot({
+        cssClass,
+        on
+      });
+    }
+
     return c(
       this.tagName,
       {
-        class: {
-          "mdc-ripple-surface": this.standalone
-        },
-        on: {
-          focus: this.handleFocus,
-          blur: this.handleBlur
-        }
+        class: cssClass,
+        on
       },
       this.$slots.default
     );
   },
 
-  watch: {
-    unbounded(value) {
-      this.mdcFoundation.setUnbounded(value);
-    }
-  },
-
   methods: {
+    //
+    // Private methods
+    //
+
+    init() {
+      if (!this.disabled) this.upgradeRipple();
+    },
+
+    deinit() {
+      this.deinitMDCFoundation();
+    },
+
+    initMDCFoundation() {
+      this.mdcFoundation = new MDCRippleFoundation(this);
+      this.mdcFoundation.init();
+    },
+
+    deinitMDCFoundation() {
+      this.mdcFoundation.destroy();
+    },
+
+    upgradeRipple() {
+      this.initMDCFoundation();
+      this.setUnbounded(this.unbounded);
+    },
+
+    downgradeRipple() {
+      this.deactivate();
+      this.deinitMDCFoundation();
+    },
+
+    setUnbounded(unbounded) {
+      this.mdcFoundation.setUnbounded(unbounded);
+    },
+
+    onFocus() {
+      this.mdcFoundation.handleFocus();
+    },
+
+    onBlur() {
+      this.mdcFoundation.handleBlur();
+    },
+
     //
     // Public methods
     //
@@ -74,11 +134,11 @@ export default {
     },
 
     handleFocus() {
-      this.mdcFoundation.handleFocus();
+      this.onFocus();
     },
 
     handleBlur() {
-      this.mdcFoundation.handleBlur()
+      this.onBlur();
     },
 
     //
@@ -92,7 +152,7 @@ export default {
     },
 
     isSurfaceActive() {
-      return matches(this.$el, ":active")
+      return matches(this.$el, ':active');
     },
 
     isSurfaceDisabled() {
@@ -128,11 +188,11 @@ export default {
     },
 
     registerResizeHandler(handler) {
-      window.addEventListener("resize", handler);
+      window.addEventListener('resize', handler);
     },
 
     deregisterResizeHandler(handler) {
-      window.removeEventListener("resize", handler);
+      window.removeEventListener('resize', handler);
     },
 
     updateCssVariable(varName, value) {
