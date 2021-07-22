@@ -1,77 +1,84 @@
-import {MDCRipple} from '@material/ripple';
+import {MDCRipple} from '..';
 
 export default {
   name: 'mdc-button',
   
   inheritAttrs: true,
 
+  components: {
+    'mdc-ripple': MDCRipple
+  },
+
   props: {
     disabled: Boolean,
     outlined: Boolean,
     raised: Boolean,
-    unelevated: Boolean,
-    to: String
-  },
-
-  data() {
-    return {
-      mdcRipple: null
-    };
-  },
-
-  mounted() {
-    this.init();
+    rippleDisabled: Boolean,
+    to: String,
+    unelevated: Boolean
   },
 
   render(c) {
-    let tagName = 'button';
-
-    if (this.to) tagName = 'router-link';
-
     return c(
-      tagName,
+      'mdc-ripple',
       {
-        staticClass: 'mdc-button',
-        attrs: {
-          disabled: this.disabled
-        },
-        class: {
-          'mdc-button--outlined': this.outlined,
-          'mdc-button--raised': this.raised,
-          'mdc-button--unelevated': this.unelevated
-        },
-        on: {
-          click: event => {
-            this.$emit('click', event);
-          }
-        },
         props: {
-          to: this.to
-        }
-      },
-      [
-        c(
-          'div',
-          {
-            staticClass: 'mdc-button__ripple'
+          disabled: this.rippleDisabled,
+          standalone: false
+        },
+        scopedSlots: {
+          default: ({cssClass, on}) => {
+            const tagName = this.to ? 'router-link' : 'button';
+            const isTagNameButton = tagName === 'button';
+
+            return c(
+              tagName,
+              {
+                staticClass: 'mdc-button',
+                class: Object.assign({
+                  'mdc-button--outlined': this.outlined,
+                  'mdc-button--raised': this.raised,
+                  'mdc-button--unelevated': this.unelevated
+                }, cssClass),
+                attrs: {
+                  disabled: isTagNameButton && this.disabled
+                },
+                props: {
+                  to: this.to
+                },
+                on: {
+                  blur: on.blur,
+                  click: this.onClick,
+                  focus: on.focus
+                }
+              },
+              [
+                c(
+                  'div',
+                  {
+                    staticClass: 'mdc-button__ripple'
+                  }
+                ),
+                this.$slots.append,
+                c(
+                  'span',
+                  {
+                    staticClass: 'mdc-button__label'
+                  },
+                  this.$slots.default
+                ),
+                this.$slots.trailing
+              ]
+            );
           }
-        ),
-        this.$slots.append,
-        c(
-          'span',
-          {
-            staticClass: 'mdc-button__label'
-          },
-          this.$slots.default
-        ),
-        this.$slots.trailing
-      ]
+        }
+      }
     );
   },
 
   methods: {
-    init() {
-      this.mdcRipple = new MDCRipple(this.$el);
+    onClick(event) {
+      this.$emit('click', event);
     }
   }
 }
