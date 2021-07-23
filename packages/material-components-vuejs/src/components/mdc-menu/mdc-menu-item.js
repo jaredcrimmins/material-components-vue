@@ -8,6 +8,7 @@ export default {
   },
 
   props: {
+    rippleDisabled: Boolean,
     value: String
   },
 
@@ -19,6 +20,7 @@ export default {
           role: "menuitem"
         },
         props: {
+          rippleDisabled: this.rippleDisabled,
           value: this.value
         }
       },
