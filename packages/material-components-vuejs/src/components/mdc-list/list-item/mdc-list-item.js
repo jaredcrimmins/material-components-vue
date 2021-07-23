@@ -1,5 +1,4 @@
-import {MDCCheckbox, MDCMaterialIcon, MDCRadio} from "./../../";
-import {MDCRipple} from "@material/ripple";
+import {MDCCheckbox, MDCMaterialIcon, MDCRadio, MDCRipple} from "../../";
 import {cssClasses} from "@material/list";
 
 export default {
@@ -8,7 +7,8 @@ export default {
   components: {
     "mdc-checkbox": MDCCheckbox,
     "mdc-material-icon": MDCMaterialIcon,
-    "mdc-radio": MDCRadio
+    "mdc-radio": MDCRadio,
+    "mdc-ripple": MDCRipple
   },
 
   inject: {
@@ -26,6 +26,7 @@ export default {
   props: {
     preselected: Boolean,
     primaryText: String,
+    rippleDisabled: Boolean,
     secondaryText: String,
     value: {
       type: String,
@@ -43,32 +44,32 @@ export default {
     },
 
     roleAttr() {
-      if(this.checkbox) return "checkbox";
-      else if(this.radio) return "radio";
+      if (this.checkbox) return "checkbox";
+      else if (this.radio) return "radio";
       else return "option";
     }
   },
 
   data() {
     return {
-      checkedCheckboxOrRadio: false,
-      mdcRipple: null
+      checkedCheckboxOrRadio: false
     };
-  },
-
-  mounted() {
-    this.mdcRipple = new MDCRipple(this.$el);
   },
 
   render(c) {
     return c(
-      "li",
+      "mdc-ripple",
       {
+        staticClass: cssClasses.LIST_ITEM_CLASS,
         attrs: {
           "data-value": this.value,
           role: this.roleAttr
         },
-        staticClass: `${cssClasses.LIST_ITEM_CLASS}`
+        props: {
+          disabled: this.rippleDisabled,
+          standalone: false,
+          tagName: "li"
+        }
       },
       [
         c(
