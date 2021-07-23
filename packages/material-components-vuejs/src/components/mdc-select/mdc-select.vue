@@ -83,6 +83,7 @@
           ref="menuItems"
           v-for="(item, index) in items"
           :key="index"
+          :rippleDisabled="rippleDisabled"
           :value="item.value"
         >
           {{ item.text }}
@@ -122,6 +123,7 @@
       items: Array,
       outlined: Boolean,
       required: Boolean,
+      rippleDisabled: Boolean,
       selectedIndex: Number,
       value: String
     },
