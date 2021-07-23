@@ -12,7 +12,9 @@ export default {
 
   data() {
     return {
-      mdcFoundation: new MDCCheckboxFoundation(MDCCheckboxFoundation.defaultAdapter)
+      mdcFoundation: new MDCCheckboxFoundation(
+        MDCCheckboxFoundation.defaultAdapter
+      )
     };
   },
 
@@ -63,7 +65,7 @@ export default {
 
   methods: {
     //
-    // Private
+    // Private methods
     //
 
     init() {
@@ -140,7 +142,7 @@ export default {
     },
 
     onNativeControlElChange() {
-      if(!this.indeterminate) this.checked = !this.checked;
+      if (!this.indeterminate) this.checked = !this.checked;
 
       this.mdcFoundation.handleChange();
     },
