@@ -1,4 +1,4 @@
-import {MDCRipple} from '..';
+import {MDCRipple} from '../mdc-ripple';
 
 export default {
   name: 'mdc-button',
