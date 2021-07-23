@@ -50,12 +50,6 @@ export default {
     }
   },
 
-  data() {
-    return {
-      checkedCheckboxOrRadio: false
-    };
-  },
-
   render(c) {
     return c(
       "mdc-ripple",
@@ -161,14 +155,6 @@ export default {
           ]
         );
       }
-    },
-
-    //
-    // Public methods
-    //
-
-    setCheckedCheckboxOrRadio(checked) {
-      this.checkedCheckboxOrRadio = checked;
     }
   }
 }
