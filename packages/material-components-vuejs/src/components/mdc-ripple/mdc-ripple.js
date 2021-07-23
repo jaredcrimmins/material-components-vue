@@ -47,6 +47,7 @@ export default {
   },
 
   render(c) {
+    const defaultSlot = this.$slots.default;
     const defaultScopedSlot = this.$scopedSlots.default;
     const cssClass = {
       'mdc-ripple-surface': this.standalone
@@ -56,21 +57,21 @@ export default {
       focus: this.onFocus
     };
 
-    if (defaultScopedSlot) {
-      return defaultScopedSlot({
-        cssClass,
-        on
-      });
+    // A slot can be a scoped slot, but a scoped slot cannot be a slot. In this
+    // context, this means, if the default slot has been provided, then the
+    // default scoped slot has also been provided.
+    if (defaultSlot || (!defaultSlot && !defaultScopedSlot)) {
+      return c(
+        this.tagName,
+        {
+          class: cssClass,
+          on
+        },
+        defaultSlot
+      );
     }
-
-    return c(
-      this.tagName,
-      {
-        class: cssClass,
-        on
-      },
-      this.$slots.default
-    );
+  
+    return defaultScopedSlot({cssClass, on});
   },
 
   methods: {
