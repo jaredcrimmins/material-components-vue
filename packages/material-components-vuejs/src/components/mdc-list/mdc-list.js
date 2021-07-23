@@ -16,9 +16,7 @@ export default {
   name: "mdc-list",
 
   props: {
-    checkboxItems: Boolean,
     hasTypeahead: Boolean,
-    radioGroup: Boolean,
     selectedIndex: Number,
     singleSelection: Boolean,
     twoLine: Boolean,
@@ -33,15 +31,24 @@ export default {
     return {
       domObserver: null,
       itemElements: null,
-      mdcFoundation: null
+      mdcFoundation: new MDCListFoundation(MDCListFoundation.defaultAdapter),
+      mounted: false
     };
   },
 
   computed: {
+    isCheckboxList() {
+      return this.mounted && this.hasCheckboxAtIndex(0);
+    },
+
+    isRadioList() {
+      return this.mounted && this.hasRadioAtIndex(0);
+    },
+
     roleAttr() {
-      if(this.checkboxItems) return "group";
-      else if(this.radioGroup) return "radiogroup";
-      else if(this.singleSelection) return "listbox";
+      if (this.isCheckboxList) return "group";
+      else if (this.isRadioList) return "radiogroup";
+      else if (this.singleSelection) return "listbox";
     }
   },
 
@@ -52,6 +59,7 @@ export default {
   },
 
   mounted() {
+    this.mounted = true;
     this.init();
   },
 
@@ -124,6 +132,8 @@ export default {
       }); this.mdcFoundation.setVerticalOrientation(this.vertical);
       this.mdcFoundation.setWrapFocus(this.wrapFocus);
 
+      this.mdcFoundation.layout();
+
       this.initTabindex();
       this.domObserver = new MutationObserver(this.getListItemElements);
       this.domObserver.observe(this.$el, {childList: true});
@@ -183,6 +193,22 @@ export default {
 
       this.mdcFoundation.handleKeydown(
         event, target.classList.contains(cssClasses.LIST_ITEM_CLASS), index);
+    },
+
+    //
+    // Both private and adapter methods
+    //
+
+    hasRadioAtIndex(index) {
+      const listItemEl = this.getListItemElements()[index];
+
+      return !!listItemEl.querySelector(strings.RADIO_SELECTOR);
+    },
+
+    hasCheckboxAtIndex(index) {
+      const listItemEl = this.getListItemElements()[index];
+
+      return !!listItemEl.querySelector(strings.CHECKBOX_SELECTOR);
     },
 
     //
@@ -257,18 +283,6 @@ export default {
       });
     },
 
-    hasRadioAtIndex(index) {
-      const listItemEl = this.getListItemElements()[index];
-
-      return !!listItemEl.querySelector(strings.RADIO_SELECTOR);
-    },
-
-    hasCheckboxAtIndex(index) {
-      const listItemEl = this.getListItemElements()[index];
-
-      return !!listItemEl.querySelector(strings.CHECKBOX_SELECTOR);
-    },
-
     isCheckboxCheckedAtIndex(index) {
       const listItemEl = this.getListItemElements()[index];
       const toggleEl = listItemEl.querySelector(strings.CHECKBOX_SELECTOR);
@@ -281,6 +295,10 @@ export default {
       const toggleEl = listItemEl.querySelector(strings.CHECKBOX_RADIO_SELECTOR);
 
       toggleEl.checked = isChecked;
+
+      const event = document.createEvent('Event');
+      event.initEvent('change', true, true);
+      toggleEl.dispatchEvent(event);
     },
 
     notifyAction(index) {
@@ -292,7 +310,6 @@ export default {
     },
 
     isRootFocused() {
-      console.log(document.activeElement === this.$el);
       return document.activeElement === this.$el;
     },
 
