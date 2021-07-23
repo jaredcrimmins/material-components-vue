@@ -1,6 +1,6 @@
 {
   "name": "@jaredcrimmins/material-components-vuejs",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Material components for Vue.",
   "main": "dist/material-components-vuejs.js",
   "module": "src/index.js",
