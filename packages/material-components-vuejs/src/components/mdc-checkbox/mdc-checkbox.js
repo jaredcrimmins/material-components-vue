@@ -5,6 +5,8 @@ let checkboxID_ = 0;
 export default {
   name: "mdc-checkbox",
 
+  inheritAttrs: false,
+
   props: {
     checked: Boolean,
     disabled: Boolean,
@@ -85,18 +87,22 @@ export default {
     },
 
     genNativeControl(c) {
+      const baseAttrs = {
+        id: this.id,
+        type: "checkbox",
+        checked: this.checked,
+        disabled: this.disabled,
+        "data-indeterminate": this.indeterminate ? "true" : "false",
+        value: this.value
+      };
+      const attrs = Object.assign({}, this.$attrs, baseAttrs);
+
       return c(
         "input",
         {
           ref: "nativeControlEl",
           staticClass: cssClasses.NATIVE_CONTROL,
-          attrs: {
-            type: "checkbox",
-            checked: this.checked,
-            disabled: this.disabled,
-            "data-indeterminate": this.indeterminate ? "true" : "false",
-            value: this.value
-          },
+          attrs,
           on: {
             "change": () => {
               this.onNativeControlElChange();
