@@ -10,13 +10,14 @@ export default {
   props: {
     checked: Boolean,
     disabled: Boolean,
+    id: String,
     indeterminate: Boolean,
     value: Boolean
   },
 
   data() {
     return {
-      id: "",
+      id_: "",
       mdcFoundation: new MDCCheckboxFoundation(
         MDCCheckboxFoundation.defaultAdapter
       )
@@ -24,7 +25,7 @@ export default {
   },
 
   created() {
-    this.id = this.$attrs.id || `__mdc-checkbox${checkboxID_++}`;
+    this.id_ = this.id || `__mdc-checkbox${checkboxID_++}`;
   },
 
   mounted() {
@@ -88,7 +89,7 @@ export default {
 
     genNativeControl(c) {
       const baseAttrs = {
-        id: this.id,
+        id: this.id_,
         type: "checkbox",
         checked: this.checked,
         disabled: this.disabled,
