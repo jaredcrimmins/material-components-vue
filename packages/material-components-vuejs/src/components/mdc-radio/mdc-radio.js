@@ -8,6 +8,7 @@ export default {
   inheritAttrs: false,
 
   props: {
+    id: String,
     disabled: Boolean,
     name: String,
     value: {
@@ -17,13 +18,13 @@ export default {
 
   data() {
     return {
-      id: "",
+      id_: "",
       mdcFoundation: new MDCRadioFoundation(MDCRadioFoundation.defaultAdapter)
     };
   },
 
   created() {
-    this.id = this.$attrs.id || `__mdc-radio-${radioID_++}`;
+    this.id_ = this.id || `__mdc-radio-${radioID_++}`;
   },
 
   mounted() {
@@ -76,7 +77,7 @@ export default {
           ref: "nativeControlEl",
           staticClass: "mdc-radio__native-control",
           attrs: Object.assign({
-            id: this.id,
+            id: this.id_,
             name: this.name,
             type: "radio",
             disabled: this.disabled,
