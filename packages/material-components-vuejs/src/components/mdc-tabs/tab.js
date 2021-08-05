@@ -1,6 +1,6 @@
 import {MDCRipple} from "./../mdc-ripple";
 import {MDCTabFoundation, strings} from "@material/tab";
-import {MaterialIcon} from "./../material-icon";
+import {MDCMaterialIcon} from "../mdc-material-icon";
 import MDCTabIndicator from "./tab-indicator";
 import {emitCustomEvent} from "./../../utils";
 
@@ -10,7 +10,7 @@ export default {
   name: "mdc-tab",
 
   components: {
-    "mdc-material-icon": MaterialIcon,
+    "mdc-material-icon": MDCMaterialIcon,
     "mdc-ripple": MDCRipple,
     "mdc-tab-indicator": MDCTabIndicator
   },
@@ -144,10 +144,10 @@ export default {
             {
               staticClass: "mdc-tab__icon",
               props: {
-                icon: this.icon,
                 tag: "span"
               }
-            }
+            },
+            this.icon
           )
         );
       }
