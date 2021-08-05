@@ -1,5 +1,6 @@
 import {MDCIconButtonToggleFoundation} from '@material/icon-button';
-import {MDCMaterialIcon, MDCRipple} from '../';
+import {MDCMaterialIcon} from '../mdc-material-icon';
+import {MDCRipple} from '../mdc-ripple';
 import {emitCustomEvent} from '../../utils';
 
 const {cssClasses, strings} = MDCIconButtonToggleFoundation;
