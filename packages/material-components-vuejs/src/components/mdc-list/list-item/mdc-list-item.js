@@ -84,17 +84,14 @@ export default {
     //
 
     genGraphic(c) {
+      const graphicSlot = this.$slots.graphic;
       let graphic;
 
       if(this.menuSelectionGroup) {
-        if(this.$slots.graphic) graphic = this.$slots.graphic;
+        if(graphicSlot) graphic = graphicSlot;
         else {
           graphic = c(
-            "mdc-material-icon", {
-              props: {
-                icon: this.menuSelectionGroupIcon
-              }
-            },
+            "mdc-material-icon",
             this.menuSelectionGroupIcon
           );
         }
@@ -102,7 +99,7 @@ export default {
       else {
         if(this.checkbox) graphic = this.$slots.checkbox;
         else if(this.radio) graphic = this.$slots.radio;
-        else graphic = this.$slots.graphic;
+        else graphic = graphicSlot;
       }
 
       if(graphic) {
