@@ -1,5 +1,7 @@
 import {MDCCheckboxFoundation, cssClasses} from "@material/checkbox";
 
+let checkboxID_ = 0;
+
 export default {
   name: "mdc-checkbox",
 
@@ -12,10 +14,15 @@ export default {
 
   data() {
     return {
+      id: "",
       mdcFoundation: new MDCCheckboxFoundation(
         MDCCheckboxFoundation.defaultAdapter
       )
     };
+  },
+
+  created() {
+    this.id = this.$attrs.id || `__mdc-checkbox${checkboxID_++}`;
   },
 
   mounted() {
