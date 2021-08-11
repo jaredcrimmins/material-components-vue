@@ -1,5 +1,8 @@
 import {MDCCheckbox, MDCMaterialIcon, MDCRadio, MDCRipple} from "../../";
 import {cssClasses} from "@material/list";
+import {getSlot, hasSlot} from "../../../utils";
+
+let mdcListItemID_ = 0;
 
 export default {
   name: "mdc-list-item",
@@ -34,13 +37,19 @@ export default {
     }
   },
 
+  data() {
+    return {
+      inputID: ""
+    };
+  },
+
   computed: {
     checkbox() {
-      return !!this.$slots.checkbox;
+      return hasSlot(this, 'checkbox');
     },
 
     radio() {
-      return !!this.$slots.radio;
+      return hasSlot(this, 'radio');
     },
 
     roleAttr() {
@@ -48,6 +57,12 @@ export default {
       else if (this.radio) return "radio";
       else return "option";
     }
+  },
+
+  created() {
+    mdcListItemID_++;
+
+    this.inputID = `__mdc-list-item-input${mdcListItemID_}`;
   },
 
   render(c) {
@@ -84,7 +99,7 @@ export default {
     //
 
     genGraphic(c) {
-      const graphicSlot = this.$slots.graphic;
+      const graphicSlot = getSlot(this, "graphic");
       let graphic;
 
       if(this.menuSelectionGroup) {
@@ -97,8 +112,10 @@ export default {
         }
       }
       else {
-        if(this.checkbox) graphic = this.$slots.checkbox;
-        else if(this.radio) graphic = this.$slots.radio;
+        if(this.checkbox)
+          graphic = getSlot(this, "checkbox", {id: this.inputID}, false);
+        else if(this.radio)
+          graphic = getSlot(this, "radio", {id: this.inputID}, false);
         else graphic = graphicSlot;
       }
 
@@ -120,10 +137,15 @@ export default {
 
     genText(c) {
       if(!this.twoLine) {
+        const forAttr = this.checkbox || this.radio ? this.inputID : "";
+
         return c(
           "label",
           {
-            staticClass: `${cssClasses.LIST_ITEM_TEXT_CLASS}`
+            staticClass: `${cssClasses.LIST_ITEM_TEXT_CLASS}`,
+            attrs: {
+              for: forAttr
+            }
           },
           this.$slots.default
         );
