@@ -16,3 +16,17 @@ export function emitCustomEvent(el, evtType, evtData, shouldBubble = false) {
 
   el.dispatchEvent(evt);
 }
+
+export function getSlot (vm, name = 'default', data, optional = false) {
+  if (vm.$scopedSlots[name]) {
+    return vm.$scopedSlots[name](data instanceof Function ? data() : data);
+  } else if (vm.$slots[name] && (!data || optional)) {
+    return vm.$slots[name];
+  }
+
+  return undefined;
+}
+
+export function hasSlot (vm, name = 'default') {
+  return !!vm.$scopedSlots[name];
+}
