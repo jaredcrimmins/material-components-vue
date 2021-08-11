@@ -81,8 +81,13 @@
           :key="num"
         >
           Option {{num}}
-          <template v-slot:radio>
-            <mdc-radio name="radio-group-demo" :value="num"></mdc-radio>
+          <template v-slot:radio={id}>
+            <mdc-radio
+              :id="id"
+              name="radio-group-demo"
+              :value="num"
+            >
+            </mdc-radio>
           </template>
         </mdc-list-item>
       </mdc-list>
@@ -95,8 +100,12 @@
           :key="num"
         >
           Option {{num}}
-          <template v-slot:checkbox>
-            <mdc-checkbox name="checkbox-items-demo" :value="num"></mdc-checkbox>
+          <template v-slot:checkbox="{id}">
+            <mdc-checkbox
+              :id="id"
+              name="checkbox-items-demo"
+              :value="num"
+            ></mdc-checkbox>
           </template>
         </mdc-list-item>
       </mdc-list>
