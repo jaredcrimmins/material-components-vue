@@ -85,6 +85,10 @@ export default {
       this.mdcFoundation.destroy();
     },
 
+    getChecked() {
+      return this.$refs.nativeControlEl.checked;
+    },
+
     setDisabled(disabled) {
       this.mdcFoundation.setDisabled(disabled);
     },
@@ -106,7 +110,8 @@ export default {
           staticClass: cssClasses.NATIVE_CONTROL,
           attrs,
           on: {
-            "change": this.onNativeControlElChange
+            "change": this.onNativeControlElChange,
+            "input": this.onNativeControlElInput
           }
         }
       );
@@ -155,7 +160,12 @@ export default {
     },
 
     onNativeControlElChange() {
+      this.$emit('change', this.getChecked());
       this.mdcFoundation.handleChange();
+    },
+
+    onNativeControlElInput() {
+      this.$emit('input', this.getChecked());
     },
 
     //
