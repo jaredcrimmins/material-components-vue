@@ -21,8 +21,8 @@
         },
 
         watch: {
-            active() {
-                this.active ? this.mdcFoundation.activate() : this.mdcFoundation.deactivate();
+            active(value) {
+                value ? this.mdcFoundation.activate() : this.mdcFoundation.deactivate();
             },
 
             rippleCenter(value) {
