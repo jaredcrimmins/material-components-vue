@@ -1,6 +1,4 @@
 <script>
-    "use-strict"
-
     import {MDCLineRippleFoundation} from "@material/line-ripple";
 
     export default {
