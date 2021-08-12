@@ -12,7 +12,9 @@ export default {
     disabled: Boolean,
     id: String,
     indeterminate: Boolean,
-    value: Boolean
+    value: {
+      default: null
+    }
   },
 
   data() {
