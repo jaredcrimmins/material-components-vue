@@ -83,6 +83,8 @@ export default {
     init() {
       this.mdcFoundation = new MDCCheckboxFoundation(this);
       this.mdcFoundation.init();
+
+      this.setDisabled(this.disabled);
     },
 
     deinit() {
@@ -98,7 +100,6 @@ export default {
         id: this.id_,
         type: "checkbox",
         checked: this.checked,
-        disabled: this.disabled,
         "data-indeterminate": this.indeterminate ? "true" : "false",
         value: this.value
       };
