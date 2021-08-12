@@ -1,4 +1,7 @@
-import {MDCCheckbox, MDCMaterialIcon, MDCRadio, MDCRipple} from "../../";
+import {MDCCheckbox} from "../../mdc-checkbox";
+import {MDCMaterialIcon} from "../../mdc-material-icon";
+import {MDCRadio} from "../../mdc-radio";
+import {MDCRipple} from "../../mdc-ripple";
 import {cssClasses} from "@material/list";
 import {getSlot, hasSlot} from "../../../utils";
 
