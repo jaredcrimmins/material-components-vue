@@ -48,6 +48,10 @@
         },
 
         methods: {
+            //
+            // Private methods
+            //
+
             init() {
                 this.mdcFoundation = new MDCLineRippleFoundation(this);
                 this.mdcFoundation.init();
@@ -64,7 +68,10 @@
                     this.mdcFoundation.setRippleCenter(rippleCenter);
             },
 
+            //
             // Adapter methods
+            //
+
             addClass(className) {
                 this.$el.classList.add(className);
             },
