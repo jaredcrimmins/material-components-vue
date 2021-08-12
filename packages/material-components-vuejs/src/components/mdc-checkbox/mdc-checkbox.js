@@ -53,9 +53,7 @@ export default {
           [cssClasses.DISABLED]: this.disabled
         },
         on: {
-          "animationend": () => {
-            this.mdcFoundation.handleAnimationEnd();
-          }
+          "animationend": this.onAnimationEnd
         }
       },
       [
@@ -108,9 +106,7 @@ export default {
           staticClass: cssClasses.NATIVE_CONTROL,
           attrs,
           on: {
-            "change": () => {
-              this.onNativeControlElChange();
-            }
+            "change": this.onNativeControlElChange
           }
         }
       );
@@ -152,6 +148,10 @@ export default {
           )
         ]
       );
+    },
+
+    onAnimationEnd() {
+      this.mdcFoundation.handleAnimationEnd();
     },
 
     onNativeControlElChange() {
