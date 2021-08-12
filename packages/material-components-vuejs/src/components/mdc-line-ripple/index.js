@@ -1,3 +1,3 @@
 "use-strict"
 
-export {default as MDCLineRipple} from "./component";
+export {default as MDCLineRipple} from "./mdc-line-ripple";
