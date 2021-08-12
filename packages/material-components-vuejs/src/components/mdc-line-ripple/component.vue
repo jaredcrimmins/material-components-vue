@@ -14,7 +14,9 @@
 
         data() {
             return {
-                mdcFoundation: null
+                mdcFoundation: new MDCLineRippleFoundation(
+                    MDCLineRippleFoundation.defaultAdapter
+                )
             };
         },
 
