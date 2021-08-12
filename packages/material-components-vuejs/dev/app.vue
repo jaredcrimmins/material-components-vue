@@ -1,34 +1,34 @@
 <template>
   <div id="app">
-    <the-debug-mdc-button></the-debug-mdc-button>
+    <the-debug-mdc-button />
 
-    <the-debug-mdc-checkbox></the-debug-mdc-checkbox>
+    <the-debug-mdc-checkbox />
 
-    <the-debug-mdc-circular-progress></the-debug-mdc-circular-progress>
+    <the-debug-mdc-circular-progress />
 
-    <the-debug-mdc-dialog></the-debug-mdc-dialog>
+    <the-debug-mdc-dialog />
 
-    <the-debug-mdc-icon-button></the-debug-mdc-icon-button>
+    <the-debug-mdc-icon-button />
 
-    <the-debug-mdc-image-list></the-debug-mdc-image-list>
+    <the-debug-mdc-image-list />
 
-    <the-debug-mdc-linear-progress></the-debug-mdc-linear-progress>
+    <the-debug-mdc-linear-progress />
 
-    <the-debug-mdc-list></the-debug-mdc-list>
+    <the-debug-mdc-list />
 
-    <the-debug-mdc-menu></the-debug-mdc-menu>
+    <the-debug-mdc-menu />
 
-    <the-debug-mdc-radio></the-debug-mdc-radio>
+    <the-debug-mdc-radio />
 
-    <the-debug-mdc-ripple></the-debug-mdc-ripple>
+    <the-debug-mdc-ripple />
 
-    <the-debug-mdc-select></the-debug-mdc-select>
+    <the-debug-mdc-select />
 
-    <the-debug-mdc-snackbar></the-debug-mdc-snackbar>
+    <the-debug-mdc-snackbar />
 
-    <the-debug-mdc-tabs></the-debug-mdc-tabs>
+    <the-debug-mdc-tabs />
 
-    <the-debug-mdc-text-field></the-debug-mdc-text-field>
+    <the-debug-mdc-text-field />
   </div>
 </template>
 
@@ -75,11 +75,11 @@
         mdcSnackbarOpen: true
       };
     },
-    
+
     mounted() {
       this.mdcDataTableItems = this.genRandomDataTableItems(75);
     },
-    
+
     methods: {
       genRandomDataTableItems(count = 10) {
         const items = [];
@@ -94,13 +94,13 @@
             }
           );
         }
-        
+
         return items;
       },
-      
+
       feedMoreDataTableItems() {
         const items = this.genRandomDataTableItems(25);
-        
+
         setTimeout(() => {
           for(let x = 0; x < items.length; x++) {
             this.mdcDataTableItems.push(items[x]);
