@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h2 id="mdc-button">MDCButton</h2>
+    <h2 id="mdc-button">
+      MDCButton
+    </h2>
 
     <mdc-button>MDCButton</mdc-button>
   </div>
@@ -8,7 +10,7 @@
 
 <script>
   export default {
-    name: "the-debug-mdc-button"
+    name: "TheDebugMdcButton"
   }
 </script>
 

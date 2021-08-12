@@ -1,50 +1,58 @@
 <template>
   <div>
-    <h2 id="mdc-dialog">MDCDialog</h2>
+    <h2 id="mdc-dialog">
+      MDCDialog
+    </h2>
 
     <h3>Variants</h3>
 
     <h4>Confirmation</h4>
 
-    <button v-on:click="onConfirmationToggleButtonClick">Open Dialog</button>
+    <button @click="onConfirmationToggleButtonClick">
+      Open Dialog
+    </button>
 
     <mdc-dialog v-model="confirmationOpen">
       <mdc-dialog-title>Title</mdc-dialog-title>
-      <form v-on:submit="onSubmit">
+      <form @submit="onSubmit">
         <mdc-dialog-content>
           After you save, this demo will reset!
-            <mdc-text-field
-              ref="firstNameTextField"
-              label="First name"
-              :rules="[isValidFirstName]"
-              outlined
-              required
-              useNativeValidation
-            ></mdc-text-field>
-            <mdc-text-field
-              label="Last name"
-              outlined
-              required
-              useNativeValidation
-            ></mdc-text-field>
-            <mdc-text-field
-              ref="emailTextField"
-              label="Email"
-              :rules="[isEmail]"
-              pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$"
-              outlined
-              required
-              :requiredAsterisk="false"
-              useNativeValidation
-            ></mdc-text-field>
-            <button v-on:click="onTestClick">Test</button>
+          <mdc-text-field
+            ref="firstNameTextField"
+            label="First name"
+            :rules="[isValidFirstName]"
+            outlined
+            required
+            use-native-validation
+          />
+          <mdc-text-field
+            label="Last name"
+            outlined
+            required
+            use-native-validation
+          />
+          <mdc-text-field
+            ref="emailTextField"
+            label="Email"
+            :rules="[isEmail]"
+            pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$"
+            outlined
+            required
+            :required-asterisk="false"
+            use-native-validation
+          />
+          <button @click="onTestClick">
+            Test
+          </button>
         </mdc-dialog-content>
         <mdc-dialog-actions>
           <mdc-dialog-button
             action="confirm"
             disabled
-            initialFocus
-          >Confirm</mdc-dialog-button>
+            initial-focus
+          >
+            Confirm
+          </mdc-dialog-button>
         </mdc-dialog-actions>
       </form>
     </mdc-dialog>
@@ -53,7 +61,7 @@
 
 <script>
   export default {
-    name: 'the-debug-mdc-dialog',
+    name: 'TheDebugMdcDialog',
 
     data() {
       return {

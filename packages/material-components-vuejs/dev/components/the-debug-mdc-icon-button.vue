@@ -1,19 +1,20 @@
 <template>
   <div>
-    <h2 id="mdc-icon-button">MDCIconButton</h2>
+    <h2 id="mdc-icon-button">
+      MDCIconButton
+    </h2>
 
     <mdc-icon-button
       icon="favorite_border"
       on-icon="favorite"
       toggleable
-    >
-    </mdc-icon-button>
+    />
   </div>
 </template>
 
 <script>
   export default {
-    name: "the-debug-mdc-icon-button"
+    name: "TheDebugMdcIconButton"
   }
 </script>
 
