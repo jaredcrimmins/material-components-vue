@@ -41,6 +41,10 @@ export default {
   watch: {
     disabled(value) {
       this.setDisabled(value);
+    },
+
+    indeterminate(value) {
+      this.setIndeterminate(value);
     }
   },
 
@@ -79,6 +83,7 @@ export default {
       this.mdcFoundation.init();
 
       this.setDisabled(this.disabled);
+      this.setIndeterminate(this.indeterminate);
     },
 
     deinit() {
@@ -93,12 +98,15 @@ export default {
       this.mdcFoundation.setDisabled(disabled);
     },
 
+    setIndeterminate(indeterminate) {
+      this.$refs.nativeControlEl.indeterminate = indeterminate;
+    },
+
     genNativeControl(c) {
       const baseAttrs = {
         id: this.id_,
         type: "checkbox",
         checked: this.checked,
-        "data-indeterminate": this.indeterminate ? "true" : "false",
         value: this.value
       };
       const attrs = Object.assign({}, this.$attrs, baseAttrs);
