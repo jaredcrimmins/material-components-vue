@@ -1,5 +1,6 @@
 import {MDCMenuFoundation} from "@material/menu";
-import {MDCList, MDCMenuSurface} from "./../";
+import {MDCList} from "../mdc-list";
+import {MDCMenuSurface} from "../mdc-menu-surface";
 import {absolutelyPositionable} from "../../mixins";
 import {closest} from "@material/dom/ponyfill";
 import {emitCustomEvent} from '../../utils';
