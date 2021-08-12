@@ -41,10 +41,17 @@
             init() {
                 this.mdcFoundation = new MDCLineRippleFoundation(this);
                 this.mdcFoundation.init();
+
+                this.setRippleCenter(this.rippleCenter);
             },
 
             deinit() {
                 this.mdcFoundation.destroy();
+            },
+
+            setRippleCenter(rippleCenter) {
+                if (rippleCenter !== null)
+                    this.mdcFoundation.setRippleCenter(rippleCenter);
             },
 
             // Adapter methods
@@ -78,8 +85,8 @@
                 this.active ? this.mdcFoundation.activate() : this.mdcFoundation.deactivate();
             },
 
-            rippleCenter() {
-                this.mdcFoundation.setRippleCenter(this.rippleCenter);
+            rippleCenter(value) {
+                this.setRippleCenter(value);
             }
         }
     }
