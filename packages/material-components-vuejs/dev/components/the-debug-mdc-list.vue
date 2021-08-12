@@ -48,19 +48,11 @@
     <h4>List Dividers</h4>
 
     <mdc-list>
-      <mdc-list-item
-        v-for="itemNum in 2"
-        :key="itemNum"
-      >
-        Item {{itemNum}} - Division 1
-      </mdc-list-item>
+      <mdc-list-item>Item 1 - Division 1</mdc-list-item>
+      <mdc-list-item>Item 2 - Division 1</mdc-list-item>
       <mdc-list-divider></mdc-list-divider>
-      <mdc-list-item
-        v-for="itemNum in 2"
-        :key="itemNum"
-      >
-        Item {{itemNum}} - Division 2
-      </mdc-list-item>
+      <mdc-list-item>Item 1 - Division 2</mdc-list-item>
+      <mdc-list-item>Item 2 - Division 2</mdc-list-item>
     </mdc-list>
 
     <h4>Single Selection List</h4>
