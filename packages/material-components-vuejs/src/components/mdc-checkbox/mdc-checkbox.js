@@ -181,7 +181,7 @@ export default {
     //
 
     setChecked(checked) {
-      this.checked = checked;
+      this.$refs.nativeControlEl.checked = checked;
     },
 
     //
