@@ -39,10 +39,6 @@ export default {
   },
 
   watch: {
-    checked(value) {
-      this.$emit("change", value);
-    },
-
     disabled(value) {
       this.setDisabled(value);
     }
