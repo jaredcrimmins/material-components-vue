@@ -205,7 +205,7 @@ export default {
     },
 
     isIndeterminate() {
-      return this.indeterminate;
+      return this.$refs.nativeControlEl.indeterminate;
     },
 
     isChecked() {
