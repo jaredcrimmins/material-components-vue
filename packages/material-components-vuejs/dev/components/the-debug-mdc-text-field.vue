@@ -1,21 +1,23 @@
 <template>
   <div>
-    <h2 id="mdc-text-field">MDCTextField</h2>
+    <h2 id="mdc-text-field">
+      MDCTextField
+    </h2>
 
     <mdc-text-field
       label="Label"
       :rules="[this.rules.isEmail]"
-      characterCounter
-      fullWidth
+      character-counter
+      full-width
       outlined
       v-model="value"
-    ></mdc-text-field>
+    />
   </div>
 </template>
 
 <script>
   export default {
-    name: "the-debug-mdc-text-field",
+    name: "TheDebugMdcTextField",
 
     data() {
       return {
