@@ -1,27 +1,26 @@
 <template>
   <div>
-    <h2 id="mdc-image-list">MDCImageList</h2>
+    <h2 id="mdc-image-list">
+      MDCImageList
+    </h2>
 
     <v-debug-content>
       <mdc-image-list>
         <mdc-image-list-item
           src="https://freesvg.org/storage/zip/blog/Pizza_Pepperoni.svg"
           label="Hello world!"
-          constrainAspectRatio
-        >
-        </mdc-image-list-item>
+          constrain-aspect-ratio
+        />
         <mdc-image-list-item
           src="https://freesvg.org/storage/zip/blog/Hello-World-In-Several-Languages.svg"
           label="Hello world!"
-          constrainAspectRatio
-        >
-        </mdc-image-list-item>
+          constrain-aspect-ratio
+        />
         <mdc-image-list-item
           src="https://freesvg.org/storage/zip/blog/Hello-World-In-Several-Languages.svg"
           label="Hello world!"
-          constrainAspectRatio
-        >
-        </mdc-image-list-item>
+          constrain-aspect-ratio
+        />
       </mdc-image-list>
     </v-debug-content>
   </div>
@@ -29,7 +28,7 @@
 
 <script>
   export default {
-    name: "the-debug-mdc-image-list"
+    name: "TheDebugMdcImageList"
   }
 </script>
 

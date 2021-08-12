@@ -6,7 +6,7 @@
       'mdc-select--outlined': outlined,
       'mdc-select--disabled': isDisabled
     }"
-    v-on:keydown="onKeydown"
+    @keydown="onKeydown"
   >
     <div
       ref="anchorEl"
@@ -15,29 +15,34 @@
       aria-haspopup="listbox"
       aria-expanded="false"
       :aria-labelledby="ariaLabelledBy"
-      v-on:blur="onBlur"
-      v-on:click="onClick"
-      v-on:focus="onFocus"
+      @blur="onBlur"
+      @click="onClick"
+      @focus="onFocus"
     >
-      <span v-if="!outlined" class="mdc-select__ripple"></span>
+      <span
+        v-if="!outlined"
+        class="mdc-select__ripple"
+      />
       <mdc-notched-outline
         v-if="outlined === true"
-        :floatLabel="floatingLabelFloat"
+        :float-label="floatingLabelFloat"
         :label="label"
-        :labelID="labelID"
+        :label-i-d="labelID"
         :notched="notchedOutlineNotched"
-        :notchWidth="notchedOutlineWidth"
-      >
-      </mdc-notched-outline>
+        :notch-width="notchedOutlineWidth"
+      />
       <mdc-floating-label
         ref="floatingLabel"
         v-if="!outlined"
         :id="labelID"
         :content="label"
         :float="floatingLabelFloat"
-      ></mdc-floating-label>
+      />
       <span class="mdc-select__selected-text-container">
-        <span :id="selectedTextID" class="mdc-select__selected-text">{{selectedText}}</span>
+        <span
+          :id="selectedTextID"
+          class="mdc-select__selected-text"
+        >{{ selectedText }}</span>
       </span>
       <span class="mdc-select__dropdown-icon">
         <svg
@@ -50,32 +55,33 @@
             stroke="none"
             fill-rule="evenodd"
             points="7 10 12 15 17 10"
-          >
-          </polygon>
+          />
           <polygon
             class="mdc-select__dropdown-icon-active"
             stroke="none"
             fill-rule="evenodd"
             points="7 15 12 10 17 15"
-          >
-          </polygon>
+          />
         </svg>
       </span>
-      <mdc-line-ripple v-if="!outlined" :active="lineRippleActive"></mdc-line-ripple>
+      <mdc-line-ripple
+        v-if="!outlined"
+        :active="lineRippleActive"
+      />
     </div>
 
     <mdc-menu
       ref="menu"
       class="mdc-select__menu"
-      :anchorElement="menuAnchorElement"
-      :anchorCorner="menuAnchorCorner"
-      fullWidth
-      :hasTypeahead="hasTypeahead"
-      :selectedIndex="selectedIndex"
-      :wrapFocus="menuWrapFocus"
-      v-on:select="onMenuSelected"
-      v-on:MDCMenuSurface:opened="onMDCMenuSurfaceOpened"
-      v-on:MDCMenuSurface:closed="onMDCMenuSurfaceClosed"
+      :anchor-element="menuAnchorElement"
+      :anchor-corner="menuAnchorCorner"
+      full-width
+      :has-typeahead="hasTypeahead"
+      :selected-index="selectedIndex"
+      :wrap-focus="menuWrapFocus"
+      @select="onMenuSelected"
+      @MDCMenuSurface:opened="onMDCMenuSurfaceOpened"
+      @MDCMenuSurface:closed="onMDCMenuSurfaceClosed"
       v-model="menuOpen"
     >
       <mdc-menu-selection-group icon="">
@@ -83,7 +89,7 @@
           ref="menuItems"
           v-for="(item, index) in items"
           :key="index"
-          :rippleDisabled="rippleDisabled"
+          :ripple-disabled="rippleDisabled"
           :value="item.value"
         >
           {{ item.text }}
@@ -105,7 +111,7 @@
   let selectID_ = 0;
 
   export default {
-    name: "mdc-select",
+    name: "MdcSelect",
 
     components: {
       "mdc-floating-label": MDCFloatingLabel,

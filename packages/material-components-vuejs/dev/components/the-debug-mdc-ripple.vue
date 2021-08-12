@@ -1,14 +1,16 @@
 <template>
   <div>
-    <h2 id="mdc-ripple">MDCRipple</h2>
+    <h2 id="mdc-ripple">
+      MDCRipple
+    </h2>
 
     <mdc-ripple>
       <template v-slot:default="{cssClass, on}">
         <div
           class="the-debug-mdc-ripple__demo-box"
           :class="cssClass"
-          v-on:blur="on.blur"
-          v-on:focus="on.focus"
+          @blur="on.blur"
+          @focus="on.focus"
         >
           Click here!
         </div>
@@ -19,7 +21,7 @@
 
 <script>
   export default {
-    name: 'the-debug-mdc-ripple'
+    name: 'TheDebugMdcRipple'
   }
 </script>
 
