@@ -194,7 +194,7 @@ export default {
     },
 
     isChecked() {
-      return this.checked;
+      return this.$refs.nativeControlEl.checked;
     },
 
     hasNativeControl() {
