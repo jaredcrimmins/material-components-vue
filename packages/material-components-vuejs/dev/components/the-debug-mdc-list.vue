@@ -61,7 +61,9 @@
       <mdc-list-item
         v-for="num in 4"
         :key="num"
-      >Single-line item {{num}}</mdc-list-item>
+      >
+        Single-line item {{num}}
+      </mdc-list-item>
     </mdc-list>
 
     <h4>List with radio group</h4>
