@@ -26,6 +26,16 @@ export default {
     };
   },
 
+  watch: {
+    disabled(value) {
+      this.setDisabled(value);
+    },
+
+    indeterminate(value) {
+      this.setIndeterminate(value);
+    }
+  },
+
   created() {
     this.id_ = this.id || `__mdc-checkbox${checkboxID_++}`;
   },
@@ -36,16 +46,6 @@ export default {
 
   beforeDestroy() {
     this.deinit();
-  },
-
-  watch: {
-    disabled(value) {
-      this.setDisabled(value);
-    },
-
-    indeterminate(value) {
-      this.setIndeterminate(value);
-    }
   },
 
   render(c) {
