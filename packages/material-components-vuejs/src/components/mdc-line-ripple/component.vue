@@ -20,6 +20,16 @@
             };
         },
 
+        watch: {
+            active() {
+                this.active ? this.mdcFoundation.activate() : this.mdcFoundation.deactivate();
+            },
+
+            rippleCenter(value) {
+                this.setRippleCenter(value);
+            }
+        },
+
         mounted() {
             this.init();
         },
@@ -77,16 +87,6 @@
 
             deregisterEventHandler(evtType, handler) {
                 this.$el.removeEventListener(evtType, handler);
-            }
-        },
-
-        watch: {
-            active() {
-                this.active ? this.mdcFoundation.activate() : this.mdcFoundation.deactivate();
-            },
-
-            rippleCenter(value) {
-                this.setRippleCenter(value);
             }
         }
     }
