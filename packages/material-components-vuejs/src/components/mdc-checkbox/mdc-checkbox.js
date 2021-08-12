@@ -89,6 +89,10 @@ export default {
       this.mdcFoundation.destroy();
     },
 
+    setDisabled(disabled) {
+      this.mdcFoundation.setDisabled(disabled);
+    },
+
     genNativeControl(c) {
       const baseAttrs = {
         id: this.id_,
@@ -151,10 +155,6 @@ export default {
           )
         ]
       );
-    },
-
-    setDisabled(disabled) {
-      this.mdcFoundation.setDisabled(disabled);
     },
 
     onNativeControlElChange() {
