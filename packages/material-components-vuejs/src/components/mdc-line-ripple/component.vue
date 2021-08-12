@@ -8,7 +8,10 @@
 
         props: {
             active: Boolean,
-            rippleCenter: Number
+            rippleCenter: {
+                type: Number,
+                default: null
+            }
         },
 
         data() {
