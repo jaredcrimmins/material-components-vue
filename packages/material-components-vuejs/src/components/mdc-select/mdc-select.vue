@@ -125,13 +125,25 @@
       disabled: Boolean,
       filled: Boolean,
       hasTypeahead: Boolean,
-      items: Array,
-      label: String,
+      items: {
+        type: Array,
+        default: () => []
+      },
+      label: {
+        type: String,
+        default: ""
+      },
       outlined: Boolean,
       required: Boolean,
       rippleDisabled: Boolean,
-      selectedIndex: Number,
-      value: String
+      selectedIndex: {
+        type: Number,
+        default: -1
+      },
+      value: {
+        type: String,
+        default: ""
+      }
     },
 
     data() {
