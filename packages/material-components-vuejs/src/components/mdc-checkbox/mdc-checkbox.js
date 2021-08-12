@@ -158,8 +158,6 @@ export default {
     },
 
     onNativeControlElChange() {
-      if (!this.indeterminate) this.checked = !this.checked;
-
       this.mdcFoundation.handleChange();
     },
 
