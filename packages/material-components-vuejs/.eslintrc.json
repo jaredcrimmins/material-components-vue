@@ -4,22 +4,11 @@
     "node": true
   },
   "extends": [
-    "plugin:vue/essential",
     "eslint:recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:vue/strongly-recommended"
   ],
   "parser": "vue-eslint-parser",
   "parserOptions": {
     "parser": "babel-eslint"
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": ["src"],
-        "moduleDirectory": ["node_modules", "src/"]
-      }
-    }
-  },
-  "rules": {}
+  }
 }
