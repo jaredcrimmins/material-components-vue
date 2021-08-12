@@ -1,12 +1,12 @@
 <template>
   <div class="v-debug-content">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
   export default {
-    name: "v-debug-content"
+    name: "VDebugContent"
   }
 </script>
 

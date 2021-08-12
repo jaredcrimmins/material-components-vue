@@ -1,19 +1,23 @@
 <template>
   <div>
-    <h2 id="mdc-snackbar">MDCSnackbar</h2>
+    <h2 id="mdc-snackbar">
+      MDCSnackbar
+    </h2>
 
-    <button v-on:click="onToggleButtonClick">Open/close MDCSnackbar</button>
+    <button @click="onToggleButtonClick">
+      Open/close MDCSnackbar
+    </button>
 
     <mdc-snackbar
       v-model="open"
       label="MDCSnackbar label"
       close-on-escape
-      dismissButton
+      dismiss-button
     >
       <template v-slot:action="{staticClass, onClick}">
         <mdc-button
           :class="staticClass"
-          v-on:click="onClick"
+          @click="onClick"
         >
           Retry
         </mdc-button>
@@ -24,7 +28,7 @@
 
 <script>
   export default {
-    name: "the-debug-mdc-snackbar",
+    name: "TheDebugMdcSnackbar",
 
     data() {
       return {
