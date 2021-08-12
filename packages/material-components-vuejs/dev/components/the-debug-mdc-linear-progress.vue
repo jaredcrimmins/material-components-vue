@@ -1,19 +1,23 @@
 <template>
   <div>
-    <h2 id="mdc-linear-progress">MDCLinearProgress</h2>
+    <h2 id="mdc-linear-progress">
+      MDCLinearProgress
+    </h2>
 
     <h3>Indeterminate</h3>
 
-    <mdc-linear-progress :open="indeterminateOpen"></mdc-linear-progress>
+    <mdc-linear-progress :open="indeterminateOpen" />
 
-    <button v-on:click="onToggleIndeterminateButtonClick">Toggle indeterminate MDCLinearProgress</button>
+    <button @click="onToggleIndeterminateButtonClick">
+      Toggle indeterminate MDCLinearProgress
+    </button>
 
     <h3>Reverse</h3>
 
     <mdc-linear-progress
       open
       reverse
-    ></mdc-linear-progress>
+    />
 
     <h3>Determinate</h3>
 
@@ -21,13 +25,13 @@
       :progress="0.5"
       determinate
       open
-    ></mdc-linear-progress>
+    />
   </div>
 </template>
 
 <script>
   export default {
-    name: "the-debug-mdc-linear-progress",
+    name: "TheDebugMdcLinearProgress",
 
     data() {
       return {

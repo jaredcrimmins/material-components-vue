@@ -1,8 +1,12 @@
 <template>
   <div>
-    <h2 id="mdc-menu">MDCMenu</h2>
+    <h2 id="mdc-menu">
+      MDCMenu
+    </h2>
 
-    <button v-on:click="onToggleButtonClick">Open MDCMenu</button>
+    <button @click="onToggleButtonClick">
+      Open MDCMenu
+    </button>
     <mdc-menu-anchor>
       <mdc-menu
         has-typeahead
@@ -19,7 +23,7 @@
           <mdc-menu-item>Item 2 - Selection Group 2</mdc-menu-item>
         </mdc-menu-selection-group>
 
-        <mdc-menu-divider></mdc-menu-divider>
+        <mdc-menu-divider />
 
         <mdc-menu-item>Item 1</mdc-menu-item>
         <mdc-menu-item>Item 2</mdc-menu-item>
@@ -30,7 +34,7 @@
 
 <script>
   export default {
-    name: "the-debug-mdc-menu",
+    name: "TheDebugMdcMenu",
 
     data() {
       return {
@@ -48,6 +52,8 @@
 
 <style lang="scss">
   @use "@material/menu/_index.scss" as menu;
+  @use "@material/menu-surface/_index.scss" as menu-surface;
 
   @include menu.core-styles;
+  @include menu-surface.core-styles;
 </style>
