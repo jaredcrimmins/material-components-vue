@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h2 id="mdc-select">MDCSelect</h2>
+    <h2 id="mdc-select">
+      MDCSelect
+    </h2>
 
     <mdc-select
       label="Label"
@@ -8,9 +10,9 @@
         {text: '', value: ''},
         {text: 'Hello world!', value: 'hello-world'}
       ]"
-      hasTypeahead
+      has-typeahead
       outlined
-    ></mdc-select>
+    />
 
     <h3>Variants</h3>
 
@@ -22,9 +24,9 @@
         {text: '', value: ''},
         {text: 'Hello world!', value: 'hello-world'}
       ]"
-      hasTypeahead
+      has-typeahead
       outlined
-    ></mdc-select>
+    />
 
     <h4>Filled</h4>
 
@@ -35,14 +37,14 @@
         {text: 'Hello world!', value: 'hello-world'}
       ]"
       filled
-      hasTypeahead
-    ></mdc-select>
+      has-typeahead
+    />
   </div>
 </template>
 
 <script>
   export default {
-    name: "the-debug-mdc-select"
+    name: "TheDebugMdcSelect"
   }
 </script>
 

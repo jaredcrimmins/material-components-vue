@@ -1,21 +1,33 @@
 <template>
   <div>
-    <h2 id="mdc-tabs">MDCTabs</h2>
+    <h2 id="mdc-tabs">
+      MDCTabs
+    </h2>
 
     <mdc-tab-bar
-      automaticActivation
-      focusOnActivate
-      indicatorSpanContent
+      automatic-activation
+      focus-on-activate
+      indicator-span-content
     >
-      <mdc-tab icon="star" indicatorIcon="star">Hello World!</mdc-tab>
-      <mdc-tab icon="star" indicatorIcon="recommend">Hello World?</mdc-tab>
+      <mdc-tab
+        icon="star"
+        indicator-icon="star"
+      >
+        Hello World!
+      </mdc-tab>
+      <mdc-tab
+        icon="star"
+        indicator-icon="recommend"
+      >
+        Hello World?
+      </mdc-tab>
     </mdc-tab-bar>
   </div>
 </template>
 
 <script>
   export default {
-    name: "the-debug-mdc-tabs"
+    name: "TheDebugMdcTabs"
   }
 </script>
 

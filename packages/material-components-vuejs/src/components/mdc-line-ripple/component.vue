@@ -4,11 +4,14 @@
     import {MDCLineRippleFoundation} from "@material/line-ripple";
 
     export default {
-        name: "mdc-line-ripple",
+        name: "MdcLineRipple",
 
         props: {
             active: Boolean,
-            rippleCenter: Number
+            rippleCenter: {
+                type: Number,
+                default: null
+            }
         },
 
         data() {
