@@ -1,9 +1,11 @@
 import {MDCRippleFoundation, util} from '@material/ripple';
-import Vue from 'vue';
+import Vue, {VNode} from 'vue';
 import {applyPassive} from '@material/dom/events';
+import {getSlot} from '@/utils';
 import {matches} from '@material/dom/ponyfill';
 
-// @vue/component
+type NativeEventListener = (ev: any) => any;
+
 export default Vue.extend({
   name: 'mdc-ripple',
 
@@ -26,7 +28,8 @@ export default Vue.extend({
     return {
       mdcFoundation: new MDCRippleFoundation(
         MDCRippleFoundation.defaultAdapter
-      )
+      ),
+      style: <{[key: string]: string}>{}
     };
   },
 
@@ -48,9 +51,7 @@ export default Vue.extend({
     this.deinit();
   },
 
-  render(c) {
-    const defaultSlot = this.$slots.default;
-    const defaultScopedSlot = this.$scopedSlots.default;
+  render(c): VNode {
     const cssClass = {
       'mdc-ripple-surface': this.standalone
     };
@@ -58,22 +59,20 @@ export default Vue.extend({
       blur: this.onBlur,
       focus: this.onFocus
     };
+    const defaultSlot = getSlot(this);
+    const rootSlot = getSlot(this, 'root', {cssClass, on, style: this.style});
 
-    // A slot can be a scoped slot, but a scoped slot cannot be a slot. In this
-    // context, this means, if the default slot has been provided, then the
-    // default scoped slot has also been provided.
-    if (defaultSlot || (!defaultSlot && !defaultScopedSlot)) {
-      return c(
-        this.tagName,
-        {
-          class: cssClass,
-          on
-        },
-        defaultSlot
-      );
-    }
+    if (rootSlot) return rootSlot[0];
 
-    return defaultScopedSlot({cssClass, on});
+    return c(
+      this.tagName,
+      {
+        class: cssClass,
+        on,
+        style: this.style
+      },
+      defaultSlot
+    );
   },
 
   methods: {
@@ -108,7 +107,7 @@ export default Vue.extend({
       this.deinitMDCFoundation();
     },
 
-    setUnbounded(unbounded) {
+    setUnbounded(unbounded: boolean) {
       this.mdcFoundation.setUnbounded(unbounded);
     },
 
@@ -162,44 +161,46 @@ export default Vue.extend({
       return this.disabled;
     },
 
-    addClass(className) {
+    addClass(className: string) {
       this.$el.classList.add(className);
     },
 
-    removeClass(className) {
+    removeClass(className: string) {
       this.$el.classList.remove(className);
     },
 
-    containsEventTarget(target) {
+    containsEventTarget(target: Node | null) {
       return this.$el.contains(target);
     },
 
-    registerInteractionHandler(evtType, handler) {
+    registerInteractionHandler(evtType: string, handler: NativeEventListener) {
       this.$el.addEventListener(evtType, handler, applyPassive());
     },
 
-    deregisterInteractionHandler(evtType, handler) {
+    deregisterInteractionHandler(evtType: string, handler: NativeEventListener) {
       this.$el.removeEventListener(evtType, handler, applyPassive());
     },
 
-    registerDocumentInteractionHandler(evtType, handler) {
+    registerDocumentInteractionHandler(evtType: string, handler: NativeEventListener) {
       document.addEventListener(evtType, handler, applyPassive());
     },
 
-    deregisterDocumentInteractionHandler(evtType, handler) {
+    deregisterDocumentInteractionHandler(evtType: string, handler: NativeEventListener) {
       document.removeEventListener(evtType, handler, applyPassive());
     },
 
-    registerResizeHandler(handler) {
+    registerResizeHandler(handler: NativeEventListener) {
       window.addEventListener('resize', handler);
     },
 
-    deregisterResizeHandler(handler) {
+    deregisterResizeHandler(handler: NativeEventListener) {
       window.removeEventListener('resize', handler);
     },
 
-    updateCssVariable(varName, value) {
-      this.$el.style.setProperty(varName, value);
+    updateCssVariable(varName: string, value: string) {
+      this.style = Object.assign({}, this.style, {
+        [varName]: value
+      });
     },
 
     computeBoundingRect() {
@@ -208,4 +209,4 @@ export default Vue.extend({
 
     getWindowPageOffset: () => ({x: window.pageXOffset, y: window.pageYOffset})
   }
-}
+});
