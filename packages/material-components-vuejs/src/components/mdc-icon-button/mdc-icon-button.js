@@ -73,13 +73,14 @@ export default {
           click: this.onClick
         },
         scopedSlots: {
-          root: ({cssClass, on}) => {
+          root: ({cssClass, on, style}) => {
             if (this.$scopedSlots['on-icon'] || this.onIcon) {
               return c(
                 this.tagName,
                 {
                   class: cssClass,
-                  on: on
+                  on: on,
+                  style
                 },
                 this.genToggleIcons(c)
               );
