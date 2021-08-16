@@ -1,5 +1,5 @@
 import {MDCCircularProgressFoundation} from '@material/circular-progress';
-import Vue, {CreateElement, VNode} from 'vue';
+import Vue, {CreateElement, PropType, VNode} from 'vue';
 
 type CircleGraphicAttrs = {
   viewBox: string;
@@ -31,10 +31,7 @@ export default Vue.extend({
     },
     size: {
       default: 'large',
-      type: String,
-      validator(value) {
-        return ['small', 'medium', 'large'].includes(value);
-      }
+      type: <PropType<string | 'small' | 'medium' | 'large'>>String
     },
   },
 
@@ -160,7 +157,7 @@ export default Vue.extend({
         },
       };
 
-      if(this.small) {
+      if(this.size === 'small') {
         Object.assign(attrs.determinate, {
           'viewBox': SMALL_VIEW_BOX,
           'cx': SMALL_CX,
@@ -178,7 +175,7 @@ export default Vue.extend({
           'stroke-dashoffset': SMALL_INDETERMINATE_STROKE_DASHOFFSET,
         });
       }
-      else if(this.medium) {
+      else if(this.size === 'medium') {
         Object.assign(attrs.determinate, {
           'viewBox': MEDIUM_VIEW_BOX,
           'cx': MEDIUM_CX,
