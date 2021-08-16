@@ -73,7 +73,7 @@ export default {
           click: this.onClick
         },
         scopedSlots: {
-          default: ({cssClass, on}) => {
+          root: ({cssClass, on}) => {
             if (this.$scopedSlots['on-icon'] || this.onIcon) {
               return c(
                 this.tagName,
