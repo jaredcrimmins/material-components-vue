@@ -1,5 +1,5 @@
 import {MDCRipple} from '../mdc-ripple';
-import Vue, {VueConstructor} from 'vue'
+import Vue, {VNode} from 'vue';
 
 export default Vue.extend({
   name: 'mdc-button',
@@ -19,7 +19,7 @@ export default Vue.extend({
     unelevated: Boolean
   },
 
-  render(c) {
+  render(c): VNode {
     return c(
       'mdc-ripple',
       {
