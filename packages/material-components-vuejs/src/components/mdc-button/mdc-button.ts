@@ -15,7 +15,10 @@ export default Vue.extend({
     outlined: Boolean,
     raised: Boolean,
     rippleDisabled: Boolean,
-    to: String,
+    to: {
+      type: String,
+      default: ''
+    },
     unelevated: Boolean
   },
 
@@ -28,7 +31,7 @@ export default Vue.extend({
           standalone: false
         },
         scopedSlots: {
-          default: ({cssClass, on}) => {
+          root: ({cssClass, on}) => {
             const tagName = this.to ? 'router-link' : 'button';
             const isTagNameButton = tagName === 'button';
 
