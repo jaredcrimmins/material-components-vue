@@ -31,7 +31,7 @@ export default Vue.extend({
           standalone: false
         },
         scopedSlots: {
-          root: ({cssClass, on}) => {
+          root: ({cssClass, on, style}) => {
             const tagName = this.to ? 'router-link' : 'button';
             const isTagNameButton = tagName === 'button';
 
@@ -47,6 +47,7 @@ export default Vue.extend({
                 attrs: {
                   disabled: isTagNameButton && this.disabled
                 },
+                style,
                 props: {
                   to: this.to
                 },
