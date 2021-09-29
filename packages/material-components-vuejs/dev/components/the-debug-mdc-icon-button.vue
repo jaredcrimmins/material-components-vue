@@ -14,7 +14,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcIconButton"
+    name: "the-debug-mdc-icon-button"
   }
 </script>
 
