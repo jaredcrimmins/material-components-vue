@@ -11,9 +11,13 @@ export default Vue.extend({
   props: {
     checked: Boolean,
     disabled: Boolean,
-    id: String,
+    id: {
+      type: String,
+      default: ''
+    },
     indeterminate: Boolean,
     value: {
+      type: String,
       default: null
     }
   },
