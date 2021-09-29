@@ -1,6 +1,8 @@
 import {MDCLineRippleFoundation} from "@material/line-ripple";
+import {NativeEventListener} from "@/utils";
+import Vue, {VNode} from 'vue';
 
-export default {
+export default Vue.extend({
   name: "MdcLineRipple",
 
   props: {
@@ -15,7 +17,8 @@ export default {
     return {
       mdcFoundation: new MDCLineRippleFoundation(
         MDCLineRippleFoundation.defaultAdapter
-      )
+      ),
+      style: <{[key: string]: string}>{}
     };
   },
 
@@ -37,11 +40,12 @@ export default {
     this.deinit();
   },
 
-  render(c) {
+  render(c): VNode {
     return c(
       "span",
       {
-        class: "mdc-line-ripple"
+        class: "mdc-line-ripple",
+        style: this.style
       }
     );
   },
@@ -62,7 +66,7 @@ export default {
       this.mdcFoundation.destroy();
     },
 
-    setRippleCenter(rippleCenter) {
+    setRippleCenter(rippleCenter: number) {
       if (rippleCenter !== null)
         this.mdcFoundation.setRippleCenter(rippleCenter);
     },
@@ -71,28 +75,28 @@ export default {
     // Adapter methods
     //
 
-    addClass(className) {
+    addClass(className: string) {
       this.$el.classList.add(className);
     },
 
-    removeClass(className) {
+    removeClass(className: string) {
       this.$el.classList.remove(className);
     },
 
-    hasClass(className) {
+    hasClass(className: string) {
       return this.$el.classList.contains(className);
     },
 
-    setStyle(propertyName, value) {
-      this.$el.style.setProperty(propertyName, value);
+    setStyle(propertyName: string, value: string) {
+      this.style[propertyName] = value;
     },
 
-    registerEventHandler(evtType, handler) {
+    registerEventHandler(evtType: string, handler: NativeEventListener) {
       this.$el.addEventListener(evtType, handler);
     },
 
-    deregisterEventHandler(evtType, handler) {
+    deregisterEventHandler(evtType: string, handler: NativeEventListener) {
       this.$el.removeEventListener(evtType, handler);
     }
   }
-}
+});
