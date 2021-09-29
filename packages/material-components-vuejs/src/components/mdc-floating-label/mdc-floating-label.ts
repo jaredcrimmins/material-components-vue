@@ -17,7 +17,10 @@ export default Vue.extend({
       default: false,
       type: Boolean
     },
-    id: String,
+    id: {
+      type: String,
+      default: ''
+    },
     shake: {
       default: false,
       type: Boolean
