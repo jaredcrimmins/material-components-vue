@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
+export type NativeEventListener = (ev: any) => any;
+
 export function emitCustomEvent(el: Element, evtType: any, evtData: any, shouldBubble = false) {
   const createCustomEvent = () => {
     const evt = document.createEvent('CustomEvent');
