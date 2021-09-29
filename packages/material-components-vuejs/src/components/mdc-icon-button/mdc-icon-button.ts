@@ -24,7 +24,10 @@ export default Vue.extend({
   props: {
     disabled: Boolean,
     rippleDisabled: Boolean,
-    icon: String,
+    icon: {
+      type: String,
+      default: ''
+    },
     tagName: {
       type: String,
       default: 'button',
@@ -33,7 +36,10 @@ export default Vue.extend({
       }
     },
     toggleable: Boolean,
-    onIcon: String
+    onIcon: {
+      type: String,
+      default: ''
+    }
   },
 
   data() {
