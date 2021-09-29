@@ -1,16 +1,17 @@
 import {MDCIconButtonToggleFoundation} from '@material/icon-button';
 import {MDCMaterialIcon} from '../mdc-material-icon';
 import {MDCRipple} from '../mdc-ripple';
+import Vue, {CreateElement, VNode} from 'vue';
 import {emitCustomEvent} from '../../utils';
 
-const {cssClasses, strings} = MDCIconButtonToggleFoundation;
+const {strings} = MDCIconButtonToggleFoundation;
 
-Object.assign(cssClasses, {
+const cssClasses = {...MDCIconButtonToggleFoundation.cssClasses, ...{
   ICON_BUTTON_ICON: 'mdc-icon-button__icon',
   ICON_BUTTON_ICON_ON: 'mdc-icon-button__icon--on'
-});
+}};
 
-export default {
+export default Vue.extend({
   name: 'mdc-icon-button',
 
   inheritAttrs: true,
@@ -44,7 +45,7 @@ export default {
   },
 
   computed: {
-    isTagNameButton() {
+    isTagNameButton(): boolean {
       return this.tagName === 'button';
     }
   },
@@ -57,7 +58,7 @@ export default {
     this.deinit();
   },
 
-  render(c) {
+  render(c): VNode {
     return c(
       'mdc-ripple',
       {
@@ -121,7 +122,7 @@ export default {
       this.mdcFoundation.handleClick();
     },
 
-    genToggleIcons(c) {
+    genToggleIcons(c: CreateElement) {
       const iconScopedSlot = this.$scopedSlots.icon;
       const onIconScopedSlot = this.$scopedSlots['on-icon'];
       const onIconCSSClass = `${cssClasses.ICON_BUTTON_ICON} ${cssClasses.ICON_BUTTON_ICON_ON}`;
@@ -166,24 +167,24 @@ export default {
     // Adapter methods
     //
 
-    addClass(className) {
+    addClass(className: string) {
       this.$el.classList.add(className);
     },
 
-    removeClass(className) {
+    removeClass(className: string) {
       this.$el.classList.remove(className);
     },
 
-    hasClass(className) {
+    hasClass(className: string) {
       return this.$el.classList.contains(className);
     },
 
-    setAttr(name, value) {
+    setAttr(name: string, value: string) {
       this.$el.setAttribute(name, value);
     },
 
-    notifyChange(evtData) {
+    notifyChange(evtData: any) {
       emitCustomEvent(this.$el, strings.CHANGE_EVENT, evtData, false);
     }
   }
-}
+});
