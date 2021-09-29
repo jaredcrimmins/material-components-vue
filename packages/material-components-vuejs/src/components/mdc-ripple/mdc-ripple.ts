@@ -1,10 +1,9 @@
 import {MDCRippleFoundation, util} from '@material/ripple';
+import {NativeEventListener} from '@/utils';
 import Vue, {VNode} from 'vue';
 import {applyPassive} from '@material/dom/events';
 import {getSlot} from '@/utils';
 import {matches} from '@material/dom/ponyfill';
-
-type NativeEventListener = (ev: any) => any;
 
 export default Vue.extend({
   name: 'mdc-ripple',
