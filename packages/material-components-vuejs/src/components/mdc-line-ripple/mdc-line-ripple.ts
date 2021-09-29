@@ -3,7 +3,7 @@ import {NativeEventListener} from "@/utils";
 import Vue, {VNode} from 'vue';
 
 export default Vue.extend({
-  name: "MdcLineRipple",
+  name: "mdc-line-ripple",
 
   props: {
     active: Boolean,
