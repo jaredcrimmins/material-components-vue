@@ -4,17 +4,11 @@
       MDCRipple
     </h2>
 
-    <mdc-ripple>
-      <template v-slot:default="{cssClass, on}">
-        <div
-          class="the-debug-mdc-ripple__demo-box"
-          :class="cssClass"
-          @blur="on.blur"
-          @focus="on.focus"
-        >
-          Click here!
-        </div>
-      </template>
+    <mdc-ripple
+      class="the-debug-mdc-ripple__demo-box"
+      tag-name="div"
+    >
+      Click here!
     </mdc-ripple>
   </div>
 </template>
