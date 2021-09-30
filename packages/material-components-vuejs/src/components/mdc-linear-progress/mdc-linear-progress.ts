@@ -23,10 +23,6 @@ export default Vue.extend({
       validator(value) {
         return value >= 0 && value <= 1;
       }
-    },
-    reverse: {
-      default: false,
-      type: Boolean
     }
   },
 
@@ -55,10 +51,6 @@ export default Vue.extend({
 
     progress(value) {
       this.setProgress(value);
-    },
-
-    reverse(value) {
-      this.setReverse(value);
     }
   },
 
@@ -116,10 +108,6 @@ export default Vue.extend({
 
     setProgress(value: number) {
       this.mdcFoundation.setProgress(value);
-    },
-
-    setReverse(value) {
-      this.mdcFoundation.setReverse(value);
     },
 
     open_() {
