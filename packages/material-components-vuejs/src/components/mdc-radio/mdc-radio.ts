@@ -9,10 +9,17 @@ export default Vue.extend({
   inheritAttrs: false,
 
   props: {
-    id: String,
+    id: {
+      type: String,
+      default: null
+    },
     disabled: Boolean,
-    name: String,
+    name: {
+      type: String,
+      default: null
+    },
     value: {
+      type: [Number, String],
       default: null
     }
   },
