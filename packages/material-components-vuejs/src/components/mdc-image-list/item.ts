@@ -7,7 +7,10 @@ export default Vue.extend({
 
   props: {
     constrainAspectRatio: Boolean,
-    label: String
+    label: {
+      type: String,
+      default: null
+    }
   },
 
   render(c): VNode {
