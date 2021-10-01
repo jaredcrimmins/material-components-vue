@@ -11,11 +11,20 @@ export default Vue.extend({
 
   props: {
     floatLabel: Boolean,
-    label: String,
-    labelID: String,
+    label: {
+      type: String,
+      default: null
+    },
+    labelID: {
+      type: String,
+      default: null
+    },
     labelRequired: Boolean,
     notched: Boolean,
-    notchWidth: Number,
+    notchWidth: {
+      type: Number,
+      default: null
+    },
     shakeLabel: Boolean
   },
 
