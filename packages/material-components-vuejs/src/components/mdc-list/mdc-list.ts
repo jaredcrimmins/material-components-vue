@@ -260,7 +260,7 @@ export default Vue.extend({
     },
 
     focusItemAtIndex(index: number) {
-      let element = this.getListItemElements()[index];
+      let element = <HTMLElement>this.getListItemElements()[index];
 
       if(element) {
         element.focus();
