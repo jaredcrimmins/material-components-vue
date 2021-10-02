@@ -30,7 +30,9 @@ export default Vue.extend({
                     {
                         staticClass: "mdc-switch__track"
                     },
-                    this.genThumbUnderlay(c)
+                    [
+                      this.genThumbUnderlay(c)
+                    ]
                 )
             ]
         );
