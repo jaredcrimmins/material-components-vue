@@ -28,7 +28,7 @@ export default Vue.extend({
 
   data() {
     return {
-      domObserver: null,
+      domObserver: <null | MutationObserver>null,
       itemElements: null,
       mdcFoundation: new MDCListFoundation(MDCListFoundation.defaultAdapter),
       mounted: false
@@ -135,7 +135,7 @@ export default Vue.extend({
 
     deinit() {
       this.mdcFoundation.destroy();
-      this.domObserver.disconnect();
+      this.domObserver?.disconnect();
     },
 
     initTabindex() {
