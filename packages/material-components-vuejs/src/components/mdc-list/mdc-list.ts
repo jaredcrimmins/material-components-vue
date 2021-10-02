@@ -232,7 +232,7 @@ export default Vue.extend({
     },
 
     getFocusedElementIndex() {
-      return this.getListItemElements().indexOf(document.activeElement);
+      return this.getListItemElements().indexOf(document.activeElement!);
     },
 
     setAttributeForElementIndex(index: number, attribute: string, value: string) {
