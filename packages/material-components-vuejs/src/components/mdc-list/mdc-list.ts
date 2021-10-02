@@ -1,5 +1,5 @@
 import {MDCListFoundation, MDCListIndex} from "@material/list";
-import Vue, {VNode} from 'vue';
+import Vue, {PropType, VNode} from 'vue';
 import {closest, matches} from "@material/dom/ponyfill";
 import {emitCustomEvent} from "./../../utils";
 
@@ -73,7 +73,7 @@ export default Vue.extend({
 
   watch: {
     hasTypeahead(value) {
-      this.mdcFoundation.setHasTypeahead(value);
+      this.setHasTypeahead(value);
     },
 
     selectedIndex(value) {
@@ -123,7 +123,7 @@ export default Vue.extend({
     init() {
       this.mdcFoundation = new MDCListFoundation(this);
       this.mdcFoundation.init();
-      this.mdcFoundation.setHasTypeahead(this.hasTypeahead);
+      this.setHasTypeahead(this.hasTypeahead);
       this.mdcFoundation.setSingleSelection(this.singleSelection);
       this.mdcFoundation.setSelectedIndex(this.selectedIndex);
       this.mdcFoundation.setVerticalOrientation(this.vertical);
@@ -143,6 +143,10 @@ export default Vue.extend({
 
     initTabindex() {
       this.setAttributeForElementIndex(0, "tabindex", "0");
+    },
+
+    setHasTypeahead(hasTypeahead: boolean) {
+      this.mdcFoundation.setHasTypeahead(hasTypeahead);
     },
 
     /*
