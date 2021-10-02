@@ -87,7 +87,7 @@ export default Vue.extend({
     },
 
     vertical(value) {
-      this.mdcFoundation.setVerticalOrientation(value);
+      this.setVerticalOrientation(value);
     },
 
     wrapFocus(value) {
@@ -128,7 +128,7 @@ export default Vue.extend({
       this.setHasTypeahead(this.hasTypeahead);
       this.setSingleSelection(this.singleSelection);
       this.setSelectedIndex(this.selectedIndex);
-      this.mdcFoundation.setVerticalOrientation(this.vertical);
+      this.setVerticalOrientation(this.vertical);
       this.mdcFoundation.setWrapFocus(this.wrapFocus);
 
       this.mdcFoundation.layout();
@@ -159,6 +159,10 @@ export default Vue.extend({
       if (!selectedIndex) return;
 
       this.mdcFoundation.setSelectedIndex(selectedIndex);
+    },
+
+    setVerticalOrientation(value: boolean) {
+      this.mdcFoundation.setVerticalOrientation(value);
     },
 
     /*
