@@ -320,20 +320,20 @@ export default Vue.extend({
       const listItemElement = this.getListItemElements()[index];
       let primaryTextElement = null;
 
-      if(listItemElement) {
-        primaryTextElement = listItemElement.querySelector(strings.LIST_ITEM_PRIMARY_TEXT_SELECTOR);
+      if(!listItemElement) return '';
 
-        if(primaryTextElement) {
-          return primaryTextElement.textContent || "";
-        }
-        else {
-          const singleLineText =
-            listItemElement.querySelector(`.${cssClasses.LIST_ITEM_TEXT_CLASS}`);
+      primaryTextElement = listItemElement.querySelector(strings.LIST_ITEM_PRIMARY_TEXT_SELECTOR);
 
-          if(singleLineText) {
-            return singleLineText.textContent || "";
-          }
-        }
+      if(primaryTextElement) {
+        return primaryTextElement.textContent || "";
+      }
+      else {
+        const singleLineText =
+          listItemElement.querySelector(`.${cssClasses.LIST_ITEM_TEXT_CLASS}`);
+
+        if(!singleLineText) return '';
+
+        return singleLineText.textContent || "";
       }
     }
   }
