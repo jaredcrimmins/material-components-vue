@@ -281,20 +281,20 @@ export default Vue.extend({
 
     isCheckboxCheckedAtIndex(index: number) {
       const listItemEl = this.getListItemElements()[index];
-      const toggleEl = listItemEl.querySelector(strings.CHECKBOX_SELECTOR);
+      const toggleEl = listItemEl.querySelector<HTMLInputElement>(strings.CHECKBOX_SELECTOR);
 
-      return toggleEl.checked;
+      return toggleEl!.checked;
     },
 
     setCheckedCheckboxOrRadioAtIndex(index: number, isChecked: boolean) {
       const listItemEl = this.getListItemElements()[index];
-      const toggleEl = listItemEl.querySelector(strings.CHECKBOX_RADIO_SELECTOR);
+      const toggleEl = listItemEl.querySelector<HTMLInputElement>(strings.CHECKBOX_RADIO_SELECTOR);
 
-      toggleEl.checked = isChecked;
+      toggleEl!.checked = isChecked;
 
       const event = document.createEvent('Event');
       event.initEvent('change', true, true);
-      toggleEl.dispatchEvent(event);
+      toggleEl!.dispatchEvent(event);
     },
 
     notifyAction(index: number) {
