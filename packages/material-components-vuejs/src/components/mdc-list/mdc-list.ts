@@ -274,7 +274,7 @@ export default Vue.extend({
       ));
 
       listItemChildren
-      .forEach(el => {
+      .forEach((el: HTMLElement) => {
         el.setAttribute("tabindex", tabIndexValue);
       });
     },
