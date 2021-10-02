@@ -81,7 +81,7 @@ export default Vue.extend({
     },
 
     singleSelection(value) {
-      this.mdcFoundation.setSingleSelection(value);
+      this.setSingleSelection(value);
     },
 
     vertical(value) {
@@ -124,7 +124,7 @@ export default Vue.extend({
       this.mdcFoundation = new MDCListFoundation(this);
       this.mdcFoundation.init();
       this.setHasTypeahead(this.hasTypeahead);
-      this.mdcFoundation.setSingleSelection(this.singleSelection);
+      this.setSingleSelection(this.singleSelection);
       this.mdcFoundation.setSelectedIndex(this.selectedIndex);
       this.mdcFoundation.setVerticalOrientation(this.vertical);
       this.mdcFoundation.setWrapFocus(this.wrapFocus);
@@ -147,6 +147,10 @@ export default Vue.extend({
 
     setHasTypeahead(hasTypeahead: boolean) {
       this.mdcFoundation.setHasTypeahead(hasTypeahead);
+    },
+
+    setSingleSelection(value: boolean) {
+      this.mdcFoundation.setSingleSelection(value);
     },
 
     /*
