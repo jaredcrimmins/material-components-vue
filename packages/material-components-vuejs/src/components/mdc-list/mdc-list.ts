@@ -81,10 +81,6 @@ export default Vue.extend({
       this.mdcFoundation.setSingleSelection(value);
     },
 
-    twoLine(value) {
-      this.mdcFoundation.setTwoLine(value);
-    },
-
     vertical(value) {
       this.mdcFoundation.setVerticalOrientation(value);
     },
