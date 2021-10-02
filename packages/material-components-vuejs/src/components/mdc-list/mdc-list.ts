@@ -1,4 +1,4 @@
-import {MDCListFoundation} from "@material/list";
+import {MDCListFoundation, MDCListIndex} from "@material/list";
 import Vue, {VNode} from 'vue';
 import {closest, matches} from "@material/dom/ponyfill";
 import {emitCustomEvent} from "./../../utils";
@@ -16,7 +16,10 @@ export default Vue.extend({
 
   props: {
     hasTypeahead: Boolean,
-    selectedIndex: Number,
+    selectedIndex: {
+      type: <PropType<MDCListIndex | null>>[Number, Array, null],
+      default: null
+    },
     singleSelection: Boolean,
     twoLine: Boolean,
     wrapFocus: Boolean,
