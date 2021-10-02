@@ -169,13 +169,13 @@ export default Vue.extend({
       this.mdcFoundation.handleClick(index, toggleCheckbox);
     },
 
-    onFocusIn(event: Event) {
+    onFocusIn(event: FocusEvent) {
       const index = this.getListItemIndex(event);
 
       this.mdcFoundation.handleFocusIn(event, index);
     },
 
-    onFocusOut(event: Event) {
+    onFocusOut(event: FocusEvent) {
       const index = this.getListItemIndex(event);
 
       this.mdcFoundation.handleFocusOut(event, index);
