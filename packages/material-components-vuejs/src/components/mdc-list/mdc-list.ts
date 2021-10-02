@@ -267,7 +267,7 @@ export default Vue.extend({
       }
     },
 
-    setTabIndexForListItemChildren(listItemIndex: number, tabIndexValue: number) {
+    setTabIndexForListItemChildren(listItemIndex: number, tabIndexValue: string) {
       const element = this.getListItemElements()[listItemIndex];
       const listItemChildren = [].slice.call(element.querySelectorAll(
         strings.CHILD_ELEMENTS_TO_TOGGLE_TABINDEX
