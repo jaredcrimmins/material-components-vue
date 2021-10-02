@@ -9,7 +9,7 @@ export default Vue.extend({
     },
 
     data() {
-        return {
+        return <{mdcTextField: null | InstanceType<typeof MDCSwitch>}>{
             mdcTextField: null
         };
     },
