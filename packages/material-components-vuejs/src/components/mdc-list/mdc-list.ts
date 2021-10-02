@@ -149,7 +149,7 @@ export default Vue.extend({
     getListItemIndex(event: Event) {
       const {target} = event;
       const nearestParent = closest(
-        target,
+        <Element>target,
         `.${cssClasses.LIST_ITEM_CLASS}, .${cssClasses.ROOT}`);
 
       if(nearestParent && matches(nearestParent , `.${cssClasses.LIST_ITEM_CLASS}`)) {
