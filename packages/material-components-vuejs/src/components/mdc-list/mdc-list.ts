@@ -11,13 +11,15 @@ const strings = {...MDCListFoundation.strings, ...{
   LIST_ITEM_PRIMARY_TEXT_SELECTOR: `.${cssClasses.LIST_ITEM_PRIMARY_TEXT_CLASS}`
 }};
 
+type SelectedIndex = MDCListIndex | null;
+
 export default Vue.extend({
   name: "mdc-list",
 
   props: {
     hasTypeahead: Boolean,
     selectedIndex: {
-      type: <PropType<MDCListIndex | null>>[Number, Array, null],
+      type: <PropType<SelectedIndex>>[Number, Array, null],
       default: null
     },
     singleSelection: Boolean,
@@ -77,7 +79,7 @@ export default Vue.extend({
     },
 
     selectedIndex(value) {
-      this.mdcFoundation.setSelectedIndex(value);
+      this.setSelectedIndex(value);
     },
 
     singleSelection(value) {
@@ -125,7 +127,7 @@ export default Vue.extend({
       this.mdcFoundation.init();
       this.setHasTypeahead(this.hasTypeahead);
       this.setSingleSelection(this.singleSelection);
-      this.mdcFoundation.setSelectedIndex(this.selectedIndex);
+      this.setSelectedIndex(this.selectedIndex);
       this.mdcFoundation.setVerticalOrientation(this.vertical);
       this.mdcFoundation.setWrapFocus(this.wrapFocus);
 
@@ -151,6 +153,12 @@ export default Vue.extend({
 
     setSingleSelection(value: boolean) {
       this.mdcFoundation.setSingleSelection(value);
+    },
+
+    setSelectedIndex(selectedIndex: SelectedIndex) {
+      if (!selectedIndex) return;
+
+      this.mdcFoundation.setSelectedIndex(selectedIndex);
     },
 
     /*
