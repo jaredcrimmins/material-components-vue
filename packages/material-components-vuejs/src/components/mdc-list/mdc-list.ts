@@ -182,8 +182,8 @@ export default Vue.extend({
     },
 
     onKeydown(event: KeyboardEvent) {
-      let index = this.getListItemIndex(event);
-      let target = event.target;
+      const index = this.getListItemIndex(event);
+      const target = event.target;
 
       if (!target) return;
 
@@ -236,7 +236,7 @@ export default Vue.extend({
     },
 
     setAttributeForElementIndex(index: number, attribute: string, value: string) {
-      let element = this.getListItemElements()[index];
+      const element = this.getListItemElements()[index];
 
       if(element) {
         element.setAttribute(attribute, value);
@@ -244,7 +244,7 @@ export default Vue.extend({
     },
 
     addClassForElementIndex(index: number, className: string) {
-      let element = this.getListItemElements()[index];
+      const element = this.getListItemElements()[index];
 
       if(element) {
         element.classList.add(className);
@@ -252,7 +252,7 @@ export default Vue.extend({
     },
 
     removeClassForElementIndex(index: number, className: string) {
-      let element = this.getListItemElements()[index];
+      const element = this.getListItemElements()[index];
 
       if(element) {
         element.classList.remove(className);
@@ -260,7 +260,7 @@ export default Vue.extend({
     },
 
     focusItemAtIndex(index: number) {
-      let element = <HTMLElement>this.getListItemElements()[index];
+      const element = <HTMLElement>this.getListItemElements()[index];
 
       if(element) {
         element.focus();
