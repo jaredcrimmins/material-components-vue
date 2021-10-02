@@ -181,7 +181,7 @@ export default Vue.extend({
       this.mdcFoundation.handleFocusOut(event, index);
     },
 
-    onKeydown(event: Event) {
+    onKeydown(event: KeyboardEvent) {
       let index = this.getListItemIndex(event);
       let target = event.target;
 
