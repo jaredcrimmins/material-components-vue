@@ -1,5 +1,6 @@
 import {MDCCheckboxFoundation, cssClasses} from "@material/checkbox";
 import Vue, {CreateElement, VNode} from 'vue';
+import {domPropDefFactory} from '@/utils';
 
 let checkboxID_ = 0;
 
@@ -16,10 +17,7 @@ export default Vue.extend({
       default: ''
     },
     indeterminate: Boolean,
-    value: {
-      type: String,
-      default: null
-    }
+    value: domPropDefFactory()
   },
 
   data() {
