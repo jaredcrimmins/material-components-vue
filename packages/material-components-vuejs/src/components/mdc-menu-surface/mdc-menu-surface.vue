@@ -135,7 +135,7 @@
         let anchorElement = null;
 
         if(typeof this.anchorElement === "string") {
-          anchorElement = this.$root.$el.querySelector(anchorElement);
+          anchorElement = this.$root.$el.querySelector(this.anchorElement);
         }
         else if(this.anchorElement && (this.anchorElement instanceof HTMLElement || this.anchorElement.nodeType)) {
           anchorElement = this.anchorElement;
