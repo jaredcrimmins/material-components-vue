@@ -1,6 +1,22 @@
-import Vue from 'vue';
+import Vue, {PropType} from 'vue';
 
 export type NativeEventListener = (ev: any) => any;
+
+export function domPropDefFactory(defaultValue: boolean): {type: typeof Boolean};
+export function domPropDefFactory(defaultValue?: string | number | null): {
+  type: PropType<string | number | null>,
+  default: string | number | null
+};
+export function domPropDefFactory(defaultValue: string): {type: PropType<string | null>, default: string | null};
+export function domPropDefFactory(defaultValue: number): {type: PropType<number | null>, default: number | null};
+export function domPropDefFactory(defaultValue: string | number | boolean | null = null) {
+  if (typeof defaultValue === 'boolean') return {type: Boolean};
+
+  return {
+    type: <PropType<string | number | null>>[String, Number],
+    default: defaultValue
+  };
+}
 
 export function emitCustomEvent(el: Element, evtType: any, evtData: any, shouldBubble = false) {
   const createCustomEvent = () => {
