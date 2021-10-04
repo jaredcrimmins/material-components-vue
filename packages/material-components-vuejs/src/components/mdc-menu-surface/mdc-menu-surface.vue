@@ -12,8 +12,9 @@
   </div>
 </template>
 
-<script>
-  import {MDCMenuSurfaceFoundation} from "@material/menu-surface";
+<script lang="ts">
+  import {Corner, MDCMenuDistance, MDCMenuSurfaceFoundation} from "@material/menu-surface";
+  import {PropType} from 'vue';
   import {emitCustomEvent} from "./../../utils";
   import {absolutelyPositionable} from "../../mixins";
   import {getCorrectPropertyName} from "@material/animation/util";
@@ -28,6 +29,7 @@
     props: {
       anchorCorner: Number,
       anchorElement: {
+        type: <PropType<Element | HTMLElement |string | null>>[String, Object],
         validator: value => {
           return ["string", "object"].includes(typeof value);
         }
@@ -46,10 +48,10 @@
 
     data() {
       return {
-        anchorElement_: null,
+        anchorElement_: <Element | HTMLElement | null>null,
         mdcFoundation: new MDCMenuSurfaceFoundation(MDCMenuSurfaceFoundation.defaultAdapter),
         open: false,
-        previousFocus: null
+        previousFocus: <HTMLElement | null>null
       };
     },
 
@@ -153,31 +155,31 @@
         this.open ? this.mdcFoundation.open() : this.mdcFoundation.close();
       },
 
-      setAbsolutePosition(x, y) {
+      setAbsolutePosition(x: number, y: number) {
         this.mdcFoundation.setAbsolutePosition(x, y);
       },
 
-      setAnchorCorner(corner) {
+      setAnchorCorner(corner: Corner) {
         this.mdcFoundation.setAnchorCorner(corner);
       },
 
-      setFixedPosition(isFixed) {
+      setFixedPosition(isFixed: boolean) {
         this.mdcFoundation.setFixedPosition(isFixed);
       },
 
-      setIsHoisted(isHoisted) {
+      setIsHoisted(isHoisted: boolean) {
         this.mdcFoundation.setIsHoisted(isHoisted);
       },
 
-      setQuickOpen(quickOpen) {
+      setQuickOpen(quickOpen: boolean) {
         this.mdcFoundation.setQuickOpen(quickOpen);
       },
 
-      onBodyClick(event) {
+      onBodyClick(event: MouseEvent) {
         this.mdcFoundation.handleBodyClick(event);
       },
 
-      onKeydown(event) {
+      onKeydown(event: KeyboardEvent) {
         this.mdcFoundation.handleKeydown(event);
       },
 
@@ -201,15 +203,15 @@
       // Adapter methods
       //
 
-      addClass(className) {
+      addClass(className: string) {
         this.$el.classList.add(className);
       },
 
-      removeClass(className) {
+      removeClass(className: string) {
         this.$el.classList.remove(className);
       },
 
-      hasClass(className) {
+      hasClass(className: string) {
         return this.$el.classList.contains(className);
       },
 
@@ -227,7 +229,7 @@
         this.onOpened();
       },
 
-      isElementInContainer(el) {
+      isElementInContainer(el: Node | null) {
         return this.$el.contains(el);
       },
 
@@ -235,10 +237,11 @@
         return getComputedStyle(this.$el).getPropertyValue("direction") === "rtl";
       },
 
-      setTransformOrigin(value) {
+      setTransformOrigin(value: string) {
+        const el = <HTMLElement>this.$el;
         let propertyName = `${getCorrectPropertyName(window, "transform")}-origin`;
 
-        this.$el.style.setProperty(propertyName, value);
+        el.style.setProperty(propertyName, value);
       },
 
       isFocused() {
@@ -246,7 +249,7 @@
       },
 
       saveFocus() {
-        this.previousFocus = document.activeElement;
+        this.previousFocus = <HTMLElement>document.activeElement;
       },
 
       restoreFocus() {
@@ -258,9 +261,11 @@
       },
 
       getInnerDimensions() {
+        const el = <HTMLElement>this.$el;
+
         return {
-          width: this.$el.offsetWidth,
-          height: this.$el.offsetHeight
+          width: el.offsetWidth,
+          height: el.offsetHeight
         };
       },
 
@@ -286,17 +291,19 @@
         return {x: window.pageXOffset, y: window.pageYOffset};
       },
 
-      setPosition(position) {
-        let rootHTML = this.$el;
+      setPosition(position: Partial<MDCMenuDistance>) {
+        let el = <HTMLElement>this.$el;
 
-        rootHTML.style.left = "left" in position ? `${ position.left }px` : "";
-        rootHTML.style.right = "right" in position ? `${ position.right }px` : "";
-        rootHTML.style.top = "top" in position ? `${ position.top }px` : "";
-        rootHTML.style.bottom = "bottom" in position ? `${ position.bottom }px` : "";
+        el.style.left = "left" in position ? `${ position.left }px` : "";
+        el.style.right = "right" in position ? `${ position.right }px` : "";
+        el.style.top = "top" in position ? `${ position.top }px` : "";
+        el.style.bottom = "bottom" in position ? `${ position.bottom }px` : "";
       },
 
-      setMaxHeight(height) {
-        this.$el.style.maxHeight = height;
+      setMaxHeight(height: string) {
+        const el = <HTMLElement>this.$el;
+
+        el.style.maxHeight = height;
       }
     }
   }
