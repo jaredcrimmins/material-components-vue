@@ -148,7 +148,7 @@ export default Vue.extend({
         anchorElement = this.anchorElement;
       }
       else {
-        let parentElement = this.$el.parentElement;
+        const parentElement = this.$el.parentElement;
 
         anchorElement = parentElement && parentElement.querySelector(cssClasses.ANCHOR) ? parentElement : null;
       }
@@ -246,7 +246,7 @@ export default Vue.extend({
 
     setTransformOrigin(value: string) {
       const el = <HTMLElement>this.$el;
-      let propertyName = `${getCorrectPropertyName(window, "transform")}-origin`;
+      const propertyName = `${getCorrectPropertyName(window, "transform")}-origin`;
 
       el.style.setProperty(propertyName, value);
     },
@@ -299,7 +299,7 @@ export default Vue.extend({
     },
 
     setPosition(position: Partial<MDCMenuDistance>) {
-      let el = <HTMLElement>this.$el;
+      const el = <HTMLElement>this.$el;
 
       el.style.left = "left" in position ? `${ position.left }px` : "";
       el.style.right = "right" in position ? `${ position.right }px` : "";
