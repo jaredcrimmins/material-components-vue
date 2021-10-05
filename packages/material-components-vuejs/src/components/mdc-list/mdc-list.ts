@@ -41,11 +41,11 @@ export default Vue.extend({
   },
 
   computed: {
-    isCheckboxList() {
+    isCheckboxList(): boolean {
       return this.mounted && this.hasCheckboxAtIndex(0);
     },
 
-    isRadioList() {
+    isRadioList(): boolean {
       return this.mounted && this.hasRadioAtIndex(0);
     },
 
