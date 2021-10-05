@@ -12,12 +12,16 @@ export default Vue.extend({
   mixins: [absolutelyPositionable],
 
   props: {
-    anchorCorner: Number,
+    anchorCorner: {
+      type: Number,
+      default: Corner.TOP_LEFT
+    },
     anchorElement: {
       type: <PropType<Element | HTMLElement |string | null>>[String, Object],
       validator: value => {
         return ["string", "object"].includes(typeof value);
-      }
+      },
+      default: null
     },
     fixedPosition: Boolean,
     fullWidth: Boolean,
