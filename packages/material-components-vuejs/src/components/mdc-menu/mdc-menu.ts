@@ -31,13 +31,15 @@ export default baseMixins.extend({
 
   props: {
     anchorCorner: {
-      type: <PropType<Corner>>Number
+      type: <PropType<Corner>>Number,
+      default: Corner.TOP_LEFT
     },
     anchorElement: {
       type: <PropType<Element | HTMLElement |string | null>>[String, Object],
       validator: value => {
         return ["string", "object"].includes(typeof value);
-      }
+      },
+      default: null
     },
     defaultFocusState: {
       type: Number,
