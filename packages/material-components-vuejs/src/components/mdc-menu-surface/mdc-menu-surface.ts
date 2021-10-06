@@ -17,10 +17,7 @@ export default Vue.extend({
       default: Corner.TOP_LEFT
     },
     anchorElement: {
-      type: <PropType<Element |string | null>>[String, Element],
-      validator: value => {
-        return ["string", "object"].includes(typeof value);
-      },
+      type: <PropType<Element | HTMLElement |string | null>>[String, Element],
       default: null
     },
     fixedPosition: Boolean,
