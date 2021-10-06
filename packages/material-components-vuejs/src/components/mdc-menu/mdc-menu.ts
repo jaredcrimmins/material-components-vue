@@ -35,7 +35,7 @@ export default baseMixins.extend({
       default: Corner.TOP_LEFT
     },
     anchorElement: {
-      type: <PropType<Element | HTMLElement |string | null>>[String, Element],
+      type: <PropType<Element |string | null>>[String, Element],
       default: null
     },
     defaultFocusState: {
