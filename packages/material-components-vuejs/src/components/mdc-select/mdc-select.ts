@@ -6,6 +6,7 @@ import {MDCNotchedOutline} from "./../mdc-notched-outline";
 import Vue, {CreateElement, PropType, VNode} from 'vue';
 import {emitCustomEvent} from "./../../utils";
 import {estimateScrollWidth} from "@material/dom/ponyfill";
+import * as menuConstants from '@material/menu/constants';
 import * as menuTypes from '@material/menu/types';
 import * as menuSurfceConstants from '@material/menu-surface/constants';
 
@@ -78,6 +79,7 @@ export default Vue.extend({
   },
 
   created() {
+    selectID_++;
     this.labelID = `__mdc-select-label${selectID_}`;
     this.selectedTextID = `__mdc-select-selected-text${selectID_}`;
   },
@@ -323,10 +325,10 @@ export default Vue.extend({
           on: {
             input: (value: boolean) => {
               this.menuOpen = value;
-            },
-            select: this.onMenuSelected
+            }
           },
           nativeOn: {
+            [menuConstants.strings.SELECTED_EVENT]: this.onMenuSelected,
             'MDCMenuSurface:opened': this.onMDCMenuSurfaceOpened,
             'MDCMenuSurface:closed': this.onMDCMenuSurfaceClosed
           }
