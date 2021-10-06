@@ -60,7 +60,7 @@ export default Vue.extend({
       lineRippleActive: false,
       lineRippleCenter: 0,
       mdcFoundation: new MDCSelectFoundation(MDCSelectFoundation.defaultAdapter),
-      menuAnchorCorner: null,
+      menuAnchorCorner: <menuSurfceConstants.Corner | null>null,
       menuAnchorElement: <Element | string>"mdc-select__anchor",
       menuOpen: false,
       menuWrapFocus: false,
