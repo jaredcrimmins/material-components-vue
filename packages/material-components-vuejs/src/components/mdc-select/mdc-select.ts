@@ -374,6 +374,17 @@ export default Vue.extend({
       value && this.mdcFoundation.setValue(value);
     },
 
+    getNormalizedXCoordinate(event: MouseEvent | TouchEvent) {
+      const targetClientRect = (<Element>event.target).getBoundingClientRect();
+      const xCoordinate = this.isTouchEvent(event) ? event.touches[0].clientX : event.clientX;
+
+      return xCoordinate - targetClientRect.left;
+    },
+
+    isTouchEvent(event: MouseEvent | TouchEvent): event is TouchEvent {
+      return Boolean((<TouchEvent>event).touches);
+    },
+
     refreshIndex() {
       const menuItemValues = this.getMenuItemValues();
 
@@ -384,8 +395,8 @@ export default Vue.extend({
       this.mdcFoundation.handleBlur();
     },
 
-    onClick() {
-      this.mdcFoundation.handleClick();
+    onClick(event: MouseEvent | TouchEvent) {
+      this.mdcFoundation.handleClick(this.getNormalizedXCoordinate(event));
     },
 
     onFocus() {
