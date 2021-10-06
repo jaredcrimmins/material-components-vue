@@ -18,7 +18,7 @@ type MenuRef = InstanceType<typeof MDCMenu>;
 type MenuItemsRef = InstanceType<typeof MDCMenuItem>[];
 
 export default Vue.extend({
-  name: "MdcSelect",
+  name: "mdc-select",
 
   components: {
     "mdc-floating-label": MDCFloatingLabel,
