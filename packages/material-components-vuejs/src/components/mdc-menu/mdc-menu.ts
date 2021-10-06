@@ -36,9 +36,6 @@ export default baseMixins.extend({
     },
     anchorElement: {
       type: <PropType<Element | HTMLElement |string | null>>[String, Element],
-      validator: value => {
-        return ["string", "object"].includes(typeof value);
-      },
       default: null
     },
     defaultFocusState: {
