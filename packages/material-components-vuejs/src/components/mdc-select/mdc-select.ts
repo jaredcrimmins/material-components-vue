@@ -397,7 +397,7 @@ export default Vue.extend({
     },
 
     onMenuSelected(event: menuTypes.MDCMenuItemComponentEvent) {
-      this.mdcFoundation.handleMenuItemAction(event.index);
+      this.mdcFoundation.handleMenuItemAction(event.detail.index);
     },
 
     onMDCMenuSurfaceClosed() {
