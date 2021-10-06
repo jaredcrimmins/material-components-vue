@@ -567,7 +567,7 @@ export default Vue.extend({
     },
 
     getMenuItemTextAtIndex(index: number) {
-      let item = this.items[index];
+      const item = this.items[index];
 
       return item.text;
     },
