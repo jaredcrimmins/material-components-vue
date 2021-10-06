@@ -17,7 +17,7 @@ export default Vue.extend({
       default: Corner.TOP_LEFT
     },
     anchorElement: {
-      type: <PropType<Element |string | null>>[String, Element],
+      type: <PropType<Element | string | null>>[String, Element],
       default: null
     },
     fixedPosition: Boolean,
