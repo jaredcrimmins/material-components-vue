@@ -35,7 +35,7 @@ export default baseMixins.extend({
       default: Corner.TOP_LEFT
     },
     anchorElement: {
-      type: <PropType<Element | HTMLElement |string | null>>[String, Object],
+      type: <PropType<Element | HTMLElement |string | null>>[String, Element],
       validator: value => {
         return ["string", "object"].includes(typeof value);
       },
