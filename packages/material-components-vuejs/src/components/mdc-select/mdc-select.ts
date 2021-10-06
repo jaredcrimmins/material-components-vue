@@ -3,12 +3,20 @@ import {MDCMenu, MDCMenuItem} from "./../mdc-menu";
 import {MDCSelectFoundation, cssClasses, strings} from "@material/select";
 import {MDCLineRipple} from "./../mdc-line-ripple";
 import {MDCNotchedOutline} from "./../mdc-notched-outline";
+import Vue, {CreateElement, PropType, VNode} from 'vue';
 import {emitCustomEvent} from "./../../utils";
 import {estimateScrollWidth} from "@material/dom/ponyfill";
+import * as menuTypes from '@material/menu/types';
+import * as menuSurfceConstants from '@material/menu-surface/constants';
 
 let selectID_ = 0;
 
-export default {
+type MenuItem = {text: string, value: string};
+type AnchorElRef = HTMLElement;
+type MenuRef = InstanceType<typeof MDCMenu>;
+type MenuItemsRef = InstanceType<typeof MDCMenuItem>[];
+
+export default Vue.extend({
   name: "MdcSelect",
 
   components: {
@@ -24,7 +32,7 @@ export default {
     filled: Boolean,
     hasTypeahead: Boolean,
     items: {
-      type: Array,
+      type: <PropType<MenuItem[]>>Array,
       default: () => []
     },
     label: {
@@ -53,7 +61,7 @@ export default {
       lineRippleCenter: 0,
       mdcFoundation: new MDCSelectFoundation(MDCSelectFoundation.defaultAdapter),
       menuAnchorCorner: null,
-      menuAnchorElement: "mdc-select__anchor",
+      menuAnchorElement: <Element | string>"mdc-select__anchor",
       menuOpen: false,
       menuWrapFocus: false,
       notchedOutlineNotched: false,
@@ -64,7 +72,7 @@ export default {
   },
 
   computed: {
-    ariaLabelledBy() {
+    ariaLabelledBy(): string {
       return `${this.labelID} ${this.selectedTextID}`;
     }
   },
@@ -100,7 +108,7 @@ export default {
     }
   },
 
-  render(c) {
+  render(c): VNode {
     return c(
       'div',
       {
@@ -140,7 +148,7 @@ export default {
       this.mdcFoundation.destroy();
     },
 
-    genAnchor(c) {
+    genAnchor(c: CreateElement) {
       const children = [];
 
       if (this.outlined) {
@@ -176,7 +184,7 @@ export default {
       );
     },
 
-    genNotchedOutline(c) {
+    genNotchedOutline(c: CreateElement) {
       return c(
         'mdc-notched-outline',
         {
@@ -191,7 +199,7 @@ export default {
       );
     },
 
-    genRipple(c) {
+    genRipple(c: CreateElement) {
       if (this.outlined) return;
 
       return c(
@@ -202,7 +210,7 @@ export default {
       );
     },
 
-    genFloatingLabel(c) {
+    genFloatingLabel(c: CreateElement) {
       return c(
         'mdc-floating-label',
         {
@@ -216,7 +224,7 @@ export default {
       );
     },
 
-    genSelectedTextContainer(c) {
+    genSelectedTextContainer(c: CreateElement) {
       return c(
         'span',
         {
@@ -237,7 +245,7 @@ export default {
       );
     },
 
-    genDropdownIcon(c) {
+    genDropdownIcon(c: CreateElement) {
       return c(
         'span',
         {
@@ -249,7 +257,7 @@ export default {
       )
     },
 
-    genDropdownIconGraphic(c) {
+    genDropdownIconGraphic(c: CreateElement) {
       return c(
         'svg',
         {
@@ -286,7 +294,7 @@ export default {
       );
     },
 
-    genLineRipple(c) {
+    genLineRipple(c: CreateElement) {
       return c(
         'mdc-line-ripple',
         {
@@ -297,7 +305,7 @@ export default {
       );
     },
 
-    genMenu(c) {
+    genMenu(c: CreateElement) {
       return c(
         'mdc-menu',
         {
@@ -313,7 +321,7 @@ export default {
             value: this.menuOpen
           },
           on: {
-            input: value => {
+            input: (value: boolean) => {
               this.menuOpen = value;
             },
             select: this.onMenuSelected
@@ -337,7 +345,7 @@ export default {
       );
     },
 
-    genMenuItems(c) {
+    genMenuItems(c: CreateElement) {
       return this.items.map(item => {
         return c(
           'mdc-menu-item',
@@ -354,15 +362,15 @@ export default {
       });
     },
 
-    setDisabled_(isDisabled) {
+    setDisabled_(isDisabled: boolean) {
       this.mdcFoundation.setDisabled(isDisabled);
     },
 
-    setRequired(value) {
+    setRequired(value: boolean) {
       this.mdcFoundation.setRequired(value);
     },
 
-    setValue(value) {
+    setValue(value: string) {
       value && this.mdcFoundation.setValue(value);
     },
 
@@ -384,11 +392,11 @@ export default {
       this.mdcFoundation.handleFocus();
     },
 
-    onKeydown(event) {
+    onKeydown(event: KeyboardEvent) {
       this.mdcFoundation.handleKeydown(event);
     },
 
-    onMenuSelected(event) {
+    onMenuSelected(event: menuTypes.MDCMenuItemComponentEvent) {
       this.mdcFoundation.handleMenuItemAction(event.index);
     },
 
@@ -405,29 +413,29 @@ export default {
     //
 
     getMenuItemValues() {
-      return this.$refs.menuItems
+      return (<MenuItemsRef>this.$refs.menuItems)
       .map(listItem => {
         return listItem.$el.getAttribute("data-value") || "";
       });
     },
 
-    setSelectedIndex(index) {
-      this.$refs.menu.setSelectedIndex(index);
+    setSelectedIndex(index: number) {
+      (<MenuRef>this.$refs.menu).setSelectedIndex(index);
     },
 
     //
     // Adapter methods
     //
 
-    addClass(className) {
+    addClass(className: string) {
       this.$el.classList.add(className);
     },
 
-    removeClass(className) {
+    removeClass(className: string) {
       this.$el.classList.remove(className);
     },
 
-    hasClass(className) {
+    hasClass(className: string) {
       return this.$el.classList.contains(className);
     },
 
@@ -440,19 +448,21 @@ export default {
     },
 
     getSelectedMenuItem() {
-      return this.$refs.menu.$el.querySelector(".mdc-deprecated-list-item--selected");
+      return (<MenuRef>this.$refs.menu).$el.querySelector(".mdc-deprecated-list-item--selected");
     },
 
     hasLabel() {
       return this.label ? true : false;
     },
 
-    floatLabel(value) {
+    floatLabel(value: boolean) {
       this.floatingLabelFloat = value;
     },
 
     getLabelWidth() {
       const floatingLabelEl = this.$el.querySelector('.mdc-floating-label');
+
+      if (!floatingLabelEl) return 0;
 
       return estimateScrollWidth(floatingLabelEl);
     },
@@ -461,7 +471,7 @@ export default {
       return this.outlined ? true : false;
     },
 
-    notchOutline(labelWidth) {
+    notchOutline(labelWidth: number) {
       this.notchedOutlineNotched = true;
       this.notchedOutlineWidth = labelWidth;
     },
@@ -470,20 +480,20 @@ export default {
       this.notchedOutlineNotched = false;
     },
 
-    setDisabled(isDisabled) {
+    setDisabled(isDisabled: boolean) {
       this.isDisabled = isDisabled;
     },
 
-    setRippleCenter(normalizedX) {
+    setRippleCenter(normalizedX: number) {
       this.lineRippleCenter = normalizedX;
     },
 
-    notifyChange(value) {
+    notifyChange(value: string) {
       emitCustomEvent(this.$el, strings.CHANGE_EVENT, {value}, true);
       this.$emit("change", value);
     },
 
-    setSelectedText(text) {
+    setSelectedText(text: string) {
       this.selectedText = text;
     },
 
@@ -491,16 +501,16 @@ export default {
       return document.activeElement === this.$refs.anchorEl;
     },
 
-    getSelectAnchorAttr(attr) {
-      return this.$refs.anchorEl.getAttribute(attr);
+    getSelectAnchorAttr(attr: string) {
+      return (<AnchorElRef>this.$refs.anchorEl).getAttribute(attr);
     },
 
-    setSelectAnchorAttr(attr, value) {
-      this.$refs.anchorEl.setAttribute(attr, value);
+    setSelectAnchorAttr(attr: string, value: string) {
+      (<AnchorElRef>this.$refs.anchorEl).setAttribute(attr, value);
     },
 
-    removeSelectAnchorAttr(attr) {
-      this.$refs.anchorEl.removeAttribute(attr);
+    removeSelectAnchorAttr(attr: string) {
+      (<AnchorElRef>this.$refs.anchorEl).removeAttribute(attr);
     },
 
     openMenu() {
@@ -512,70 +522,61 @@ export default {
     },
 
     getAnchorElement() {
-      return this.$refs.anchorEl;
+      return <AnchorElRef>this.$refs.anchorEl;
     },
 
-    setMenuAnchorElement(anchorEl) {
+    setMenuAnchorElement(anchorEl: HTMLElement) {
       this.menuAnchorElement = anchorEl;
     },
 
-    setMenuAnchorCorner(anchorCorner) {
+    setMenuAnchorCorner(anchorCorner: menuSurfceConstants.Corner) {
       this.menuAnchorCorner = anchorCorner;
     },
 
-    setMenuWrapFocus(wrapFocus) {
+    setMenuWrapFocus(wrapFocus: boolean) {
       this.menuWrapFocus = wrapFocus;
     },
 
-    setAttributeAtIndex(index, attributeName, attributeValue) {
-      this.$refs.menuItems[index].$el.setAttribute(attributeName, attributeValue);
+    setAttributeAtIndex(index: number, attributeName: string, attributeValue: string) {
+      (<MenuItemsRef>this.$refs.menuItems)[index].$el.setAttribute(attributeName, attributeValue);
     },
 
-    focusMenuItemAtIndex(index) {
-      this.$refs.menu.focusItemAtIndex(index);
+    focusMenuItemAtIndex(index: number) {
+      (<MenuRef>this.$refs.menu).focusItemAtIndex(index);
     },
 
     getMenuItemCount() {
       return this.items.length;
     },
 
-    getMenuItemAttr(menuItem, attr) {
+    getMenuItemAttr(menuItem: Element, attr: string) {
       return menuItem.getAttribute(attr);
     },
 
-    getMenuItemTextAtIndex(index) {
+    getMenuItemTextAtIndex(index: number) {
       let item = this.items[index];
 
-      if(item) {
-        if(typeof item.text === "string") {
-          return item.text;
-        }
-        else if(typeof item.primaryText === "object") {
-          return item.primaryText;
-        }
-      }
-
-      return "";
+      return item.text;
     },
 
-    addClassAtIndex(index, className) {
-      this.$refs.menuItems[index].$el.classList.add(className);
+    addClassAtIndex(index: number, className: string) {
+      (<MenuItemsRef>this.$refs.menuItems)[index].$el.classList.add(className);
     },
 
-    removeClassAtIndex(index, className) {
-      this.$refs.menuItems[index].$el.classList.remove(className);
+    removeClassAtIndex(index: number, className: string) {
+      (<MenuItemsRef>this.$refs.menuItems)[index].$el.classList.remove(className);
     },
 
     getSelectedIndex() {
-      return this.$refs.menu.getSelectedIndex();
+      return (<MenuRef>this.$refs.menu).getSelectedIndex();
     },
 
     isTypeaheadInProgress() {
-      return this.$refs.menu.isTypeaheadInProgress();
+      return (<MenuRef>this.$refs.menu).isTypeaheadInProgress();
     },
 
-    typeaheadMatchItem(nextChar) {
-      return this.$refs.menu.typeaheadMatchItem(nextChar);
+    typeaheadMatchItem(nextChar: string) {
+      return (<MenuRef>this.$refs.menu).typeaheadMatchItem(nextChar);
     }
   }
-}
+});
