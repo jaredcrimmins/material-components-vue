@@ -1,1 +1,0 @@
-export {default as MDCTextFieldHelperText} from "./mdc-text-field-helper-text";
