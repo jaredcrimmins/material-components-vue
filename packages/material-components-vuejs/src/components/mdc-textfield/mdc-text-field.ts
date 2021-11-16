@@ -89,12 +89,12 @@ export default Vue.extend({
 
   computed: {
     hasFloatingLabel(): boolean {
-      return (this.label && !this.fullWidth && !this.multiline && !this.outlined);
+      return !!(this.label && !this.fullWidth && !this.multiline && !this.outlined);
       // return (this.label && !this.fullWidth && !this.multiline);
     },
 
     hasNothcedOutline(): boolean {
-      return (this.label && this.isOutlined);
+      return !!(this.label && this.isOutlined);
     },
 
     isOutlined(): boolean {
