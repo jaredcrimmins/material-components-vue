@@ -488,6 +488,14 @@ export default Vue.extend({
       return (<InputElRef>this.$refs.inputEl);
     },
 
+    setInputAttr(attr: string, value: string) {
+      (<InputElRef>this.$refs.inputEl).setAttribute(attr, value);
+    },
+
+    removeInputAttr(attr: string) {
+      (<InputElRef>this.$refs.inputEl).removeAttribute(attr);
+    },
+
     isFocused() {
       return document.activeElement === this.$refs.inputEl;
     },
