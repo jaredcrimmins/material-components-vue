@@ -92,7 +92,8 @@ export default Vue.extend({
       default: ''
     },
     value: {
-      default: () => ('')
+      type: String,
+      default: ''
     }
   },
 
