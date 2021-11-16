@@ -479,7 +479,7 @@ export default Vue.extend({
     },
 
     hasLabel() {
-      return !!this.label;
+      return !!<FloatingLabelRef | undefined>this.$refs.label;
     },
 
     shakeLabel(shouldShake: boolean) {
