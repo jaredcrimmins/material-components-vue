@@ -179,7 +179,7 @@ export default Vue.extend({
             {
               staticClass: 'mdc-text-field__resizer'
             },
-            genTextarea(c)
+            [genTextarea(c)]
           );
         }
 
