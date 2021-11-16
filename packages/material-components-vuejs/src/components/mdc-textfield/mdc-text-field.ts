@@ -327,8 +327,8 @@ export default Vue.extend({
       }
     },
 
-    onClick(event: MouseEvent) {
-      this.mdcFoundation.handleTextFieldInteraction(event);
+    onClick() {
+      this.mdcFoundation.handleTextFieldInteraction();
     },
 
     onInputElChange(event: InputEvent) {
