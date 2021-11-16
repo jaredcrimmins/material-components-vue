@@ -37,8 +37,14 @@ export default Vue.extend({
       },
       type: Object
     },
-    inputElementID: String,
-    label: String,
+    inputElementID: {
+      type: String,
+      default: ''
+    },
+    label: {
+      type: String,
+      default: ''
+    },
     multiline: Boolean,
     outlined: Boolean,
     requiredAsterisk: {
@@ -53,17 +59,32 @@ export default Vue.extend({
     useNativeValidation: Boolean,
 
     // HTML attributes
-    autocomplete: String,
+    autocomplete: {
+      type: String,
+      default: ''
+    },
     disabled: Boolean,
     maxlength: Number,
     multiple: Boolean,
-    name: String,
-    placeholder: String,
+    name: {
+      type: String,
+      default: ''
+    },
+    placeholder: {
+      type: String,
+      default: ''
+    },
     readonly: Boolean,
     required: Boolean,
     size: Number,
-    spellcheck: String,
-    type: String,
+    spellcheck: {
+      type: String,
+      default: ''
+    },
+    type: {
+      type: String,
+      default: ''
+    },
     value: {
       default: () => ('')
     }
