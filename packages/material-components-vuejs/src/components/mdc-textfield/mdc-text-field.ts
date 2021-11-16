@@ -64,7 +64,10 @@ export default Vue.extend({
       default: ''
     },
     disabled: Boolean,
-    maxlength: Number,
+    maxlength: {
+      type: <PropType<Number | null>>Number,
+      default: null
+    },
     multiple: Boolean,
     name: {
       type: String,
@@ -76,7 +79,10 @@ export default Vue.extend({
     },
     readonly: Boolean,
     required: Boolean,
-    size: Number,
+    size: {
+      type: <PropType<Number | null>>Number,
+      default: null
+    },
     spellcheck: {
       type: String,
       default: ''
