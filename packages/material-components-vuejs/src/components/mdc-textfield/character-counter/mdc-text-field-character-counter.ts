@@ -6,7 +6,10 @@ export default Vue.extend({
 
   data() {
     return {
-      content: ""
+      content: "",
+      mdcFoundation: new MDCTextFieldCharacterCounterFoundation(
+        MDCTextFieldCharacterCounterFoundation.defaultAdapter
+      )
     };
   },
 
