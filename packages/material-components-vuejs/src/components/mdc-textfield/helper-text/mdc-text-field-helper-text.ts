@@ -43,7 +43,7 @@ export default Vue.extend({
                 }
             },
             [
-                this.content
+                this.content_
             ]
         );
     },
@@ -70,7 +70,7 @@ export default Vue.extend({
         },
 
         setContent(attr: string) {
-            this.content = attr;
+            this.content_ = attr;
         },
 
         // Foundation proxy methods
