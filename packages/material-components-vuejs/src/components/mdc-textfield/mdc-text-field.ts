@@ -442,8 +442,7 @@ export default Vue.extend({
 
       observer.observe(<InputElRef>this.$refs.inputEl, {
         attributes: true,
-        childList: false,
-        subTree: false
+        childList: false
       });
 
       return observer;
