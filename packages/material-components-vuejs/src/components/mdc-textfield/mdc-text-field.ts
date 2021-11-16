@@ -8,8 +8,8 @@ import {MDCTextFieldHelperText} from './helper-text';
 import Vue, {CreateElement, PropType, VNode} from 'vue';
 import {applyPassive} from '@material/dom/events';
 
+type FloatingLabelRef = InstanceType<typeof MDCFloatingLabel>;
 type InputElRef = HTMLInputElement;
-type NotchedOutlineRef = InstanceType<typeof MDCNotchedOutline>;
 
 export default Vue.extend({
   name: 'mdc-text-field',
@@ -475,7 +475,7 @@ export default Vue.extend({
     },
 
     getLabelWidth() {
-      return this.hasLabel() ? (<NotchedOutlineRef>this.$refs.notchedOutline).getLabelWidth() : 0;
+      return this.hasLabel() ? (<FloatingLabelRef>this.$refs.label).getWidth() : 0;
     },
 
     hasLabel() {
