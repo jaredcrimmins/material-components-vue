@@ -332,15 +332,17 @@ export default Vue.extend({
     },
 
     onInputElChange(event: InputEvent) {
-      this.internalValue = event.target.value;
+      this.internalValue = (<HTMLInputElement>event.target).value;
       !this.useNativeValidation && this.evaluateRules();
     },
 
     onInputElInput(event: InputEvent) {
+      const eventTarget = <HTMLInputElement>event.target;
+
       this.mdcFoundation.handleInput();
 
-      this.internalValue = event.target.value;
-      this.$emit('input', event.target.value);
+      this.internalValue = eventTarget.value;
+      this.$emit('input', eventTarget.value);
     },
 
     onInputElBlur() {
