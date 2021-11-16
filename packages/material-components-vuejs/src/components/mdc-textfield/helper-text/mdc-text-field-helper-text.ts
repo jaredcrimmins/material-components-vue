@@ -6,7 +6,10 @@ export default Vue.extend({
 
     data() {
         return {
-            content_: this.content
+            content_: this.content,
+            mdcFoundation: new MDCTextFieldHelperTextFoundation(
+              MDCTextFieldHelperTextFoundation.defaultAdapter
+            )
         };
     },
 
