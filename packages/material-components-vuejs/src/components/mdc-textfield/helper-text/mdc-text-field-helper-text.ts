@@ -24,6 +24,12 @@ export default Vue.extend({
         }
     },
 
+    watch: {
+      content(value) {
+        this.content_ = value;
+      }
+    },
+
     mounted() {
         this.mdcFoundation = new MDCTextFieldHelperTextFoundation(this);
         this.mdcFoundation.init();
