@@ -189,11 +189,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
       return c(
         "mdc-tab-indicator",
         {
-          ref: "tabIndicator",
-          props: {
-            active: this.active,
-            underline: true
-          }
+          ref: "tabIndicator"
         },
         this.indicatorIcon
       );
