@@ -1,4 +1,4 @@
-import {MDCTabFoundation, MDCTabInteractionEvent} from "@material/tab";
+import {MDCTabDimensions, MDCTabFoundation, MDCTabInteractionEvent} from "@material/tab";
 import {MDCTabBarFoundation} from "@material/tab-bar";
 import MDCTabScroller from "./tab-scroller";
 import Vue, {VNode} from 'vue';
@@ -11,7 +11,7 @@ type TabScrollerRef = InstanceType<typeof MDCTabScroller>;
 export type TabListType = {
   activate: (computeIndicatorClientRect: ClientRect) => void;
   deactivate: () => void;
-  computeDimensions: () => void;
+  computeDimensions: () => MDCTabDimensions;
   computeIndicatorClientRect: () => DOMRect;
   focus: () => void;
   id: string;
