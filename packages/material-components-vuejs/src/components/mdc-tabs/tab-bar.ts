@@ -84,7 +84,7 @@ export default Vue.extend({
     this.mdcFoundation = new MDCTabBarFoundation(this);
     this.mdcFoundation.init();
     this.mdcFoundation.setUseAutomaticActivation(this.automaticActivation);
-    this.activateTabAtIndex(this.value);
+    this.mdcFoundation.activateTab(this.value);
   },
 
   beforeDestroy() {
