@@ -56,15 +56,6 @@ export default Vue.extend({
   },
 
   render(c): VNode {
-    const on = {
-      keydown: (event: KeyboardEvent) => {
-        this.mdcFoundation.handleKeyDown(event)
-      },
-      [MDCTabFoundation.strings.INTERACTED_EVENT]: (event: Event) => {
-        this.mdcFoundation.handleTabInteraction(event);
-      }
-    };
-
     return c(
       "div",
       {
@@ -72,7 +63,10 @@ export default Vue.extend({
         attrs: {
           role: "tablist"
         },
-        on
+        on: {
+          keydown: this.onKeyDown,
+          [MDCTabFoundation.strings.INTERACTED_EVENT]: this.onMDCTabInteracted
+        }
       },
       [
         c(
@@ -110,6 +104,14 @@ export default Vue.extend({
 
     getTabElements() {
       return Array.from(this.$el.querySelectorAll(".mdc-tab"));
+    },
+
+    onKeyDown(event: KeyboardEvent) {
+      this.mdcFoundation.handleKeyDown(event);
+    },
+
+    onMDCTabInteracted(event: Event) {
+      this.mdcFoundation.handleTabInteraction(event);
     },
 
     //
