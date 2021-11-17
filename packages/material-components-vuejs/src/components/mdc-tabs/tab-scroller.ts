@@ -41,21 +41,11 @@ export default Vue.extend({
             ref: "scrollAreaEl",
             staticClass: "mdc-tab-scroller__scroll-area",
             on: {
-              wheel: () => {
-                this.mdcFoundation.handleInteraction();
-              },
-              touchstart: () => {
-                this.mdcFoundation.handleInteraction();
-              },
-              pointerdown: () => {
-                this.mdcFoundation.handleInteraction();
-              },
-              mousedown: () => {
-                this.mdcFoundation.handleInteraction();
-              },
-              keydown: () => {
-                this.mdcFoundation.handleInteraction();
-              }
+              wheel: this.onScrollAreaWheel,
+              touchstart: this.onScrollAreaTouchStart,
+              pointerdown: this.onScrollAreaPointerDown,
+              mousedown: this.onScrollAreaMouseDown,
+              keydown: this.onScrollAreaKeyDown
             }
           },
           [
@@ -65,9 +55,7 @@ export default Vue.extend({
                 ref: "scrollContentEl",
                 staticClass: "mdc-tab-scroller__scroll-content",
                 on: {
-                  transitionend: (event: TransitionEvent) => {
-                    this.mdcFoundation.handleTransitionEnd(event);
-                  }
+                  transitionend: this.onScrollContentTransitionEnd
                 }
               },
               this.$slots.default
@@ -88,6 +76,34 @@ export default Vue.extend({
   },
 
   methods: {
+    //
+    // Private methods
+    //
+
+    onScrollAreaWheel() {
+      this.mdcFoundation.handleInteraction();
+    },
+
+    onScrollAreaTouchStart() {
+      this.mdcFoundation.handleInteraction();
+    },
+
+    onScrollAreaPointerDown() {
+      this.mdcFoundation.handleInteraction();
+    },
+
+    onScrollAreaMouseDown() {
+      this.mdcFoundation.handleInteraction();
+    },
+
+    onScrollAreaKeyDown() {
+      this.mdcFoundation.handleInteraction();
+    },
+
+    onScrollContentTransitionEnd(event: TransitionEvent) {
+      this.mdcFoundation.handleTransitionEnd(event);
+    },
+
     //
     // Public methods
     //
