@@ -1,4 +1,4 @@
-import {MDCTabFoundation} from "@material/tab";
+import {MDCTabFoundation, MDCTabInteractionEvent} from "@material/tab";
 import {MDCTabBarFoundation} from "@material/tab-bar";
 import MDCTabScroller from "./tab-scroller";
 import Vue, {VNode} from 'vue';
@@ -110,7 +110,7 @@ export default Vue.extend({
       this.mdcFoundation.handleKeyDown(event);
     },
 
-    onMDCTabInteracted(event: Event) {
+    onMDCTabInteracted(event: MDCTabInteractionEvent) {
       this.mdcFoundation.handleTabInteraction(event);
     },
 
