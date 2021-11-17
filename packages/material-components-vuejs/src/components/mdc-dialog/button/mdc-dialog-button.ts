@@ -1,7 +1,8 @@
 import {MDCButton} from '../../mdc-button';
+import Vue, {VNode} from 'vue';
 import {strings} from '@material/dialog';
 
-export default {
+export default Vue.extend({
   name: 'mdc-dialog-button',
 
   inheritAttrs: true,
@@ -19,7 +20,7 @@ export default {
     'mdc-button': MDCButton
   },
 
-  render(c) {
+  render(c): VNode {
     return c(
       'mdc-button',
       {
@@ -35,4 +36,4 @@ export default {
       this.$slots.default
     );
   }
-}
+});
