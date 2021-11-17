@@ -41,20 +41,20 @@ export default Vue.extend({
             ref: "scrollAreaEl",
             staticClass: "mdc-tab-scroller__scroll-area",
             on: {
-              wheel: (event: WheelEvent) => {
-                this.mdcFoundation.handleInteraction(event);
+              wheel: () => {
+                this.mdcFoundation.handleInteraction();
               },
-              touchstart: (event: TouchEvent) => {
-                this.mdcFoundation.handleInteraction(event);
+              touchstart: () => {
+                this.mdcFoundation.handleInteraction();
               },
-              pointerdown: (event: PointerEvent) => {
-                this.mdcFoundation.handleInteraction(event);
+              pointerdown: () => {
+                this.mdcFoundation.handleInteraction();
               },
-              mousedown: (event: MouseEvent) => {
-                this.mdcFoundation.handleInteraction(event);
+              mousedown: () => {
+                this.mdcFoundation.handleInteraction();
               },
-              keydown: (event: KeyboardEvent) => {
-                this.mdcFoundation.handleInteraction(event);
+              keydown: () => {
+                this.mdcFoundation.handleInteraction();
               }
             }
           },
