@@ -1,11 +1,14 @@
-import {FocusTrap} from '@material/dom/focus-trap';
+import {FocusTrap, FocusOptions} from '@material/dom/focus-trap';
 import {MDCDialogFoundation, strings, util} from '@material/dialog';
+import Vue, {CreateElement, VNode} from 'vue';
 import {closest, matches} from '@material/dom/ponyfill';
 import {emitCustomEvent} from '../../utils';
 
 let dialogID_ = 0;
 
-export default {
+type SurfaceElRef = HTMLElement;
+
+export default Vue.extend({
   name: 'mdc-dialog',
 
   props: {
@@ -15,14 +18,14 @@ export default {
 
   data() {
     return {
-      focusTrap: null,
+      focusTrap: <FocusTrap | null>null,
       titleID: '',
       contentID: '',
       mdcFoundation: new MDCDialogFoundation(MDCDialogFoundation.defaultAdapter)
     };
   },
 
-  provide() {
+  provide(): object {
     return {
       mdcDialogContentID__: this.contentID,
       mdcDialogTitleID__: this.titleID
@@ -50,16 +53,16 @@ export default {
     }
   },
 
-  render(c) {
+  render(c): VNode {
     return c(
       'div',
       {
         staticClass: 'mdc-dialog',
         on: {
-          click: event => {
+          click: (event: MouseEvent) => {
             this.onClick(event);
           },
-          keydown: event => {
+          keydown: (event: KeyboardEvent) => {
             this.onKeydown(event);
           }
         }
@@ -93,9 +96,9 @@ export default {
       this.mdcFoundation = new MDCDialogFoundation(this);
       this.mdcFoundation.init();
       this.focusTrap = util.createFocusTrapInstance(
-        this.$refs.surfaceEl,
+        <SurfaceElRef>this.$refs.surfaceEl,
         this.focusTrapFactory,
-        this.getInitialFocusEl_()
+        this.getInitialFocusEl_() || undefined
       );
     },
 
@@ -106,7 +109,7 @@ export default {
       window.removeEventListener('orientationchange', this.onWindowOrientationChange);
     },
 
-    genSurface(c) {
+    genSurface(c: CreateElement) {
       return c(
         'div',
         {
@@ -123,15 +126,15 @@ export default {
       );
     },
 
-    onClick(event) {
+    onClick(event: MouseEvent) {
       this.mdcFoundation.handleClick(event);
     },
 
-    onKeydown(event) {
+    onKeydown(event: KeyboardEvent) {
       this.mdcFoundation.handleKeydown(event);
     },
 
-    onDocumentKeydown(event) {
+    onDocumentKeydown(event: KeyboardEvent) {
       this.mdcFoundation.handleKeydown(event);
     },
 
@@ -144,14 +147,14 @@ export default {
     },
 
     getDefaultButton() {
-      return this.$el.querySelector(`[${strings.BUTTON_DEFAULT_ATTRIBUTE}]`);
+      return this.$el.querySelector<HTMLButtonElement>(`[${strings.BUTTON_DEFAULT_ATTRIBUTE}]`);
     },
 
     getInitialFocusEl_() {
-      return document.querySelector(`[${strings.INITIAL_FOCUS_ATTRIBUTE}]`);
+      return document.querySelector<HTMLElement>(`[${strings.INITIAL_FOCUS_ATTRIBUTE}]`);
     },
 
-    focusTrapFactory(el, focusOptions) {
+    focusTrapFactory(el: HTMLElement, focusOptions?: FocusOptions) {
       return new FocusTrap(el, focusOptions);
     },
 
@@ -159,58 +162,58 @@ export default {
     // Adapter methods
     //
 
-    addClass(className) {
+    addClass(className: string) {
       this.$el.classList.add(className);
     },
 
-    removeClass(className) {
+    removeClass(className: string) {
       this.$el.classList.remove(className);
     },
 
-    hasClass(className) {
+    hasClass(className: string) {
       this.$el.classList.contains(className);
     },
 
-    addBodyClass(className) {
+    addBodyClass(className: string) {
       document.body.classList.add(className);
     },
 
-    removeBodyClass(className) {
+    removeBodyClass(className: string) {
       document.body.classList.remove(className);
     },
 
-    eventTargetMatches(target, selector) {
+    eventTargetMatches(target: Element, selector: string) {
       return target ? matches(target, selector) : false;
     },
 
     trapFocus() {
-      this.focusTrap.trapFocus();
+      this.focusTrap?.trapFocus();
     },
 
     releaseFocus() {
-      this.focusTrap.releaseFocus();
+      this.focusTrap?.releaseFocus();
     },
 
     getInitialFocusEl() {
-      return document.querySelector(`[${strings.INITIAL_FOCUS_ATTRIBUTE}]`);
+      return document.querySelector<HTMLElement>(`[${strings.INITIAL_FOCUS_ATTRIBUTE}]`);
     },
 
     isContentScrollable() {
-      const contentEl = this.$el.querySelector('.mdc-dialog__content');
+      const contentEl = this.$el.querySelector<HTMLElement>('.mdc-dialog__content') || null;
 
       return util.isScrollable(contentEl);
     },
 
     areButtonsStacked() {
-      const buttonEls = Array.from(this.$el.querySelectorAll('.mdc-dialog__button'));
+      const buttonEls = Array.from(this.$el.querySelectorAll<HTMLElement>('.mdc-dialog__button'));
 
       return util.areTopsMisaligned(buttonEls);
     },
 
-    getActionFromEvent(event) {
+    getActionFromEvent(event: Event) {
       if (!event.target) return '';
 
-      const element = closest(event.target, `[${strings.ACTION_ATTRIBUTE}]`);
+      const element = closest(<Element>event.target, `[${strings.ACTION_ATTRIBUTE}]`);
 
       return element && element.getAttribute(strings.ACTION_ATTRIBUTE);
     },
@@ -222,12 +225,11 @@ export default {
     },
 
     reverseButtons() {
-      const buttons = [].slice.call(
-        this.$el.querySelectorAll(strings.BUTTON_SELECTOR));
-      
+      const buttons = Array.from(this.$el.querySelectorAll(strings.BUTTON_SELECTOR));
+
       buttons.reverse();
       buttons.forEach(button => {
-        button.parentElement.appendChild(button);
+        button.parentElement?.appendChild(button);
       });
     },
 
@@ -242,8 +244,8 @@ export default {
     notifyOpened() {
       emitCustomEvent(this.$el, strings.OPENED_EVENT, {});
     },
-    
-    notifyClosing(action) {
+
+    notifyClosing(action: string) {
       this.$emit('input', false);
       emitCustomEvent(this.$el, strings.CLOSING_EVENT, action ? {action} : {});
       document.removeEventListener('keydown', this.onDocumentKeydown);
@@ -251,8 +253,8 @@ export default {
       window.removeEventListener('orientationchange', this.onWindowOrientationChange);
     },
 
-    notifyClosed(action) {
+    notifyClosed(action: string) {
       emitCustomEvent(this.$el, strings.CLOSED_EVENT, action ? {action} : {});
     }
   }
-}
+});
