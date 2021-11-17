@@ -93,7 +93,7 @@ export default Vue.extend({
 
   watch: {
     automaticActivation(value) {
-      this.mdcFoundation.useAutomaticActivation(value);
+      this.mdcFoundation.setUseAutomaticActivation(value);
     }
   },
 
