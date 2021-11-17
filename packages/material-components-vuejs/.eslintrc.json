@@ -16,7 +16,13 @@
     "parser": "@typescript-eslint/parser"
   },
   "rules": {
-    "vue/component-definition-name-casing": ["error", "kebab-case"],
-    "vue/name-property-casing": ["error", "kebab-case"]
+    "vue/component-definition-name-casing": [
+      "error",
+      "kebab-case"
+    ],
+    "vue/name-property-casing": [
+      "error",
+      "kebab-case"
+    ]
   }
 }
