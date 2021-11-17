@@ -48,8 +48,8 @@ export default Vue.extend({
 
   data() {
     return {
-      mdcFoundation: new MDCTabFoundation(
-        MDCTabFoundation.defaultAdapter
+      mdcFoundation: new MDCTabBarFoundation(
+        MDCTabBarFoundation.defaultAdapter
       ),
       tabList: <TabListType>[]
     };
