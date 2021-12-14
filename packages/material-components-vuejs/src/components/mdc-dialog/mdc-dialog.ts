@@ -171,7 +171,7 @@ export default Vue.extend({
     },
 
     hasClass(className: string) {
-      this.$el.classList.contains(className);
+      return this.$el.classList.contains(className);
     },
 
     addBodyClass(className: string) {
