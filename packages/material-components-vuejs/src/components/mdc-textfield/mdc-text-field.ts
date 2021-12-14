@@ -10,6 +10,7 @@ import {applyPassive} from '@material/dom/events';
 
 type FloatingLabelRef = InstanceType<typeof MDCFloatingLabel>;
 type InputElRef = HTMLInputElement;
+type NotchedOutlineRef = InstanceType<typeof MDCNotchedOutline>;
 
 export default Vue.extend({
   name: 'mdc-text-field',
@@ -513,7 +514,9 @@ export default Vue.extend({
     },
 
     getLabelWidth() {
-      return this.hasLabel() ? (<FloatingLabelRef>this.$refs.label).getWidth() : 0;
+      if (!this.hasLabel()) return 0;
+      else if (this.outlined) return (<NotchedOutlineRef>this.$refs.notchedOutline).getLabelWidth();
+      else return (<FloatingLabelRef>this.$refs.label).getWidth();
     },
 
     hasLabel() {
