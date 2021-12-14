@@ -133,9 +133,7 @@ export default Vue.extend({
     getLabelWidth() {
       const floatingLabel = <InstanceType<typeof MDCFloatingLabel>>this.$refs.floatingLabel;
 
-      if (floatingLabel) {
-        return floatingLabel.getWidth();
-      }
+      return floatingLabel ? floatingLabel.getWidth() : 0;
     },
 
     //
