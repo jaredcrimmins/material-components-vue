@@ -34,7 +34,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcMenu",
+    name: "the-debug-mdc-menu",
 
     data() {
       return {

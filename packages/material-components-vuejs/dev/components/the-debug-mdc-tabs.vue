@@ -27,7 +27,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcTabs"
+    name: "the-debug-mdc-tabs"
   }
 </script>
 
