@@ -8,7 +8,10 @@ export default Vue.extend({
   inheritAttrs: true,
 
   props: {
-    action: String,
+    action: {
+      type: String,
+      default: ''
+    },
     disabled: Boolean,
     initialFocus: Boolean,
     outlined: Boolean,
