@@ -61,7 +61,7 @@
 
 <script>
   export default {
-    name: 'TheDebugMdcDialog',
+    name: 'the-debug-mdc-dialog',
 
     data() {
       return {

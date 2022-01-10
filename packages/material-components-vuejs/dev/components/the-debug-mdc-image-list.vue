@@ -28,7 +28,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcImageList"
+    name: "the-debug-mdc-image-list"
   }
 </script>
 
