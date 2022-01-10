@@ -11,8 +11,8 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
 
   inject: ['mdcDialogContentID__'],
 
-  render(c): VNode | void {
-    if (!this.$slots.default) return;
+  render(c): VNode {
+    if (!this.$slots.default) c();
 
     return c(
       'div',
