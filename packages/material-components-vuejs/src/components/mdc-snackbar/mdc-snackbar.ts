@@ -15,10 +15,16 @@ export default Vue.extend({
   props: {
     closeOnEscape: Boolean,
     dismissButton: Boolean,
-    label: String,
+    label: {
+      type: String,
+      default: ''
+    },
     leading: Boolean,
     stacked: Boolean,
-    timeoutMs: Number,
+    timeoutMs: {
+      type: Number,
+      default: 0
+    },
     value: {}
   },
 
