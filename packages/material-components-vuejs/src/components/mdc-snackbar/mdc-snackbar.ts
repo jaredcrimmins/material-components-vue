@@ -25,7 +25,7 @@ export default Vue.extend({
       type: Number,
       default: 0
     },
-    value: {}
+    value: Boolean
   },
 
   data() {
