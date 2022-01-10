@@ -31,7 +31,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcLinearProgress",
+    name: "the-debug-mdc-linear-progress",
 
     data() {
       return {

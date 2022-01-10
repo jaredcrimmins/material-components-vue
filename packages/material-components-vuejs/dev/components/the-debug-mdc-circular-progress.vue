@@ -59,7 +59,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcCircularProgress",
+    name: "the-debug-mdc-circular-progress",
 
     data() {
       return {
