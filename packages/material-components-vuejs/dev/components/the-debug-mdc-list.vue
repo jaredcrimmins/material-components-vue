@@ -109,7 +109,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcList",
+    name: "the-debug-mdc-list",
 
     methods: {
       getTwoLinePrimaryText(num) {
