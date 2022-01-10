@@ -28,7 +28,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcSnackbar",
+    name: "the-debug-mdc-snackbar",
 
     data() {
       return {

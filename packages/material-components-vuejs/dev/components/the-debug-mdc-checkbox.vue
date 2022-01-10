@@ -20,7 +20,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcCheckbox"
+    name: "the-debug-mdc-checkbox"
   }
 </script>
 

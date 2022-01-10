@@ -17,7 +17,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcTextField",
+    name: "the-debug-mdc-textfield",
 
     data() {
       return {
