@@ -5,8 +5,8 @@ export default Vue.extend({
 
   inheritAttrs: true,
 
-  render(c): VNode | void {
-    if (!this.$slots.default) return;
+  render(c): VNode {
+    if (!this.$slots.default) c();
 
     return c(
       'div',
