@@ -20,7 +20,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcRadio"
+    name: "the-debug-mdc-radio"
   }
 </script>
 
