@@ -10,7 +10,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcButton"
+    name: "the-debug-mdc-button"
   }
 </script>
 

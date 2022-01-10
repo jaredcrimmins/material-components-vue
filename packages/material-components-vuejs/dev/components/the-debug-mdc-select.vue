@@ -44,7 +44,7 @@
 
 <script>
   export default {
-    name: "TheDebugMdcSelect"
+    name: "the-debug-mdc-select"
   }
 </script>
 
