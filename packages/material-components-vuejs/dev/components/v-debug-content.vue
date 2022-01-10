@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "VDebugContent"
+    name: "v-debug-content"
   }
 </script>
 
