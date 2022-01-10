@@ -12,7 +12,6 @@ export default Vue.extend({
   name: 'mdc-dialog',
 
   props: {
-    title: String,
     value: Boolean
   },
 
