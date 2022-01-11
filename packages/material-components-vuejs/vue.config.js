@@ -1,3 +1,9 @@
+const nodeExternals = require('webpack-node-externals');
+
+const {NODE_ENV} = process.env;
+
+const isProduction = NODE_ENV === 'production';
+
 module.exports = {
   devServer: {
     contentBase: ['./dist', './public'],
@@ -37,5 +43,11 @@ module.exports = {
 
   runtimeCompiler: true,
 
-  productionSourceMap: false
+  productionSourceMap: false,
+
+  configureWebpack: () => {
+    return {
+      externals: isProduction ? [nodeExternals()] : [],
+    };
+  }
 }
