@@ -3,14 +3,12 @@
   "version": "0.3.2",
   "description": "Material components for Vue.",
   "scripts": {
-    "build": "npm run build:production",
+    "build": "vue-cli-service build --target lib src/index.ts",
     "lint": "vue-cli-service lint",
-    "build:development": "webpack --config build/webpack.dev.config.js --progress",
-    "build:production": "webpack --config build/webpack.prod.config.js --progress",
     "clean": "rm -fr dist/",
     "dev": "vue-cli-service serve dev/client-entry.js",
     "help": "vue-cli-service help",
-    "prepare": "npm run clean && npm run build:production"
+    "prepare": "npm run clean && npm run build"
   },
   "main": "dist/material-components-vuejs.js",
   "module": "src/index.js",
