@@ -42,8 +42,7 @@
     "access": "restricted"
   },
   "repository": {
-    "url": "https://github.com/jaredcrimmins/material-components-vuejs.git",
-    "directory": "/packages/material-components-vuejs"
+    "url": "https://github.com/jaredcrimmins/material-components-vuejs.git"
   },
   "sideEffects": [
     "dev/*"
