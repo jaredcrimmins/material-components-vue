@@ -27,7 +27,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
     "material-components-web": "^10.0.0",
-    "sass": "^1.35.1",
+    "sass": "^1.35.1 <1.40.0",
     "sass-loader": "^8.0.2",
     "typescript": "~4.1.5",
     "vue": "^2.6.14",
