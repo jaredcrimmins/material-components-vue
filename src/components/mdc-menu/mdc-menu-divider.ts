@@ -1,4 +1,4 @@
-import {MDCListDivider} from "./../";
+import {MDCListDivider} from "../mdc-list";
 import Vue, {VNode} from 'vue';
 
 export default Vue.extend({
