@@ -11,7 +11,7 @@
     "help": "vue-cli-service help",
     "prepare": "npm run clean && npm run build"
   },
-  "main": "dist/material-components-vuejs.umd.min.js",
+  "main": "dist/material-components-vuejs.common.js",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
