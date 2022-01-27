@@ -10,7 +10,10 @@ export default Vue.extend({
 
   props: {
     rippleDisabled: Boolean,
-    value: String
+    value: {
+      type: String,
+      default: ""
+    }
   },
 
   render(c): VNode {
