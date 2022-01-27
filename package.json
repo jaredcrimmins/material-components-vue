@@ -48,8 +48,5 @@
   },
   "repository": {
     "url": "https://github.com/jaredcrimmins/material-components-vuejs.git"
-  },
-  "sideEffects": [
-    "dev/*"
-  ]
+  }
 }
