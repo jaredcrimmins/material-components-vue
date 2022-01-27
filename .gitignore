@@ -1,2 +1,19 @@
-node_modules/
-dist/
+# Ignore everything in the root of the repo so that files can be explicitly
+# allowlisted.
+/*
+
+# Directories
+!dev/
+!src/
+
+# Files
+!.babelrc
+!.editorconfig
+!.eslintrc.json
+!.gitignore
+!.npmignore
+!package-lock.json
+!package.json
+!rollup.config.js
+!tsconfig.json
+!vue.config.js
