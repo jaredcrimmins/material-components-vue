@@ -1,7 +1,7 @@
 {
   "name": "@jaredcrimmins/material-components-vuejs",
   "version": "0.3.2",
-  "description": "Material components for Vue.",
+  "description": "Material Design components for Vue",
   "scripts": {
     "build": "rollup -c",
     "build:vue-cli": "vue-cli-service build --target lib src/index.ts && rm dist/demo.html",
