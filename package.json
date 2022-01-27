@@ -3,6 +3,7 @@
   "version": "0.3.2",
   "description": "Material components for Vue.",
   "scripts": {
+    "build": "rollup -c",
     "build:vue-cli": "vue-cli-service build --target lib src/index.ts && rm dist/demo.html",
     "lint": "vue-cli-service lint",
     "clean": "rm -fr dist/",
