@@ -1,4 +1,4 @@
-import {MDCTextFieldCharacterCounterFoundation} from "@material/textfield/character-counter";
+import {MDCTextFieldCharacterCounterFoundation} from "@material/textfield";
 import Vue, {VNode} from 'vue';
 
 export default Vue.extend({
