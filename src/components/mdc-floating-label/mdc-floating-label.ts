@@ -1,7 +1,7 @@
 import {MDCFloatingLabelFoundation, cssClasses} from '@material/floating-label';
 import {NativeEventListener} from '@/utils';
 import Vue, {VNode} from 'vue';
-import {estimateScrollWidth} from '@material/dom/ponyfill';
+import {ponyfill} from '@material/dom';
 
 export default Vue.extend({
   name: 'mdc-floating-label',
@@ -115,7 +115,7 @@ export default Vue.extend({
     },
 
     getWidth() {
-      return estimateScrollWidth(this.$el);
+      return ponyfill.estimateScrollWidth(this.$el);
     },
 
     registerInteractionHandler(evtType: string, handler: NativeEventListener) {
