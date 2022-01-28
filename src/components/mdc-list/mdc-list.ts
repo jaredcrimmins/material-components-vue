@@ -1,6 +1,6 @@
 import {MDCListFoundation, MDCListIndex} from "@material/list";
 import Vue, {PropType, VNode} from 'vue';
-import {closest, matches} from "@material/dom/ponyfill";
+import {ponyfill} from "@material/dom";
 import {emitCustomEvent} from "./../../utils";
 
 const cssClasses = {...MDCListFoundation.cssClasses, ...{
@@ -175,11 +175,11 @@ export default Vue.extend({
     */
     getListItemIndex(event: Event) {
       const {target} = event;
-      const nearestParent = closest(
+      const nearestParent = ponyfill.closest(
         <Element>target,
         `.${cssClasses.LIST_ITEM_CLASS}, .${cssClasses.ROOT}`);
 
-      if(nearestParent && matches(nearestParent , `.${cssClasses.LIST_ITEM_CLASS}`)) {
+      if(nearestParent && ponyfill.matches(nearestParent , `.${cssClasses.LIST_ITEM_CLASS}`)) {
         return this.getListItemElements().indexOf(nearestParent);
       }
 
@@ -191,7 +191,7 @@ export default Vue.extend({
       const {target} = event;
       // Toggle the checkbox only if it's not the target of the event, or the
       // checkbox will have 2 change events.
-      const toggleCheckbox = !matches(<Element>target, strings.CHECKBOX_RADIO_SELECTOR);
+      const toggleCheckbox = !ponyfill.matches(<Element>target, strings.CHECKBOX_RADIO_SELECTOR);
 
       this.mdcFoundation.handleClick(index, toggleCheckbox);
     },

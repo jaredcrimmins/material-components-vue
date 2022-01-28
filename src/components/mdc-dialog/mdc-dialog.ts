@@ -1,8 +1,7 @@
-import {FocusTrap, FocusOptions} from '@material/dom/focus-trap';
 import {MDCDialogFoundation, strings, util} from '@material/dialog';
 import Vue, {CreateElement, VNode} from 'vue';
-import {closest, matches} from '@material/dom/ponyfill';
 import {emitCustomEvent} from '../../utils';
+import {focusTrap, ponyfill} from '@material/dom';
 
 let dialogID_ = 0;
 
@@ -17,7 +16,7 @@ export default Vue.extend({
 
   data() {
     return {
-      focusTrap: <FocusTrap | null>null,
+      focusTrap: <focusTrap.FocusTrap | null>null,
       titleID: '',
       contentID: '',
       mdcFoundation: new MDCDialogFoundation(MDCDialogFoundation.defaultAdapter)
@@ -153,8 +152,8 @@ export default Vue.extend({
       return document.querySelector<HTMLElement>(`[${strings.INITIAL_FOCUS_ATTRIBUTE}]`);
     },
 
-    focusTrapFactory(el: HTMLElement, focusOptions?: FocusOptions) {
-      return new FocusTrap(el, focusOptions);
+    focusTrapFactory(el: HTMLElement, focusOptions?: focusTrap.FocusOptions) {
+      return new focusTrap.FocusTrap(el, focusOptions);
     },
 
     //
@@ -182,7 +181,7 @@ export default Vue.extend({
     },
 
     eventTargetMatches(target: Element, selector: string) {
-      return target ? matches(target, selector) : false;
+      return target ? ponyfill.matches(target, selector) : false;
     },
 
     trapFocus() {
@@ -212,7 +211,7 @@ export default Vue.extend({
     getActionFromEvent(event: Event) {
       if (!event.target) return '';
 
-      const element = closest(<Element>event.target, `[${strings.ACTION_ATTRIBUTE}]`);
+      const element = ponyfill.closest(<Element>event.target, `[${strings.ACTION_ATTRIBUTE}]`);
 
       return element && element.getAttribute(strings.ACTION_ATTRIBUTE);
     },

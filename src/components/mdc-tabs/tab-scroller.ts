@@ -1,7 +1,7 @@
 import {MDCTabScrollerFoundation} from "@material/tab-scroller";
 import Vue, {VNode} from 'vue';
-import {matches} from "@material/dom/ponyfill";
-import * as util from "@material/tab-scroller/util";
+import {ponyfill} from "@material/dom";
+import {util} from "@material/tab-scroller";
 
 type ScrollAreaElRef = HTMLElement;
 type ScrollContentElRef = HTMLElement;
@@ -129,7 +129,7 @@ export default Vue.extend({
     //
 
     eventTargetMatchesSelector(eventTarget: EventTarget, selector: string) {
-      return matches(<Element>eventTarget, selector);
+      return ponyfill.matches(<Element>eventTarget, selector);
     },
 
     addClass(className: string) {
