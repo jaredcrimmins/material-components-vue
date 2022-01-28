@@ -1,9 +1,8 @@
 import {MDCRippleFoundation, util} from '@material/ripple';
 import {NativeEventListener} from '@/utils';
 import Vue, {VNode} from 'vue';
-import {applyPassive} from '@material/dom/events';
+import {events, ponyfill} from '@material/dom';
 import {getSlot} from '@/utils';
-import {matches} from '@material/dom/ponyfill';
 
 export default Vue.extend({
   name: 'mdc-ripple',
@@ -153,7 +152,7 @@ export default Vue.extend({
     },
 
     isSurfaceActive() {
-      return matches(this.$el, ':active');
+      return ponyfill.matches(this.$el, ':active');
     },
 
     isSurfaceDisabled() {
@@ -173,19 +172,19 @@ export default Vue.extend({
     },
 
     registerInteractionHandler(evtType: string, handler: NativeEventListener) {
-      this.$el.addEventListener(evtType, handler, applyPassive());
+      this.$el.addEventListener(evtType, handler, events.applyPassive());
     },
 
     deregisterInteractionHandler(evtType: string, handler: NativeEventListener) {
-      this.$el.removeEventListener(evtType, handler, applyPassive());
+      this.$el.removeEventListener(evtType, handler, events.applyPassive());
     },
 
     registerDocumentInteractionHandler(evtType: string, handler: NativeEventListener) {
-      document.addEventListener(evtType, handler, applyPassive());
+      document.addEventListener(evtType, handler, events.applyPassive());
     },
 
     deregisterDocumentInteractionHandler(evtType: string, handler: NativeEventListener) {
-      document.removeEventListener(evtType, handler, applyPassive());
+      document.removeEventListener(evtType, handler, events.applyPassive());
     },
 
     registerResizeHandler(handler: NativeEventListener) {

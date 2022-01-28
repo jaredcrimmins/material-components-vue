@@ -2,7 +2,7 @@ import {Corner, MDCMenuDistance, MDCMenuSurfaceFoundation} from "@material/menu-
 import Vue, {PropType, VNode} from 'vue';
 import {emitCustomEvent} from "./../../utils";
 import {absolutelyPositionable} from "../../mixins";
-import {getCorrectPropertyName} from "@material/animation/util";
+import {getCorrectPropertyName} from "@material/animation";
 
 const {cssClasses, strings} = MDCMenuSurfaceFoundation;
 

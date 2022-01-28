@@ -1,4 +1,4 @@
-import {MDCTextFieldHelperTextFoundation} from "@material/textfield/helper-text";
+import {MDCTextFieldHelperTextFoundation} from "@material/textfield";
 import Vue, {VNode} from 'vue';
 
 export default Vue.extend({
