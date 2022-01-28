@@ -1,14 +1,14 @@
+import {Corner} from '@material/menu-surface';
 import {MDCFloatingLabel} from "./../mdc-floating-label";
 import {MDCMenu, MDCMenuItem} from "./../mdc-menu";
 import {MDCSelectFoundation, cssClasses, strings} from "@material/select";
 import {MDCLineRipple} from "./../mdc-line-ripple";
+import {MDCMenuItemComponentEvent} from '@material/menu';
 import {MDCNotchedOutline} from "./../mdc-notched-outline";
 import Vue, {CreateElement, PropType, VNode} from 'vue';
 import {emitCustomEvent} from "./../../utils";
-import {estimateScrollWidth} from "@material/dom/ponyfill";
-import * as menuConstants from '@material/menu/constants';
-import * as menuTypes from '@material/menu/types';
-import * as menuSurfceConstants from '@material/menu-surface/constants';
+import {ponyfill} from "@material/dom";
+import {strings as menuStrings} from '@material/menu';
 
 let selectID_ = 0;
 
@@ -61,7 +61,7 @@ export default Vue.extend({
       lineRippleActive: false,
       lineRippleCenter: 0,
       mdcFoundation: new MDCSelectFoundation(MDCSelectFoundation.defaultAdapter),
-      menuAnchorCorner: <menuSurfceConstants.Corner | null>null,
+      menuAnchorCorner: <Corner | null>null,
       menuAnchorElement: <Element | string>"mdc-select__anchor",
       menuOpen: false,
       menuWrapFocus: false,
@@ -328,7 +328,7 @@ export default Vue.extend({
             }
           },
           nativeOn: {
-            [menuConstants.strings.SELECTED_EVENT]: this.onMenuSelected,
+            [menuStrings.SELECTED_EVENT]: this.onMenuSelected,
             'MDCMenuSurface:opened': this.onMDCMenuSurfaceOpened,
             'MDCMenuSurface:closed': this.onMDCMenuSurfaceClosed
           }
@@ -409,7 +409,7 @@ export default Vue.extend({
       this.mdcFoundation.handleKeydown(event);
     },
 
-    onMenuSelected(event: menuTypes.MDCMenuItemComponentEvent) {
+    onMenuSelected(event: MDCMenuItemComponentEvent) {
       this.mdcFoundation.handleMenuItemAction(event.detail.index);
     },
 
@@ -477,7 +477,7 @@ export default Vue.extend({
 
       if (!floatingLabelEl) return 0;
 
-      return estimateScrollWidth(floatingLabelEl);
+      return ponyfill.estimateScrollWidth(floatingLabelEl);
     },
 
     hasOutline() {
@@ -542,7 +542,7 @@ export default Vue.extend({
       this.menuAnchorElement = anchorEl;
     },
 
-    setMenuAnchorCorner(anchorCorner: menuSurfceConstants.Corner) {
+    setMenuAnchorCorner(anchorCorner: Corner) {
       this.menuAnchorCorner = anchorCorner;
     },
 

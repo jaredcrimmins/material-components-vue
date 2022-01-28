@@ -4,7 +4,7 @@ import {MDCListActionEvent} from '@material/list';
 import {MDCMenuSurface} from "../mdc-menu-surface";
 import {PropType, VNode} from 'vue';
 import {absolutelyPositionable} from "../../mixins";
-import {closest} from "@material/dom/ponyfill";
+import {ponyfill} from "@material/dom";
 import {emitCustomEvent, mixins} from '@/utils';
 
 const {cssClasses} = MDCMenuFoundation;
@@ -280,7 +280,7 @@ export default baseMixins.extend({
 
     getSelectedSiblingOfItemAtIndex(index: number) {
       const menuItems = this.getMenuItemElements();
-      const selectionGroupEl = closest(menuItems[index], strings.MENU_SELECTION_GROUP_SELECTOR);
+      const selectionGroupEl = ponyfill.closest(menuItems[index], strings.MENU_SELECTION_GROUP_SELECTOR);
 
       if (!selectionGroupEl) return -1;
 
@@ -290,7 +290,7 @@ export default baseMixins.extend({
     },
 
     isSelectableItemAtIndex(index: number) {
-      return !!closest(this.getMenuItemElements()[index], strings.MENU_SELECTION_GROUP_SELECTOR);
+      return !!ponyfill.closest(this.getMenuItemElements()[index], strings.MENU_SELECTION_GROUP_SELECTOR);
     }
   }
 });

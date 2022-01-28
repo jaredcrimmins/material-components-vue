@@ -6,7 +6,7 @@ import {MDCTextFieldCharacterCounter} from './character-counter';
 import {MDCTextFieldFoundation, MDCTextFieldNativeInputElement, cssClasses} from '@material/textfield';
 import {MDCTextFieldHelperText} from './helper-text';
 import Vue, {CreateElement, PropType, VNode} from 'vue';
-import {applyPassive} from '@material/dom/events';
+import {events} from '@material/dom';
 
 type FloatingLabelRef = InstanceType<typeof MDCFloatingLabel>;
 type InputElRef = HTMLInputElement;
@@ -482,7 +482,7 @@ export default Vue.extend({
     // MDC input adapter methods
 
     deregisterInputInteractionHandler(evtType: string, handler: NativeEventListener) {
-      (<InputElRef>this.$refs.inputEl).removeEventListener(evtType, handler, applyPassive());
+      (<InputElRef>this.$refs.inputEl).removeEventListener(evtType, handler, events.applyPassive());
     },
 
     getNativeInput(): MDCTextFieldNativeInputElement {
@@ -502,7 +502,7 @@ export default Vue.extend({
     },
 
     registerInputInteractionHandler(evtType: string, handler: NativeEventListener) {
-      (<InputElRef>this.$refs.inputEl).addEventListener(evtType, handler, applyPassive());
+      (<InputElRef>this.$refs.inputEl).addEventListener(evtType, handler, events.applyPassive());
     },
 
     // MDC label adapter methods
