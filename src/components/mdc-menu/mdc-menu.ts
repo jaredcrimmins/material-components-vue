@@ -4,6 +4,7 @@ import {MDCListActionEvent} from '@material/list';
 import {MDCMenuSurface} from "../mdc-menu-surface";
 import {PropType, VNode} from 'vue';
 import {absolutelyPositionable} from "../../mixins";
+import {anchorPropDefFactory} from "@/utils";
 import {ponyfill} from "@material/dom";
 import {emitCustomEvent, mixins} from '@/utils';
 
@@ -34,10 +35,7 @@ export default baseMixins.extend({
       type: <PropType<Corner>>Number,
       default: Corner.TOP_LEFT
     },
-    anchorElement: {
-      type: <PropType<Element | string | null>>[String, Element],
-      default: null
-    },
+    anchorElement: anchorPropDefFactory(),
     defaultFocusState: {
       type: Number,
       default: 1
