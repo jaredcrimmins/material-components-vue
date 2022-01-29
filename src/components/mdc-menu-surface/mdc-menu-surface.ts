@@ -1,7 +1,8 @@
 import {Corner, MDCMenuDistance, MDCMenuSurfaceFoundation} from "@material/menu-surface";
-import Vue, {PropType, VNode} from 'vue';
+import Vue, {VNode} from 'vue';
 import {emitCustomEvent} from "./../../utils";
 import {absolutelyPositionable} from "../../mixins";
+import {anchorPropDefFactory} from "@/utils";
 import {getCorrectPropertyName} from "@material/animation";
 
 const {cssClasses, strings} = MDCMenuSurfaceFoundation;
@@ -16,10 +17,7 @@ export default Vue.extend({
       type: Number,
       default: Corner.TOP_LEFT
     },
-    anchorElement: {
-      type: <PropType<Element | string | null>>[String, Element],
-      default: null
-    },
+    anchorElement: anchorPropDefFactory(),
     fixedPosition: Boolean,
     fullWidth: Boolean,
     hoisted: Boolean,
