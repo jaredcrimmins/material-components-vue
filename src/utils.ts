@@ -1,6 +1,23 @@
-import Vue, {PropType, VueConstructor} from 'vue';
+import Vue, {PropOptions, PropType, VueConstructor} from 'vue';
 
 export type NativeEventListener = (ev: any) => any;
+
+export function validateAnchorTarget(value: Element | string) {
+  if (typeof value === 'string') return true;
+  // Check if the value is an Element. Node.ELEMENT_NODE (1)
+  // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
+  // Do not reference the Node class to access its nodeType property because
+  // it is part of the DOM API, and this code may run in a Node.js environment.
+  else if (value.nodeType === 1) return true;
+  else return false;
+}
+
+export function anchorPropDefFactory() {
+  return {
+    default: null,
+    validator: validateAnchorTarget
+  } as PropOptions<Element | string | null>;
+}
 
 export function domPropDefFactory(defaultValue: boolean): {type: typeof Boolean};
 export function domPropDefFactory(defaultValue?: string | number | null): {
