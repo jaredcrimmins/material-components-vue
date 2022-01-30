@@ -1,2 +1,2 @@
-export {default as default} from "./install";
+export {MaterialComponentsVuejs} from "./install";
 export * from "./components";
