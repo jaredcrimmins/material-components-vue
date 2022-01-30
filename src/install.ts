@@ -1,7 +1,7 @@
 import {VueConstructor} from 'vue';
 import * as components from './components';
 
-export default class MaterialComponentsVuejs {
+export class MaterialComponentsVuejs {
   static installed = false;
   static version = '__VERSION__';
 
