@@ -3,7 +3,6 @@ import * as components from './components';
 
 export class MaterialComponentsVuejs {
   static installed = false;
-  static version = '__VERSION__';
 
   static install(Vue: VueConstructor) {
     if(this.installed) return;
