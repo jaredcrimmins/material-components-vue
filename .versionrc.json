@@ -1,0 +1,6 @@
+{
+  "types": [
+    {"type": "release", "hidden": true}
+  ],
+  "releaseCommitMessageFormat": "release: {{currentTag}}"
+}
