@@ -8,6 +8,7 @@
 
 # Files
 !.babelrc
+!.commitlintrc.ts
 !.editorconfig
 !.eslintrc.json
 !.gitignore
