@@ -9,7 +9,8 @@
     "clean": "rm -fr dist/",
     "dev": "vue-cli-service serve dev/client-entry.js",
     "help": "vue-cli-service help",
-    "prepare": "npm run clean && npm run build"
+    "prepare": "npm run clean && npm run build",
+    "release": "standard-version"
   },
   "main": "dist/material-components-vuejs.common.js",
   "module": "dist/material-components-vuejs.esm.js",
