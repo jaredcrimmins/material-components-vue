@@ -15,6 +15,8 @@
   "module": "dist/material-components-vuejs.esm.js",
   "devDependencies": {
     "@babel/core": "^7.14.6",
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@rollup/plugin-typescript": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",
