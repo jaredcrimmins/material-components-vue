@@ -1,7 +1,7 @@
 {
   "name": "@eodm-productions/mdc-select",
   "description": "The Material Components for Vue select component.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "keywords": [
     "material components",
