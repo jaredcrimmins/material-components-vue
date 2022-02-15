@@ -1,7 +1,7 @@
 {
   "name": "@eodm-productions/mdc-textfield",
   "description": "The Material Components for Vue text field component.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "keywords": [
     "material components",
