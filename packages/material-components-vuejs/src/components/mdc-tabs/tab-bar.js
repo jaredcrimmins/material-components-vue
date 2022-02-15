@@ -14,11 +14,11 @@ export default {
 
   provide() {
     return {
-      fade: this.fade,
-      focusOnActivate: this.focusOnActivate,
-      tabList: this.tabList,
-      underline: this.underline,
-      indicatorSpanContent: this.indicatorSpanContent
+      mdcTabBarFade__: this.fade,
+      mdcTabBarFocusOnActivate__: this.focusOnActivate,
+      mdcTabBarTabList__: this.tabList,
+      mdcTabBarUnderline__: this.underline,
+      mdcTabBarIndicatorSpanContent__: this.indicatorSpanContent
     };
   },
 
