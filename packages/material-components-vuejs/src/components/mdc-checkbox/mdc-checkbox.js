@@ -1,0 +1,156 @@
+import {MDCCheckboxFoundation, cssClasses} from "@material/checkbox";
+
+export default {
+  name: "mdc-checkbox",
+
+  props: {
+    disabled: {
+      default: false,
+      type: Boolean
+    },
+    indeterminate: {
+      default: false,
+      type: Boolean
+    }
+  },
+
+  data() {
+    return {
+      mdcFoundation: null
+    };
+  },
+
+  mounted() {
+    this.init();
+  },
+
+  beforeDestroy() {
+    this.deinit();
+  },
+
+  render(c) {
+    return c(
+      "div",
+      {
+        staticClass: cssClasses.ROOT,
+        class: {
+          [cssClasses.DISABLED]: this.disabled
+        }
+      },
+      [
+        this.genNativeControl(c),
+        this.genBackground(c),
+        c(
+          "div",
+          {
+            staticClass: "mdc-checkbox__ripple"
+          }
+        )
+      ]
+    );
+  },
+
+  methods: {
+    init() {
+      this.mdcFoundation = new MDCCheckboxFoundation(this);
+      this.mdcFoundation.init();
+      this.setDeterminate(this.determinate);
+      this.setProgress(this.progress);
+      this.open ? this.mdcFoundation.open() : this.mdcFoundation.close();
+    },
+
+    deinit() {
+      this.mdcFoundation.destroy();
+    },
+
+    genNativeControl(c) {
+      return c(
+        "input",
+        {
+          ref: "nativeControl",
+          staticClass: cssClasses.NATIVE_CONTROL,
+          attrs: {
+            type: "checkbox",
+            disabled: this.disabled,
+            "data-indeterminate": this.indeterminate ? "true" : "false"
+          }
+        }
+      );
+    },
+
+    genBackground(c) {
+      return c(
+        "div",
+        {
+          staticClass: cssClasses.BACKGROUND
+        },
+        [
+          c(
+            "svg",
+            {
+              staticClass: cssClasses.CHECKMARK,
+              attrs: {
+                viewBox: "0 0 24 24"
+              }
+            },
+            [
+              c(
+                "path",
+                {
+                  staticClass: cssClasses.CHECKMARK_PATH,
+                  attrs: {
+                    fill: "none",
+                    d: "M1.73,12.91 8.1,19.28 22.79,4.59"
+                  }
+                }
+              )
+            ]
+          ),
+          c(
+            "div",
+            {
+              staticClass: cssClasses.MIXEDMARK
+            }
+          )
+        ]
+      );
+    },
+
+    // Adapter methods
+    addClass(className) {
+      this.$el.classList.add(className);
+    },
+
+    removeClass(className) {
+      this.$el.classList.remove(className);
+    },
+
+    forceLayout() {
+      this.$el.offsetWidth;
+    },
+
+    isAttachedToDOM() {
+      return (this.$el.parentNode);
+    },
+
+    isIndeterminate: () => this.indeterminate,
+
+    isChecked: () => this.checked,
+
+    hasNativeControl() {
+      return (this.$refs.nativeControl);
+    },
+
+    setNativeControlDisabled(disabled) {
+      this.$refs.disabled = disabled;
+    },
+
+    setNativeControlAttr(attr, value) {
+      this.$refs.setAttribute(attr, value);
+    },
+
+    removeNativeControlAttr(attr) {
+      this.$refs.removeAttribute(attr);
+    }
+  }
+}
