@@ -1,6 +1,6 @@
 {
   "name": "@jaredcrimmins/eodm-productions__material-components-vuejs",
-  "version": "0.0.0",
+  "version": "0.2.0-alpha.1",
   "description": "Material components for Vue.",
   "main": "dist/material-components-vuejs.js",
   "module": "src/index.js",
