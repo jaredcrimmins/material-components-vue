@@ -24,6 +24,7 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClass: {'mdc-ripple-surface': this.standalone},
       mdcFoundation: new MDCRippleFoundation(
         MDCRippleFoundation.defaultAdapter
       ),
@@ -50,22 +51,23 @@ export default Vue.extend({
   },
 
   render(c): VNode {
-    const cssClass = {
-      'mdc-ripple-surface': this.standalone
-    };
     const on = {
       blur: this.onBlur,
       focus: this.onFocus
     };
     const defaultSlot = getSlot(this);
-    const rootSlot = getSlot(this, 'root', {cssClass, on, style: this.style});
+    const rootSlot = getSlot(this, 'root', {
+      cssClass: this.cssClass,
+      on,
+      style: this.style
+    });
 
     if (rootSlot) return rootSlot[0];
 
     return c(
       this.tagName,
       {
-        class: cssClass,
+        class: this.cssClass,
         on,
         style: this.style
       },
