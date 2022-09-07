@@ -29,7 +29,10 @@ export default Vue.extend({
       {
         staticClass: 'mdc-dialog__button',
         props: {
-          disabled: this.disabled
+          disabled: this.disabled,
+          outlined: this.outlined,
+          raised: this.raised,
+          unelevated: this.unelevated
         },
         attrs: {
           [strings.ACTION_ATTRIBUTE]: this.action,
