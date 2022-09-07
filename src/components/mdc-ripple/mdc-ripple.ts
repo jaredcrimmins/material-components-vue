@@ -24,7 +24,9 @@ export default Vue.extend({
 
   data() {
     return {
-      cssClass: {'mdc-ripple-surface': this.standalone},
+      cssClass: <{[key: string]: boolean}>(
+        {'mdc-ripple-surface': this.standalone}
+      ),
       mdcFoundation: new MDCRippleFoundation(
         MDCRippleFoundation.defaultAdapter
       ),
@@ -162,11 +164,11 @@ export default Vue.extend({
     },
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClass[className] = true;
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      delete this.cssClass[className];
     },
 
     containsEventTarget(target: Node | null) {
