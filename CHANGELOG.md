@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/jaredcrimmins/material-components-vuejs/compare/v0.4.0...v0.4.1) (2022-09-08)
+
+
+### Bug Fixes
+
+* **dialog:** pass `outlined`, `raised`, and `unelevated` props ([1c7f08b](https://github.com/jaredcrimmins/material-components-vuejs/commit/1c7f08b0a56c07d518fc41d14bf4b5bc9b45fba9))
+* **ripple:** modify the class list using the `cssClass` data property ([49f75df](https://github.com/jaredcrimmins/material-components-vuejs/commit/49f75df693c4307224fd987fa121ba1e3a648cc0))
+* **ripple:** set root element CSS classes using `cssClass` data property ([3f437d1](https://github.com/jaredcrimmins/material-components-vuejs/commit/3f437d11e7d9fb77f8d4502cae0e60a2eeb1fabe))
+* **text-field:** remove unused `inputElementID` prop ([efe7e62](https://github.com/jaredcrimmins/material-components-vuejs/commit/efe7e62acbe7ad7bf01201c5a3fc756de0ac6c3b))
+
+
+### Code Refactoring
+
+* **ripple:** set style properties using the `style` property ([14e2e17](https://github.com/jaredcrimmins/material-components-vuejs/commit/14e2e1799b97df23dab4a2a9132a18d4a14e8114))
+
 ## [0.4.0](https://github.com/jaredcrimmins/material-components-vuejs/compare/v0.3.2...v0.4.0) (2022-02-24)
 
 
