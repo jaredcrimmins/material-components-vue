@@ -201,9 +201,7 @@ export default Vue.extend({
     },
 
     updateCssVariable(varName: string, value: string) {
-      this.style = Object.assign({}, this.style, {
-        [varName]: value
-      });
+      (<HTMLElement>this.$el).style.setProperty(varName, value);
     },
 
     computeBoundingRect() {
