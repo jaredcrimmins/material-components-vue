@@ -38,10 +38,6 @@ export default Vue.extend({
       },
       type: Object
     },
-    inputElementID: {
-      type: String,
-      default: ''
-    },
     label: {
       type: String,
       default: ''
