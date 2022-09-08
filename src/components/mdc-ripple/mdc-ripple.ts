@@ -1,4 +1,4 @@
-import {MDCRippleFoundation, util} from '@material/ripple';
+import {MDCRippleFoundation, cssClasses, util} from '@material/ripple';
 import {NativeEventListener} from '@/utils';
 import Vue, {VNode} from 'vue';
 import {events, ponyfill} from '@material/dom';
@@ -100,6 +100,7 @@ export default Vue.extend({
     },
 
     upgradeRipple() {
+      this.cssClass[cssClasses.ROOT] = true;
       this.initMDCFoundation();
       this.setUnbounded(this.unbounded);
     },
@@ -164,11 +165,11 @@ export default Vue.extend({
     },
 
     addClass(className: string) {
-      this.cssClass[className] = true;
+      this.cssClass = {...this.cssClass, [className]: true};
     },
 
     removeClass(className: string) {
-      delete this.cssClass[className];
+      this.cssClass = {...this.cssClass, [className]: false};
     },
 
     containsEventTarget(target: Node | null) {
