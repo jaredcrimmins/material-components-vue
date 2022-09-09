@@ -1,6 +1,6 @@
 {
   "name": "@jaredcrimmins/material-components-vuejs",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Material Design components for Vue",
   "scripts": {
     "build": "rollup -c",

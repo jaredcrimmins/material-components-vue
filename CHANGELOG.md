@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.2](https://github.com/jaredcrimmins/material-components-vuejs/compare/v0.4.1...v0.4.2) (2022-09-09)
+
+
+### Features
+
+* **checkbox:** implement `MDCRipple` ([50ef950](https://github.com/jaredcrimmins/material-components-vuejs/commit/50ef950f005f3a77f2a3a9f865ca891f7e94e6dc))
+* **form-field:** create `MDCFormField` component ([23a31d1](https://github.com/jaredcrimmins/material-components-vuejs/commit/23a31d1ef286235b33374bec2ed40fa89309fb18))
+* **radio:** implement `MDCRipple` ([fcced16](https://github.com/jaredcrimmins/material-components-vuejs/commit/fcced16c910fcf2b58baffce5babc4b353598f3e))
+
+
+### Bug Fixes
+
+* **icon-button:** fix toggle functionality ([7a5f14e](https://github.com/jaredcrimmins/material-components-vuejs/commit/7a5f14ec245adf6c5dec103c4ceeaaffa1911c3b))
+
 ### [0.4.1](https://github.com/jaredcrimmins/material-components-vuejs/compare/v0.4.0...v0.4.1) (2022-09-08)
 
 
