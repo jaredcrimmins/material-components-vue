@@ -44,6 +44,7 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClass: <{[className: string]: boolean}>{},
       mdcFoundation: new MDCIconButtonToggleFoundation(
         MDCIconButtonToggleFoundation.defaultAdapter
       )
@@ -69,6 +70,7 @@ export default Vue.extend({
       'mdc-ripple',
       {
         staticClass: cssClasses.ROOT,
+        class: this.cssClass,
         props: {
           disabled: this.rippleDisabled,
           unbounded: true
@@ -174,15 +176,15 @@ export default Vue.extend({
     //
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClass = {...this.cssClass, [className]: true};
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClass = {...this.cssClass, [className]: false};
     },
 
     hasClass(className: string) {
-      return this.$el.classList.contains(className);
+      return !!this.cssClass[className];
     },
 
     setAttr(name: string, value: string) {
