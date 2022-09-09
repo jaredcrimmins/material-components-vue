@@ -1,4 +1,5 @@
 import {MDCRadioFoundation, cssClasses} from "@material/radio";
+import {MDCRipple} from "../mdc-ripple";
 import Vue, {CreateElement, VNode} from 'vue';
 
 let radioID_ = 0;
@@ -7,6 +8,10 @@ export default Vue.extend({
   name: "mdc-radio",
 
   inheritAttrs: false,
+
+  components: {
+    "mdc-ripple": MDCRipple
+  },
 
   props: {
     id: {
@@ -47,11 +52,15 @@ export default Vue.extend({
 
   render(c): VNode {
     return c(
-      "div",
+      "mdc-ripple",
       {
+        ref: "ripple",
         staticClass: cssClasses.ROOT,
         class: {
           [cssClasses.DISABLED]: this.disabled
+        },
+        props: {
+          unbounded: true
         }
       },
       [
