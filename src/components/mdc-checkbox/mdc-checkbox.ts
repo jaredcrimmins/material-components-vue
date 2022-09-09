@@ -1,4 +1,5 @@
 import {MDCCheckboxFoundation, cssClasses} from "@material/checkbox";
+import {MDCRipple} from '../mdc-ripple';
 import Vue, {CreateElement, VNode} from 'vue';
 import {domPropDefFactory} from '@/utils';
 
@@ -8,6 +9,10 @@ export default Vue.extend({
   name: "mdc-checkbox",
 
   inheritAttrs: false,
+
+  components: {
+    'mdc-ripple': MDCRipple
+  },
 
   props: {
     checked: Boolean,
@@ -53,11 +58,15 @@ export default Vue.extend({
 
   render(c): VNode {
     return c(
-      "div",
+      "mdc-ripple",
       {
+        ref: "ripple",
         staticClass: cssClasses.ROOT,
         class: {
           [cssClasses.DISABLED]: this.disabled
+        },
+        props: {
+          unbounded: true
         },
         on: {
           "animationend": this.onAnimationEnd
