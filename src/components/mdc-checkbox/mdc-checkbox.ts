@@ -1,17 +1,28 @@
 import {MDCCheckboxFoundation, cssClasses} from "@material/checkbox";
 import {MDCRipple} from '../mdc-ripple';
-import Vue, {CreateElement, VNode} from 'vue';
+import Vue, {CreateElement, VueConstructor, VNode} from 'vue';
 import {domPropDefFactory} from '@/utils';
 
 let checkboxID_ = 0;
 
-export default Vue.extend({
+interface Injections {
+  formFieldInputId: string | null;
+}
+
+export default (<VueConstructor<Vue & Injections>>Vue).extend({
   name: "mdc-checkbox",
 
   inheritAttrs: false,
 
   components: {
     'mdc-ripple': MDCRipple
+  },
+
+  inject: {
+    formFieldInputId: {
+      from: 'mdcFormFieldInputId__',
+      default: null
+    }
   },
 
   props: {
@@ -45,7 +56,7 @@ export default Vue.extend({
   },
 
   created() {
-    this.id_ = this.id || `__mdc-checkbox${checkboxID_++}`;
+    this.id_ = this.id || this.formFieldInputId || `__mdc-checkbox${checkboxID_++}`;
   },
 
   mounted() {

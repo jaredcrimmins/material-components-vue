@@ -18,6 +18,7 @@ export class MaterialComponentsVuejs {
     Vue.component('mdc-dialog-button', components.MDCDialogButton);
     Vue.component('mdc-dialog-content', components.MDCDialogContent);
     Vue.component('mdc-dialog-title', components.MDCDialogTitle);
+    Vue.component('mdc-form-field', components.MDCFormField);
     Vue.component('mdc-floating-label', components.MDCFloatingLabel);
     Vue.component('mdc-icon-button', components.MDCIconButton);
     Vue.component('mdc-image-list', components.MDCImageList);

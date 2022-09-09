@@ -3,6 +3,7 @@ export {MDCCheckbox} from './mdc-checkbox';
 export {MDCCircularProgress} from './mdc-circular-progress';
 export {MDCDialog, MDCDialogActions, MDCDialogButton, MDCDialogContent, MDCDialogTitle} from './mdc-dialog';
 export {MDCFloatingLabel} from './mdc-floating-label';
+export {MDCFormField} from './mdc-form-field';
 export {MDCIconButton} from './mdc-icon-button';
 export {MDCImageList, MDCImageListItem} from './mdc-image-list';
 export {MDCLinearProgress} from './mdc-linear-progress';

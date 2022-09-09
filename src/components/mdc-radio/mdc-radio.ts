@@ -1,16 +1,27 @@
 import {MDCRadioFoundation, cssClasses} from "@material/radio";
 import {MDCRipple} from "../mdc-ripple";
-import Vue, {CreateElement, VNode} from 'vue';
+import Vue, {CreateElement, VueConstructor, VNode} from 'vue';
 
 let radioID_ = 0;
 
-export default Vue.extend({
+interface Injections {
+  formFieldInputId: string | null;
+}
+
+export default (<VueConstructor<Vue & Injections>>Vue).extend({
   name: "mdc-radio",
 
   inheritAttrs: false,
 
   components: {
     "mdc-ripple": MDCRipple
+  },
+
+  inject: {
+    formFieldInputId: {
+      from: "mdcFormFieldInputId__",
+      default: null
+    }
   },
 
   props: {
@@ -37,7 +48,7 @@ export default Vue.extend({
   },
 
   created() {
-    this.id_ = this.id || `__mdc-radio-${radioID_++}`;
+    this.id_ = this.id || this.formFieldInputId || `__mdc-radio-${radioID_++}`;
   },
 
   mounted() {
