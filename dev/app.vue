@@ -8,6 +8,8 @@
 
     <the-debug-mdc-dialog />
 
+    <the-debug-mdc-form-field />
+
     <the-debug-mdc-icon-button />
 
     <the-debug-mdc-image-list />
@@ -42,6 +44,7 @@
       'the-debug-mdc-checkbox': components.TheDebugMDCCheckbox,
       'the-debug-mdc-circular-progress': components.TheDebugMDCCircularProgress,
       'the-debug-mdc-dialog': components.TheDebugMDCDialog,
+      'the-debug-mdc-form-field': components.TheDebugMDCFormField,
       'the-debug-mdc-icon-button': components.TheDebugMDCIconButton,
       'the-debug-mdc-image-list': components.TheDebugMDCImageList,
       'the-debug-mdc-linear-progress': components.TheDebugMDCLinearProgress,

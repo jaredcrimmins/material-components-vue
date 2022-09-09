@@ -2,6 +2,7 @@ export {default as TheDebugMDCButton} from './the-debug-mdc-button.vue';
 export {default as TheDebugMDCCheckbox} from './the-debug-mdc-checkbox.vue';
 export {default as TheDebugMDCCircularProgress} from './the-debug-mdc-circular-progress.vue';
 export {default as TheDebugMDCDialog} from './the-debug-mdc-dialog.vue';
+export {default as TheDebugMDCFormField} from './the-debug-mdc-form-field.vue';
 export {default as TheDebugMDCIconButton} from './the-debug-mdc-icon-button.vue';
 export {default as TheDebugMDCImageList} from './the-debug-mdc-image-list.vue';
 export {default as TheDebugMDCLinearProgress} from './the-debug-mdc-linear-progress.vue';
