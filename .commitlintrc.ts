@@ -34,6 +34,7 @@ const Configuration: UserConfig = {
         'data-table',
         'dialog',
         'floating-label',
+        'form-field',
         'icon-button',
         'image-list',
         'line-ripple',
