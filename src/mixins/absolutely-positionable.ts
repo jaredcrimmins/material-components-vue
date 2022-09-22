@@ -7,7 +7,7 @@ export default Vue.extend({
   props: {
     absolutePosition: {
       type: <PropType<MDCMenuPoint>>Object,
-      validator: value => {
+      validator: (value: MDCMenuPoint) => {
         return Number.isFinite(value.x) && Number.isFinite(value.y);
       },
       default: () => ({x: 0, y: 0})

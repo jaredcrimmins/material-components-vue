@@ -20,7 +20,7 @@ export default Vue.extend({
     progress: {
       default: 0,
       type: Number,
-      validator(value) {
+      validator(value: number) {
         return value >= 0 && value <= 1;
       }
     }

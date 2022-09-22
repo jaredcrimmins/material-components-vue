@@ -31,7 +31,7 @@ export default Vue.extend({
     tagName: {
       type: String,
       default: 'button',
-      validator(value) {
+      validator(value: string) {
         return ['a', 'button'].indexOf(value) !== -1;
       }
     },
