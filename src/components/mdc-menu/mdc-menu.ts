@@ -218,11 +218,11 @@ export default baseMixins.extend({
     //
 
     addClassToElementAtIndex(index: number, className: string) {
-      this.getMenuItemElements()[index].classList.add(className);
+      (<ListRef>this.$refs.list).addClassToListItemAtIndex(index, className);
     },
 
     removeClassFromElementAtIndex(index: number, className: string) {
-      this.getMenuItemElements()[index].classList.remove(className);
+      (<ListRef>this.$refs.list).removeClassFromListItemAtIndex(index, className);
     },
 
     addAttributeToElementAtIndex(index: number, attr: string, value: string) {

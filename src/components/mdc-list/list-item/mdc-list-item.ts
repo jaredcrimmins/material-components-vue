@@ -49,6 +49,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
 
   data() {
     return {
+      cssClass: <{[className: string]: boolean}>{},
       inputID: ""
     };
   },
@@ -80,6 +81,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
       "mdc-ripple",
       {
         staticClass: cssClasses.LIST_ITEM_CLASS,
+        class: this.cssClass,
         attrs: {
           "data-value": this.value,
           role: this.roleAttr
@@ -184,6 +186,18 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
           ]
         );
       }
+    },
+
+    //
+    // Public methods
+    //
+
+    addClass(className: string) {
+      this.cssClass = {...this.cssClass, [className]: true};
+    },
+
+    removeClass(className: string) {
+      this.cssClass = {...this.cssClass, [className]: false};
     }
   }
 });

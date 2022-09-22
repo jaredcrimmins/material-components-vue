@@ -1,4 +1,5 @@
 import {MDCListFoundation, MDCListIndex} from "@material/list";
+import MDCListItem from "./list-item";
 import Vue, {PropType, VNode} from 'vue';
 import {ponyfill} from "@material/dom";
 import {emitCustomEvent} from "./../../utils";
@@ -169,6 +170,26 @@ export default Vue.extend({
       this.mdcFoundation.setWrapFocus(value);
     },
 
+    getListItemVNodes(vNodes?: VNode[]) {
+      const listItems: VNode[] = [];
+
+      vNodes = vNodes || this.$slots.default;
+
+      if (vNodes) {
+        vNodes.forEach(vNode => {
+          if (vNode.componentOptions?.tag === 'mdc-list-item') {
+            listItems.push(vNode);
+          } else if (vNode.componentInstance?.$children?.length) {
+            const childrenVNodes = vNode.componentInstance.$children.map(child => child.$vnode);
+
+            listItems.push(...this.getListItemVNodes(childrenVNodes));
+          }
+        });
+      }
+
+      return listItems;
+    },
+
     /*
     * Used to figure out which list item this event is targetting. Or returns -1 if
     * there is no list item
@@ -238,6 +259,22 @@ export default Vue.extend({
     // Public methods
     //
 
+    addClassToListItemAtIndex(index: number, className: string) {
+      const vNode = this.getListItemVNodes()[index];
+
+      if (vNode) {
+        (<InstanceType<typeof MDCListItem>>vNode.componentInstance).addClass(className);
+      }
+    },
+
+    removeClassFromListItemAtIndex(index: number, className: string) {
+      const vNode = this.getListItemVNodes()[index];
+
+      if (vNode) {
+        (<InstanceType<typeof MDCListItem>>vNode.componentInstance).removeClass(className);
+      }
+    },
+
     getListItemElements() {
       return Array.from(this.$el.querySelectorAll(strings.LIST_ITEM_SELECTOR));
     },
@@ -271,19 +308,11 @@ export default Vue.extend({
     },
 
     addClassForElementIndex(index: number, className: string) {
-      const element = this.getListItemElements()[index];
-
-      if(element) {
-        element.classList.add(className);
-      }
+      this.addClassToListItemAtIndex(index, className);
     },
 
     removeClassForElementIndex(index: number, className: string) {
-      const element = this.getListItemElements()[index];
-
-      if(element) {
-        element.classList.remove(className);
-      }
+      this.removeClassFromListItemAtIndex(index, className);
     },
 
     focusItemAtIndex(index: number) {
