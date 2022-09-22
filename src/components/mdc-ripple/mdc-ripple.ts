@@ -208,6 +208,6 @@ export default Vue.extend({
       return this.$el.getBoundingClientRect();
     },
 
-    getWindowPageOffset: () => ({x: window.pageXOffset, y: window.pageYOffset})
+    getWindowPageOffset: () => ({x: window.scrollX, y: window.scrollY})
   }
 });
