@@ -58,7 +58,7 @@ export default Vue.extend({
     }
   },
 
-  provide() {
+  provide(): object {
     return {
       twoLine: this.twoLine
     };
