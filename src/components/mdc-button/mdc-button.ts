@@ -1,7 +1,11 @@
 import {MDCRipple} from '../mdc-ripple';
-import Vue, {VNode} from 'vue';
+import {VNode} from 'vue';
+import {linkable} from '@/mixins';
+import {mixins} from '@/utils';
 
-export default Vue.extend({
+const baseMixins = mixins(linkable);
+
+export default baseMixins.extend({
   name: 'mdc-button',
 
   inheritAttrs: true,
@@ -15,9 +19,9 @@ export default Vue.extend({
     outlined: Boolean,
     raised: Boolean,
     rippleDisabled: Boolean,
-    to: {
+    tag: {
       type: String,
-      default: ''
+      default: 'button'
     },
     unelevated: Boolean
   },
@@ -32,11 +36,10 @@ export default Vue.extend({
         },
         scopedSlots: {
           root: ({cssClass, on, style}) => {
-            const tagName = this.to ? 'router-link' : 'button';
-            const isTagNameButton = tagName === 'button';
+            const isTagNameButton = this.tag === 'button';
 
             return c(
-              tagName,
+              this.tag,
               {
                 staticClass: 'mdc-button',
                 class: Object.assign({
@@ -45,7 +48,8 @@ export default Vue.extend({
                   'mdc-button--unelevated': this.unelevated
                 }, cssClass),
                 attrs: {
-                  disabled: isTagNameButton && this.disabled
+                  disabled: isTagNameButton && this.disabled,
+                  href: this.href
                 },
                 style,
                 props: {
