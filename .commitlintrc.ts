@@ -54,6 +54,7 @@ const Configuration: UserConfig = {
 
         // Mixins
         'absolutely-positionable',
+        'linkable',
 
         // Dev app
         'dev',
