@@ -20,3 +20,4 @@ export {MDCSnackbar} from './mdc-snackbar';
 export {MDCSwitch} from './mdc-switch';
 export {MDCTab, MDCTabBar} from './mdc-tabs';
 export {MDCTextField} from './mdc-textfield';
+export {MDCTooltip, MDCTooltipAction, MDCTooltipContent, MDCTooltipContentLink, MDCTooltipRichActions, MDCTooltipTitle, MDCTooltipWrapper} from './mdc-tooltip';

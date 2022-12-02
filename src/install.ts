@@ -45,5 +45,12 @@ export class MaterialComponentsVuejs {
     Vue.component('mdc-tab-bar', components.MDCTabBar);
     Vue.component('mdc-text-field', components.MDCTextField);
     Vue.component('mdc-textfield', components.MDCTextField);
+    Vue.component('mdc-tooltip', components.MDCTooltip);
+    Vue.component('mdc-tooltip-action', components.MDCTooltipAction);
+    Vue.component('mdc-tooltip-content', components.MDCTooltipContent);
+    Vue.component('mdc-tooltip-content-link', components.MDCTooltipContentLink);
+    Vue.component('mdc-tooltip-rich-actions', components.MDCTooltipRichActions);
+    Vue.component('mdc-tooltip-title', components.MDCTooltipTitle);
+    Vue.component('mdc-tooltip-wrapper', components.MDCTooltipWrapper);
   }
 }
