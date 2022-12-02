@@ -2,7 +2,7 @@
 
 Material Design components for Vue
 
-[GitHub](https://github.com/jaredcrimmins/material-components-vuejs) |
+[GitHub](https://github.com/jaredcrimmins/material-components-vue) |
 [NPM](https://www.npmjs.com/package/@jaredcrimmins/material-components-vuejs)
 
 Material Components Vue.js implements [Material Components Web](https://github.com/material-components/material-components-web) in Vue, using the advanced approach.
