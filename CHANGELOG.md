@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.4.2...v0.5.0) (2022-12-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename package to `@jaredcrimmins/material-components-vue`
+* **ripple:** rename `tagName` prop to `tag`
+* **button:** The `tag` prop must be provided if a root element with
+a tag name of anything besides `button` is desired.
+
+### Features
+
+* **button:** implement `linkable` mixin ([66c7253](https://github.com/jaredcrimmins/material-components-vue/commit/66c72535328c225bb4ecbc039483653648855393))
+* **tooltip:** create `MDCTooltip` component ([1343216](https://github.com/jaredcrimmins/material-components-vue/commit/134321649e59ac73b00c4ee9557f35df1d85fc04))
+
+
+### Bug Fixes
+
+* **list:** add/remove classes from list items using a Vue mechanism ([c749faf](https://github.com/jaredcrimmins/material-components-vue/commit/c749faf3952bb52d5dfcdf6f2e7b905bfc0dbf15))
+* **list:** annotate `provide` method return type ([5479d2b](https://github.com/jaredcrimmins/material-components-vue/commit/5479d2bd5ecdaa20d000833812328097084796a6))
+* **multiple:** annotate prop validator parameter value types ([b94c357](https://github.com/jaredcrimmins/material-components-vue/commit/b94c357f06ebfa60fbf70e63b736028dd179cea9))
+
+
+### Code Refactoring
+
+* **linkable:** create `linkable` mixin ([6af8728](https://github.com/jaredcrimmins/material-components-vue/commit/6af87280a21dbc363719f0c5bd5f5c10476fc250))
+* **ripple:** consolidate `@/utils` imports ([4d0e28d](https://github.com/jaredcrimmins/material-components-vue/commit/4d0e28de2cfb91ed577b65d3e39b8421f59f5746))
+* **ripple:** don't return primitive prop defaults from factories ([97b36aa](https://github.com/jaredcrimmins/material-components-vue/commit/97b36aa1372f5a9dd67600c95d07a5dd02af4d73))
+* **ripple:** rename `tagName` prop to `tag` ([d965645](https://github.com/jaredcrimmins/material-components-vue/commit/d965645d8f43f3c9c63debfae722f6990ec431ef))
+* **ripple:** use `window.scrollX` and `window.scrollY` ([7ec613a](https://github.com/jaredcrimmins/material-components-vue/commit/7ec613ac86b79f6235328563931338e45d93f179))
+
+
+* rename package to `@jaredcrimmins/material-components-vue` ([15d8d09](https://github.com/jaredcrimmins/material-components-vue/commit/15d8d097e69e62e7009101e78cabfda22b751d78))
+
+
+### Build
+
+* rename Rollup output files to reflect new package name ([eafaf19](https://github.com/jaredcrimmins/material-components-vue/commit/eafaf19ac7982d228a739075621ffdfa61192d21))
+
 ### [0.4.2](https://github.com/jaredcrimmins/material-components-vuejs/compare/v0.4.1...v0.4.2) (2022-09-09)
 
 
