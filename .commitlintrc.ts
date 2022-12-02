@@ -51,6 +51,7 @@ const Configuration: UserConfig = {
         'switch',
         'tabs',
         'textfield',
+        'tooltip',
 
         // Mixins
         'absolutely-positionable',
