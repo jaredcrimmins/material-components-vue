@@ -13,11 +13,11 @@ export default Vue.extend({
     disabled: Boolean,
     standalone: {
       type: Boolean,
-      default: () => true
+      default: true
     },
     tag: {
       type: String,
-      default: () => 'div'
+      default: 'div'
     },
     unbounded: Boolean
   },
