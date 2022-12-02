@@ -1,8 +1,7 @@
 import {MDCRippleFoundation, cssClasses, util} from '@material/ripple';
-import {NativeEventListener} from '@/utils';
+import {NativeEventListener, getSlot} from '@/utils';
 import Vue, {VNode} from 'vue';
 import {events, ponyfill} from '@material/dom';
-import {getSlot} from '@/utils';
 
 export default Vue.extend({
   name: 'mdc-ripple',
