@@ -11,7 +11,7 @@ export default [
   {
     input,
     output: {
-      file: 'dist/material-components-vuejs.esm.js',
+      file: 'dist/material-components-vue.esm.js',
       format: 'es',
       sourcemap: true
     },
@@ -21,7 +21,7 @@ export default [
   {
     input,
     output: {
-      file: 'dist/material-components-vuejs.common.js',
+      file: 'dist/material-components-vue.common.js',
       format: 'cjs',
       sourcemap: true
     },

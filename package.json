@@ -12,8 +12,8 @@
     "prepare": "npm run clean && npm run build",
     "release": "standard-version"
   },
-  "main": "dist/material-components-vuejs.common.js",
-  "module": "dist/material-components-vuejs.esm.js",
+  "main": "dist/material-components-vue.common.js",
+  "module": "dist/material-components-vue.esm.js",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@commitlint/cli": "^16.1.0",
