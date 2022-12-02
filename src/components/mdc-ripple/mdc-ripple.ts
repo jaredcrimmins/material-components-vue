@@ -15,7 +15,7 @@ export default Vue.extend({
       type: Boolean,
       default: () => true
     },
-    tagName: {
+    tag: {
       type: String,
       default: () => 'div'
     },
@@ -67,7 +67,7 @@ export default Vue.extend({
     if (rootSlot) return rootSlot[0];
 
     return c(
-      this.tagName,
+      this.tag,
       {
         class: this.cssClass,
         on,
