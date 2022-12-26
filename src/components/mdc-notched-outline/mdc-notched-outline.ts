@@ -30,7 +30,7 @@ export default Vue.extend({
 
   data() {
     return {
-      cssClass: {'mdc-notched-outline--no-label': !this.label} as {[className: string]: boolean},
+      cssClass: {[cssClasses.NO_LABEL]: !this.label} as {[className: string]: boolean},
       mdcFoundation: new MDCNotchedOutlineFoundation(
         MDCNotchedOutlineFoundation.defaultAdapter
       ),
