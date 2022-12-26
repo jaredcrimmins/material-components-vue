@@ -145,13 +145,13 @@ export default Vue.extend({
           'div',
           {
             ref: 'rootEl',
-            staticClass: 'mdc-text-field',
+            staticClass: cssClasses.ROOT,
             class: {...this.cssClass, ...{
-              'mdc-text-field--disabled': this.disabled,
+              [cssClasses.DISABLED]: this.disabled,
               'mdc-text-field--filled': this.filled,
-              'mdc-text-field--no-label': !this.hasFloatingLabel,
-              'mdc-text-field--outlined': this.outlined,
-              'mdc-text-field--textarea': this.multiline
+              [cssClasses.NO_LABEL]: !this.hasFloatingLabel,
+              [cssClasses.OUTLINED]: this.outlined,
+              [cssClasses.TEXTAREA]: this.multiline
             }},
             on: {
               click: this.onClick
@@ -316,7 +316,7 @@ export default Vue.extend({
         return c(
           'div',
           {
-            staticClass: 'mdc-text-field-helper-line'
+            staticClass: cssClasses.HELPER_LINE
           },
           [
             this.genHelperText(c),
