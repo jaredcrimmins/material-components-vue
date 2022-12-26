@@ -59,7 +59,7 @@ export default Vue.extend({
     // HTML attributes
     autocomplete: {
       type: String,
-      default: ''
+      default: null
     },
     disabled: Boolean,
     maxlength: {
@@ -69,11 +69,11 @@ export default Vue.extend({
     multiple: Boolean,
     name: {
       type: String,
-      default: ''
+      default: null
     },
     placeholder: {
       type: String,
-      default: ''
+      default: null
     },
     readonly: Boolean,
     required: Boolean,
@@ -83,15 +83,15 @@ export default Vue.extend({
     },
     spellcheck: {
       type: String,
-      default: ''
+      default: null
     },
     type: {
       type: String,
-      default: ''
+      default: null
     },
     value: {
       type: String,
-      default: ''
+      default: null
     }
   },
 
