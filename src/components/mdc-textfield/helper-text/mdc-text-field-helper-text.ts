@@ -1,4 +1,4 @@
-import {MDCTextFieldHelperTextFoundation} from '@material/textfield';
+import {MDCTextFieldHelperTextFoundation, helperTextCssClasses as cssClasses, helperTextStrings as strings} from '@material/textfield';
 import Vue, {VNode} from 'vue';
 
 export default Vue.extend({
@@ -40,12 +40,12 @@ export default Vue.extend({
     return c(
       'div',
       {
-        staticClass: 'mdc-text-field-helper-text',
+        staticClass: cssClasses.ROOT,
         class: {
-          'mdc-text-field-helper-text--persistent': this.persistent
+          [cssClasses.HELPER_TEXT_PERSISTENT]: this.persistent
         },
         attrs: {
-          'aria-hidden': true
+          [strings.ARIA_HIDDEN]: true
         }
       },
       [
