@@ -30,6 +30,7 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClass: {} as {[cssClass: string]: boolean},
       mdcFoundation: new MDCFloatingLabelFoundation(
         MDCFloatingLabelFoundation.defaultAdapter
       )
@@ -63,6 +64,7 @@ export default Vue.extend({
       'label',
       {
         staticClass: cssClasses.ROOT,
+        class: this.cssClass,
         attrs: {
           id: ''
         }
@@ -103,11 +105,11 @@ export default Vue.extend({
     //
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClass = {...this.cssClass, [className]: true};
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClass = {...this.cssClass, [className]: false};
     },
 
     deregisterInteractionHandler(evtType: string, handler: NativeEventListener) {
