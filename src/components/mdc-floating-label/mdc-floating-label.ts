@@ -66,7 +66,7 @@ export default Vue.extend({
         staticClass: cssClasses.ROOT,
         class: this.cssClass,
         attrs: {
-          id: ''
+          id: this.id
         }
       },
       this.content
