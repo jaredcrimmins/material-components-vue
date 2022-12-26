@@ -11,6 +11,7 @@ import {events} from '@material/dom';
 type FloatingLabelRef = InstanceType<typeof MDCFloatingLabel>;
 type InputElRef = HTMLInputElement;
 type NotchedOutlineRef = InstanceType<typeof MDCNotchedOutline>;
+type RootElRef = HTMLElement;
 
 export default Vue.extend({
   name: 'mdc-text-field',
@@ -143,6 +144,7 @@ export default Vue.extend({
         c(
           'div',
           {
+            ref: 'rootEl',
             staticClass: 'mdc-text-field',
             class: {...this.cssClass, ...{
               'mdc-text-field--disabled': this.disabled,
@@ -437,7 +439,7 @@ export default Vue.extend({
     },
 
     deregisterTextFieldInteractionHandler(evtType: string, handler: NativeEventListener) {
-      this.$el.querySelector(`.${cssClasses.ROOT}`)?.removeEventListener(evtType, handler);
+      (<RootElRef>this.$refs.rootEl).removeEventListener(evtType, handler);
     },
 
     deregisterValidationAttributeChangeHandler(observer: MutationObserver) {
@@ -453,7 +455,7 @@ export default Vue.extend({
     },
 
     registerTextFieldInteractionHandler(evtType: string, handler: NativeEventListener) {
-      this.$el.querySelector(`.${cssClasses.ROOT}`)?.addEventListener(evtType, handler);
+      (<RootElRef>this.$refs.rootEl).addEventListener(evtType, handler);
     },
 
     registerValidationAttributeChangeHandler(handler: NativeEventListener) {
