@@ -1,5 +1,5 @@
 import App from "./app.vue";
-import {MaterialComponentsVuejs} from "./../../material-components-vuejs/src/index";
+import {MaterialComponentsVuejs} from "./../src/index";
 import {VDebugContent} from "./components";
 import Vue from "vue";
 
