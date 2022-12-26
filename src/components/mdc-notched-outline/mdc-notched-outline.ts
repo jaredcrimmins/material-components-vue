@@ -30,6 +30,7 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClass: {'mdc-notched-outline--no-label': !this.label} as {[className: string]: boolean},
       mdcFoundation: new MDCNotchedOutlineFoundation(
         MDCNotchedOutlineFoundation.defaultAdapter
       ),
@@ -50,9 +51,7 @@ export default Vue.extend({
       'div',
       {
         staticClass: 'mdc-notched-outline',
-        class: {
-          'mdc-notched-outline--no-label': !this.label
-        }
+        class: this.cssClass
       },
       [
         c(
@@ -91,7 +90,7 @@ export default Vue.extend({
       this.mdcFoundation = new MDCNotchedOutlineFoundation(this);
       this.mdcFoundation.init();
 
-      this.$el.classList.add(cssClasses.OUTLINE_UPGRADED);
+      this.addClass(cssClasses.OUTLINE_UPGRADED);
     },
 
     deinit() {
@@ -131,6 +130,14 @@ export default Vue.extend({
     },
 
     //
+    // Private/adapter methods
+    //
+
+    addClass(className: string) {
+      this.cssClass = {...this.cssClass, [className]: true};
+    },
+
+    //
     // Public methods
     //
 
@@ -144,12 +151,8 @@ export default Vue.extend({
     // Adapter methods
     //
 
-    addClass(className: string) {
-      this.$el.classList.add(className);
-    },
-
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClass = {...this.cssClass, [className]: false};
     },
 
     setNotchWidthProperty(width: number) {
