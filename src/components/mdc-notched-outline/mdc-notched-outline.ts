@@ -15,7 +15,7 @@ export default Vue.extend({
       type: String,
       default: null
     },
-    labelID: {
+    labelId: {
       type: String,
       default: null
     },
@@ -121,7 +121,7 @@ export default Vue.extend({
           props: {
             content: this.label,
             float: this.floatLabel,
-            id: this.labelID,
+            id: this.labelId,
             required: this.labelRequired,
             shake: this.shakeLabel
           }
