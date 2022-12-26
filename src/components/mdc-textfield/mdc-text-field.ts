@@ -96,6 +96,7 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClass: {} as {[className: string]: boolean},
       floatLabel_: false,
       labelRequired: false,
       helperTextValue_: this.helperText.value,
@@ -143,13 +144,13 @@ export default Vue.extend({
           'div',
           {
             staticClass: 'mdc-text-field',
-            class: {
+            class: {...this.cssClass, ...{
               'mdc-text-field--disabled': this.disabled,
               'mdc-text-field--filled': this.filled,
               'mdc-text-field--no-label': !this.hasFloatingLabel,
               'mdc-text-field--outlined': this.outlined,
               'mdc-text-field--textarea': this.multiline
-            },
+            }},
             on: {
               click: this.onClick
             }
@@ -432,7 +433,7 @@ export default Vue.extend({
     // MDC root adapter methods
 
     addClass(className: string) {
-      this.$el.querySelector(`.${cssClasses.ROOT}`)?.classList.add(className);
+      this.cssClass[className] = true;
     },
 
     deregisterTextFieldInteractionHandler(evtType: string, handler: NativeEventListener) {
@@ -444,13 +445,11 @@ export default Vue.extend({
     },
 
     hasClass(className: string) {
-      const rootEl = this.$el.querySelector(`.${cssClasses.ROOT}`);
-
-      return !!rootEl && rootEl.classList.contains(className);
+      return !!this.cssClass[className];
     },
 
     removeClass(className: string) {
-      this.$el.querySelector(`.${cssClasses.ROOT}`)?.classList.remove(className);
+      this.cssClass[className] = false;
     },
 
     registerTextFieldInteractionHandler(evtType: string, handler: NativeEventListener) {
