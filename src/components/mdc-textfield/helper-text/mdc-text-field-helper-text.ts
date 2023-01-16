@@ -18,6 +18,10 @@ export default Vue.extend({
       default: () => (''),
       type: String
     },
+    id: {
+      type: String,
+      default: null
+    },
     persistent: {
       default: false,
       type: Boolean
@@ -45,6 +49,7 @@ export default Vue.extend({
           [cssClasses.HELPER_TEXT_PERSISTENT]: this.persistent
         },
         attrs: {
+          id: this.id,
           [strings.ARIA_HIDDEN]: true
         }
       },

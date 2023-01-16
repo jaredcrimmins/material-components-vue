@@ -8,7 +8,11 @@ import {MDCTextFieldHelperText} from './helper-text';
 import Vue, {CreateElement, PropType, VNode} from 'vue';
 import {events} from '@material/dom';
 
+let mdcTextFieldId_ = 0;
+
+type CharacterCounterRef = InstanceType<typeof MDCTextFieldCharacterCounter>;
 type FloatingLabelRef = InstanceType<typeof MDCFloatingLabel>;
+type HelperTextRef = InstanceType<typeof MDCTextFieldHelperText>;
 type InputElRef = HTMLInputElement;
 type NotchedOutlineRef = InstanceType<typeof MDCNotchedOutline>;
 type RootElRef = HTMLElement;
@@ -100,6 +104,7 @@ export default Vue.extend({
       cssClass: {} as {[className: string]: boolean},
       floatLabel_: false,
       labelRequired: false,
+      helperTextId: `__mdc-text-field-helper-text${mdcTextFieldId_}`,
       helperTextValue_: this.helperText.value,
       internalValue: this.value,
       mdcFoundation: new MDCTextFieldFoundation(
@@ -107,6 +112,7 @@ export default Vue.extend({
       ),
       notchedOutlineNotched: false,
       notchedOutlineNotchWidth: 0,
+      labelId: `__mdc-text-field-label${mdcTextFieldId_++}`,
       lineRippleActive: false,
       lineRippleCenter: 0,
       shakeLabel_: false,
@@ -127,6 +133,10 @@ export default Vue.extend({
     isOutlined(): boolean {
       return this.outlined || this.multiline;
     }
+  },
+
+  created() {
+    mdcTextFieldId_++;
   },
 
   mounted() {
@@ -175,7 +185,10 @@ export default Vue.extend({
     //
 
     init() {
-      this.mdcFoundation = new MDCTextFieldFoundation(this);
+      this.mdcFoundation = new MDCTextFieldFoundation(this, {
+        characterCounter: (<CharacterCounterRef>this.$refs.characterCounter)?.mdcFoundation,
+        helperText: (<HelperTextRef>this.$refs.helperText)?.mdcFoundation,
+      });
       this.mdcFoundation.init();
       this.mdcFoundation.setUseNativeValidation(this.useNativeValidation);
       this.mdcFoundation.setValid(this.valid);
@@ -197,7 +210,10 @@ export default Vue.extend({
         readonly: this.readonly,
         required: this.required,
         size: this.size,
-        spellcheck: this.spellcheck
+        spellcheck: this.spellcheck,
+        ['aria-controls']: this.helperTextValue_ ? this.helperTextId : undefined,
+        ['aria-describedby']: this.helperTextValue_ ? this.helperTextId : undefined,
+        ['aria-labeledby']: this.label ? this.labelId : undefined
       };
 
       if (this.multiline) {
@@ -285,6 +301,7 @@ export default Vue.extend({
             props: {
               floatLabel: this.floatLabel_,
               label,
+              labelId: this.labelId,
               labelRequired: this.labelRequired,
               notched: this.notchedOutlineNotched,
               notchWidth: this.notchedOutlineNotchWidth,
@@ -303,6 +320,7 @@ export default Vue.extend({
             props: {
               content: this.label,
               float: this.floatLabel_,
+              id: this.labelId,
               required: this.labelRequired,
               shake: this.shakeLabel_
             }
@@ -334,6 +352,7 @@ export default Vue.extend({
             ref: 'helperText',
             props: {
               content: this.helperTextValue_,
+              id: this.helperTextId,
               persistent: this.helperText.persistent
             }
           }
@@ -346,8 +365,9 @@ export default Vue.extend({
         return c(
           'mdc-text-field-character-counter',
           {
+            ref: 'characterCounter',
             props: {
-              currentLength: this.value.length,
+              currentLength: this.value?.length,
               maxLength: this.maxlength
             }
           }
