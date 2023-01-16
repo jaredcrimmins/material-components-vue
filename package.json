@@ -10,7 +10,9 @@
     "dev": "vue-cli-service serve dev/client-entry.js",
     "help": "vue-cli-service help",
     "prepare": "npm run clean && npm run build",
-    "release": "standard-version"
+    "release": "standard-version",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "main": "dist/material-components-vue.common.js",
   "module": "dist/material-components-vue.esm.js",
