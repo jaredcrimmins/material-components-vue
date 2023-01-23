@@ -4,6 +4,7 @@
 
 # Directories
 !dev/
+!docs/
 !src/
 
 # Files
