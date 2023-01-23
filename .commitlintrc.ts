@@ -60,6 +60,9 @@ const Configuration: UserConfig = {
         // Dev app
         'dev',
 
+        // Docs app
+        'vuepress',
+
         // Build
         'rollup',
         'webpack',
