@@ -6,7 +6,7 @@
 
     <mdc-ripple
       class="the-debug-mdc-ripple__demo-box"
-      tag-name="div"
+      tag="div"
     >
       Click here!
     </mdc-ripple>
