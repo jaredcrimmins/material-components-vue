@@ -19,7 +19,6 @@
       flex-wrap: wrap;
       gap: 8px;
       justify-content: center;
-      padding: 8px;
     }
   }
 </style>
