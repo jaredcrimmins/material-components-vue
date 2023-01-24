@@ -179,11 +179,11 @@ export default Vue.extend({
     },
 
     setBufferBarStyle(styleProperty: string, value: string) {
-      this.bufferBarStyle[styleProperty] = value;
+      this.bufferBarStyle = {...this.bufferBarStyle, [styleProperty]: value};
     },
 
     setPrimaryBarStyle(styleProperty: string, value: string) {
-      this.primaryBarStyle[styleProperty] = value;
+      this.primaryBarStyle = {...this.primaryBarStyle, [styleProperty]: value};
     },
 
     hasClass(className: string) {
