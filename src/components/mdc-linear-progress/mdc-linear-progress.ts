@@ -1,4 +1,4 @@
-import {MDCLinearProgressFoundation} from "@material/linear-progress";
+import {MDCLinearProgressFoundation, WithMDCResizeObserver, MDCResizeObserverCallback} from "@material/linear-progress";
 import Vue, {CreateElement, VNode} from 'vue';
 
 export default Vue.extend({
@@ -200,6 +200,28 @@ export default Vue.extend({
 
     setAttribute(attributeName: string, value: string) {
       this.$el.setAttribute(attributeName, value);
+    },
+
+    setStyle(name: string, value: string) {
+      (<HTMLElement>this.$el).style.setProperty(name, value);
+    },
+
+    attachResizeObserver(callback: MDCResizeObserverCallback) {
+      const RO = (window as unknown as WithMDCResizeObserver).ResizeObserver;
+
+      if (RO) {
+        const ro = new RO(callback);
+
+        ro.observe(this.$el);
+
+        return ro;
+      }
+
+      return null;
+    },
+
+    getWidth() {
+      return (<HTMLElement>this.$el).offsetWidth;
     }
   }
 });
