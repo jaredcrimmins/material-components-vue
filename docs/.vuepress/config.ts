@@ -1,4 +1,6 @@
-module.exports = {
+import {defineConfig} from 'vuepress/config';
+
+export default defineConfig({
   title: 'Material Components Vue',
   scss: {
     sassOptions: {
@@ -6,4 +8,4 @@ module.exports = {
       indentedSyntax: false
     }
   }
-}
+});
