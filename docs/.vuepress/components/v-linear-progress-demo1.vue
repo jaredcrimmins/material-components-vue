@@ -7,9 +7,3 @@
     />
   </v-demo-container>
 </template>
-
-<style lang="scss">
-  @use "@material/linear-progress/_index.scss" as linear-progress;
-
-  @include linear-progress.core-styles;
-</style>

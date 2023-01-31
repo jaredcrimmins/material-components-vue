@@ -10,8 +10,6 @@
 </template>
 
 <style lang="scss">
-  @use '@material/ripple/styles';
-
   .v-ripple-demo1 {
     &__demo-box {
       align-items: center;

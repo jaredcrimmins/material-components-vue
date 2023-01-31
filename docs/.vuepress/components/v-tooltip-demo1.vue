@@ -103,8 +103,6 @@
 </template>
 
 <style lang="scss">
-  @use "@material/tooltip/styles";
-
   .v-tooltip-demo1 {
     &__wrapper {
       align-content: center;

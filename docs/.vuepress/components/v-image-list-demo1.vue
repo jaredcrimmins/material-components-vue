@@ -43,17 +43,3 @@
     }
   });
 </script>
-
-<style lang="scss">
-  @use "@material/image-list/_index.scss" as image-list;
-
-  @include image-list.core-styles;
-
-  .mdc-image-list:not(--mdc-image-list--masonry) {
-    @include image-list.standard-columns(2);
-  }
-
-  .mdc-image-list.mdc-image-list--masonry {
-    @include image-list.masonry-columns(2);
-  }
-</style>

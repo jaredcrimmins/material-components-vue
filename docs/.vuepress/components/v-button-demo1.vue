@@ -8,17 +8,3 @@
     </div>
   </v-demo-container>
 </template>
-
-<style lang="scss">
-  @use "@material/button/mdc-button";
-
-  .v-button-demo1 {
-    &__wrapper {
-      align-content: center;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-    }
-  }
-</style>
