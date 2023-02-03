@@ -6,7 +6,7 @@
     "build": "rollup -c",
     "build:vue-cli": "vue-cli-service build --target lib src/index.ts && rm dist/demo.html",
     "lint": "vue-cli-service lint",
-    "clean": "rm -fr dist/",
+    "clean": "rm -fr dist/ docs/.vuepress/dist",
     "dev": "vue-cli-service serve dev/client-entry.js",
     "help": "vue-cli-service help",
     "prepare": "npm run clean && npm run build",
