@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <g id="__2vBNHao__chips_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="matrix(1, 0, 0, 1, -0.026001, 0)">
+    <g id="__2vBNHao__Group">
+      <mask id="__2vBNHao__mask-2" fill="white">
+        <rect x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      </mask>
+      <rect id="__2vBNHao__Mask" x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA"/>
+      <g id="__2vBNHao__Group-6" mask="url(#__2vBNHao__mask-2)" transform="matrix(1, 0, 0, 1, 0.026001, 0)">
+        <g transform="translate(-215.000000, -14.000000)">
+          <g id="__2vBNHao__Chips-/-Input-/-Text-only-/-Enabled" stroke-width="1" fill-rule="evenodd" transform="translate(237.000000, 88.000000)">
+            <mask id="__2vBNHao__mask-4" fill="white">
+              <rect x="0" y="0" width="138" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <rect id="__2vBNHao__Surface" x="0" y="0" width="138" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA"/>
+            <g id="__2vBNHao__✱-/-Color-/-Icons-/-Black-/-Active" mask="url(#__2vBNHao__mask-4)" fill="#000000" opacity="0.87">
+              <rect id="__2vBNHao__Rectangle-13" x="0" y="0" width="138" height="32"/>
+            </g>
+            <path d="M 18.829 14.557 L 14.741 14.557 L 14.741 17.619 L 19.52 17.619 L 19.52 19 L 13.012 19 L 13.012 9.047 L 19.472 9.047 L 19.472 10.441 L 14.741 10.441 L 14.741 13.189 L 18.829 13.189 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 22.549 11.604 L 22.597 12.458 Q 23.417 11.467 24.75 11.467 Q 27.061 11.467 27.102 14.112 L 27.102 19 L 25.44 19 L 25.44 14.208 Q 25.44 13.504 25.136 13.166 Q 24.832 12.827 24.142 12.827 Q 23.137 12.827 22.645 13.736 L 22.645 19 L 20.983 19 L 20.983 11.604 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 33.458 19 Q 33.349 18.788 33.267 18.31 Q 32.474 19.137 31.325 19.137 Q 30.211 19.137 29.507 18.501 Q 28.803 17.865 28.803 16.929 Q 28.803 15.746 29.681 15.114 Q 30.56 14.481 32.193 14.481 L 33.212 14.481 L 33.212 13.996 Q 33.212 13.422 32.891 13.077 Q 32.569 12.731 31.913 12.731 Q 31.346 12.731 30.983 13.015 Q 30.621 13.299 30.621 13.736 L 28.96 13.736 Q 28.96 13.128 29.363 12.598 Q 29.767 12.068 30.46 11.768 Q 31.154 11.467 32.009 11.467 Q 33.308 11.467 34.08 12.12 Q 34.853 12.772 34.873 13.955 L 34.873 17.291 Q 34.873 18.289 35.153 18.884 L 35.153 19 Z M 31.633 17.804 Q 32.125 17.804 32.559 17.564 Q 32.993 17.325 33.212 16.922 L 33.212 15.527 L 32.316 15.527 Q 31.394 15.527 30.929 15.849 Q 30.464 16.17 30.464 16.758 Q 30.464 17.236 30.782 17.52 Q 31.1 17.804 31.633 17.804 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 43.357 15.377 Q 43.357 17.1 42.588 18.118 Q 41.819 19.137 40.473 19.137 Q 39.174 19.137 38.449 18.2 L 38.367 19 L 36.863 19 L 36.863 8.5 L 38.524 8.5 L 38.524 12.314 Q 39.242 11.467 40.459 11.467 Q 41.813 11.467 42.585 12.472 Q 43.357 13.477 43.357 15.281 Z M 41.696 15.233 Q 41.696 14.03 41.272 13.429 Q 40.849 12.827 40.042 12.827 Q 38.962 12.827 38.524 13.771 L 38.524 16.819 Q 38.969 17.783 40.056 17.783 Q 40.835 17.783 41.259 17.202 Q 41.683 16.621 41.696 15.445 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 46.774 19 L 45.113 19 L 45.113 8.5 L 46.774 8.5 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 52.077 19.137 Q 50.498 19.137 49.517 18.142 Q 48.536 17.147 48.536 15.493 L 48.536 15.288 Q 48.536 14.181 48.963 13.309 Q 49.391 12.438 50.163 11.952 Q 50.936 11.467 51.886 11.467 Q 53.396 11.467 54.22 12.431 Q 55.044 13.395 55.044 15.158 L 55.044 15.828 L 50.211 15.828 Q 50.286 16.744 50.823 17.277 Q 51.359 17.811 52.173 17.811 Q 53.314 17.811 54.032 16.888 L 54.928 17.742 Q 54.483 18.405 53.742 18.771 Q 53 19.137 52.077 19.137 Z M 51.879 12.8 Q 51.195 12.8 50.775 13.278 Q 50.354 13.757 50.238 14.611 L 53.403 14.611 L 53.403 14.488 Q 53.349 13.654 52.959 13.227 Q 52.569 12.8 51.879 12.8 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 56.274 15.247 Q 56.274 13.538 57.067 12.502 Q 57.86 11.467 59.193 11.467 Q 60.369 11.467 61.094 12.287 L 61.094 8.5 L 62.755 8.5 L 62.755 19 L 61.251 19 L 61.169 18.234 Q 60.424 19.137 59.18 19.137 Q 57.881 19.137 57.078 18.091 Q 56.274 17.045 56.274 15.247 Z M 57.936 15.391 Q 57.936 16.519 58.37 17.151 Q 58.804 17.783 59.604 17.783 Q 60.622 17.783 61.094 16.874 L 61.094 13.716 Q 60.636 12.827 59.617 12.827 Q 58.811 12.827 58.373 13.466 Q 57.936 14.105 57.936 15.391 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 74.454 14.557 L 70.366 14.557 L 70.366 17.619 L 75.145 17.619 L 75.145 19 L 68.637 19 L 68.637 9.047 L 75.097 9.047 L 75.097 10.441 L 70.366 10.441 L 70.366 13.189 L 74.454 13.189 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 78.189 11.604 L 78.237 12.458 Q 79.058 11.467 80.391 11.467 Q 82.701 11.467 82.742 14.112 L 82.742 19 L 81.081 19 L 81.081 14.208 Q 81.081 13.504 80.777 13.166 Q 80.473 12.827 79.782 12.827 Q 78.777 12.827 78.285 13.736 L 78.285 19 L 76.624 19 L 76.624 11.604 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 86.761 9.806 L 86.761 11.604 L 88.066 11.604 L 88.066 12.834 L 86.761 12.834 L 86.761 16.963 Q 86.761 17.387 86.928 17.575 Q 87.096 17.763 87.526 17.763 Q 87.813 17.763 88.107 17.694 L 88.107 18.979 Q 87.54 19.137 87.014 19.137 Q 85.1 19.137 85.1 17.024 L 85.1 12.834 L 83.883 12.834 L 83.883 11.604 L 85.1 11.604 L 85.1 9.806 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 91.353 19 L 89.691 19 L 89.691 11.604 L 91.353 11.604 Z M 89.589 9.683 Q 89.589 9.3 89.832 9.047 Q 90.074 8.794 90.525 8.794 Q 90.977 8.794 91.223 9.047 Q 91.469 9.3 91.469 9.683 Q 91.469 10.059 91.223 10.308 Q 90.977 10.558 90.525 10.558 Q 90.074 10.558 89.832 10.308 Q 89.589 10.059 89.589 9.683 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 95.495 9.806 L 95.495 11.604 L 96.801 11.604 L 96.801 12.834 L 95.495 12.834 L 95.495 16.963 Q 95.495 17.387 95.663 17.575 Q 95.83 17.763 96.261 17.763 Q 96.548 17.763 96.842 17.694 L 96.842 18.979 Q 96.274 19.137 95.748 19.137 Q 93.834 19.137 93.834 17.024 L 93.834 12.834 L 92.617 12.834 L 92.617 11.604 L 93.834 11.604 L 93.834 9.806 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <path d="M 100.907 16.621 L 102.411 11.604 L 104.182 11.604 L 101.242 20.121 Q 100.565 21.987 98.945 21.987 Q 98.583 21.987 98.146 21.864 L 98.146 20.579 L 98.46 20.6 Q 99.089 20.6 99.407 20.371 Q 99.725 20.142 99.909 19.602 L 100.148 18.966 L 97.551 11.604 L 99.342 11.604 Z" style="fill: rgb(255, 255, 255); fill-opacity: 0.87; white-space: pre; mask: url(#__2vBNHao__mask-4);"/>
+            <g id="__2vBNHao__Icon-/-Cancel-/-Fill" mask="url(#__2vBNHao__mask-4)">
+              <g transform="translate(112.000000, 7.000000)">
+                <mask id="__2vBNHao__mask-6" fill="white">
+                  <path d="M13,11.87 L11.87,13 L9,10.13 L6.13,13 L5,11.87 L7.87,9 L5,6.13 L6.13,5 L9,7.87 L11.87,5 L13,6.13 L10.13,9 L13,11.87 Z M9,1 C4.58,1 1,4.58 1,9 C1,13.42 4.58,17 9,17 C13.42,17 17,13.42 17,9 C17,4.58 13.42,1 9,1 L9,1 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+                </mask>
+                <g id="__2vBNHao__Mask" stroke="none" fill="none"/>
+                <g id="__2vBNHao__✱-/-Color-/-Icons-/-White-/-100%" stroke="none" fill="none" mask="url(#__2vBNHao__mask-6)" fill-rule="evenodd">
+                  <rect id="__2vBNHao__Rectangle-13" fill="#FFFFFF" x="0" y="0" width="18" height="18"/>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g id="__2vBNHao__Chips-/-Action-/-with-Image-/-Enabled" transform="translate(157.000000, 132.000000)">
+            <mask id="__2vBNHao__mask-8" fill="white">
+              <rect x="0" y="0" width="145" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__2vBNHao__Surface"/>
+            <g id="__2vBNHao__✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#__2vBNHao__mask-8)" fill="#000000" fill-rule="evenodd">
+              <rect id="__2vBNHao__Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"/>
+            </g>
+          </g>
+          <g id="__2vBNHao__Chips-/-Action-/-with-Image-/-Enabled" transform="translate(237.000000, 0.000000)">
+            <mask id="__2vBNHao__mask-10" fill="white">
+              <rect x="0" y="0" width="145" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__2vBNHao__Surface"/>
+            <g id="__2vBNHao__✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#__2vBNHao__mask-10)" fill="#000000" fill-rule="evenodd">
+              <rect id="__2vBNHao__Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"/>
+            </g>
+          </g>
+          <g id="__2vBNHao__Chips-/-Action-/-with-Image-/-Enabled" transform="translate(237.000000, 176.000000)">
+            <mask id="__2vBNHao__mask-12" fill="white">
+              <rect x="0" y="0" width="145" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__2vBNHao__Surface"/>
+            <g id="__2vBNHao__✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#__2vBNHao__mask-12)" fill="#000000" fill-rule="evenodd">
+              <rect id="__2vBNHao__Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"/>
+            </g>
+          </g>
+          <g id="__2vBNHao__Chips-/-Action-/-with-Image-/-Enabled" transform="translate(80.000000, 176.000000)">
+            <mask id="__2vBNHao__mask-14" fill="white">
+              <rect x="0" y="0" width="145" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__2vBNHao__Surface"/>
+            <g id="__2vBNHao__✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#__2vBNHao__mask-14)" fill="#000000" fill-rule="evenodd">
+              <rect id="__2vBNHao__Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"/>
+            </g>
+          </g>
+          <g id="__2vBNHao__Chips-/-Action-/-with-Image-/-Enabled" transform="translate(80.000000, 88.000000)">
+            <mask id="__2vBNHao__mask-16" fill="white">
+              <rect x="0" y="0" width="145" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__2vBNHao__Surface"/>
+            <g id="__2vBNHao__✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#__2vBNHao__mask-16)" fill="#000000" fill-rule="evenodd">
+              <rect id="__2vBNHao__Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"/>
+            </g>
+          </g>
+          <g id="__2vBNHao__Chips-/-Action-/-with-Image-/-Enabled" transform="translate(387.000000, 88.000000)">
+            <mask id="__2vBNHao__mask-18" fill="white">
+              <rect x="0" y="0" width="145" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__2vBNHao__Surface"/>
+            <g id="__2vBNHao__✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#__2vBNHao__mask-18)" fill="#000000" fill-rule="evenodd">
+              <rect id="__2vBNHao__Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"/>
+            </g>
+          </g>
+          <g id="__2vBNHao__Chips-/-Action-/-with-Image-/-Enabled" transform="translate(157.000000, 44.000000)">
+            <mask id="__2vBNHao__mask-20" fill="white">
+              <rect x="0" y="0" width="145" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__2vBNHao__Surface"/>
+            <g id="__2vBNHao__✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#__2vBNHao__mask-20)" fill="#000000" fill-rule="evenodd">
+              <rect id="__2vBNHao__Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"/>
+            </g>
+          </g>
+          <g id="__2vBNHao__Chips-/-Action-/-with-Image-/-Enabled" transform="translate(316.000000, 132.000000)">
+            <mask id="__2vBNHao__mask-22" fill="white">
+              <rect x="0" y="0" width="145" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__2vBNHao__Surface"/>
+            <g id="__2vBNHao__✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#__2vBNHao__mask-22)" fill="#000000" fill-rule="evenodd">
+              <rect id="__2vBNHao__Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"/>
+            </g>
+          </g>
+          <g id="__2vBNHao__Chips-/-Action-/-with-Image-/-Enabled" transform="translate(316.000000, 44.000000)">
+            <mask id="__2vBNHao__mask-24" fill="white">
+              <rect x="0" y="0" width="145" height="32" rx="16" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__2vBNHao__Surface"/>
+            <g id="__2vBNHao__✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#__2vBNHao__mask-24)" fill="#000000" fill-rule="evenodd">
+              <rect id="__2vBNHao__Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

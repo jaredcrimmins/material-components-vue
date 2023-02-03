@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <g id="__6kMv1Th__radio_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <mask id="__6kMv1Th__mask-2" fill="white">
+      <polygon points="0 0 180 0 180 190 0 190" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </mask>
+    <polygon id="__6kMv1Th__Mask" points="0 0 180 0 180 190 0 190" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA"/>
+    <g id="__6kMv1Th__Selection-Control-/-Radio-/-On-/-Enabled" mask="url(#__6kMv1Th__mask-2)">
+      <g transform="translate(78.000000, 27.000000)" id="__6kMv1Th__Icon-/-Toggle-/-Radio-Checked-/-Fill">
+        <g>
+          <mask id="__6kMv1Th__mask-4" fill="white">
+            <path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,20 C7.58,20 4,16.42 4,12 C4,7.58 7.58,4 12,4 C16.42,4 20,7.58 20,12 C20,16.42 16.42,20 12,20 Z M12,17 C14.7614237,17 17,14.7614237 17,12 C17,9.23857625 14.7614237,7 12,7 C9.23857625,7 7,9.23857625 7,12 C7,14.7614237 9.23857625,17 12,17 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+          </mask>
+          <g id="__6kMv1Th__ic_radio_button_checked_24px" fill-rule="nonzero"/>
+          <g id="__6kMv1Th__✱-/-Color-/-Icons-/-Black-/-Active" mask="url(#__6kMv1Th__mask-4)" fill="#000000" fill-rule="evenodd" opacity="0.87">
+            <rect id="__6kMv1Th__Rectangle-13" x="0" y="0" width="24" height="24"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="__6kMv1Th__Selection-Control-/-Radio-/-On-/-Enabled" mask="url(#__6kMv1Th__mask-2)">
+      <g transform="translate(78.000000, 95.000000)" id="__6kMv1Th__Icon-/-Toggle-/-Radio-Checked-/-Fill">
+        <g>
+          <mask id="__6kMv1Th__mask-6" fill="white">
+            <path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,20 C7.58,20 4,16.42 4,12 C4,7.58 7.58,4 12,4 C16.42,4 20,7.58 20,12 C20,16.42 16.42,20 12,20 Z M12,17 C14.7614237,17 17,14.7614237 17,12 C17,9.23857625 14.7614237,7 12,7 C9.23857625,7 7,9.23857625 7,12 C7,14.7614237 9.23857625,17 12,17 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+          </mask>
+          <g id="__6kMv1Th__ic_radio_button_checked_24px" fill-rule="nonzero"/>
+          <g id="__6kMv1Th__✱-/-Color-/-Icons-/-Black-/-Active" mask="url(#__6kMv1Th__mask-6)" fill="#000000" fill-rule="evenodd" opacity="0.87">
+            <rect id="__6kMv1Th__Rectangle-13" x="0" y="0" width="24" height="24"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="__6kMv1Th__Selection-Control-/-Radio-/-Off-/-Enabled" mask="url(#__6kMv1Th__mask-2)">
+      <g transform="translate(78.000000, 61.000000)" id="__6kMv1Th__Icon-/-Toggle-/-Radio-Unchecked-/-Fill">
+        <g>
+          <mask id="__6kMv1Th__mask-8" fill="white">
+            <path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,20 C7.58,20 4,16.42 4,12 C4,7.58 7.58,4 12,4 C16.42,4 20,7.58 20,12 C20,16.42 16.42,20 12,20 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+          </mask>
+          <g id="__6kMv1Th__icon/toggle/radio_button_unchecked_24px" fill-rule="nonzero"/>
+          <g id="__6kMv1Th__✱-/-Color-/-Icons-/-Black-/-Inactive" mask="url(#__6kMv1Th__mask-8)" fill="#000000" fill-rule="evenodd" opacity="0.54">
+            <rect id="__6kMv1Th__Rectangle" x="0" y="0" width="24" height="24"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="__6kMv1Th__Selection-Control-/-Radio-/-Off-/-Enabled" mask="url(#__6kMv1Th__mask-2)">
+      <g transform="translate(78.000000, 129.000000)" id="__6kMv1Th__Icon-/-Toggle-/-Radio-Unchecked-/-Fill">
+        <g>
+          <mask id="__6kMv1Th__mask-10" fill="white">
+            <path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,20 C7.58,20 4,16.42 4,12 C4,7.58 7.58,4 12,4 C16.42,4 20,7.58 20,12 C20,16.42 16.42,20 12,20 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+          </mask>
+          <g id="__6kMv1Th__icon/toggle/radio_button_unchecked_24px" fill-rule="nonzero"/>
+          <g id="__6kMv1Th__✱-/-Color-/-Icons-/-Black-/-Inactive" mask="url(#__6kMv1Th__mask-10)" fill="#000000" fill-rule="evenodd" opacity="0.54">
+            <rect id="__6kMv1Th__Rectangle" x="0" y="0" width="24" height="24"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

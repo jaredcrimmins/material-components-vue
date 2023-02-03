@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter x="-45.0%" y="-30.0%" width="190.0%" height="190.0%" filterUnits="objectBoundingBox" id="__3fH9oie__filter-7">
+      <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"/>
+      <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter2"/>
+      <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter2" result="shadowBlurOuter2"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"/>
+      <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter3"/>
+      <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter3" result="shadowBlurOuter3"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="shadowMatrixOuter2"/>
+        <feMergeNode in="shadowMatrixOuter3"/>
+      </feMerge>
+    </filter>
+    <filter x="-45.0%" y="-30.0%" width="190.0%" height="190.0%" filterUnits="objectBoundingBox" id="__3fH9oie__filter-12">
+      <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"/>
+      <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter2"/>
+      <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter2" result="shadowBlurOuter2"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"/>
+      <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter3"/>
+      <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter3" result="shadowBlurOuter3"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="shadowMatrixOuter2"/>
+        <feMergeNode in="shadowMatrixOuter3"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g id="__3fH9oie__switch_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="__3fH9oie__Group">
+      <mask id="__3fH9oie__mask-2" fill="white">
+        <rect x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      </mask>
+      <rect id="__3fH9oie__Mask" x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA"/>
+      <g id="__3fH9oie__Selection-Control-/-Switch-/-On-/-Enabled" mask="url(#__3fH9oie__mask-2)">
+        <g transform="translate(70.000000, 50.000000)">
+          <g id="__3fH9oie__Selection-Control-/-Switch-/-Elements-/-Track">
+            <mask id="__3fH9oie__mask-4" fill="white">
+              <rect x="3" y="5" width="34" height="14" rx="7" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <rect id="__3fH9oie__Surface" x="3" y="5" width="34" height="14" rx="7" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA" fill-rule="evenodd"/>
+            <g id="__3fH9oie__✱-/-Color-/-Icons-/-Black-/-Active" opacity="0.379999995" mask="url(#__3fH9oie__mask-4)" fill="#000000" fill-rule="evenodd">
+              <rect id="__3fH9oie__Rectangle-13" opacity="0.87" x="0" y="0" width="40" height="24"/>
+            </g>
+          </g>
+          <g id="__3fH9oie__Selection-Control-/-Switch-/-Elements-/-Thumb" transform="translate(18.000000, 2.000000)">
+            <mask id="__3fH9oie__mask-6" fill="white">
+              <rect x="-7.63833441e-14" y="0" width="20" height="20" rx="10" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__3fH9oie__Surface">
+              <rect x="-7.63833441e-14" y="0" width="20" height="20" rx="10" transform="matrix(1, 0, 0, 1, 0, 0)" fill="black" fill-opacity="1" filter="url(#__3fH9oie__filter-7)"/>
+              <rect x="-7.63833441e-14" y="0" width="20" height="20" rx="10" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA" fill-rule="evenodd"/>
+            </g>
+            <g id="__3fH9oie__✱-/-Color-/-Icons-/-Black-/-Active" mask="url(#__3fH9oie__mask-6)" fill="#000000" fill-rule="evenodd" opacity="0.87">
+              <rect id="__3fH9oie__Rectangle-13" x="0" y="0" width="20" height="20"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g id="__3fH9oie__Selection-Control-/-Switch-/-Off-/-Enabled" mask="url(#__3fH9oie__mask-2)">
+        <g transform="translate(70.000000, 106.000000)">
+          <g id="__3fH9oie__Selection-Control-/-Switch-/-Elements-/-Track">
+            <mask id="__3fH9oie__mask-9" fill="white">
+              <rect x="3" y="5" width="34" height="14" rx="7" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <rect id="__3fH9oie__Surface" x="3" y="5" width="34" height="14" rx="7" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA" fill-rule="evenodd"/>
+            <g id="__3fH9oie__✱-/-Color-/-Icons-/-Black-/-Inactive" opacity="0.379999995" mask="url(#__3fH9oie__mask-9)" fill="#000000" fill-rule="evenodd">
+              <rect id="__3fH9oie__Rectangle" opacity="0.54" x="0" y="0" width="40" height="24"/>
+            </g>
+          </g>
+          <g id="__3fH9oie__Selection-Control-/-Switch-/-Elements-/-Thumb" transform="translate(2.000000, 2.000000)">
+            <mask id="__3fH9oie__mask-11" fill="white">
+              <rect x="-7.63833441e-14" y="0" width="20" height="20" rx="10" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__3fH9oie__Surface">
+              <rect x="-7.63833441e-14" y="0" width="20" height="20" rx="10" transform="matrix(1, 0, 0, 1, 0, 0)" fill="black" fill-opacity="1" filter="url(#__3fH9oie__filter-12)"/>
+              <rect x="-7.63833441e-14" y="0" width="20" height="20" rx="10" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA" fill-rule="evenodd"/>
+            </g>
+            <g id="__3fH9oie__✱-/-Color-/-Surface-/-Light" mask="url(#__3fH9oie__mask-11)" fill="#FAFAFA" fill-rule="evenodd">
+              <rect id="__3fH9oie__Rectangle-13" x="0" y="0" width="20" height="20"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter x="-8.8%" y="-16.7%" width="117.6%" height="150.0%" filterUnits="objectBoundingBox" id="__WIe452q__filter-5">
+      <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"/>
+      <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter2"/>
+      <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter2" result="shadowBlurOuter2"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"/>
+      <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter3"/>
+      <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter3" result="shadowBlurOuter3"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="shadowMatrixOuter2"/>
+        <feMergeNode in="shadowMatrixOuter3"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g id="__WIe452q__buttons_180px-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="__WIe452q__Buttons-/-Contained-/-Enabled">
+      <mask id="__WIe452q__mask-2" fill="white">
+        <rect x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      </mask>
+      <rect id="__WIe452q__Mask" x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA"/>
+      <g mask="url(#__WIe452q__mask-2)">
+        <g transform="translate(39.000000, 72.000000)">
+          <mask id="__WIe452q__mask-4" fill="white">
+            <path d="M4,0 L98,0 C100.209139,-4.05812251e-16 102,1.790861 102,4 L102,32 C102,34.209139 100.209139,36 98,36 L4,36 C1.790861,36 2.705415e-16,34.209139 0,32 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+          </mask>
+          <g id="__WIe452q__Surface" stroke="none" fill="none">
+            <path d="M4,0 L98,0 C100.209139,-4.05812251e-16 102,1.790861 102,4 L102,32 C102,34.209139 100.209139,36 98,36 L4,36 C1.790861,36 2.705415e-16,34.209139 0,32 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" transform="matrix(1, 0, 0, 1, 0, 0)" fill="black" fill-opacity="1" filter="url(#__WIe452q__filter-5)"/>
+            <path d="M4,0 L98,0 C100.209139,-4.05812251e-16 102,1.790861 102,4 L102,32 C102,34.209139 100.209139,36 98,36 L4,36 C1.790861,36 2.705415e-16,34.209139 0,32 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA" fill-rule="evenodd"/>
+          </g>
+          <g id="__WIe452q__✱-/-Color-/-Primary-/-Main" stroke="none" fill="none" mask="url(#__WIe452q__mask-4)" fill-rule="evenodd">
+            <g id="__WIe452q__✱-/-Color-/-Primary-/-500" fill="#212121">
+              <rect id="__WIe452q__Rectangle-13" x="0" y="0" width="102" height="36"/>
+            </g>
+          </g>
+          <g id="__WIe452q__✱-/-Text-/-Button-/-Colorized-/-On-Primary-/-Center" stroke="none" fill="none" mask="url(#__WIe452q__mask-4)" font-family="Roboto-Medium, Roboto" font-size="14" font-weight="400" letter-spacing="1.25">
+            <g transform="translate(16.000000, 10.000000)" id="__WIe452q__Button-Text">
+              <path d="M 5.191 13 L 5.191 3.047 L 8.445 3.047 Q 10.065 3.047 10.882 3.717 Q 11.699 4.387 11.699 5.699 Q 11.699 6.396 11.303 6.933 Q 10.906 7.47 10.223 7.764 Q 11.029 7.989 11.498 8.622 Q 11.966 9.254 11.966 10.129 Q 11.966 11.469 11.098 12.234 Q 10.229 13 8.644 13 Z M 6.504 8.345 L 6.504 11.927 L 8.671 11.927 Q 9.587 11.927 10.117 11.452 Q 10.646 10.977 10.646 10.143 Q 10.646 8.345 8.691 8.345 Z M 6.504 7.292 L 8.486 7.292 Q 9.348 7.292 9.864 6.861 Q 10.38 6.431 10.38 5.692 Q 10.38 4.872 9.901 4.5 Q 9.423 4.127 8.445 4.127 L 6.504 4.127 Z" style="fill: rgb(255, 255, 255); white-space: pre;"/>
+              <path d="M 22.151 3.047 L 22.151 9.814 Q 22.145 11.223 21.266 12.118 Q 20.388 13.014 18.884 13.123 L 18.535 13.137 Q 16.901 13.137 15.931 12.255 Q 14.96 11.373 14.946 9.828 L 14.946 3.047 L 16.245 3.047 L 16.245 9.787 Q 16.245 10.867 16.84 11.465 Q 17.435 12.063 18.535 12.063 Q 19.649 12.063 20.241 11.469 Q 20.832 10.874 20.832 9.794 L 20.832 3.047 Z" style="fill: rgb(255, 255, 255); white-space: pre;"/>
+              <path d="M 32.35 4.127 L 29.15 4.127 L 29.15 13 L 27.845 13 L 27.845 4.127 L 24.652 4.127 L 24.652 3.047 L 32.35 3.047 Z" style="fill: rgb(255, 255, 255); white-space: pre;"/>
+              <path d="M 42.068 4.127 L 38.869 4.127 L 38.869 13 L 37.563 13 L 37.563 4.127 L 34.371 4.127 L 34.371 3.047 L 42.068 3.047 Z" style="fill: rgb(255, 255, 255); white-space: pre;"/>
+              <path d="M 52.254 8.345 Q 52.254 9.808 51.762 10.898 Q 51.27 11.988 50.367 12.563 Q 49.465 13.137 48.262 13.137 Q 47.086 13.137 46.177 12.559 Q 45.268 11.981 44.765 10.912 Q 44.263 9.842 44.249 8.434 L 44.249 7.716 Q 44.249 6.28 44.748 5.18 Q 45.247 4.079 46.16 3.495 Q 47.072 2.91 48.248 2.91 Q 49.444 2.91 50.357 3.488 Q 51.27 4.065 51.762 5.163 Q 52.254 6.26 52.254 7.716 Z M 50.948 7.702 Q 50.948 5.932 50.237 4.985 Q 49.526 4.038 48.248 4.038 Q 47.004 4.038 46.29 4.985 Q 45.575 5.932 45.555 7.613 L 45.555 8.345 Q 45.555 10.061 46.276 11.042 Q 46.997 12.022 48.262 12.022 Q 49.533 12.022 50.23 11.096 Q 50.928 10.17 50.948 8.44 Z" style="fill: rgb(255, 255, 255); white-space: pre;"/>
+              <path d="M 63.122 13 L 61.803 13 L 56.792 5.33 L 56.792 13 L 55.473 13 L 55.473 3.047 L 56.792 3.047 L 61.816 10.751 L 61.816 3.047 L 63.122 3.047 Z" style="fill: rgb(255, 255, 255); white-space: pre;"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

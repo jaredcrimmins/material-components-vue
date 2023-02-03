@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <g id="__1BRA3wQ__linear_progress_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="__1BRA3wQ__Dialog-/-Header-Copy-27">
+      <mask id="__1BRA3wQ__mask-2" fill="white">
+        <rect x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      </mask>
+      <rect id="__1BRA3wQ__Mask" x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA"/>
+      <g id="__1BRA3wQ__Progress-Indicators-/-Linear" mask="url(#__1BRA3wQ__mask-2)">
+        <g transform="translate(30.000000, 86.000000)">
+          <g id="__1BRA3wQ__Progress-Indicators-/-Elements-/-Linear-/-Track">
+            <mask id="__1BRA3wQ__mask-4" fill="white">
+              <rect x="0" y="0" width="200" height="8" rx="4" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__1BRA3wQ__Surface"/>
+            <g id="__1BRA3wQ__✱-/-Color-/-Primary-/-Main" opacity="0.24" mask="url(#__1BRA3wQ__mask-4)" fill="#212121" fill-rule="evenodd">
+              <g id="__1BRA3wQ__✱-/-Color-/-Primary-/-500">
+                <rect id="__1BRA3wQ__Rectangle-13" x="0" y="0" width="200" height="8"/>
+              </g>
+            </g>
+          </g>
+          <g id="__1BRA3wQ__Progress-Indicators-/-Elements-/-Linear-/-Indicator">
+            <mask id="__1BRA3wQ__mask-6" fill="white">
+              <rect x="0" y="0" width="92" height="8" rx="4" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__1BRA3wQ__Surface"/>
+            <g id="__1BRA3wQ__✱-/-Color-/-Primary-/-Main" mask="url(#__1BRA3wQ__mask-6)" fill="#212121" fill-rule="evenodd">
+              <g id="__1BRA3wQ__✱-/-Color-/-Primary-/-500">
+                <rect id="__1BRA3wQ__Rectangle-13" x="0" y="0" width="92" height="8"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

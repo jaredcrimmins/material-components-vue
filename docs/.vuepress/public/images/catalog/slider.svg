@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 180 180" style="background: rgb(250, 250, 250);" xmlns="http://www.w3.org/2000/svg">
+  <g id="__3eUOzyN__slider_108px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="__3eUOzyN__Group">
+      <mask id="__3eUOzyN__mask-2" fill="white">
+        <rect x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      </mask>
+      <rect id="__3eUOzyN__Mask" x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA"/>
+      <g id="__3eUOzyN__Slider-/-with-Value" mask="url(#__3eUOzyN__mask-2)">
+        <g transform="translate(19.000000, 50.000000)">
+          <g id="__3eUOzyN__Slider-/-Continuous" transform="translate(0.000000, 32.000000)">
+            <g id="__3eUOzyN__Slider-/-Elements-/-Rail-/-Track" transform="translate(0.000000, 20.000000)">
+              <mask id="__3eUOzyN__mask-4" fill="white">
+                <rect x="0" y="3" width="142" height="2" rx="1" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+              </mask>
+              <rect id="__3eUOzyN__Surface" x="0" y="3" width="142" height="2" rx="1" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA" fill-rule="evenodd"/>
+              <g id="__3eUOzyN__✱-/-Color-/-Primary-/-Main" opacity="0.24" mask="url(#__3eUOzyN__mask-4)" fill="#212121" fill-rule="evenodd">
+                <g id="__3eUOzyN__✱-/-Color-/-Primary-/-900">
+                  <rect id="__3eUOzyN__Rectangle-13" x="0" y="0" width="142" height="8"/>
+                </g>
+              </g>
+            </g>
+            <g id="__3eUOzyN__Slider-/-Elements-/-Rail-/-Selected" transform="translate(0.000000, 20.000000)">
+              <mask id="__3eUOzyN__mask-6" fill="white">
+                <rect x="0" y="3" width="86" height="2" rx="1" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+              </mask>
+              <rect id="__3eUOzyN__Surface" x="0" y="3" width="86" height="2" rx="1" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA" fill-rule="evenodd"/>
+              <g id="__3eUOzyN__✱-/-Color-/-Primary-/-Main" mask="url(#__3eUOzyN__mask-6)" fill="#212121" fill-rule="evenodd">
+                <g id="__3eUOzyN__✱-/-Color-/-Primary-/-900">
+                  <rect id="__3eUOzyN__Rectangle-13" x="0" y="0" width="86" height="8"/>
+                </g>
+              </g>
+            </g>
+            <g id="__3eUOzyN__Slider-/-Elements-/-Knob" transform="translate(79.000000, 18.000000)">
+              <mask id="__3eUOzyN__mask-8" fill="white">
+                <rect x="9.05941988e-14" y="0" width="12" height="12" rx="6" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+              </mask>
+              <rect id="__3eUOzyN__Surface" x="9.05941988e-14" y="0" width="12" height="12" rx="6" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA" fill-rule="evenodd"/>
+              <g id="__3eUOzyN__✱-/-Color-/-Primary-/-Main" mask="url(#__3eUOzyN__mask-8)" fill="#212121" fill-rule="evenodd">
+                <g id="__3eUOzyN__✱-/-Color-/-Primary-/-900">
+                  <rect id="__3eUOzyN__Rectangle-13" x="0" y="0" width="12" height="12"/>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g id="__3eUOzyN__Slider-/-Elements-/-Value-Indicator" transform="translate(69.000000, 0.000000)">
+            <mask id="__3eUOzyN__mask-10" fill="white">
+              <path d="M27.3201,27.31 C25.0301,29.6 17.0001,35.8114648 17.0001,43.0014648 L17.0001,46.0041504 C17.0001,49.0541504 19.5401,51.06 20.2401,51.76 C21.3301,52.84 22.0001,54.34 22.0001,56 C22.0001,59.31 19.3201,62 16.0001,62 C12.6801,62 10.0001,59.31 10.0001,56 C10.0001,54.34 10.6701,52.84 11.7501,51.76 C12.4601,51.06 15.0001,49.0541504 15.0001,46.0041504 C15.0001,43.9708171 15.0001,42.9699219 15.0001,43.0014648 C15.0001,35.8114648 6.9701,29.6 4.6801,27.31 C1.7901,24.42 9.99999993e-05,20.42 9.99999993e-05,16 C9.99999993e-05,7.16 7.1501,0.01 16.0001,0 C24.8501,0.01 32.0001,7.16 32.0001,16 C32.0001,20.42 30.2101,24.42 27.3201,27.31 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <path d="M27.3201,27.31 C25.0301,29.6 17.0001,35.8114648 17.0001,43.0014648 L17.0001,46.0041504 C17.0001,49.0541504 19.5401,51.06 20.2401,51.76 C21.3301,52.84 22.0001,54.34 22.0001,56 C22.0001,59.31 19.3201,62 16.0001,62 C12.6801,62 10.0001,59.31 10.0001,56 C10.0001,54.34 10.6701,52.84 11.7501,51.76 C12.4601,51.06 15.0001,49.0541504 15.0001,46.0041504 C15.0001,43.9708171 15.0001,42.9699219 15.0001,43.0014648 C15.0001,35.8114648 6.9701,29.6 4.6801,27.31 C1.7901,24.42 9.99999993e-05,20.42 9.99999993e-05,16 C9.99999993e-05,7.16 7.1501,0.01 16.0001,0 C24.8501,0.01 32.0001,7.16 32.0001,16 C32.0001,20.42 30.2101,24.42 27.3201,27.31 Z" id="__3eUOzyN__Mask" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#DB33D7" fill-rule="evenodd"/>
+            <g id="__3eUOzyN__✱-/-Color-/-Primary-/-Main" mask="url(#__3eUOzyN__mask-10)" fill="#212121" fill-rule="evenodd">
+              <g id="__3eUOzyN__✱-/-Color-/-Primary-/-900">
+                <rect id="__3eUOzyN__Rectangle-13" x="0" y="0" width="32" height="62"/>
+              </g>
+            </g>
+            <g id="__3eUOzyN__Text-/-Caption-/-P---Dark-/-Center" mask="url(#__3eUOzyN__mask-10)" font-family="Roboto" font-size="12" font-weight="normal" letter-spacing="0.400000006" line-spacing="16">
+              <g transform="translate(4.000000, 8.000000)" id="__3eUOzyN__Caption">
+                <path d="M 9.825 2.463 L 9.825 3.383 L 9.625 3.383 Q 8.36 3.406 7.61 4.133 Q 6.86 4.859 6.743 6.178 Q 7.416 5.404 8.582 5.404 Q 9.696 5.404 10.361 6.189 Q 11.026 6.975 11.026 8.217 Q 11.026 9.535 10.308 10.326 Q 9.59 11.117 8.383 11.117 Q 7.159 11.117 6.397 10.177 Q 5.635 9.236 5.635 7.754 L 5.635 7.338 Q 5.635 4.982 6.64 3.737 Q 7.645 2.492 9.631 2.463 Z M 8.401 6.307 Q 7.844 6.307 7.375 6.641 Q 6.907 6.975 6.725 7.479 L 6.725 7.877 Q 6.725 8.932 7.2 9.576 Q 7.674 10.221 8.383 10.221 Q 9.116 10.221 9.535 9.682 Q 9.954 9.143 9.954 8.27 Q 9.954 7.391 9.529 6.849 Q 9.104 6.307 8.401 6.307 Z" style="fill: rgb(255, 255, 255); white-space: pre;"/>
+                <path d="M 18.045 7.361 Q 18.045 9.266 17.395 10.191 Q 16.745 11.117 15.362 11.117 Q 13.996 11.117 13.34 10.212 Q 12.684 9.307 12.661 7.508 L 12.661 6.061 Q 12.661 4.18 13.311 3.266 Q 13.961 2.352 15.35 2.352 Q 16.727 2.352 17.377 3.233 Q 18.028 4.115 18.045 5.955 Z M 16.961 5.879 Q 16.961 4.502 16.575 3.872 Q 16.188 3.242 15.35 3.242 Q 14.518 3.242 14.137 3.869 Q 13.756 4.496 13.745 5.797 L 13.745 7.531 Q 13.745 8.914 14.146 9.573 Q 14.547 10.232 15.362 10.232 Q 16.164 10.232 16.554 9.611 Q 16.944 8.99 16.961 7.654 Z" style="fill: rgb(255, 255, 255); white-space: pre;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

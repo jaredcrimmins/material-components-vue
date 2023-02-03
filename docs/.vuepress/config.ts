@@ -5,7 +5,12 @@ export default defineConfig({
   scss: {
     sassOptions: {
       includePaths: ['./node_modules'],
-      indentedSyntax: false
+      indentedSyntax: false,
     }
+  },
+  themeConfig: {
+    nav: [
+      {text: 'Components', link: '/components/'}
+    ]
   }
 });

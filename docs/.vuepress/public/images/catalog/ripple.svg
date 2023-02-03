@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter x="-19.8%" y="-14.1%" width="139.5%" height="139.5%" filterUnits="objectBoundingBox" id="__3FsO9xo__filter-5">
+      <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"/>
+      <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter2"/>
+      <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"/>
+      <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter3"/>
+      <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter3" result="shadowBlurOuter3"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="shadowMatrixOuter2"/>
+        <feMergeNode in="shadowMatrixOuter3"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g id="__3FsO9xo__ripple_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="__3FsO9xo__Cards-/-Elements-/-Surface-/-Pressed">
+      <mask id="__3FsO9xo__mask-2" fill="white">
+        <rect x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      </mask>
+      <rect id="__3FsO9xo__Mask" x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA"/>
+      <g mask="url(#__3FsO9xo__mask-2)">
+        <g transform="translate(28.000000, 28.000000)">
+          <mask id="__3FsO9xo__mask-4" fill="white">
+            <path d="M4,0 L120,0 C122.209139,-4.05812251e-16 124,1.790861 124,4 L124,120 C124,122.209139 122.209139,124 120,124 L4,124 C1.790861,124 2.705415e-16,122.209139 0,120 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+          </mask>
+          <g id="__3FsO9xo__Surface" stroke="none" fill="none">
+            <path d="M4,0 L120,0 C122.209139,-4.05812251e-16 124,1.790861 124,4 L124,120 C124,122.209139 122.209139,124 120,124 L4,124 C1.790861,124 2.705415e-16,122.209139 0,120 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" transform="matrix(1, 0, 0, 1, 0, 0)" fill="black" fill-opacity="1" filter="url(#__3FsO9xo__filter-5)"/>
+            <path d="M4,0 L120,0 C122.209139,-4.05812251e-16 124,1.790861 124,4 L124,120 C124,122.209139 122.209139,124 120,124 L4,124 C1.790861,124 2.705415e-16,122.209139 0,120 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA" fill-rule="evenodd"/>
+          </g>
+          <g id="__3FsO9xo__✱-/-Color-/-Surface-/-Light" stroke="none" fill="none" mask="url(#__3FsO9xo__mask-4)" fill-rule="evenodd">
+            <rect id="__3FsO9xo__Rectangle-13" fill="#FAFAFA" x="0" y="0" width="124" height="124"/>
+          </g>
+          <g id="__3FsO9xo__✱-/-Ripple-/-Black-/-Pressed" stroke="none" fill="none" mask="url(#__3FsO9xo__mask-4)" fill-rule="evenodd" opacity="0.16">
+            <g transform="translate(24.473684, 11.094737)" fill="#000000" id="__3FsO9xo__Black">
+              <rect x="0" y="0" width="119" height="119" rx="59.5"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

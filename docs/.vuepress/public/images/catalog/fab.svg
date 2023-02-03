@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter x="-43.8%" y="-31.2%" width="187.5%" height="187.5%" filterUnits="objectBoundingBox" id="__1Ff56XA__filter-5">
+      <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"/>
+      <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter2"/>
+      <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"/>
+      <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter3"/>
+      <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter3" result="shadowBlurOuter3"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="shadowMatrixOuter2"/>
+        <feMergeNode in="shadowMatrixOuter3"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g id="__1Ff56XA__floating_action_button_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="matrix(1, 0, 0, 1, 1.956644, -0.043344)">
+    <mask id="__1Ff56XA__mask-2" fill="white">
+      <rect x="0" y="0" width="180" height="180" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </mask>
+    <g id="__1Ff56XA__Mask"/>
+    <g id="__1Ff56XA__FAB-/-Standard-/-Circular-/-Enabled" mask="url(#__1Ff56XA__mask-2)">
+      <g transform="translate(60.000000, 62.000000)">
+        <mask id="__1Ff56XA__mask-4" fill="white">
+          <rect x="0" y="0" width="56" height="56" rx="28" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+        </mask>
+        <g id="__1Ff56XA__Surface" stroke="none" fill="none">
+          <rect x="0" y="0" width="56" height="56" rx="28" transform="matrix(1, 0, 0, 1, 0, 0)" fill="black" fill-opacity="1" filter="url(#__1Ff56XA__filter-5)"/>
+          <rect x="0" y="0" width="56" height="56" rx="28" transform="matrix(1, 0, 0, 1, 0, 0)" fill="#FAFAFA" fill-rule="evenodd"/>
+        </g>
+        <g id="__1Ff56XA__✱-/-Color-/-Secondary-/-Main" stroke="none" fill="none" mask="url(#__1Ff56XA__mask-4)" fill-rule="evenodd">
+          <g id="__1Ff56XA__✱-/-Color-/-Primary-/-Main" fill="#212121">
+            <g id="__1Ff56XA__✱-/-Color-/-Primary-/-500">
+              <rect id="__1Ff56XA__Rectangle-13" x="0" y="0" width="56" height="56"/>
+            </g>
+          </g>
+        </g>
+        <g id="__1Ff56XA__Icon-/-Add-/-Fill" stroke="none" fill="none" mask="url(#__1Ff56XA__mask-4)">
+          <g transform="translate(16.000000, 16.000000)">
+            <mask id="__1Ff56XA__mask-7" fill="white">
+              <polygon points="11 5 11 11 5 11 5 13 11 13 11 19 13 19 13 13 19 13 19 11 13 11 13 5" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+            </mask>
+            <g id="__1Ff56XA__Mask" stroke="none" fill="none"/>
+            <g id="__1Ff56XA__✱-/-Color-/-Icons-/-White-/-Active" stroke="none" fill="none" mask="url(#__1Ff56XA__mask-7)" fill-rule="evenodd">
+              <rect id="__1Ff56XA__Rectangle-13" fill="#FFFFFF" x="0" y="0" width="24" height="24"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
