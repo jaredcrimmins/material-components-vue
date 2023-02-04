@@ -16,7 +16,6 @@
 !.gitignore
 !.npmignore
 !.nvmrc
-!.versionrc.json
 !CHANGELOG.md
 !package-lock.json
 !package.json
