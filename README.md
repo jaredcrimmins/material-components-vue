@@ -21,11 +21,11 @@ The entirety of Material Components Vue can be installed globally, or you can in
 
 ```js
 // src/main.js
-import {MaterialComponentsVuejs} from '@jaredcrimmins/material-components-vue';
+import {MaterialComponentsVue} from '@jaredcrimmins/material-components-vue';
 import Vue from 'vue';
 
 // Install plugin
-Vue.use(MaterialComponentsVuejs);
+Vue.use(MaterialComponentsVue);
 ```
 
 ### À la carte

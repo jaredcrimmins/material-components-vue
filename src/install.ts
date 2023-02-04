@@ -1,7 +1,7 @@
 import {VueConstructor} from 'vue';
 import * as components from './components';
 
-export class MaterialComponentsVuejs {
+export class MaterialComponentsVue {
   static installed = false;
 
   static install(Vue: VueConstructor) {
