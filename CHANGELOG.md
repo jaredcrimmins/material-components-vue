@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.5.0...v0.6.0) (2023-02-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename `MaterialComponentsVuejs` to `MaterialComponentsVue`
+* **notched-outline:** rename `labelID` prop to use camel case
+
+### Bug Fixes
+
+* **floating-label:** add/remove classes using a Vue mechanism ([a974af6](https://github.com/jaredcrimmins/material-components-vue/commit/a974af64e81b69181aa83b777c69338637b5dcc3))
+* **floating-label:** set element `id` attribute using `id` prop ([1f79373](https://github.com/jaredcrimmins/material-components-vue/commit/1f7937305f018f19d390a28b3b526354c88c6c71))
+* **linear-progress:** add missing adapter methods ([ae128a5](https://github.com/jaredcrimmins/material-components-vue/commit/ae128a5865b03160e130832b89e3e33f0120a965))
+* **linear-progress:** fix `setBufferBarStyle` and `setPrimaryBarStyle` ([7ccf1c3](https://github.com/jaredcrimmins/material-components-vue/commit/7ccf1c3f13eb430db01201262a725a6e64de13a8))
+* **notched-outline:** add/remove classes using a Vue mechanism ([aaecba3](https://github.com/jaredcrimmins/material-components-vue/commit/aaecba332f50f69ca8df8f5801b14dbafc27919e))
+* **textfield:** add/remove classes from root el using a Vue mechanism ([45d484b](https://github.com/jaredcrimmins/material-components-vue/commit/45d484b2f3b9ba548c006fbdc052ba46292989cd))
+* **textfield:** automatically generate unique label and helper text IDs ([eadf61b](https://github.com/jaredcrimmins/material-components-vue/commit/eadf61b091f286a78f86cfcb57601d6fabcb6c66))
+* **textfield:** set HTML attribute props default values to `null` ([bb49754](https://github.com/jaredcrimmins/material-components-vue/commit/bb497543abf79188207df0156d5ccaa96d36fc14))
+
+
+### Code Refactoring
+
+* **notched-outline:** rename `labelID` prop to use camel case ([4f5072c](https://github.com/jaredcrimmins/material-components-vue/commit/4f5072c846b66602073f70ac557490963e534528))
+* rename `MaterialComponentsVuejs` to `MaterialComponentsVue` ([2ab20e8](https://github.com/jaredcrimmins/material-components-vue/commit/2ab20e8f57a3da3445c5d0021aa91c8f1e0a8075))
+
 ## [0.5.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.4.2...v0.5.0) (2022-12-02)
 
 
