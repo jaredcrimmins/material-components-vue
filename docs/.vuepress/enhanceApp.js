@@ -1,6 +1,6 @@
 import './styles/index.scss';
-import {MaterialComponentsVuejs} from '../../';
+import {MaterialComponentsVue} from '../../';
 
 export default ({Vue}) => {
-  Vue.use(MaterialComponentsVuejs);
+  Vue.use(MaterialComponentsVue);
 }

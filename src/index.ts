@@ -1,2 +1,2 @@
-export {MaterialComponentsVuejs} from "./install";
+export {MaterialComponentsVue} from "./install";
 export * from "./components";
