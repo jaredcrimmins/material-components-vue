@@ -89,7 +89,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
         props: {
           disabled: this.rippleDisabled,
           standalone: false,
-          tagName: "li"
+          tag: "li"
         }
       },
       [
