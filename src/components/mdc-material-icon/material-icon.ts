@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import {getSlot} from '../../utils';
 
 export default Vue.extend({
   name: "material-icon",
@@ -11,10 +12,15 @@ export default Vue.extend({
   },
 
   render(c) {
+    const cssClass = {"material-icons": true};
+    const rootSlot = getSlot(this, "root", {cssClass});
+
+    if (rootSlot) return rootSlot[0];
+
     return c(
       this.tag,
       {
-        staticClass: "material-icons"
+        class: cssClass
       },
       this.$slots.default
     );
