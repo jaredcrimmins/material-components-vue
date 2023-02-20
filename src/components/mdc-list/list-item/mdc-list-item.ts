@@ -37,7 +37,6 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
   },
 
   props: {
-    preselected: Boolean,
     primaryText: String,
     rippleDisabled: Boolean,
     secondaryText: String,
