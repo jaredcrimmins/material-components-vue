@@ -28,12 +28,9 @@ export default Vue.extend({
       type: String,
       default: ''
     },
-    tagName: {
+    tag: {
       type: String,
-      default: 'button',
-      validator(value: string) {
-        return ['a', 'button'].indexOf(value) !== -1;
-      }
+      default: 'button'
     },
     toggleable: Boolean,
     onIcon: {
@@ -52,8 +49,8 @@ export default Vue.extend({
   },
 
   computed: {
-    isTagNameButton(): boolean {
-      return this.tagName === 'button';
+    isTagButton(): boolean {
+      return this.tag === 'button';
     }
   },
 
@@ -76,7 +73,7 @@ export default Vue.extend({
           unbounded: true
         },
         attrs: {
-          disabled: this.disabled && this.isTagNameButton
+          disabled: this.disabled && this.isTagButton
         },
         nativeOn: {
           click: this.onClick
@@ -85,7 +82,7 @@ export default Vue.extend({
           root: ({cssClass, on, style}) => {
             if (this.$scopedSlots['on-icon'] || this.onIcon) {
               return c(
-                this.tagName,
+                this.tag,
                 {
                   class: cssClass,
                   on: on,
@@ -100,7 +97,7 @@ export default Vue.extend({
               {
                 class: cssClass,
                 props: {
-                  tag: this.tagName
+                  tag: this.tag
                 },
                 nativeOn: on
               },
