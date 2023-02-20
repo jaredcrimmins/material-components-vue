@@ -1,8 +1,9 @@
+import {CreateElement, VNode} from 'vue';
 import {MDCIconButtonToggleFoundation} from '@material/icon-button';
 import {MDCMaterialIcon} from '../mdc-material-icon';
 import {MDCRipple} from '../mdc-ripple';
-import Vue, {CreateElement, VNode} from 'vue';
-import {emitCustomEvent} from '../../utils';
+import {emitCustomEvent, mixins} from '../../utils';
+import {linkable} from '../../mixins';
 
 const {strings} = MDCIconButtonToggleFoundation;
 
@@ -11,7 +12,9 @@ const cssClasses = {...MDCIconButtonToggleFoundation.cssClasses, ...{
   ICON_BUTTON_ICON_ON: 'mdc-icon-button__icon--on'
 }};
 
-export default Vue.extend({
+const baseMixins = mixins(linkable);
+
+export default baseMixins.extend({
   name: 'mdc-icon-button',
 
   inheritAttrs: true,
@@ -86,7 +89,10 @@ export default Vue.extend({
                 {
                   class: cssClass,
                   on: on,
-                  style
+                  style,
+                  props: {
+                    to: this.to
+                  }
                 },
                 this.genToggleIcons(c)
               );
@@ -99,9 +105,22 @@ export default Vue.extend({
                 props: {
                   tag: this.tag
                 },
-                nativeOn: on
-              },
-              this.icon
+                nativeOn: on,
+                scopedSlots: {
+                  root: ({cssClass}) => {
+                    return c(
+                      this.tag,
+                      {
+                        class: cssClass,
+                        props: {
+                          to: this.to
+                        }
+                      },
+                      this.icon
+                    )
+                  }
+                }
+              }
             );
           }
         }
