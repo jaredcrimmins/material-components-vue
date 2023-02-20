@@ -110,7 +110,7 @@ export default Vue.extend({
         on: {
           click: this.onClick,
           focusin: this.onFocusIn,
-          focusOut: this.onFocusOut,
+          focusout: this.onFocusOut,
           keydown: this.onKeydown
         }
       },
