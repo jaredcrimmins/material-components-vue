@@ -124,9 +124,9 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
       }
       else {
         if(this.checkbox)
-          graphic = getSlot(this, "checkbox", {id: this.inputID}, false);
+          graphic = getSlot(this, "checkbox", {id: this.inputID, tabindex: "-1"}, false);
         else if(this.radio)
-          graphic = getSlot(this, "radio", {id: this.inputID}, false);
+          graphic = getSlot(this, "radio", {id: this.inputID, tabindex: "-1"}, false);
         else graphic = graphicSlot;
       }
 

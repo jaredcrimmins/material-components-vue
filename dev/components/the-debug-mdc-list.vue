@@ -76,10 +76,11 @@
           :key="num"
         >
           Option {{ num }}
-          <template v-slot:radio="{id}">
+          <template v-slot:radio="{id, tabindex}">
             <mdc-radio
               :id="id"
               name="radio-group-demo"
+              :tabindex="tabindex"
               :value="num"
             />
           </template>
@@ -94,10 +95,11 @@
           :key="num"
         >
           Option {{ num }}
-          <template v-slot:checkbox="{id}">
+          <template v-slot:checkbox="{id, tabindex}">
             <mdc-checkbox
               :id="id"
               name="checkbox-items-demo"
+              :tabindex="tabindex"
               :value="num"
             />
           </template>
