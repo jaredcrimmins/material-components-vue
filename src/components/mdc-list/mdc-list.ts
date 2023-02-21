@@ -145,7 +145,20 @@ export default Vue.extend({
     },
 
     initTabindex() {
+      const listItemElements = this.getListItemElements();
+      const numListItemElements = listItemElements.length;
+      const selectedListItemElement = this.$el.querySelector(strings.SELECTED_ITEM_SELECTOR);
+      const setTabIndexElementIndex = selectedListItemElement ? listItemElements.indexOf(selectedListItemElement) : 0;
+
       this.setAttributeForElementIndex(0, "tabindex", "0");
+
+      for (let x = 0; x < setTabIndexElementIndex; x++) {
+        this.setAttributeForElementIndex(x, "tabindex", "-1");
+      }
+
+      for (let x = setTabIndexElementIndex + 1; x < numListItemElements; x++) {
+        this.setAttributeForElementIndex(x, "tabindex", "-1");
+      }
     },
 
     setHasTypeahead(hasTypeahead: boolean) {
