@@ -1,10 +1,12 @@
 @use '@material/button/mdc-button';
+@use '@material/checkbox/_index.scss' as checkbox;
 @use '@material/form-field/_index.scss' as form-field;
 @use '@material/image-list/_index.scss' as image-list;
 @use '@material/linear-progress/_index.scss' as linear-progress;
 @use '@material/ripple/styles' as ripple-styles;
 @use '@material/tooltip/styles' as tooltip-styles;
 
+@include checkbox.core-styles;
 @include form-field.core-styles;
 @include image-list.core-styles;
 @include linear-progress.core-styles;
