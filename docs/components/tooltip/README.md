@@ -10,7 +10,7 @@ title: Tooltip
 
 ### Basic
 
-```html
+```vue
 <button data-tooltip-id="tooltip1">
   Tooltip anchor
 </button>
@@ -22,7 +22,7 @@ title: Tooltip
 
 ### Rich tooltip
 
-```html
+```vue
 <mdc-tooltip-wrapper #default="defaultProps">
   <button
     data-tooltip-id="tooltip2"
@@ -45,7 +45,7 @@ title: Tooltip
 
 ### Rich tooltip with interactive content
 
-```html
+```vue
 <mdc-tooltip-wrapper #default="defaultProps">
   <button
     data-tooltip-id="tooltip3"
@@ -82,7 +82,7 @@ title: Tooltip
 
 ### Persistent rich tooltip with interactive content anchor
 
-```html
+```vue
 <mdc-tooltip-wrapper #default="defaultProps">
   <button
     data-tooltip-id="tooltip4"

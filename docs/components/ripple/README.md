@@ -10,13 +10,13 @@ title: Ripple
 
 ### Basic
 
-```html
+```vue
 <mdc-ripple>Click here!</mdc-ripple>
 ```
 
 ### Using `root` scoped slot
 
-```html
+```vue
 <mdc-ripple>
   <template #root="rootProps">
     <div

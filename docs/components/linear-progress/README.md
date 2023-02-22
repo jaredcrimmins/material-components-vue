@@ -8,7 +8,7 @@ title: Linear Progress
 
 ## Usage
 
-```html
+```vue
 <mdc-linear-progress
   :progress="0.5"
   determinate

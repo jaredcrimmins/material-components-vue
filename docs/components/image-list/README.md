@@ -8,7 +8,7 @@ title: Image List
 
 ## Usage
 
-```html
+```vue
 <mdc-image-list>
   <mdc-image-list-item
     src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg"

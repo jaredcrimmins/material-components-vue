@@ -8,7 +8,7 @@ title: Form Field
 
 ## Usage
 
-```html
+```vue
 <mdc-form-field label="This is my checkbox">
   <mdc-checkbox />
 </mdc-form-field>

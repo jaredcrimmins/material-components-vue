@@ -10,13 +10,13 @@ title: Button
 
 ### Basic
 
-```html
+```vue
 <mdc-button>Text</mdc-button>
 ```
 
 ### With icon
 
-```html
+```vue
 <mdc-button>
   <template #append>
     <mdc-material-icon>favorite</mdc-material-icon>
