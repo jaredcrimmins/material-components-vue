@@ -3,7 +3,7 @@ import {MDCIconButtonToggleFoundation} from '@material/icon-button';
 import {MDCMaterialIcon} from '../mdc-material-icon';
 import {MDCRipple} from '../mdc-ripple';
 import {emitCustomEvent, mixins} from '../../utils';
-import {linkable} from '../../mixins';
+import {linkable, materialIconable} from '../../mixins';
 
 const {strings} = MDCIconButtonToggleFoundation;
 
@@ -12,7 +12,7 @@ const cssClasses = {...MDCIconButtonToggleFoundation.cssClasses, ...{
   ICON_BUTTON_ICON_ON: 'mdc-icon-button__icon--on'
 }};
 
-const baseMixins = mixins(linkable);
+const baseMixins = mixins(linkable, materialIconable);
 
 export default baseMixins.extend({
   name: 'mdc-icon-button',
@@ -103,6 +103,7 @@ export default baseMixins.extend({
               {
                 class: cssClass,
                 props: {
+                  iconVariant: this.iconVariant,
                   tag: this.tag
                 },
                 nativeOn: on,
@@ -154,14 +155,20 @@ export default baseMixins.extend({
 
       if (iconScopedSlot) {
         vNodes.push(iconScopedSlot({
-          staticClass: cssClasses.ICON_BUTTON_ICON
+          staticClass: cssClasses.ICON_BUTTON_ICON,
+          props: {
+            iconVariant: this.iconVariant
+          }
         }));
       } else {
         vNodes.push(
           c(
             'mdc-material-icon',
             {
-              staticClass: cssClasses.ICON_BUTTON_ICON
+              staticClass: cssClasses.ICON_BUTTON_ICON,
+              props: {
+                iconVariant: this.iconVariant
+              }
             },
             this.icon
           )
@@ -170,14 +177,20 @@ export default baseMixins.extend({
 
       if (onIconScopedSlot) {
         vNodes.push(onIconScopedSlot({
-          staticClass: onIconCSSClass
+          staticClass: onIconCSSClass,
+          props: {
+            iconVariant: this.iconVariant
+          }
         }));
       } else {
         vNodes.push(
           c(
             'mdc-material-icon',
             {
-              staticClass: onIconCSSClass
+              staticClass: onIconCSSClass,
+              props: {
+                iconVariant: this.iconVariant
+              }
             },
             this.onIcon
           )
