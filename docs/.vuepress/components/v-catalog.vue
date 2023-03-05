@@ -48,6 +48,18 @@
         </div>
       </a>
     </li> -->
+    <li class="mdc-image-list__item">
+      <a href="/components/circular-progress/">
+        <div class="mdc-image-list__image-aspect-container">
+          <div class="mdc-image-list__image">
+            <img src="/images/catalog/circular-progress.svg">
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">Circular Progress</span>
+        </div>
+      </a>
+    </li>
     <!-- <li class="mdc-image-list__item">
       <a href="/components/data-table/">
         <div class="mdc-image-list__image-aspect-container">
