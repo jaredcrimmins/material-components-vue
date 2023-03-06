@@ -11,8 +11,13 @@
     <h4>Text Button plus icon</h4>
 
     <mdc-button>
-      <template #append>
-        <mdc-material-icon>bookmark</mdc-material-icon>
+      <template #append="appendProps">
+        <mdc-material-icon
+          :class="appendProps.cssClass"
+          v-bind="appendProps.attrs"
+        >
+          bookmark
+        </mdc-material-icon>
       </template>
       <template #default>
         Text Button plus icon
@@ -28,8 +33,13 @@
     <h4>Outlined button with icon</h4>
 
     <mdc-button outlined>
-      <template #append>
-        <mdc-material-icon>bookmark</mdc-material-icon>
+      <template #append="appendProps">
+        <mdc-material-icon
+          :class="appendProps.cssClass"
+          v-bind="appendProps.attrs"
+        >
+          bookmark
+        </mdc-material-icon>
       </template>
       <template #default>
         Outlined Button plus icon
@@ -45,8 +55,13 @@
     <h4>Contained button with icon</h4>
 
     <mdc-button raised>
-      <template #append>
-        <mdc-material-icon>bookmark</mdc-material-icon>
+      <template #append="appendProps">
+        <mdc-material-icon
+          :class="appendProps.cssClass"
+          v-bind="appendProps.attrs"
+        >
+          bookmark
+        </mdc-material-icon>
       </template>
       <template #default>
         Contained Button plus icon

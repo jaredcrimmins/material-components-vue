@@ -1,7 +1,7 @@
 import {MDCRipple} from '../mdc-ripple';
 import {VNode} from 'vue';
+import {getSlot, mixins} from '@/utils';
 import {linkable} from '@/mixins';
-import {mixins} from '@/utils';
 
 const baseMixins = mixins(linkable);
 
@@ -37,6 +37,10 @@ export default baseMixins.extend({
         scopedSlots: {
           root: ({cssClass, on, style}) => {
             const isTagNameButton = this.tag === 'button';
+            const scopedSlotProps = {
+              cssClass: {'mdc-button__icon': true},
+              attrs: {'aria-hidden': true}
+            };
 
             return c(
               this.tag,
@@ -68,7 +72,7 @@ export default baseMixins.extend({
                     staticClass: 'mdc-button__ripple'
                   }
                 ),
-                this.$slots.append,
+                getSlot(this, 'append', scopedSlotProps, true),
                 c(
                   'span',
                   {
@@ -76,7 +80,7 @@ export default baseMixins.extend({
                   },
                   this.$slots.default
                 ),
-                this.$slots.trailing
+                getSlot(this, 'trailing', scopedSlotProps, true)
               ]
             );
           }
