@@ -5,7 +5,7 @@ import {materialIconable} from '../../mixins';
 const baseMixins = mixins(materialIconable);
 
 export default baseMixins.extend({
-  name: "material-icon",
+  name: "mdc-material-icon",
 
   props: {
     tag: {
