@@ -9,6 +9,13 @@
       on-icon="favorite"
       toggleable
     />
+
+    <mdc-icon-button
+      icon="favorite_border"
+      on-icon="favorite"
+      icon-variant="two-tone"
+      toggleable
+    />
   </div>
 </template>
 
