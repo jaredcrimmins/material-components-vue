@@ -18,6 +18,8 @@
 
     <the-debug-mdc-list />
 
+    <the-debug-mdc-material-icon />
+
     <the-debug-mdc-menu />
 
     <the-debug-mdc-radio />
@@ -51,6 +53,7 @@
       'the-debug-mdc-image-list': components.TheDebugMDCImageList,
       'the-debug-mdc-linear-progress': components.TheDebugMDCLinearProgress,
       'the-debug-mdc-list': components.TheDebugMDCList,
+      'the-debug-mdc-material-icon': components.TheDebugMDCMaterialIcon,
       'the-debug-mdc-menu': components.TheDebugMDCMenu,
       'the-debug-mdc-radio': components.TheDebugMDCRadio,
       'the-debug-mdc-ripple': components.TheDebugMDCRipple,

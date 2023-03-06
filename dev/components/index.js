@@ -7,6 +7,7 @@ export {default as TheDebugMDCIconButton} from './the-debug-mdc-icon-button.vue'
 export {default as TheDebugMDCImageList} from './the-debug-mdc-image-list.vue';
 export {default as TheDebugMDCLinearProgress} from './the-debug-mdc-linear-progress.vue';
 export {default as TheDebugMDCList} from './the-debug-mdc-list.vue';
+export {default as TheDebugMDCMaterialIcon} from './the-debug-mdc-material-icon';
 export {default as TheDebugMDCMenu} from './the-debug-mdc-menu.vue';
 export {default as TheDebugMDCRadio} from './the-debug-mdc-radio.vue';
 export {default as TheDebugMDCRipple} from './the-debug-mdc-ripple.vue';
