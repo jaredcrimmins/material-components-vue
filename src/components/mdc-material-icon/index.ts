@@ -1,1 +1,1 @@
-export {default as MDCMaterialIcon} from "./material-icon";
+export {default as MDCMaterialIcon} from "./mdc-material-icon";
