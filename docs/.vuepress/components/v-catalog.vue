@@ -180,6 +180,18 @@
         </div>
       </a>
     </li>
+    <li class="mdc-image-list__item">
+      <a href="/components/material-icon/">
+        <div class="mdc-image-list__image-aspect-container">
+          <div class="mdc-image-list__image">
+            <img src="/images/catalog/material-icon.svg">
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">Material Icon</span>
+        </div>
+      </a>
+    </li>
     <!-- <li class="mdc-image-list__item">
       <a href="/components/menu/">
         <div class="mdc-image-list__image-aspect-container">
