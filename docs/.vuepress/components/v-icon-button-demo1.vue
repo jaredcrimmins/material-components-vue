@@ -1,0 +1,10 @@
+<template>
+  <v-demo-container>
+    <mdc-icon-button
+      class="material-symbols-outlined"
+      icon="favorite_border"
+      on-icon="favorite"
+      toggleable
+    />
+  </v-demo-container>
+</template>

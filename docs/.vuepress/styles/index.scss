@@ -2,6 +2,7 @@
 @use '@material/checkbox/_index.scss' as checkbox;
 @use '@material/circular-progress/mdc-circular-progress';
 @use '@material/form-field/_index.scss' as form-field;
+@use '@material/icon-button/_index.scss' as icon-button;
 @use '@material/image-list/_index.scss' as image-list;
 @use '@material/linear-progress/_index.scss' as linear-progress;
 @use '@material/ripple/styles' as ripple-styles;
@@ -9,6 +10,7 @@
 
 @include checkbox.core-styles;
 @include form-field.core-styles;
+@include icon-button.core-styles;
 @include image-list.core-styles;
 @include linear-progress.core-styles;
 

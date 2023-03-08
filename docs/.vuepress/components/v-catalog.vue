@@ -120,7 +120,7 @@
         </div>
       </a>
     </li>
-    <!-- <li class="mdc-image-list__item">
+    <li class="mdc-image-list__item">
       <a href="/components/icon-button/">
         <div class="mdc-image-list__image-aspect-container">
           <div class="mdc-image-list__image">
@@ -131,7 +131,7 @@
           <span class="mdc-image-list__label">Icon Button</span>
         </div>
       </a>
-    </li> -->
+    </li>
     <li class="mdc-image-list__item">
       <a href="/components/image-list/">
         <div class="mdc-image-list__image-aspect-container">
