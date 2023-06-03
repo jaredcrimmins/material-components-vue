@@ -6,6 +6,9 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClasses: {
+        [cssClasses.HELPER_TEXT_PERSISTENT]: this.persistent
+      } as {[className: string]: boolean},
       content_: this.content,
       mdcFoundation: new MDCTextFieldHelperTextFoundation(
         MDCTextFieldHelperTextFoundation.defaultAdapter
@@ -45,9 +48,7 @@ export default Vue.extend({
       'div',
       {
         staticClass: cssClasses.ROOT,
-        class: {
-          [cssClasses.HELPER_TEXT_PERSISTENT]: this.persistent
-        },
+        class: this.cssClasses,
         attrs: {
           id: this.id,
           [strings.ARIA_HIDDEN]: true
@@ -61,7 +62,7 @@ export default Vue.extend({
 
   methods: {
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     hasClass(className: string) {
@@ -73,7 +74,7 @@ export default Vue.extend({
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
     setAttr(attr: string, value: string) {
