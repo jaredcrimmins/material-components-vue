@@ -37,6 +37,7 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClasses: {} as {[cssClass: string]: boolean},
       mdcFoundation: new MDCCircularProgressFoundation(
         MDCCircularProgressFoundation.defaultAdapter
       ),
@@ -82,6 +83,7 @@ export default Vue.extend({
       'div',
       {
         staticClass: 'mdc-circular-progress',
+        class: this.cssClasses,
         attrs: {
           'aria-valuemax': '1',
           'aria-valuemin': '0',
@@ -361,7 +363,7 @@ export default Vue.extend({
     //
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     getDeterminateCircleAttribute(attributeName: string) {
@@ -371,7 +373,7 @@ export default Vue.extend({
     },
 
     hasClass(className: string) {
-      return this.$el.classList.contains(className);
+      return !!this.cssClasses[className];
     },
 
     removeAttribute(attributeName: string) {
@@ -379,7 +381,7 @@ export default Vue.extend({
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
     setAttribute(attributeName: string, value: string) {
