@@ -15,6 +15,7 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClasses: <{[className: string]: boolean}>{},
       mdcFoundation: new MDCLineRippleFoundation(
         MDCLineRippleFoundation.defaultAdapter
       ),
@@ -44,7 +45,8 @@ export default Vue.extend({
     return c(
       "span",
       {
-        class: "mdc-line-ripple",
+        staticClass: "mdc-line-ripple",
+        class: this.cssClasses,
         style: this.style
       }
     );
@@ -76,15 +78,15 @@ export default Vue.extend({
     //
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
     hasClass(className: string) {
-      return this.$el.classList.contains(className);
+      return !!this.cssClasses[className];
     },
 
     setStyle(propertyName: string, value: string) {
