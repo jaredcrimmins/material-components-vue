@@ -39,6 +39,9 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
   data() {
     return {
       id_: "",
+      cssClasses: {
+        [cssClasses.DISABLED]: this.disabled
+      } as {[cssClass: string]: boolean},
       mdcFoundation: new MDCCheckboxFoundation(
         MDCCheckboxFoundation.defaultAdapter
       )
@@ -73,9 +76,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
       {
         ref: "ripple",
         staticClass: cssClasses.ROOT,
-        class: {
-          [cssClasses.DISABLED]: this.disabled
-        },
+        class: this.cssClasses,
         props: {
           unbounded: true
         },
@@ -212,11 +213,11 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     //
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
     forceLayout() {
