@@ -28,6 +28,7 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClasses: {} as {[className: string]: boolean},
       mdcFoundation: new MDCLinearProgressFoundation(
         MDCLinearProgressFoundation.defaultAdapter
       ),
@@ -67,6 +68,7 @@ export default Vue.extend({
       "div",
       {
         staticClass: "mdc-linear-progress",
+        class: this.cssClasses,
         attrs: {
           "aria-valuemax": "1",
           "aria-valuemin": "0",
@@ -171,7 +173,7 @@ export default Vue.extend({
     //
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     forceLayout() {
@@ -195,7 +197,7 @@ export default Vue.extend({
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
     setAttribute(attributeName: string, value: string) {
