@@ -30,6 +30,10 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClasses: <{[className: string]: boolean}>{
+        "mdc-snackbar--leading": this.leading,
+        "mdc-snackbar--stacked": this.stacked
+      },
       mdcFoundation: new MDCSnackbarFoundation(
         MDCSnackbarFoundation.defaultAdapter
       ),
@@ -68,10 +72,7 @@ export default Vue.extend({
       "div",
       {
         staticClass: "mdc-snackbar",
-        class: {
-          "mdc-snackbar--leading": this.leading,
-          "mdc-snackbar--stacked": this.stacked
-        },
+        class: this.cssClasses,
         on: {
           keydown: this.onKeyDown
         }
@@ -200,11 +201,11 @@ export default Vue.extend({
     //
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
     announce() {
