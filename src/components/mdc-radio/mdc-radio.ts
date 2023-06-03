@@ -42,6 +42,9 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
 
   data() {
     return {
+      cssClasses: {
+        [cssClasses.DISABLED]: this.disabled
+      } as {[className: string]: boolean},
       id_: "",
       mdcFoundation: new MDCRadioFoundation(MDCRadioFoundation.defaultAdapter)
     };
@@ -67,9 +70,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
       {
         ref: "ripple",
         staticClass: cssClasses.ROOT,
-        class: {
-          [cssClasses.DISABLED]: this.disabled
-        },
+        class: this.cssClasses,
         props: {
           unbounded: true
         }
@@ -156,11 +157,11 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     },
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: false};
     }
   }
 });
