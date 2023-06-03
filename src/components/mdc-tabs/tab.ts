@@ -48,6 +48,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
 
   data() {
     return {
+      cssClasses: {} as {[className: string]: boolean},
       mdcFoundation: new MDCTabFoundation(
         MDCTabFoundation.defaultAdapter
       ),
@@ -208,11 +209,11 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     //
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     hasClass(className: string) {

@@ -17,6 +17,14 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClasses: {
+        "mdc-tab-scroller--align-start": this.alignStart,
+        "mdc-tab-scroller--align-end": this.alignEnd,
+        "mdc-tab-scroller--align-center": this.alignCenter
+      } as {[className: string]: boolean},
+      scrollAreaCssClasses: {} as {[className: string]: boolean},
+      scrollAreaStyle: {} as {[key: string]: string},
+      scrollContentStyle: {} as {[key: string]: string},
       mdcFoundation: new MDCTabScrollerFoundation(
         MDCTabScrollerFoundation.defaultAdapter
       )
@@ -28,11 +36,7 @@ export default Vue.extend({
       "div",
       {
         staticClass: "mdc-tab-scroller",
-        class: {
-          "mdc-tab-scroller--align-start": this.alignStart,
-          "mdc-tab-scroller--align-end": this.alignEnd,
-          "mdc-tab-scroller--align-center": this.alignCenter
-        }
+        class: this.cssClasses
       },
       [
         c(
@@ -40,6 +44,8 @@ export default Vue.extend({
           {
             ref: "scrollAreaEl",
             staticClass: "mdc-tab-scroller__scroll-area",
+            class: this.scrollAreaCssClasses,
+            style: this.scrollAreaStyle,
             on: {
               wheel: this.onScrollAreaWheel,
               touchstart: this.onScrollAreaTouchStart,
@@ -54,6 +60,7 @@ export default Vue.extend({
               {
                 ref: "scrollContentEl",
                 staticClass: "mdc-tab-scroller__scroll-content",
+                style: this.scrollContentStyle,
                 on: {
                   transitionend: this.onScrollContentTransitionEnd
                 }
@@ -133,23 +140,23 @@ export default Vue.extend({
     },
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     addScrollAreaClass(className: string) {
-      (<ScrollAreaElRef>this.$refs.scrollAreaEl).classList.add(className);
+      this.scrollAreaCssClasses = {...this.scrollAreaCssClasses, [className]: true};
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
     setScrollAreaStyleProperty(property: string, value: string) {
-      (<ScrollAreaElRef>this.$refs.scrollAreaEl).style.setProperty(property, value);
+      this.scrollAreaStyle = {...this.scrollAreaStyle, [property]: value};
     },
 
     setScrollContentStyleProperty(property: string, value: string) {
-      (<ScrollContentElRef>this.$refs.scrollContentEl).style.setProperty(property, value);
+      this.scrollContentStyle = {...this.scrollContentStyle, [property]: value};
     },
 
     getScrollContentStyleValue(property: string) {

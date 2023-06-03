@@ -24,6 +24,9 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
 
   data() {
     return {
+      cssClasses: {
+        "mdc-tab-indicator--fade": this.fade
+      } as {[className: string]: boolean},
       mdcFoundation: this.fade
         ? new MDCFadingTabIndicatorFoundation(
           MDCFadingTabIndicatorFoundation.defaultAdapter
@@ -39,9 +42,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
       "span",
       {
         staticClass: "mdc-tab-indicator",
-        class: {
-          "mdc-tab-indicator--fade": this.fade
-        }
+        class: this.cssClasses
       },
       [
         c(
@@ -101,11 +102,11 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     //
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
     setContentStyleProperty(prop: string, value: string) {
