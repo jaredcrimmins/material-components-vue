@@ -467,7 +467,7 @@ export default Vue.extend({
     },
 
     hasClass(className: string) {
-      return !!this.cssClass[className];
+      return this.$el.classList.contains(className);
     },
 
     removeClass(className: string) {
