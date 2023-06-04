@@ -55,6 +55,11 @@ export default Vue.extend({
 
   data() {
     return {
+      cssClasses: <{[cssClass: string]: boolean}>{
+        'mdc-select--filled': this.filled,
+        'mdc-select--outlined': this.outlined,
+        'mdc-select--disabled': this.disabled
+      },
       floatingLabelFloat: false,
       isDisabled: this.disabled,
       labelID: '',
@@ -115,11 +120,7 @@ export default Vue.extend({
       'div',
       {
         staticClass: cssClasses.ROOT,
-        class: {
-          'mdc-select--filled': this.filled,
-          'mdc-select--outlined': this.outlined,
-          'mdc-select--disabled': this.disabled
-        },
+        class: this.cssClasses,
         on: {
           keydown: this.onKeydown
         }
@@ -441,11 +442,11 @@ export default Vue.extend({
     //
 
     addClass(className: string) {
-      this.$el.classList.add(className);
+      this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     removeClass(className: string) {
-      this.$el.classList.remove(className);
+      this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
     hasClass(className: string) {
@@ -573,11 +574,11 @@ export default Vue.extend({
     },
 
     addClassAtIndex(index: number, className: string) {
-      (<MenuItemsRef>this.$refs.menuItems)[index].$el.classList.add(className);
+      (<MenuItemsRef>this.$refs.menuItems)[index].addClass(className);
     },
 
     removeClassAtIndex(index: number, className: string) {
-      (<MenuItemsRef>this.$refs.menuItems)[index].$el.classList.remove(className);
+      (<MenuItemsRef>this.$refs.menuItems)[index].removeClass(className);
     },
 
     getSelectedIndex() {
