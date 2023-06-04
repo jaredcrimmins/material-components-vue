@@ -455,7 +455,7 @@ export default Vue.extend({
     // MDC root adapter methods
 
     addClass(className: string) {
-      this.cssClass[className] = true;
+      this.cssClass = {...this.cssClass, [className]: true};
     },
 
     deregisterTextFieldInteractionHandler(evtType: string, handler: NativeEventListener) {
@@ -471,7 +471,7 @@ export default Vue.extend({
     },
 
     removeClass(className: string) {
-      this.cssClass[className] = false;
+      this.cssClass = {...this.cssClass, [className]: false};
     },
 
     registerTextFieldInteractionHandler(evtType: string, handler: NativeEventListener) {
