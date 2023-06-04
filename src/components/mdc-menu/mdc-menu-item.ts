@@ -16,10 +16,17 @@ export default Vue.extend({
     }
   },
 
+  data() {
+    return {
+      cssClasses: {} as {[className: string]: boolean}
+    };
+  },
+
   render(c): VNode {
     return c(
       "mdc-list-item",
       {
+        class: this.cssClasses,
         attrs: {
           role: "menuitem"
         },
@@ -30,5 +37,19 @@ export default Vue.extend({
       },
       this.$slots.default
     );
+  },
+
+  methods: {
+    //
+    // Private
+    //
+
+    addClass(className: string) {
+      this.cssClasses = {...this.cssClasses, [className]: true};
+    },
+
+    removeClass(className: string) {
+      this.cssClasses = {...this.cssClasses, [className]: false};
+    }
   }
 });
