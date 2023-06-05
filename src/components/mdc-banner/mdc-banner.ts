@@ -76,6 +76,7 @@ export default Vue.extend({
       this.mdcFoundation = new MDCBannerFoundation(this);
       this.mdcFoundation.init();
       this.initListeners();
+      this.value ? this.open() : this.close(CloseReason.UNSPECIFIED);
     },
 
     deinit() {
