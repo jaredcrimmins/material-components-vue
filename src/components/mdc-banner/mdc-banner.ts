@@ -11,6 +11,7 @@ export default Vue.extend({
   inheritAttrs: true,
 
   props: {
+    centered: Boolean,
     fixed: Boolean,
     graphicAlt: {
       type: String,
@@ -27,6 +28,7 @@ export default Vue.extend({
   data() {
     return {
       cssClasses: {
+        'mdc-banner--centered': this.centered,
         'mdc-banner--mobile-stacked': this.mobileStacked
       } as {[className: string]: boolean},
       mdcFoundation: new MDCBannerFoundation(
