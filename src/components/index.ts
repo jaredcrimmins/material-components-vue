@@ -1,3 +1,4 @@
+export {MDCBanner} from './mdc-banner';
 export {MDCButton} from './mdc-button';
 export {MDCCheckbox} from './mdc-checkbox';
 export {MDCCircularProgress} from './mdc-circular-progress';

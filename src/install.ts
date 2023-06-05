@@ -9,6 +9,7 @@ export class MaterialComponentsVue {
     this.installed = true;
 
     Vue.component('material-icon', components.MDCMaterialIcon);
+    Vue.component('mdc-banner', components.MDCBanner);
     Vue.component('mdc-material-icon', components.MDCMaterialIcon);
     Vue.component('mdc-button', components.MDCButton);
     Vue.component('mdc-checkbox', components.MDCCheckbox);
