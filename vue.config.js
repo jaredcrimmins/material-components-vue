@@ -6,7 +6,7 @@ const isProduction = NODE_ENV === 'production';
 
 module.exports = {
   devServer: {
-    contentBase: ['./dist', './public'],
+    contentBase: './dev/public',
     disableHostCheck: true,
     host: '0.0.0.0',
     proxy: {
@@ -36,8 +36,6 @@ module.exports = {
   filenameHashing: false,
 
   outputDir: 'dist/',
-
-  publicPath: '/',
 
   lintOnSave: 'warning',
 
