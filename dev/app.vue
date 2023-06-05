@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <the-debug-mdc-banner />
+
     <the-debug-mdc-button />
 
     <the-debug-mdc-checkbox />
@@ -44,6 +46,7 @@
     
   export default {
     components: {
+      'the-debug-mdc-banner': components.TheDebugMDCBanner,
       'the-debug-mdc-button': components.TheDebugMDCButton,
       'the-debug-mdc-checkbox': components.TheDebugMDCCheckbox,
       'the-debug-mdc-circular-progress': components.TheDebugMDCCircularProgress,
