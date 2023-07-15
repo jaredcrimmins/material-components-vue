@@ -1,6 +1,18 @@
 <template>
   <mdc-image-list class="v-catalog__image-list">
     <li class="mdc-image-list__item">
+      <a href="/components/banner/">
+        <div class="mdc-image-list__image-aspect-container">
+          <div class="mdc-image-list__image">
+            <img src="/images/catalog/default.svg">
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="catalog-image-list-label mdc-image-list__label">Banner</span>
+        </div>
+      </a>
+    </li>
+    <li class="mdc-image-list__item">
       <a href="/components/button/">
         <div class="mdc-image-list__image-aspect-container">
           <div class="mdc-image-list__image">
