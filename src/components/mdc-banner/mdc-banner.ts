@@ -149,7 +149,7 @@ export default Vue.extend({
     },
 
     genGraphic(c: CreateElement) {
-      const graphicSlot = this.$slots.graphic;
+      const graphicSlot = this.$scopedSlots.graphic;
 
       if (!graphicSlot) return;
 
@@ -162,7 +162,11 @@ export default Vue.extend({
             alt: this.graphicAlt
           }
         },
-        graphicSlot
+        [
+          graphicSlot({
+            staticClass: 'mdc-banner__icon'
+          })
+        ]
       );
     },
 
