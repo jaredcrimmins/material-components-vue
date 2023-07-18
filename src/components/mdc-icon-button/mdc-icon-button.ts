@@ -3,7 +3,7 @@ import {MDCIconButtonToggleFoundation} from '@material/icon-button';
 import {MDCMaterialIcon} from '../mdc-material-icon';
 import {MDCRipple} from '../mdc-ripple';
 import {emitCustomEvent, mixins} from '../../utils';
-import {linkable, materialIconable} from '../../mixins';
+import {iconButtonable, linkable, materialIconable} from '../../mixins';
 
 const {strings} = MDCIconButtonToggleFoundation;
 
@@ -12,7 +12,7 @@ const cssClasses = {...MDCIconButtonToggleFoundation.cssClasses, ...{
   ICON_BUTTON_ICON_ON: 'mdc-icon-button__icon--on'
 }};
 
-const baseMixins = mixins(linkable, materialIconable);
+const baseMixins = mixins(iconButtonable, linkable, materialIconable);
 
 export default baseMixins.extend({
   name: 'mdc-icon-button',
