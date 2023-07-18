@@ -2,6 +2,20 @@ import Vue, {PropOptions, PropType, VueConstructor} from 'vue';
 
 export type NativeEventListener = (ev: any) => any;
 
+type AnyObject = {[key: string]: any};
+
+export function removeKeys<T extends AnyObject, K extends keyof T>(
+  obj: T, keys: K[] = []
+): Pick<T, K> {
+  const newObj: Pick<T, K> = {...obj};
+
+  for (const key of keys) {
+    if (key in newObj) delete newObj[key];
+  }
+
+  return newObj as Pick<T, K>;
+}
+
 export function validateAnchorTarget(value: Element | string) {
   if (typeof value === 'string') return true;
   // Check if the value is an Element. Node.ELEMENT_NODE (1)

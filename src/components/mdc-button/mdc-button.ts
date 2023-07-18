@@ -1,9 +1,9 @@
 import {MDCRipple} from '../mdc-ripple';
 import {VNode} from 'vue';
 import {getSlot, mixins} from '@/utils';
-import {linkable} from '@/mixins';
+import {buttonable, linkable} from '@/mixins';
 
-const baseMixins = mixins(linkable);
+const baseMixins = mixins(buttonable, linkable);
 
 export default baseMixins.extend({
   name: 'mdc-button',
@@ -12,18 +12,6 @@ export default baseMixins.extend({
 
   components: {
     'mdc-ripple': MDCRipple
-  },
-
-  props: {
-    disabled: Boolean,
-    outlined: Boolean,
-    raised: Boolean,
-    rippleDisabled: Boolean,
-    tag: {
-      type: String,
-      default: 'button'
-    },
-    unelevated: Boolean
   },
 
   render(c): VNode {
@@ -87,11 +75,5 @@ export default baseMixins.extend({
         }
       }
     );
-  },
-
-  methods: {
-    onClick(event: MouseEvent) {
-      this.$emit('click', event);
-    }
   }
 });
