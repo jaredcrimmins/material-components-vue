@@ -55,6 +55,8 @@ const Configuration: UserConfig = {
 
         // Mixins
         'absolutely-positionable',
+        'buttonable',
+        'icon-buttonable',
         'linkable',
 
         // Dev app
