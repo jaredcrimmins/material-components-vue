@@ -20,14 +20,7 @@ export default Vue.extend({
   props: iconButtonableProps,
 
   methods: {
-    getButtonableProps(omitProps?: IconButtonableUnion[]) {
-      return removeKeys(
-        iconButtonableProps,
-        omitProps
-      );
-    },
-
-    getButtonablePropsOptions(omitProps?: IconButtonableUnion[]) {
+    getIconButtonablePropsOptions(omitProps?: IconButtonableUnion[]) {
       return removeKeys(
         {
           disabled: this.disabled,
