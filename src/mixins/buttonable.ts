@@ -23,13 +23,6 @@ export default Vue.extend({
   props: buttonableProps,
 
   methods: {
-    getButtonableProps(omitProps?: ButtonablePropsUnion[]) {
-      return removeKeys(
-        buttonableProps,
-        omitProps
-      );
-    },
-
     getButtonablePropsOptions(omitProps?: ButtonablePropsUnion[]) {
       return removeKeys(
         {
