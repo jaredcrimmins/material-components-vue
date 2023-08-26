@@ -9,13 +9,13 @@ export default Vue.extend({
   },
 
   data() {
-    return <{mdcTextField: null | InstanceType<typeof MDCSwitch>}>{
-      mdcTextField: null
+    return <{mdcSwitch: null | InstanceType<typeof MDCSwitch>}>{
+      mdcSwitch: null
     };
   },
 
   mounted() {
-    this.mdcTextField = new MDCSwitch(this.$el);
+    this.mdcSwitch = new MDCSwitch(this.$el);
   },
 
   render(c): VNode {
