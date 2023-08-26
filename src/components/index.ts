@@ -1,5 +1,6 @@
 export {MDCBanner} from './mdc-banner';
 export {MDCButton} from './mdc-button';
+export {MDCCard, MDCCardActionButtons, MDCCardActionIcons, MDCCardActions, MDCCardButton, MDCCardIconButton, MDCCardMedia, MDCCardPrimaryAction} from './mdc-card';
 export {MDCCheckbox} from './mdc-checkbox';
 export {MDCCircularProgress} from './mdc-circular-progress';
 export {MDCDialog, MDCDialogActions, MDCDialogButton, MDCDialogContent, MDCDialogTitle} from './mdc-dialog';

@@ -12,6 +12,14 @@ export class MaterialComponentsVue {
     Vue.component('mdc-banner', components.MDCBanner);
     Vue.component('mdc-material-icon', components.MDCMaterialIcon);
     Vue.component('mdc-button', components.MDCButton);
+    Vue.component('mdc-card', components.MDCCard);
+    Vue.component('mdc-card-action-buttons', components.MDCCardActionButtons);
+    Vue.component('mdc-card-action-icons', components.MDCCardActionIcons);
+    Vue.component('mdc-card-actions', components.MDCCardActions);
+    Vue.component('mdc-card-button', components.MDCCardButton);
+    Vue.component('mdc-card-icon-button', components.MDCCardIconButton);
+    Vue.component('mdc-card-media', components.MDCCardMedia);
+    Vue.component('mdc-card-primary-action', components.MDCCardPrimaryAction);
     Vue.component('mdc-checkbox', components.MDCCheckbox);
     Vue.component('mdc-circular-progress', components.MDCCircularProgress);
     Vue.component('mdc-dialog', components.MDCDialog);
