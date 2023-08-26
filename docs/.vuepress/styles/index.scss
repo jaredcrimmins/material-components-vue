@@ -8,6 +8,7 @@
 @use '@material/image-list/_index.scss' as image-list;
 @use '@material/linear-progress/_index.scss' as linear-progress;
 @use '@material/ripple/styles' as ripple-styles;
+@use '@material/switch/_index.scss' as switch;
 @use '@material/tooltip/styles' as tooltip-styles;
 
 @include card.core-styles;
@@ -16,6 +17,7 @@
 @include icon-button.core-styles;
 @include image-list.core-styles;
 @include linear-progress.core-styles;
+@include switch.core-styles;
 
 .mdc-image-list:not(--mdc-image-list--masonry) {
   @include image-list.standard-columns(2);
