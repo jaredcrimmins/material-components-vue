@@ -1,5 +1,6 @@
 export {default as TheDebugMDCBanner} from './the-debug-mdc-banner.vue';
 export {default as TheDebugMDCButton} from './the-debug-mdc-button.vue';
+export {default as TheDebugMDCCard} from './the-debug-mdc-card.vue';
 export {default as TheDebugMDCCheckbox} from './the-debug-mdc-checkbox.vue';
 export {default as TheDebugMDCCircularProgress} from './the-debug-mdc-circular-progress.vue';
 export {default as TheDebugMDCDialog} from './the-debug-mdc-dialog.vue';

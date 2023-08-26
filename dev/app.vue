@@ -4,6 +4,8 @@
 
     <the-debug-mdc-button />
 
+    <the-debug-mdc-card />
+
     <the-debug-mdc-checkbox />
 
     <the-debug-mdc-circular-progress />
@@ -48,6 +50,7 @@
     components: {
       'the-debug-mdc-banner': components.TheDebugMDCBanner,
       'the-debug-mdc-button': components.TheDebugMDCButton,
+      'the-debug-mdc-card': components.TheDebugMDCCard,
       'the-debug-mdc-checkbox': components.TheDebugMDCCheckbox,
       'the-debug-mdc-circular-progress': components.TheDebugMDCCircularProgress,
       'the-debug-mdc-dialog': components.TheDebugMDCDialog,
