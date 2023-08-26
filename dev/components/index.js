@@ -15,6 +15,7 @@ export {default as TheDebugMDCRadio} from './the-debug-mdc-radio.vue';
 export {default as TheDebugMDCRipple} from './the-debug-mdc-ripple.vue';
 export {default as TheDebugMDCSnackbar} from './the-debug-mdc-snackbar.vue';
 export {default as TheDebugMDCSelect} from './the-debug-mdc-select.vue';
+export {default as TheDebugMDCSwitch} from './the-debug-mdc-switch.vue';
 export {default as TheDebugMDCTabs} from './the-debug-mdc-tabs.vue';
 export {default as TheDebugMDCTextField} from './the-debug-mdc-text-field.vue';
 export {default as TheDebugMDCTooltip} from './the-debug-mdc-tooltip.vue';

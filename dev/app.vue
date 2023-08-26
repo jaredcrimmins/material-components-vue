@@ -34,6 +34,8 @@
 
     <the-debug-mdc-snackbar />
 
+    <the-debug-mdc-switch />
+
     <the-debug-mdc-tabs />
 
     <the-debug-mdc-text-field />
@@ -65,6 +67,7 @@
       'the-debug-mdc-ripple': components.TheDebugMDCRipple,
       'the-debug-mdc-snackbar': components.TheDebugMDCSnackbar,
       'the-debug-mdc-select': components.TheDebugMDCSelect,
+      'the-debug-mdc-switch': components.TheDebugMDCSwitch,
       'the-debug-mdc-tabs': components.TheDebugMDCTabs,
       'the-debug-mdc-text-field': components.TheDebugMDCTextField,
       'the-debug-mdc-tooltip': components.TheDebugMDCTooltip
