@@ -1,8 +1,8 @@
-import {MDCSwitch} from "@material/switch";
+import {MDCSwitch} from '@material/switch';
 import Vue, {CreateElement, VNode} from 'vue';
 
 export default Vue.extend({
-  name: "mdc-switch",
+  name: 'mdc-switch',
 
   props: {
     checked: Boolean
@@ -20,15 +20,15 @@ export default Vue.extend({
 
   render(c): VNode {
     return c(
-      "div",
+      'div',
       {
-        staticClass: "mdc-switch"
+        staticClass: 'mdc-switch'
       },
       [
         c(
-          "div",
+          'div',
           {
-            staticClass: "mdc-switch__track"
+            staticClass: 'mdc-switch__track'
           },
           [
             this.genThumbUnderlay(c)
@@ -41,24 +41,24 @@ export default Vue.extend({
   methods: {
     genThumbUnderlay(c: CreateElement) {
       return c(
-        "div",
+        'div',
         {
-          staticClass: "mdc-switch__thumb-underlay"
+          staticClass: 'mdc-switch__thumb-underlay'
         },
         [
           c(
-            "div",
+            'div',
             {
-              staticClass: "mdc-switch__thumb"
+              staticClass: 'mdc-switch__thumb'
             }
           ),
           c(
-            "input",
+            'input',
             {
-              staticClass: "mdc-switch__native-control",
+              staticClass: 'mdc-switch__native-control',
               attrs: {
-                "type": "checkbox",
-                "role": "switch"
+                'type': 'checkbox',
+                'role': 'switch'
               },
               props: {
                 value: this.checked
