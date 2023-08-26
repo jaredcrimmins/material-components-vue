@@ -6,6 +6,8 @@ type NativeControlElRef = HTMLInputElement;
 export default Vue.extend({
   name: 'mdc-switch',
 
+  inheritAttrs: false,
+
   props: {
     checked: Boolean,
     disabled: Boolean
@@ -103,7 +105,7 @@ export default Vue.extend({
             {
               ref: 'nativeControlEl',
               staticClass: 'mdc-switch__native-control',
-              attrs: this.attrs,
+              attrs: {...this.$attrs, ...this.attrs},
               on: {
                 change: this.onNativeControlChange,
                 input: this.onNativeControlInput
