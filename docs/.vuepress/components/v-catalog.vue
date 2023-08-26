@@ -24,6 +24,18 @@
         </div>
       </a>
     </li>
+    <li class="mdc-image-list__item">
+      <a href="/components/card/">
+        <div class="mdc-image-list__image-aspect-container">
+          <div class="mdc-image-list__image">
+            <img src="/images/catalog/card.svg">
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="catalog-image-list-label mdc-image-list__label">Card</span>
+        </div>
+      </a>
+    </li>
     <!-- <li class="mdc-image-list__item">
       <a href="/components/card/">
         <div class="mdc-image-list__image-aspect-container">

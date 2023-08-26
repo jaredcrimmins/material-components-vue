@@ -1,5 +1,6 @@
 @use '@material/banner/styles' as banner-styles;
 @use '@material/button/mdc-button';
+@use '@material/card';
 @use '@material/checkbox/_index.scss' as checkbox;
 @use '@material/circular-progress/mdc-circular-progress';
 @use '@material/form-field/_index.scss' as form-field;
@@ -9,6 +10,7 @@
 @use '@material/ripple/styles' as ripple-styles;
 @use '@material/tooltip/styles' as tooltip-styles;
 
+@include card.core-styles;
 @include checkbox.core-styles;
 @include form-field.core-styles;
 @include icon-button.core-styles;
