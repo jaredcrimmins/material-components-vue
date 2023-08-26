@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.6.0...v0.7.0) (2023-08-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **switch:** disable `inheritAttrs` and forward attrs to native input
+
+### Features
+
+* **switch:** rewrite `MdcSwitch` component using the advanced approach ([b3b471a](https://github.com/jaredcrimmins/material-components-vue/commit/b3b471a6c891b8cbd3ed2f6d38f196dacd84b7ed))
+
+
+### Bug Fixes
+
+* **switch:** disable `inheritAttrs` and forward attrs to native input ([6686a9c](https://github.com/jaredcrimmins/material-components-vue/commit/6686a9c44d1a5f90969afff703d94370746ab12f))
+
 ## [0.6.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.5.0...v0.6.0) (2023-08-26)
 
 
