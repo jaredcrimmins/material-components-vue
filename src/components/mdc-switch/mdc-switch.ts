@@ -57,8 +57,8 @@ export default Vue.extend({
             {
               staticClass: 'mdc-switch__native-control',
               attrs: {
-                'type': 'checkbox',
-                'role': 'switch'
+                type: 'checkbox',
+                role: 'switch'
               },
               props: {
                 value: this.checked
