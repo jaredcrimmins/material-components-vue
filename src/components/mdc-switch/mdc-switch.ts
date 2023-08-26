@@ -1,28 +1,43 @@
-import {MDCSwitch} from '@material/switch';
+import {MDCSwitchFoundation} from '@material/switch';
 import Vue, {CreateElement, VNode} from 'vue';
+
+type NativeControlElRef = HTMLInputElement;
 
 export default Vue.extend({
   name: 'mdc-switch',
 
   props: {
-    checked: Boolean
+    checked: Boolean,
+    disabled: Boolean
   },
 
   data() {
-    return <{mdcSwitch: null | InstanceType<typeof MDCSwitch>}>{
-      mdcSwitch: null
+    return {
+      attrs: {
+        type: 'checkbox',
+        role: 'switch'
+      } as {[attributeName: string]: string},
+      cssClass: {} as {[className: string]: boolean},
+      mdcFoundation: new MDCSwitchFoundation(MDCSwitchFoundation.defaultAdapter)
     };
   },
 
-  mounted() {
-    this.mdcSwitch = new MDCSwitch(this.$el);
+  watch: {
+    checked(value: boolean) {
+      this.setChecked(value);
+    },
+
+    disabled(value: boolean) {
+      this.setDisabled(value);
+    }
   },
 
   render(c): VNode {
     return c(
       'div',
       {
-        staticClass: 'mdc-switch'
+        staticClass: 'mdc-switch',
+        class: this.cssClass
       },
       [
         c(
@@ -38,7 +53,38 @@ export default Vue.extend({
     );
   },
 
+  mounted() {
+    this.init();
+  },
+
+  beforeDestroy() {
+    this.deinit();
+  },
+
   methods: {
+    //
+    // Private methods
+    //
+
+    init() {
+      this.mdcFoundation = new MDCSwitchFoundation(this);
+      this.mdcFoundation.init();
+      this.mdcFoundation.setChecked(this.checked);
+      this.mdcFoundation.setDisabled(this.disabled);
+    },
+
+    deinit() {
+      this.mdcFoundation.destroy();
+    },
+
+    setChecked(checked: boolean) {
+      this.mdcFoundation.setChecked(checked);
+    },
+
+    setDisabled(disabled: boolean) {
+      this.mdcFoundation.setDisabled(disabled);
+    },
+
     genThumbUnderlay(c: CreateElement) {
       return c(
         'div',
@@ -55,18 +101,54 @@ export default Vue.extend({
           c(
             'input',
             {
+              ref: 'nativeControlEl',
               staticClass: 'mdc-switch__native-control',
-              attrs: {
-                type: 'checkbox',
-                role: 'switch'
-              },
-              props: {
-                value: this.checked
+              attrs: this.attrs,
+              on: {
+                change: this.onNativeControlChange,
+                input: this.onNativeControlInput
               }
             }
           )
         ]
       );
+    },
+
+    onNativeControlChange(event: Event) {
+      const {checked} = <NativeControlElRef>this.$refs.nativeControlEl;
+
+      this.$emit('change', checked);
+      this.mdcFoundation.handleChange(event);
+    },
+
+    onNativeControlInput() {
+      const {checked} = <NativeControlElRef>this.$refs.nativeControlEl;
+
+      this.$emit('input', checked);
+    },
+
+    //
+    // Adapter methods
+    //
+
+    addClass(className: string) {
+      this.cssClass = {...this.cssClass, [className]: true};
+    },
+
+    removeClass(className: string) {
+      this.cssClass = {...this.cssClass, [className]: false};
+    },
+
+    setNativeControlChecked(checked: boolean) {
+      (<NativeControlElRef>this.$refs.nativeControlEl).checked = checked;
+    },
+
+    setNativeControlDisabled(disabled: boolean) {
+      (<NativeControlElRef>this.$refs.nativeControlEl).disabled = disabled;
+    },
+
+    setNativeControlAttr(attr: string, value: string) {
+      this.attrs = {...this.attrs, ...{[attr]: value}};
     }
   }
 });
