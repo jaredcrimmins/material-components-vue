@@ -2,6 +2,71 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.5.0...v0.6.0) (2023-08-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **banner:** convert the `graphic` slot to a scoped slot
+* **button:** convert `append` and `trailing` slots to scoped slots
+* **icon-button:** add `iconVariant` `icon` and `on-icon` scoped slot prop.
+* **list:** remove functionless `preselected` `MdcListItem` prop
+* **icon-button:** rename `tagName` prop to `tag`
+* rename `MaterialComponentsVuejs` to `MaterialComponentsVue`
+* **notched-outline:** rename `labelID` prop to use camel case
+
+### Features
+
+* **banner:** add `centered` prop ([8039c24](https://github.com/jaredcrimmins/material-components-vue/commit/8039c24a2c3969fa5851aae3c7c1837ae74b4b99))
+* **banner:** create `MdcBanner` component ([98a5bac](https://github.com/jaredcrimmins/material-components-vue/commit/98a5bac91f8528a690816414d6d5d9be4b243331))
+* **card:** create `MdcCard` component ([62c2f46](https://github.com/jaredcrimmins/material-components-vue/commit/62c2f46fad75d1782db0adf5a164e309883c0423))
+* **icon-button:** add `iconVariant` prop ([70ae248](https://github.com/jaredcrimmins/material-components-vue/commit/70ae24802a8dce64fa96e65cabe378ec9bdb6fd1))
+* **icon-button:** add `to` prop to allow the component to be linkable ([81d2911](https://github.com/jaredcrimmins/material-components-vue/commit/81d2911aa51d9af989b7df0754fd4466514f4ba0))
+* **material-icon:** add `iconVariant` prop ([dd2cea6](https://github.com/jaredcrimmins/material-components-vue/commit/dd2cea613a9a2407c0b19594ea8debe8493e1e7b))
+* **material-icon:** add `root` scoped slot ([8eabd70](https://github.com/jaredcrimmins/material-components-vue/commit/8eabd70d5cf29b1ecf199c1a4f949df068861fed))
+
+
+### Bug Fixes
+
+* **banner:** convert the `graphic` slot to a scoped slot ([3c61b51](https://github.com/jaredcrimmins/material-components-vue/commit/3c61b5187adbf30aa8ec4b98efc3f6aa42b3958b))
+* **banner:** match open state with `value` prop on mount ([5f7cbe4](https://github.com/jaredcrimmins/material-components-vue/commit/5f7cbe4fa6ee99494dd4963e6b6a5350aadacf5c))
+* **button:** convert `append` and `trailing` slots to scoped slots ([660f605](https://github.com/jaredcrimmins/material-components-vue/commit/660f6057d157df94da80ab417f76f6fc69a2ecaa))
+* **checkbox:** add/remove classes using a Vue mechanism ([401e030](https://github.com/jaredcrimmins/material-components-vue/commit/401e0300bc79721e8aba76152dd8a8c9653b3d72))
+* **circular-progress:** add/remove classes using a Vue mechanism ([a845531](https://github.com/jaredcrimmins/material-components-vue/commit/a8455312ed294fa952d6a7b7cb004d55890a8eb6))
+* **dialog:** add/remove classes using a Vue mechanism ([f27182e](https://github.com/jaredcrimmins/material-components-vue/commit/f27182e66f10304c7adca5cb035395da5de2a4f9))
+* export `MaterialComponentsVue` from package entry ([c60a138](https://github.com/jaredcrimmins/material-components-vue/commit/c60a13885a7e0f558894f0a29700940930114a21))
+* **floating-label:** add/remove classes using a Vue mechanism ([a974af6](https://github.com/jaredcrimmins/material-components-vue/commit/a974af64e81b69181aa83b777c69338637b5dcc3))
+* **floating-label:** set element `id` attribute using `id` prop ([1f79373](https://github.com/jaredcrimmins/material-components-vue/commit/1f7937305f018f19d390a28b3b526354c88c6c71))
+* **line-ripple:** add/remove classes using a Vue mechanism ([f64850d](https://github.com/jaredcrimmins/material-components-vue/commit/f64850dfe30e572778dfca7979afb0c93cff4364))
+* **linear-progress:** add missing adapter methods ([ae128a5](https://github.com/jaredcrimmins/material-components-vue/commit/ae128a5865b03160e130832b89e3e33f0120a965))
+* **linear-progress:** add/remove classes using a Vue mechanism ([9bfc499](https://github.com/jaredcrimmins/material-components-vue/commit/9bfc499b2dc9fa2f64df7ab17764d31fd6f378ee))
+* **linear-progress:** fix `setBufferBarStyle` and `setPrimaryBarStyle` ([7ccf1c3](https://github.com/jaredcrimmins/material-components-vue/commit/7ccf1c3f13eb430db01201262a725a6e64de13a8))
+* **list:** appropriately set `tabindex` attr on all list items ([6b8a723](https://github.com/jaredcrimmins/material-components-vue/commit/6b8a7236853ed702bc3b935bd4918cf3f796ffcb))
+* **list:** listen for `focusout` event, not `foucsOut` ([9fadb32](https://github.com/jaredcrimmins/material-components-vue/commit/9fadb32cc5676173cf8a0a969266ad3b19cbdeec))
+* **list:** provide `tabindex` as `checkbox` and `radio` scoped slot prop ([ecbf76c](https://github.com/jaredcrimmins/material-components-vue/commit/ecbf76cd62ddf42bd2cee6020f35eeb88af333a1))
+* **list:** remove functionless `preselected` `MdcListItem` prop ([78cdd72](https://github.com/jaredcrimmins/material-components-vue/commit/78cdd72e29e9c03b9d26d7e865f737b3af13d85b))
+* **list:** use `MdcRipple` `tag` prop, instead of `tagName` ([45044e6](https://github.com/jaredcrimmins/material-components-vue/commit/45044e6bb59cd957bc35bba74a5109393c53afc6))
+* **material-icon:** set `name` property to `'mdc-material-icon'` ([98225fb](https://github.com/jaredcrimmins/material-components-vue/commit/98225fb2c120724ee5b7f5776ca6deacf64ca312))
+* **menu-surface:** add/remove classes using a Vue mechanism ([4797783](https://github.com/jaredcrimmins/material-components-vue/commit/47977833388201eb81a810d8a74c9ba238d4aebd))
+* **notched-outline:** add/remove classes using a Vue mechanism ([aaecba3](https://github.com/jaredcrimmins/material-components-vue/commit/aaecba332f50f69ca8df8f5801b14dbafc27919e))
+* **radio:** add/remove classes using a Vue mechanism ([8aca42a](https://github.com/jaredcrimmins/material-components-vue/commit/8aca42a7644a83dbdea3a77d9bfe5d718cd68f31))
+* **select:** add/remove classes using a Vue mechanism ([145bf9a](https://github.com/jaredcrimmins/material-components-vue/commit/145bf9a392ba50fa92918114fc59c94dcfb3531b))
+* **snackbar:** add/remove classes using a Vue mechanism ([518f53b](https://github.com/jaredcrimmins/material-components-vue/commit/518f53b103861b0d18e087fd90eaadf7de012c0c))
+* **tabs:** add/remove classes using a Vue mechanism ([84b513e](https://github.com/jaredcrimmins/material-components-vue/commit/84b513ef94294408fbff7f2989cbcda0c05f0873))
+* **textfield:** add/remove classes from root el using a Vue mechanism ([45d484b](https://github.com/jaredcrimmins/material-components-vue/commit/45d484b2f3b9ba548c006fbdc052ba46292989cd))
+* **textfield:** add/remove classes using a Vue mechanism ([cd48746](https://github.com/jaredcrimmins/material-components-vue/commit/cd48746e672d3ae00c0517c92b2992ad7e0b56e9))
+* **textfield:** automatically generate unique label and helper text IDs ([eadf61b](https://github.com/jaredcrimmins/material-components-vue/commit/eadf61b091f286a78f86cfcb57601d6fabcb6c66))
+* **textfield:** modify `hasClass` method to use the `classList` property ([9d48198](https://github.com/jaredcrimmins/material-components-vue/commit/9d48198866c9595b22e625dcdc9676a35cd45152))
+* **textfield:** modify how classes are added/removed ([9ffc55e](https://github.com/jaredcrimmins/material-components-vue/commit/9ffc55e9d968734b3de2fe4c496bae2e40d19887))
+* **textfield:** set HTML attribute props default values to `null` ([bb49754](https://github.com/jaredcrimmins/material-components-vue/commit/bb497543abf79188207df0156d5ccaa96d36fc14))
+
+
+### Code Refactoring
+
+* **icon-button:** rename `tagName` prop to `tag` ([f1b1358](https://github.com/jaredcrimmins/material-components-vue/commit/f1b1358a3030fc5321a692f595ff494ed31c2b20))
+* **notched-outline:** rename `labelID` prop to use camel case ([4f5072c](https://github.com/jaredcrimmins/material-components-vue/commit/4f5072c846b66602073f70ac557490963e534528))
+* rename `MaterialComponentsVuejs` to `MaterialComponentsVue` ([2ab20e8](https://github.com/jaredcrimmins/material-components-vue/commit/2ab20e8f57a3da3445c5d0021aa91c8f1e0a8075))
+
 ## [0.5.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.4.2...v0.5.0) (2022-12-02)
 
 
