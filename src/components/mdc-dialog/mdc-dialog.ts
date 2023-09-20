@@ -162,10 +162,23 @@ export default Vue.extend({
     //
 
     addClass(className: string) {
+      // Modifying the root element class list solely using a Vue mechanism
+      // causes the component's focusable elements to be hidden when the
+      // FocusTrap looks for eligible elements.
+      // Modifying the root element class list solely using the
+      // Element.classList property allows the component's focusable elements
+      // to be visible when the FocusTrap looks for eligible elements, but also
+      // opens up the possibility of the class list to be overwritten by a
+      // parent component.
+      // Combining the two approaches gives the best of both worlds: visibility
+      // of focusable elements to the FocusTrap, and protection of the class
+      // list from being overwritten by the parent component.
+      this.$el.classList.add(className);
       this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     removeClass(className: string) {
+      this.$el.classList.remove(className);
       this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
