@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.1](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.0...v0.7.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* **dialog:** add/remove CSS classes using Vue mechanism and `classList` ([57828ea](https://github.com/jaredcrimmins/material-components-vue/commit/57828eaa070679c6537a400306b0ed3fbb91f742))
+
 ## [0.7.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.6.0...v0.7.0) (2023-08-26)
 
 
