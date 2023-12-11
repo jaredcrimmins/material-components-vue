@@ -96,7 +96,7 @@
         </div>
       </a>
     </li> -->
-    <!-- <li class="mdc-image-list__item">
+    <li class="mdc-image-list__item">
       <a href="/components/dialog/">
         <div class="mdc-image-list__image-aspect-container">
           <div class="mdc-image-list__image">
@@ -107,7 +107,7 @@
           <span class="mdc-image-list__label">Dialog</span>
         </div>
       </a>
-    </li> -->
+    </li>
     <!-- <li class="mdc-image-list__item">
       <a href="/components/drawer/">
         <div class="mdc-image-list__image-aspect-container">
