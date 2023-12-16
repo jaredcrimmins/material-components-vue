@@ -13,8 +13,6 @@
 </template>
 
 <script>
-  import {Corner, DefaultFocusState, MDCMenuFoundation} from "@material/menu";
-
   export default {
     name: 'v-menu-demo1',
 
