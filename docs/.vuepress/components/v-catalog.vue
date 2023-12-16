@@ -216,7 +216,7 @@
         </div>
       </a>
     </li>
-    <!-- <li class="mdc-image-list__item">
+    <li class="mdc-image-list__item">
       <a href="/components/menu/">
         <div class="mdc-image-list__image-aspect-container">
           <div class="mdc-image-list__image">
@@ -227,7 +227,7 @@
           <span class="mdc-image-list__label">Menu</span>
         </div>
       </a>
-    </li> -->
+    </li>
     <!-- <li class="mdc-image-list__item">
       <a href="/components/radio/">
         <div class="mdc-image-list__image-aspect-container">
