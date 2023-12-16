@@ -161,7 +161,7 @@ This component does not accept any props or slots.
 
 ## mdc-list-item
 
-### Slots
+### Props
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -169,6 +169,8 @@ This component does not accept any props or slots.
 | `rippleDisabled` | `boolean` | `false` | Disables the ripple effect. |
 | `secondaryText` | `string` | `''` | For two line lists, sets the secondary text. |
 | `value` | `string` | `''` |
+
+### Slots
 
 | Name | Description |
 | ---- | ------------|
