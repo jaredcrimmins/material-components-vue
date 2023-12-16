@@ -119,6 +119,7 @@ export default Vue.extend({
       this.setIsHoisted(this.hoisted);
       this.setQuickOpen(this.quickOpen);
       this.initListeners();
+      this.open = this.value;
     },
 
     deinit() {
