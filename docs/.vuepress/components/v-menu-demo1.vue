@@ -29,11 +29,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-  .v-menu-demo1 {
-    &__menu-container {
-      background-color: #fff;
-    }
-  }
-</style>
