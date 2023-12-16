@@ -154,6 +154,7 @@ export default baseMixins.extend({
       this.mdcFoundation = new MDCMenuFoundation(this);
       this.mdcFoundation.init();
       this.setDefaultFocusState(this.defaultFocusState);
+      this.open = this.value;
     },
 
     deinit() {
