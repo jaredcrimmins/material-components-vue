@@ -15,6 +15,10 @@
 @use '@material/ripple/styles' as ripple-styles;
 @use '@material/snackbar/_index.scss' as snackbar;
 @use '@material/switch/_index.scss' as switch;
+@use '@material/tab/_index.scss' as tab;
+@use '@material/tab-bar/_index.scss' as tab-bar;
+@use '@material/tab-indicator/_index.scss' as tab-indicator;
+@use '@material/tab-scroller/_index.scss' as tab-scroller;
 @use '@material/tooltip/styles' as tooltip-styles;
 
 @include card.core-styles;
@@ -26,6 +30,10 @@
 @include linear-progress.core-styles;
 @include list.core-styles;
 @include snackbar.core-styles;
+@include tab.core-styles;
+@include tab-bar.core-styles;
+@include tab-indicator.core-styles;
+@include tab-scroller.core-styles;
 @include switch.core-styles;
 
 .mdc-image-list:not(--mdc-image-list--masonry) {
