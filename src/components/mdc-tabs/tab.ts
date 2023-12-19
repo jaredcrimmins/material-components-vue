@@ -79,6 +79,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
       "button",
       {
         staticClass: "mdc-tab",
+        class: this.cssClasses,
         attrs: {
           id: this.id,
           role: "tab"
