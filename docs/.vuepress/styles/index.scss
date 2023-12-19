@@ -13,6 +13,7 @@
 @use '@material/menu-surface/mdc-menu-surface';
 @use '@material/radio/mdc-radio';
 @use '@material/ripple/styles' as ripple-styles;
+@use '@material/snackbar/_index.scss' as snackbar;
 @use '@material/switch/_index.scss' as switch;
 @use '@material/tooltip/styles' as tooltip-styles;
 
@@ -24,6 +25,7 @@
 @include image-list.core-styles;
 @include linear-progress.core-styles;
 @include list.core-styles;
+@include snackbar.core-styles;
 @include switch.core-styles;
 
 .mdc-image-list:not(--mdc-image-list--masonry) {
