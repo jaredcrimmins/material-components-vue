@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.3](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.2...v0.7.3) (2023-12-19)
+
+
+### Bug Fixes
+
+* **tabs:** fix issue that prevented classes from being prg'ly removed ([32d6ac4](https://github.com/jaredcrimmins/material-components-vue/commit/32d6ac461b7e493b17100ebe1d2438984290d225))
+* **tabs:** modify `MdcTab` `removeClass` method to actually remove class ([37a1fd0](https://github.com/jaredcrimmins/material-components-vue/commit/37a1fd0c34ba8cd664e204efd72ebee97a26e1f6))
+
 ## [0.7.2](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.1...v0.7.2) (2023-12-19)
 
 
