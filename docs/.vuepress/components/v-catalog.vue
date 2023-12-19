@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="mdc-image-list__supporting">
-          <span class="catalog-image-list-label mdc-image-list__label">Banner</span>
+          <span class="mdc-image-list__label">Banner</span>
         </div>
       </a>
     </li>
@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="mdc-image-list__supporting">
-          <span class="catalog-image-list-label mdc-image-list__label">Button</span>
+          <span class="mdc-image-list__label">Button</span>
         </div>
       </a>
     </li>
@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="mdc-image-list__supporting">
-          <span class="catalog-image-list-label mdc-image-list__label">Card</span>
+          <span class="mdc-image-list__label">Card</span>
         </div>
       </a>
     </li>
