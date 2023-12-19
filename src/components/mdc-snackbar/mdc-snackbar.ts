@@ -37,7 +37,7 @@ export default Vue.extend({
       mdcFoundation: new MDCSnackbarFoundation(
         MDCSnackbarFoundation.defaultAdapter
       ),
-      open: this.value
+      open: false
     };
   },
 
@@ -94,6 +94,7 @@ export default Vue.extend({
 
       this.setCloseOnEscape(this.closeOnEscape);
       this.setTimeoutMs(this.timeoutMs);
+      this.open = this.value;
     },
 
     deinit() {
