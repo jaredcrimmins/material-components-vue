@@ -213,7 +213,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     },
 
     removeClass(className: string) {
-      this.cssClasses = {...this.cssClasses, [className]: true};
+      this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
     hasClass(className: string) {
