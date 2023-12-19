@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.2](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.1...v0.7.2) (2023-12-19)
+
+
+### Bug Fixes
+
+* **menu-surface:** set `this.open` using `this.value` at `mounted` ([98fd1d5](https://github.com/jaredcrimmins/material-components-vue/commit/98fd1d50bd41827485c6fed043794ba881046a39))
+* **menu:** set `this.open` using `this.value` at `mounted` ([7582b1d](https://github.com/jaredcrimmins/material-components-vue/commit/7582b1d79a0e4daecf820b48b55f872f3585f23d))
+* **snackbar:** sync the `open` data prop with `value` on mount ([fbfa738](https://github.com/jaredcrimmins/material-components-vue/commit/fbfa738e1fe0ca00a7443f1912a1f1ac6809119f))
+
 ## [0.7.1](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.0...v0.7.1) (2023-12-11)
 
 
