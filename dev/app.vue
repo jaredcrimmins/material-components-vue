@@ -32,6 +32,8 @@
 
     <the-debug-mdc-select />
 
+    <the-debug-mdc-slider />
+
     <the-debug-mdc-snackbar />
 
     <the-debug-mdc-switch />
@@ -67,6 +69,7 @@
       'the-debug-mdc-ripple': components.TheDebugMDCRipple,
       'the-debug-mdc-snackbar': components.TheDebugMDCSnackbar,
       'the-debug-mdc-select': components.TheDebugMDCSelect,
+      'the-debug-mdc-slider': components.TheDebugMDCSlider,
       'the-debug-mdc-switch': components.TheDebugMDCSwitch,
       'the-debug-mdc-tabs': components.TheDebugMDCTabs,
       'the-debug-mdc-text-field': components.TheDebugMDCTextField,
@@ -147,6 +150,7 @@
   @use '@material/radio/mdc-radio';
   @use '@material/ripple/styles';
   @use '@material/select/mdc-select';
+  @use '@material/slider/styles' as slider-styles;
   @use '@material/snackbar/_index.scss' as snackbar;
   @use '@material/switch/_index.scss' as switch;
   @use '@material/tab/_index.scss' as tab;
