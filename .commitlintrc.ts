@@ -48,6 +48,7 @@ const Configuration: UserConfig = {
         'radio',
         'ripple',
         'select',
+        'slider',
         'snackbar',
         'switch',
         'tabs',
