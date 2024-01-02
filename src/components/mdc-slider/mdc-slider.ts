@@ -84,7 +84,7 @@ export default Vue.extend({
     this.init();
   },
 
-  destroyed() {
+  beforeDestroy() {
     this.deinit();
   },
 
