@@ -18,6 +18,7 @@ export {MDCNotchedOutline} from './mdc-notched-outline';
 export {MDCRadio} from './mdc-radio';
 export {MDCRipple} from './mdc-ripple';
 export {MDCSelect} from './mdc-select';
+export {MDCSlider} from './mdc-slider';
 export {MDCSnackbar} from './mdc-snackbar';
 export {MDCSwitch} from './mdc-switch';
 export {MDCTab, MDCTabBar} from './mdc-tabs';

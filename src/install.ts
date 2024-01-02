@@ -48,6 +48,7 @@ export class MaterialComponentsVue {
     Vue.component('mdc-radio', components.MDCRadio);
     Vue.component('mdc-ripple', components.MDCRipple);
     Vue.component('mdc-select', components.MDCSelect);
+    Vue.component('mdc-slider', components.MDCSlider);
     Vue.component('mdc-snackbar', components.MDCSnackbar);
     Vue.component('mdc-switch', components.MDCSwitch);
     Vue.component('mdc-tab', components.MDCTab);
