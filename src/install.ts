@@ -62,5 +62,6 @@ export class MaterialComponentsVue {
     Vue.component('mdc-tooltip-rich-actions', components.MDCTooltipRichActions);
     Vue.component('mdc-tooltip-title', components.MDCTooltipTitle);
     Vue.component('mdc-tooltip-wrapper', components.MDCTooltipWrapper);
+    Vue.component('mdc-touch-target-wrapper', components.MDCTouchTargetWrapper);
   }
 }
