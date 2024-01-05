@@ -21,6 +21,8 @@ type ValueIndicatorTextElRef = HTMLElement | HTMLElement[];
 export default Vue.extend({
   name: 'mdc-slider',
 
+  inheritAttrs: false,
+
   components: {
     'mdc-ripple': MDCRipple
   },
