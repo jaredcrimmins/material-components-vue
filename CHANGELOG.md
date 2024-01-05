@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.4](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.3...v0.7.4) (2024-01-05)
+
+
+### Features
+
+* **slider:** create `MdcSlider` component ([16d1940](https://github.com/jaredcrimmins/material-components-vue/commit/16d1940da7ff700cf994b034d762cf750970c5bb)), closes [#9](https://github.com/jaredcrimmins/material-components-vue/issues/9)
+
+
+### Bug Fixes
+
+* **slider:** disable `inheritAttrs` and forward attrs to native input ([0841a49](https://github.com/jaredcrimmins/material-components-vue/commit/0841a49fbf682451341f1a88d18bc9f44ccc8a7a))
+* **slider:** invoke the `deinit` method in the `beforeDestroy` hook ([13af4f6](https://github.com/jaredcrimmins/material-components-vue/commit/13af4f6e8893c28b9e68c3bff6d546e4603de6ef))
+
 ## [0.7.3](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.2...v0.7.3) (2023-12-19)
 
 
