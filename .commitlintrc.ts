@@ -61,6 +61,7 @@ const Configuration: UserConfig = {
         'buttonable',
         'icon-buttonable',
         'linkable',
+        'touch-target-wrappable',
 
         // Dev app
         'dev',
