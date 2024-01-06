@@ -1,6 +1,9 @@
+import {CreateElement, VueConstructor, VNode} from 'vue';
+import {ExtractVue} from '@/utils';
 import {MDCRadioFoundation, cssClasses} from "@material/radio";
 import {MDCRipple} from "../mdc-ripple";
-import Vue, {CreateElement, VueConstructor, VNode} from 'vue';
+import {mixins} from '@/utils';
+import {touchTargetWrappable} from "@/mixins";
 
 let radioID_ = 0;
 
@@ -8,7 +11,9 @@ interface Injections {
   formFieldInputId: string | null;
 }
 
-export default (<VueConstructor<Vue & Injections>>Vue).extend({
+const baseMixins = mixins(touchTargetWrappable);
+
+export default (<VueConstructor<ExtractVue<typeof baseMixins> & Injections>>baseMixins).extend({
   name: "mdc-radio",
 
   inheritAttrs: false,

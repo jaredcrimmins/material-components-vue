@@ -1,9 +1,9 @@
 import {MDCRipple} from '../mdc-ripple';
 import {VNode} from 'vue';
 import {getSlot, mixins} from '@/utils';
-import {buttonable, linkable} from '@/mixins';
+import {buttonable, linkable, touchTargetWrappable} from '@/mixins';
 
-const baseMixins = mixins(buttonable, linkable);
+const baseMixins = mixins(buttonable, linkable, touchTargetWrappable);
 
 export default baseMixins.extend({
   name: 'mdc-button',
@@ -37,7 +37,8 @@ export default baseMixins.extend({
                 class: Object.assign({
                   'mdc-button--outlined': this.outlined,
                   'mdc-button--raised': this.raised,
-                  'mdc-button--unelevated': this.unelevated
+                  'mdc-button--unelevated': this.unelevated,
+                  'mdc-button--touch': this.hasTouchTargetWrapperParent
                 }, cssClass),
                 attrs: {
                   disabled: isTagNameButton && this.disabled,

@@ -1,7 +1,8 @@
+import {CreateElement, VueConstructor, VNode} from 'vue';
+import {ExtractVue, domPropDefFactory, mixins} from '@/utils';
 import {MDCCheckboxFoundation, cssClasses} from "@material/checkbox";
 import {MDCRipple} from '../mdc-ripple';
-import Vue, {CreateElement, VueConstructor, VNode} from 'vue';
-import {domPropDefFactory} from '@/utils';
+import {touchTargetWrappable} from '@/mixins';
 
 let checkboxID_ = 0;
 
@@ -9,7 +10,9 @@ interface Injections {
   formFieldInputId: string | null;
 }
 
-export default (<VueConstructor<Vue & Injections>>Vue).extend({
+const baseMixins = mixins(touchTargetWrappable);
+
+export default (<VueConstructor<ExtractVue<typeof baseMixins> & Injections>>baseMixins).extend({
   name: "mdc-checkbox",
 
   inheritAttrs: false,
@@ -40,7 +43,8 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     return {
       id_: "",
       cssClasses: {
-        [cssClasses.DISABLED]: this.disabled
+        [cssClasses.DISABLED]: this.disabled,
+        'mdc-checkbox--touch': this.hasTouchTargetWrapperParent
       } as {[cssClass: string]: boolean},
       mdcFoundation: new MDCCheckboxFoundation(
         MDCCheckboxFoundation.defaultAdapter
