@@ -43,6 +43,8 @@
     <the-debug-mdc-text-field />
 
     <the-debug-mdc-tooltip />
+
+    <the-debug-mdc-touch-target />
   </div>
 </template>
 
@@ -73,7 +75,8 @@
       'the-debug-mdc-switch': components.TheDebugMDCSwitch,
       'the-debug-mdc-tabs': components.TheDebugMDCTabs,
       'the-debug-mdc-text-field': components.TheDebugMDCTextField,
-      'the-debug-mdc-tooltip': components.TheDebugMDCTooltip
+      'the-debug-mdc-tooltip': components.TheDebugMDCTooltip,
+      'the-debug-mdc-touch-target': components.TheDebugMDCTouchTarget
     },
 
     data() {
@@ -158,6 +161,7 @@
   @use '@material/tab-indicator/_index.scss' as tab-indicator;
   @use '@material/tab-scroller/_index.scss' as tab-scroller;
   @use '@material/textfield/_index.scss' as textfield;
+  @use '@material/touch-target/mdc-touch-target';
 
   @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
   @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Outlined';

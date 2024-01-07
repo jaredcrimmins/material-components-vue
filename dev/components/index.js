@@ -20,4 +20,5 @@ export {default as TheDebugMDCSwitch} from './the-debug-mdc-switch.vue';
 export {default as TheDebugMDCTabs} from './the-debug-mdc-tabs.vue';
 export {default as TheDebugMDCTextField} from './the-debug-mdc-text-field.vue';
 export {default as TheDebugMDCTooltip} from './the-debug-mdc-tooltip.vue';
+export {default as TheDebugMDCTouchTarget} from './the-debug-mdc-touch-target.vue';
 export {default as VDebugContent} from './v-debug-content.vue';
