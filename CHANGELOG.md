@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.5](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.4...v0.7.5) (2024-01-07)
+
+
+### Features
+
+* **multiple:** implement `MdcTouchTargetWrapper` functionality ([5b7be95](https://github.com/jaredcrimmins/material-components-vue/commit/5b7be95eb779b9e6e4b8a24260d4518c5dade41c)), closes [#11](https://github.com/jaredcrimmins/material-components-vue/issues/11)
+* **touch-target:** create `MdcTouchTargetWrapper` component ([4727dba](https://github.com/jaredcrimmins/material-components-vue/commit/4727dbafed786793dcbe19d9e29ffde2838bbf41)), closes [#11](https://github.com/jaredcrimmins/material-components-vue/issues/11)
+
 ## [0.7.4](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.3...v0.7.4) (2024-01-05)
 
 
