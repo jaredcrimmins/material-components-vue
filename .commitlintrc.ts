@@ -47,6 +47,7 @@ const Configuration: UserConfig = {
         'notched-outline',
         'radio',
         'ripple',
+        'segmented-button',
         'select',
         'slider',
         'snackbar',
