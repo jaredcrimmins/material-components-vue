@@ -21,6 +21,7 @@
 @use '@material/tab-indicator/_index.scss' as tab-indicator;
 @use '@material/tab-scroller/_index.scss' as tab-scroller;
 @use '@material/tooltip/styles' as tooltip-styles;
+@use '@material/touch-target/mdc-touch-target';
 
 @include card.core-styles;
 @include checkbox.core-styles;
