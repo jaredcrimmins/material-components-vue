@@ -47,6 +47,8 @@ export class MaterialComponentsVue {
     Vue.component('mdc-notched-outline', components.MDCNotchedOutline);
     Vue.component('mdc-radio', components.MDCRadio);
     Vue.component('mdc-ripple', components.MDCRipple);
+    Vue.component('mdc-segmented-button', components.MDCSegmentedButton);
+    Vue.component('mdc-segmented-button-segment', components.MDCSegmentedButtonSegment);
     Vue.component('mdc-select', components.MDCSelect);
     Vue.component('mdc-slider', components.MDCSlider);
     Vue.component('mdc-snackbar', components.MDCSnackbar);

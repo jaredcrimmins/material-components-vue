@@ -17,6 +17,7 @@ export {MDCMenuSurface} from './mdc-menu-surface';
 export {MDCNotchedOutline} from './mdc-notched-outline';
 export {MDCRadio} from './mdc-radio';
 export {MDCRipple} from './mdc-ripple';
+export {MDCSegmentedButton, MDCSegmentedButtonSegment} from './mdc-segmented-button';
 export {MDCSelect} from './mdc-select';
 export {MDCSlider} from './mdc-slider';
 export {MDCSnackbar} from './mdc-snackbar';
