@@ -30,6 +30,8 @@
 
     <the-debug-mdc-ripple />
 
+    <the-debug-mdc-segmented-button />
+
     <the-debug-mdc-select />
 
     <the-debug-mdc-slider />
@@ -69,6 +71,7 @@
       'the-debug-mdc-menu': components.TheDebugMDCMenu,
       'the-debug-mdc-radio': components.TheDebugMDCRadio,
       'the-debug-mdc-ripple': components.TheDebugMDCRipple,
+      'the-debug-mdc-segmented-button': components.TheDebugMDCSegmentedButton,
       'the-debug-mdc-snackbar': components.TheDebugMDCSnackbar,
       'the-debug-mdc-select': components.TheDebugMDCSelect,
       'the-debug-mdc-slider': components.TheDebugMDCSlider,
@@ -152,6 +155,7 @@
   @use '@material/menu-surface/_index.scss' as menu-surface;
   @use '@material/radio/mdc-radio';
   @use '@material/ripple/styles';
+  @use '@material/segmented-button/styles' as segmented-button-styles;
   @use '@material/select/mdc-select';
   @use '@material/slider/styles' as slider-styles;
   @use '@material/snackbar/_index.scss' as snackbar;

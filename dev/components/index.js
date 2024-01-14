@@ -14,6 +14,7 @@ export {default as TheDebugMDCMenu} from './the-debug-mdc-menu.vue';
 export {default as TheDebugMDCRadio} from './the-debug-mdc-radio.vue';
 export {default as TheDebugMDCRipple} from './the-debug-mdc-ripple.vue';
 export {default as TheDebugMDCSnackbar} from './the-debug-mdc-snackbar.vue';
+export {default as TheDebugMDCSegmentedButton} from './the-debug-mdc-segmented-button.vue';
 export {default as TheDebugMDCSelect} from './the-debug-mdc-select.vue';
 export {default as TheDebugMDCSlider} from './the-debug-mdc-slider.vue';
 export {default as TheDebugMDCSwitch} from './the-debug-mdc-switch.vue';
