@@ -38,6 +38,7 @@ const Configuration: UserConfig = {
         'form-field',
         'icon-button',
         'image-list',
+        'layout-grid',
         'line-ripple',
         'linear-progress',
         'list',
