@@ -7,6 +7,7 @@ export {default as TheDebugMDCDialog} from './the-debug-mdc-dialog.vue';
 export {default as TheDebugMDCFormField} from './the-debug-mdc-form-field.vue';
 export {default as TheDebugMDCIconButton} from './the-debug-mdc-icon-button.vue';
 export {default as TheDebugMDCImageList} from './the-debug-mdc-image-list.vue';
+export {default as TheDebugMDCLayoutGrid} from './the-debug-mdc-layout-grid.vue';
 export {default as TheDebugMDCLinearProgress} from './the-debug-mdc-linear-progress.vue';
 export {default as TheDebugMDCList} from './the-debug-mdc-list.vue';
 export {default as TheDebugMDCMaterialIcon} from './the-debug-mdc-material-icon';

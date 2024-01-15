@@ -18,6 +18,8 @@
 
     <the-debug-mdc-image-list />
 
+    <the-debug-mdc-layout-grid />
+
     <the-debug-mdc-linear-progress />
 
     <the-debug-mdc-list />
@@ -65,6 +67,7 @@
       'the-debug-mdc-form-field': components.TheDebugMDCFormField,
       'the-debug-mdc-icon-button': components.TheDebugMDCIconButton,
       'the-debug-mdc-image-list': components.TheDebugMDCImageList,
+      'the-debug-mdc-layout-grid': components.TheDebugMDCLayoutGrid,
       'the-debug-mdc-linear-progress': components.TheDebugMDCLinearProgress,
       'the-debug-mdc-list': components.TheDebugMDCList,
       'the-debug-mdc-material-icon': components.TheDebugMDCMaterialIcon,
@@ -147,6 +150,7 @@
   @use '@material/form-field/_index.scss' as form-field;
   @use '@material/icon-button/_index.scss' as icon-button;
   @use '@material/image-list/_index.scss' as image-list;
+  @use '@material/layout-grid/mdc-layout-grid';
   @use '@material/list/_index.scss' as list;
   @use '@material/line-ripple/_index.scss' as line-ripple;
   @use '@material/linear-progress/_index.scss' as linear-progress;
