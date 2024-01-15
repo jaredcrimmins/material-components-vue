@@ -8,6 +8,7 @@ export {MDCFloatingLabel} from './mdc-floating-label';
 export {MDCFormField} from './mdc-form-field';
 export {MDCIconButton} from './mdc-icon-button';
 export {MDCImageList, MDCImageListItem} from './mdc-image-list';
+export {MDCLayoutGrid, MDCLayoutGridCell, MDCLayoutGridInner} from './mdc-layout-grid';
 export {MDCLinearProgress} from './mdc-linear-progress';
 export {MDCLineRipple} from './mdc-line-ripple';
 export {MDCList, MDCListDivider, MDCListGroup, MDCListItem} from './mdc-list';

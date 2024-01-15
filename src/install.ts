@@ -32,6 +32,9 @@ export class MaterialComponentsVue {
     Vue.component('mdc-icon-button', components.MDCIconButton);
     Vue.component('mdc-image-list', components.MDCImageList);
     Vue.component('mdc-image-list-item', components.MDCImageListItem);
+    Vue.component('mdc-layout-grid', components.MDCLayoutGrid);
+    Vue.component('mdc-layout-grid-cell', components.MDCLayoutGridCell);
+    Vue.component('mdc-layout-grid-inner', components.MDCLayoutGridInner);
     Vue.component('mdc-linear-progress', components.MDCLinearProgress);
     Vue.component('mdc-line-ripple', components.MDCLineRipple);
     Vue.component('mdc-list', components.MDCList);
