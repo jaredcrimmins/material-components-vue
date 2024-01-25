@@ -64,7 +64,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
 
     children.push(
       c(
-        'div',
+        'span',
         {
           ref: "ripple",
           staticClass: "mdc-tab__ripple"
@@ -76,8 +76,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
       'mdc-ripple',
       {
         props: {
-          standalone: false,
-          tag: 'span'
+          standalone: false
         },
         scopedSlots: {
           root: ({cssClass, on, style}) => {
