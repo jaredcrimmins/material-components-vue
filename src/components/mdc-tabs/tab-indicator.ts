@@ -27,6 +27,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
       cssClasses: {
         "mdc-tab-indicator--fade": this.fade
       } as {[className: string]: boolean},
+      contentStyle: {} as {[propertyName: string]: string},
       mdcFoundation: this.fade
         ? new MDCFadingTabIndicatorFoundation(
           MDCFadingTabIndicatorFoundation.defaultAdapter
@@ -57,7 +58,8 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
             },
             attrs: {
               "aria-hidden": "true"
-            }
+            },
+            style: this.contentStyle
           },
           this.$slots.default
         )
@@ -110,7 +112,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     },
 
     setContentStyleProperty(prop: string, value: string) {
-      (<ContentElRef>this.$refs.contentEl).style.setProperty(prop, value);
+      this.contentStyle = {...this.contentStyle, [prop]: value};
     }
   }
 });
