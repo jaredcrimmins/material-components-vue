@@ -1,6 +1,8 @@
 import {MDCFadingTabIndicatorFoundation, MDCSlidingTabIndicatorFoundation} from "@material/tab-indicator";
+import {MDCMaterialIcon} from '../mdc-material-icon';
 import Vue, {VueConstructor, VNode} from 'vue';
 
+type ContentRef = InstanceType<typeof MDCMaterialIcon>;
 type ContentElRef = HTMLElement;
 
 interface Injections {
@@ -10,6 +12,10 @@ interface Injections {
 
 export default (<VueConstructor<Vue & Injections>>Vue).extend({
   name: "mdc-tab-indicator",
+
+  components: {
+    'mdc-material-icon': MDCMaterialIcon
+  },
 
   inject: {
     fade: {
@@ -38,7 +44,17 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     };
   },
 
+  computed: {
+    isIcon() {
+      return !!this.$slots.default;
+    }
+  },
+
   render(c): VNode {
+    const contentNativeTag = 'span';
+    const contentTag = this.isIcon ? 'mdc-material-icon' : contentNativeTag;
+    const contentRef = this.isIcon ? 'content' : 'contentEl';
+
     return c(
       "span",
       {
@@ -47,19 +63,21 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
       },
       [
         c(
-          "span",
+          contentTag,
           {
-            ref: "contentEl",
+            ref: contentRef,
             staticClass: "mdc-tab-indicator__content",
             class: {
-              "mdc-tab-indicator__content--icon": !!this.$slots.default,
-              "mdc-tab-indicator__content--underline": this.underline,
-              "material-icons": !!this.$slots.default
+              "mdc-tab-indicator__content--icon": this.isIcon,
+              "mdc-tab-indicator__content--underline": this.underline
             },
             attrs: {
-              "aria-hidden": "true"
+              "aria-hidden": this.isIcon ? true : undefined
             },
-            style: this.contentStyle
+            style: this.contentStyle,
+            props: {
+              tag: contentNativeTag
+            }
           },
           this.$slots.default
         )
@@ -80,6 +98,14 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
 
   methods: {
     //
+    // Private methods
+    //
+
+    getContentEl() {
+      return this.isIcon ? <HTMLElement>(<ContentRef>this.$refs.content).$el : <ContentElRef>this.$refs.contentEl;
+    },
+
+    //
     // Public methods
     //
 
@@ -96,7 +122,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     //
 
     computeContentClientRect() {
-      return (<ContentElRef>this.$refs.contentEl).getBoundingClientRect();
+      return this.getContentEl().getBoundingClientRect();
     },
 
     //
