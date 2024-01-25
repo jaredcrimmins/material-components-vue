@@ -63,32 +63,44 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
 
     children.push(
       c(
-        "mdc-ripple",
+        'div',
         {
           ref: "ripple",
-          staticClass: "mdc-tab__ripple",
-          props: {
-            standalone: false,
-            tagName: "span"
-          }
+          staticClass: "mdc-tab__ripple"
         }
       )
     );
 
     return c(
-      "button",
+      'mdc-ripple',
       {
-        staticClass: "mdc-tab",
-        class: this.cssClasses,
-        attrs: {
-          id: this.id,
-          role: "tab"
+        props: {
+          standalone: false,
+          tag: 'span'
         },
-        on: {
-          click: this.onClick
+        scopedSlots: {
+          root: ({cssClass, on, style}) => {
+            return c(
+              'button',
+              {
+                staticClass: 'mdc-tab',
+                class: {...cssClass, ...this.cssClasses},
+                attrs: {
+                  id: this.id,
+                  role: 'tab'
+                },
+                style,
+                on: {
+                  blur: on.blur,
+                  click: this.onClick,
+                  focus: on.focus
+                }
+              },
+              children
+            );
+          }
         }
-      },
-      children
+      }
     );
   },
 
