@@ -94,6 +94,10 @@ export default Vue.extend({
   watch: {
     automaticActivation(value) {
       this.mdcFoundation.setUseAutomaticActivation(value);
+    },
+
+    value(value) {
+      this.mdcFoundation.activateTab(value);
     }
   },
 
