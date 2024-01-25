@@ -49,6 +49,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
   data() {
     return {
       cssClasses: {} as {[className: string]: boolean},
+      attrs: {} as {[attr: string]: string},
       mdcFoundation: new MDCTabFoundation(
         MDCTabFoundation.defaultAdapter
       ),
@@ -86,8 +87,11 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
                 staticClass: 'mdc-tab',
                 class: {...cssClass, ...this.cssClasses},
                 attrs: {
-                  id: this.id,
-                  role: 'tab'
+                  ...{
+                    id: this.id,
+                    role: 'tab'
+                  },
+                  ...this.attrs
                 },
                 style,
                 on: {
@@ -234,7 +238,7 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     },
 
     setAttr(attr: string, value: string) {
-      this.$el.setAttribute(attr, value);
+      this.attrs = {...this.attrs, [attr]: value};
     },
 
     activateIndicator(previousIndicatorClientRect: ClientRect) {
