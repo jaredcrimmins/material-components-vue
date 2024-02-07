@@ -30,6 +30,7 @@ const Configuration: UserConfig = {
         'multiple', // For when a commit applies to multiple components.
         'button',
         'card',
+        'chips',
         'checkbox',
         'circular-progress',
         'data-table',
