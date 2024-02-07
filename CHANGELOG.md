@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.6](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.5...v0.7.6) (2024-02-07)
+
+
+### Features
+
+* **chips:** create `MdcChip` components ([c6faa1d](https://github.com/jaredcrimmins/material-components-vue/commit/c6faa1d76ec7efe715241f1eea166402bda2ddb3)), closes [#4](https://github.com/jaredcrimmins/material-components-vue/issues/4)
+* **layout-grid:** create `MdcLayoutGrid` component ([71ff765](https://github.com/jaredcrimmins/material-components-vue/commit/71ff765ac593dea6207c49ccc93796ba95fd42ed)), closes [#7](https://github.com/jaredcrimmins/material-components-vue/issues/7)
+* **segmented-button:** create `MdcSegmentedButton` component ([c219a6c](https://github.com/jaredcrimmins/material-components-vue/commit/c219a6c473270ec6b96313f2792b5ccb9895965e)), closes [#8](https://github.com/jaredcrimmins/material-components-vue/issues/8)
+
+
+### Bug Fixes
+
+* **tabs:** change active tab when the `MdcTabBar` `value` prop changes ([1865cb3](https://github.com/jaredcrimmins/material-components-vue/commit/1865cb365013edc801d129d16179099e3b82f30c))
+* **tabs:** correctly implement the `MdcRipple` component into `MdcTab` ([12973e0](https://github.com/jaredcrimmins/material-components-vue/commit/12973e04eac496e830712aea9fa07f9ba9dff95f))
+* **tabs:** render the `MdcTab` ripple element as a `&lt;span&gt;` ([099a63d](https://github.com/jaredcrimmins/material-components-vue/commit/099a63d7a36d3fe31aec9a7e39b820e6193ab2b4))
+
 ## [0.7.5](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.4...v0.7.5) (2024-01-07)
 
 
