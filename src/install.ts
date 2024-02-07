@@ -21,6 +21,8 @@ export class MaterialComponentsVue {
     Vue.component('mdc-card-media', components.MDCCardMedia);
     Vue.component('mdc-card-primary-action', components.MDCCardPrimaryAction);
     Vue.component('mdc-checkbox', components.MDCCheckbox);
+    Vue.component('mdc-chip', components.MDCChip);
+    Vue.component('mdc-chip-set', components.MDCChipSet);
     Vue.component('mdc-circular-progress', components.MDCCircularProgress);
     Vue.component('mdc-dialog', components.MDCDialog);
     Vue.component('mdc-dialog-actions', components.MDCDialogActions);
