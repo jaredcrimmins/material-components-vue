@@ -19,6 +19,10 @@ export default Vue.extend({
 
   props: {
     hasTypeahead: Boolean,
+    tag: {
+      type: String,
+      default: "ul"
+    },
     selectedIndex: {
       type: <PropType<SelectedIndex>>[Number, Array, null],
       default: null
@@ -98,7 +102,7 @@ export default Vue.extend({
 
   render(c): VNode {
     return c(
-      "ul",
+      this.tag,
       {
         staticClass: cssClasses.ROOT,
         class: {
