@@ -8,6 +8,8 @@
 
     <the-debug-mdc-checkbox />
 
+    <the-debug-mdc-chips />
+
     <the-debug-mdc-circular-progress />
 
     <the-debug-mdc-dialog />
@@ -62,6 +64,7 @@
       'the-debug-mdc-button': components.TheDebugMDCButton,
       'the-debug-mdc-card': components.TheDebugMDCCard,
       'the-debug-mdc-checkbox': components.TheDebugMDCCheckbox,
+      'the-debug-mdc-chips': components.TheDebugMDCChips,
       'the-debug-mdc-circular-progress': components.TheDebugMDCCircularProgress,
       'the-debug-mdc-dialog': components.TheDebugMDCDialog,
       'the-debug-mdc-form-field': components.TheDebugMDCFormField,
@@ -144,6 +147,7 @@
 <style lang='scss'>
   @use '@material/button/mdc-button';
   @use '@material/checkbox/_index.scss' as checkbox;
+  @use '@material/chips/mdc-chips';
   @use "@material/circular-progress/mdc-circular-progress";
   @use '@material/dialog/_index.scss' as dialog;
   @use '@material/floating-label/_index.scss' as floating-label;
