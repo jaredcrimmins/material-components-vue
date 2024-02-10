@@ -123,7 +123,14 @@ export default Vue.extend({
   computed: {
     hasFloatingLabel(): boolean {
       return !!(this.label && !this.fullWidth && !this.multiline && !this.outlined);
-      // return (this.label && !this.fullWidth && !this.multiline);
+    },
+
+    // If the label prop hasn't been provided, then a built-in label element is
+    // not rendered. Additionally, the presence of the fullWidth and multiline
+    // props mean this component should render as a textarea, and textarea
+    // versions of this component do not render label elements.
+    hasLabelEl(): boolean {
+      return !!(this.label && !this.fullWidth && !this.multiline);
     },
 
     hasNothcedOutline(): boolean {
@@ -159,7 +166,7 @@ export default Vue.extend({
             class: {...this.cssClass, ...{
               [cssClasses.DISABLED]: this.disabled,
               'mdc-text-field--filled': this.filled,
-              [cssClasses.NO_LABEL]: !this.hasFloatingLabel,
+              [cssClasses.NO_LABEL]: !this.hasLabelEl,
               [cssClasses.OUTLINED]: this.outlined,
               [cssClasses.TEXTAREA]: this.multiline
             }},
