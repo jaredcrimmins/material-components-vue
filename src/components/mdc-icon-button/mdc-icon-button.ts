@@ -12,7 +12,7 @@ const cssClasses = {...MDCIconButtonToggleFoundation.cssClasses, ...{
   ICON_BUTTON_ICON_ON: 'mdc-icon-button__icon--on'
 }};
 
-const baseMixins = mixins(iconButtonable, linkable, materialIconable);
+const baseMixins = mixins(linkable, iconButtonable, materialIconable);
 
 export default baseMixins.extend({
   name: 'mdc-icon-button',

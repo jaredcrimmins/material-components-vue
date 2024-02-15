@@ -3,7 +3,7 @@ import {VNode} from 'vue';
 import {getSlot, mixins} from '@/utils';
 import {buttonable, linkable, touchTargetWrappable} from '@/mixins';
 
-const baseMixins = mixins(buttonable, linkable, touchTargetWrappable);
+const baseMixins = mixins(linkable, buttonable, touchTargetWrappable);
 
 export default baseMixins.extend({
   name: 'mdc-button',
