@@ -1,4 +1,5 @@
-import {MDCMaterialIcon, MDCRipple} from '../';
+import {MDCMaterialIcon} from '../mdc-material-icon';
+import {MDCRipple} from '../mdc-ripple';
 import {MDCSegmentedButtonSegmentFoundation} from '@material/segmented-button';
 import {CreateElement, VNode, VueConstructor} from 'vue';
 import {ExtractVue} from '@/utils';
