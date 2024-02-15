@@ -42,6 +42,7 @@ export class MaterialComponentsVue {
     Vue.component('mdc-list', components.MDCList);
     Vue.component('mdc-list-divider', components.MDCListDivider);
     Vue.component('mdc-list-group', components.MDCListGroup);
+    Vue.component('mdc-list-group-subheader', components.MDCListGroupSubheader);
     Vue.component('mdc-list-item', components.MDCListItem);
     Vue.component('mdc-menu', components.MDCMenu);
     Vue.component('mdc-menu-anchor', components.MDCMenuAnchor);

@@ -12,7 +12,7 @@ export {MDCImageList, MDCImageListItem} from './mdc-image-list';
 export {MDCLayoutGrid, MDCLayoutGridCell, MDCLayoutGridInner} from './mdc-layout-grid';
 export {MDCLinearProgress} from './mdc-linear-progress';
 export {MDCLineRipple} from './mdc-line-ripple';
-export {MDCList, MDCListDivider, MDCListGroup, MDCListItem} from './mdc-list';
+export {MDCList, MDCListDivider, MDCListGroup, MDCListGroupSubheader, MDCListItem} from './mdc-list';
 export {MDCMaterialIcon} from './mdc-material-icon';
 export {MDCMenu, MDCMenuAnchor, MDCMenuDivider, MDCMenuItem, MDCMenuSelectionGroup} from './mdc-menu';
 export {MDCMenuSurface} from './mdc-menu-surface';
