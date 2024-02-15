@@ -3,7 +3,7 @@
   "version": "0.7.7",
   "description": "Material Design components for Vue",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c --bundleConfigAsCjs",
     "build:vue-cli": "vue-cli-service build --target lib src/index.ts && rm dist/demo.html",
     "lint": "vue-cli-service lint",
     "clean": "rm -fr dist/ docs/.vuepress/dist",
