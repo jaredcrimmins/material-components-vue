@@ -15,6 +15,7 @@
   },
   "main": "dist/material-components-vue.common.js",
   "module": "dist/material-components-vue.esm.js",
+  "types": "dist/index.d.ts",
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@commitlint/cli": "^16.3.0",
