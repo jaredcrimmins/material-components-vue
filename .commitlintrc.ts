@@ -62,6 +62,7 @@ const Configuration: UserConfig = {
         // Mixins
         'absolutely-positionable',
         'buttonable',
+        'focus-trappable',
         'icon-buttonable',
         'linkable',
         'touch-target-wrappable',
