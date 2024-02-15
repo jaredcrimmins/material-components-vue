@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.7](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.6...v0.7.7) (2024-02-15)
+
+
+### Features
+
+* define `types` field in `package.json` ([b46fa34](https://github.com/jaredcrimmins/material-components-vue/commit/b46fa3454af93100cc848f31461f1b50488d0880))
+* **drawer:** create `MdcDrawer` and child components ([99db106](https://github.com/jaredcrimmins/material-components-vue/commit/99db10640305e423ea5e86370378c995fa5581bc)), closes [#6](https://github.com/jaredcrimmins/material-components-vue/issues/6)
+* **list:** add `tag` prop to `MdcList` component ([a1ba20f](https://github.com/jaredcrimmins/material-components-vue/commit/a1ba20fb8904470aef3ea60a9ec30454b2cdfb8c))
+* **list:** create `MdcListGroupSubheader` component ([4d0f5c8](https://github.com/jaredcrimmins/material-components-vue/commit/4d0f5c893dcbc53b9789a4975ec214caf35fb37c))
+* **list:** make the `MdcListItem` component linkable ([895fa37](https://github.com/jaredcrimmins/material-components-vue/commit/895fa3714c1400121a6fe37027e2678f6eb1ef4e))
+
+
+### Bug Fixes
+
+* **multiple:** adjust priority of the `linkable` mixin ([eb6deb1](https://github.com/jaredcrimmins/material-components-vue/commit/eb6deb157a79bbc6872b3679778a5a2a41a649cb))
+* **segmented-button:** fix circular dependency ([c42b97b](https://github.com/jaredcrimmins/material-components-vue/commit/c42b97b39ca1b89fed2ef15b7df8874d7daae640))
+* **textfield:** modify when `mdc-textfield--no-label` class is active ([51401c9](https://github.com/jaredcrimmins/material-components-vue/commit/51401c9bb61bc16d6b3e9bc37de4dec3eb4f9615))
+
 ## [0.7.6](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.5...v0.7.6) (2024-02-07)
 
 
