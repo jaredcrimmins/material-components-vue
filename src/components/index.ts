@@ -5,6 +5,7 @@ export {MDCCheckbox} from './mdc-checkbox';
 export {MDCChip, MDCChipSet} from './mdc-chips';
 export {MDCCircularProgress} from './mdc-circular-progress';
 export {MDCDialog, MDCDialogActions, MDCDialogButton, MDCDialogContent, MDCDialogTitle} from './mdc-dialog';
+export {MDCDrawer, MDCDrawerList, MDCDrawerListDivider, MDCDrawerListItem, MDCDrawerScrim, MDCDrawerTitle, MDCDrawerSubtitle} from './mdc-drawer';
 export {MDCFloatingLabel} from './mdc-floating-label';
 export {MDCFormField} from './mdc-form-field';
 export {MDCIconButton} from './mdc-icon-button';

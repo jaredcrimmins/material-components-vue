@@ -35,6 +35,7 @@ const Configuration: UserConfig = {
         'circular-progress',
         'data-table',
         'dialog',
+        'drawer',
         'floating-label',
         'form-field',
         'icon-button',

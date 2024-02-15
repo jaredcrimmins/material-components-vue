@@ -29,6 +29,13 @@ export class MaterialComponentsVue {
     Vue.component('mdc-dialog-button', components.MDCDialogButton);
     Vue.component('mdc-dialog-content', components.MDCDialogContent);
     Vue.component('mdc-dialog-title', components.MDCDialogTitle);
+    Vue.component('mdc-drawer', components.MDCDrawer);
+    Vue.component('mdc-drawer-list', components.MDCDrawerList);
+    Vue.component('mdc-drawer-list-divider', components.MDCListDivider);
+    Vue.component('mdc-drawer-list-item', components.MDCDrawerListItem);
+    Vue.component('mdc-drawer-scrim', components.MDCDrawerScrim);
+    Vue.component('mdc-drawer-subtitle', components.MDCDrawerSubtitle);
+    Vue.component('mdc-drawer-title', components.MDCDrawerTitle);
     Vue.component('mdc-form-field', components.MDCFormField);
     Vue.component('mdc-floating-label', components.MDCFloatingLabel);
     Vue.component('mdc-icon-button', components.MDCIconButton);
