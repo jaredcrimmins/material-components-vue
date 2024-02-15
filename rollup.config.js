@@ -1,7 +1,14 @@
 import typescript from '@rollup/plugin-typescript';
 
 const input = 'src/index.ts';
-const plugins = [typescript()];
+const plugins = [
+  typescript({
+    declaration: true,
+    emitDeclarationOnly: true,
+    declarationDir: 'dist/',
+    rootDir: 'src/'
+  })
+];
 const external = [
   /@material/,
   'vue'
