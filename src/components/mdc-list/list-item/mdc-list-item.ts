@@ -1,10 +1,11 @@
+import {CreateElement, VueConstructor, VNode} from 'vue';
+import {ExtractVue, getSlot, hasSlot, mixins} from "../../../utils";
 import {MDCCheckbox} from "../../mdc-checkbox";
 import {MDCMaterialIcon} from "../../mdc-material-icon";
 import {MDCRadio} from "../../mdc-radio";
 import {MDCRipple} from "../../mdc-ripple";
-import Vue, {CreateElement, VueConstructor, VNode} from 'vue';
 import {cssClasses} from "@material/list";
-import {getSlot, hasSlot} from "../../../utils";
+import {linkable} from "@/mixins";
 
 let mdcListItemID_ = 0;
 
@@ -14,7 +15,9 @@ interface Injections {
   twoLine: boolean;
 }
 
-export default (<VueConstructor<Vue & Injections>>Vue).extend({
+const baseMixins = mixins(linkable);
+
+export default (<VueConstructor<ExtractVue<typeof baseMixins> & Injections>>baseMixins).extend({
   name: "mdc-list-item",
 
   components: {
@@ -40,6 +43,10 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     primaryText: String,
     rippleDisabled: Boolean,
     secondaryText: String,
+    tag: {
+      type: String,
+      default: 'li'
+    },
     value: {
       type: String,
       default: ""
@@ -79,28 +86,43 @@ export default (<VueConstructor<Vue & Injections>>Vue).extend({
     return c(
       "mdc-ripple",
       {
-        staticClass: cssClasses.LIST_ITEM_CLASS,
-        class: this.cssClass,
-        attrs: {
-          "data-value": this.value,
-          role: this.roleAttr
-        },
         props: {
           disabled: this.rippleDisabled,
           standalone: false,
-          tag: "li"
-        }
-      },
-      [
-        c(
-          "span",
-          {
-            staticClass: "mdc-list-item__ripple"
+          tag: this.tag
+        },
+        scopedSlots: {
+          root: ({cssClass, on, style}) => {
+            return c(
+              this.tag,
+              {
+                staticClass: cssClasses.LIST_ITEM_CLASS,
+                class: {...this.cssClass, ...cssClass},
+                props: {
+                  to: this.to
+                },
+                attrs: {
+                  "data-value": this.value,
+                  role: this.roleAttr,
+                  href: this.href
+                },
+                style,
+                on
+              },
+              [
+                c(
+                  "span",
+                  {
+                    staticClass: "mdc-list-item__ripple"
+                  }
+                ),
+                this.genGraphic(c),
+                this.genText(c)
+              ]
+            )
           }
-        ),
-        this.genGraphic(c),
-        this.genText(c)
-      ]
+        }
+      }
     );
   },
 
