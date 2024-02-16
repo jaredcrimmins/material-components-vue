@@ -8,7 +8,7 @@ const buttonableProps = {
   rippleDisabled: Boolean,
   tag: {
     type: String,
-    deafult: 'button'
+    default: 'button'
   },
   unelevated: Boolean
 };
