@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.8](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.7...v0.7.8) (2024-02-16)
+
+
+### Bug Fixes
+
+* **buttonable:** correct misspelling of the property `default` ([6b8028f](https://github.com/jaredcrimmins/material-components-vue/commit/6b8028f300f72713451fa175ace27054ad5cc144))
+
 ## [0.7.7](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.6...v0.7.7) (2024-02-15)
 
 
