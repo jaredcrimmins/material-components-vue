@@ -240,6 +240,18 @@
         </div>
       </a>
     </li>
+    <li class="mdc-image-list__item">
+      <a href="/components/segmented-button/">
+        <div class="mdc-image-list__image-aspect-container">
+          <div class="mdc-image-list__image">
+            <img src="/images/catalog/default.svg">
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">Segmented Button</span>
+        </div>
+      </a>
+    </li>
     <!-- <li class="mdc-image-list__item">
       <a href="/components/select/">
         <div class="mdc-image-list__image-aspect-container">
