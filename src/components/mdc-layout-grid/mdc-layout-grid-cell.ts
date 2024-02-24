@@ -16,7 +16,7 @@ export default Vue.extend({
     align: {
       default: null,
       validator(value: unknown) {
-        return value === 'top' || value === 'middle' || value || 'bottom';
+        return value === 'top' || value === 'middle' || value === 'bottom';
       }
     } as PropOptions<'top' | 'middle' | 'bottom' | null>,
     order: orderOrSpanPropOptions,
