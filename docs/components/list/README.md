@@ -169,6 +169,8 @@ This component does not accept any props or slots.
 | `primaryText` | `string` | `''` | For two line lists, sets the primary text. |
 | `rippleDisabled` | `boolean` | `false` | Disables the ripple effect. |
 | `secondaryText` | `string` | `''` | For two line lists, sets the secondary text. |
+| `tag` | `string` | `'li'` |
+| `to` | `string` | `null` |
 | `value` | `string` | `''` |
 
 ### Slots
