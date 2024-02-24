@@ -129,6 +129,7 @@ title: List
 | `hasTypeahead` | `boolean` | `false` | Set to `true` to enable typeahead on the list. |
 | `selectedIndex` | `number | number[] | null` | `null` | Sets the selection state to given index or list of indexes if it is a checkbox-based list. |
 | `singleSelection` | `boolean` | `false` | Set to `true` to be a selection list. Enables the `enter` and `space` keys for selecting/deselecting a list item. |
+| `tag` | `string` | `'ul'` |
 | `twoLine` | `boolean` | `false` | Set to `true` to style list with two lines. |
 | `wrapFocus` | `boolean` | `false` | Set to `true` to allow the up arrow on the first element to focus the last element of the list and vice versa. |
 | `vertical` | `boolean` | `true` | Sets the orientation of the list, causing the keys used for navigation to change. `true` results in the Up/Down arrow keys being used. `false` results in the Left/Right arrow keys being used. |
