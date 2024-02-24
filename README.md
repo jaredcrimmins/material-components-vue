@@ -32,8 +32,8 @@ Vue.use(MaterialComponentsVue);
 
 ```js
 // src/main.js
-import {MdcButton} from '@jaredcrimmins/material-components-vue';
+import {MDCButton} from '@jaredcrimmins/material-components-vue';
 import Vue from 'vue';
 
-Vue.component(MdcButton);
+Vue.component(MDCButton);
 ```
