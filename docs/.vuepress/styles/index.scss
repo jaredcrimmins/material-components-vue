@@ -4,6 +4,7 @@
 @use '@material/checkbox/_index.scss' as checkbox;
 @use '@material/circular-progress/mdc-circular-progress';
 @use '@material/dialog/_index.scss' as dialog;
+@use '@material/fab';
 @use '@material/form-field/_index.scss' as form-field;
 @use '@material/icon-button/_index.scss' as icon-button;
 @use '@material/image-list/_index.scss' as image-list;
@@ -28,6 +29,7 @@
 @include card.core-styles;
 @include checkbox.core-styles;
 @include dialog.core-styles;
+@include fab.core-styles;
 @include form-field.core-styles;
 @include icon-button.core-styles;
 @include image-list.core-styles;
