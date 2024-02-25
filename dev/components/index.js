@@ -5,6 +5,7 @@ export {default as TheDebugMDCCheckbox} from './the-debug-mdc-checkbox.vue';
 export {default as TheDebugMDCChips} from './the-debug-mdc-chips.vue';
 export {default as TheDebugMDCCircularProgress} from './the-debug-mdc-circular-progress.vue';
 export {default as TheDebugMDCDialog} from './the-debug-mdc-dialog.vue';
+export {default as TheDebugMDCFab} from './the-debug-mdc-fab';
 export {default as TheDebugMDCFormField} from './the-debug-mdc-form-field.vue';
 export {default as TheDebugMDCIconButton} from './the-debug-mdc-icon-button.vue';
 export {default as TheDebugMDCImageList} from './the-debug-mdc-image-list.vue';

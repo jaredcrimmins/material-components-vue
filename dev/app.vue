@@ -14,6 +14,8 @@
 
     <the-debug-mdc-dialog />
 
+    <the-debug-mdc-fab />
+
     <the-debug-mdc-form-field />
 
     <the-debug-mdc-icon-button />
@@ -67,6 +69,7 @@
       'the-debug-mdc-chips': components.TheDebugMDCChips,
       'the-debug-mdc-circular-progress': components.TheDebugMDCCircularProgress,
       'the-debug-mdc-dialog': components.TheDebugMDCDialog,
+      'the-debug-mdc-fab': components.TheDebugMDCFab,
       'the-debug-mdc-form-field': components.TheDebugMDCFormField,
       'the-debug-mdc-icon-button': components.TheDebugMDCIconButton,
       'the-debug-mdc-image-list': components.TheDebugMDCImageList,
@@ -150,6 +153,7 @@
   @use '@material/chips/mdc-chips';
   @use "@material/circular-progress/mdc-circular-progress";
   @use '@material/dialog/_index.scss' as dialog;
+  @use '@material/fab';
   @use '@material/floating-label/_index.scss' as floating-label;
   @use '@material/form-field/_index.scss' as form-field;
   @use '@material/icon-button/_index.scss' as icon-button;
@@ -183,6 +187,7 @@
 
   @include checkbox.core-styles;
   @include dialog.core-styles();
+  @include fab.core-styles;
   @include floating-label.core-styles;
   @include form-field.core-styles;
   @include icon-button.core-styles;

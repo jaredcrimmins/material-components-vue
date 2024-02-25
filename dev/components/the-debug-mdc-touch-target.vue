@@ -18,6 +18,15 @@
       <mdc-checkbox />
     </mdc-touch-target-wrapper>
 
+    <h3>Touch Target wrapped MDCFab</h3>
+
+    <mdc-touch-target-wrapper>
+      <mdc-fab
+        icon="favorite"
+        label="Favorite"
+      />
+    </mdc-touch-target-wrapper>
+
     <h3>Touch Target wrapped MDCRadio</h3>
 
     <mdc-touch-target-wrapper>
