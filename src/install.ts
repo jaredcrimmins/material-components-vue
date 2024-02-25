@@ -36,6 +36,7 @@ export class MaterialComponentsVue {
     Vue.component('mdc-drawer-scrim', components.MDCDrawerScrim);
     Vue.component('mdc-drawer-subtitle', components.MDCDrawerSubtitle);
     Vue.component('mdc-drawer-title', components.MDCDrawerTitle);
+    Vue.component('mdc-fab', components.MDCFab);
     Vue.component('mdc-form-field', components.MDCFormField);
     Vue.component('mdc-floating-label', components.MDCFloatingLabel);
     Vue.component('mdc-icon-button', components.MDCIconButton);
