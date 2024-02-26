@@ -1,58 +1,100 @@
 <template>
   <div id="app">
-    <the-debug-mdc-banner />
+    <mdc-drawer
+      modal
+      v-model="mdcDrawerModalOpen"
+    >
+      <mdc-drawer-list>
+        <mdc-drawer-list-item
+          tag="a"
+          to="#"
+        >
+          Inbox
+        </mdc-drawer-list-item>
+        <mdc-drawer-list-item>Outgoing</mdc-drawer-list-item>
+        <mdc-drawer-list-item>Drafts</mdc-drawer-list-item>
+      </mdc-drawer-list>
+    </mdc-drawer>
 
-    <the-debug-mdc-button />
+    <!-- <mdc-drawer
+      dismissible
+      v-model="mdcDrawerDismissibleOpen"
+    >
+      <mdc-drawer-list>
+        <mdc-drawer-list-item
+          tag="a"
+          to="#"
+        >
+          Inbox
+        </mdc-drawer-list-item>
+        <mdc-drawer-list-item>Outgoing</mdc-drawer-list-item>
+        <mdc-drawer-list-item>Drafts</mdc-drawer-list-item>
+      </mdc-drawer-list>
+    </mdc-drawer> -->
 
-    <the-debug-mdc-card />
+    <mdc-drawer-scrim />
 
-    <the-debug-mdc-checkbox />
+    <div class="mdc-drawer-app-content">
+      <button @click="onOpenModalDrawerButtonClick">
+        Open Modal Drawer
+      </button>
 
-    <the-debug-mdc-chips />
+      <the-debug-mdc-banner />
 
-    <the-debug-mdc-circular-progress />
+      <the-debug-mdc-button />
 
-    <the-debug-mdc-dialog />
+      <the-debug-mdc-card />
+
+      <the-debug-mdc-checkbox />
+
+      <the-debug-mdc-chips />
+
+      <the-debug-mdc-circular-progress />
+
+      <the-debug-mdc-dialog />
 
     <the-debug-mdc-fab />
 
-    <the-debug-mdc-form-field />
+      <the-debug-mdc-drawer />
 
-    <the-debug-mdc-icon-button />
+      <the-debug-mdc-form-field />
 
-    <the-debug-mdc-image-list />
+      <the-debug-mdc-icon-button />
 
-    <the-debug-mdc-layout-grid />
+      <the-debug-mdc-image-list />
 
-    <the-debug-mdc-linear-progress />
+      <the-debug-mdc-layout-grid />
 
-    <the-debug-mdc-list />
+      <the-debug-mdc-linear-progress />
 
-    <the-debug-mdc-material-icon />
+      <the-debug-mdc-list />
 
-    <the-debug-mdc-menu />
+      <the-debug-mdc-material-icon />
 
-    <the-debug-mdc-radio />
+      <the-debug-mdc-menu />
 
-    <the-debug-mdc-ripple />
+      <the-debug-mdc-radio />
 
-    <the-debug-mdc-segmented-button />
+      <the-debug-mdc-ripple />
 
-    <the-debug-mdc-select />
+      <the-debug-mdc-segmented-button />
 
-    <the-debug-mdc-slider />
+      <the-debug-mdc-select />
 
-    <the-debug-mdc-snackbar />
+      <the-debug-mdc-slider />
 
-    <the-debug-mdc-switch />
+      <the-debug-mdc-snackbar />
 
-    <the-debug-mdc-tabs />
+      <the-debug-mdc-switch />
 
-    <the-debug-mdc-text-field />
+      <the-debug-mdc-tabs />
 
-    <the-debug-mdc-tooltip />
+      <the-debug-mdc-text-field />
 
-    <the-debug-mdc-touch-target />
+      <the-debug-mdc-tooltip />
+
+      <the-debug-mdc-touch-target />
+    </div>
   </div>
 </template>
 
@@ -69,6 +111,7 @@
       'the-debug-mdc-chips': components.TheDebugMDCChips,
       'the-debug-mdc-circular-progress': components.TheDebugMDCCircularProgress,
       'the-debug-mdc-dialog': components.TheDebugMDCDialog,
+      'the-debug-mdc-drawer': components.TheDebugMDCDrawer,
       'the-debug-mdc-fab': components.TheDebugMDCFab,
       'the-debug-mdc-form-field': components.TheDebugMDCFormField,
       'the-debug-mdc-icon-button': components.TheDebugMDCIconButton,
@@ -108,6 +151,8 @@
           }
         ],
         mdcDataTableItems: [],
+        mdcDrawerDismissibleOpen: false,
+        mdcDrawerModalOpen: false,
         mdcSnackbarOpen: true
       };
     },
@@ -142,6 +187,10 @@
             this.mdcDataTableItems.push(items[x]);
           }
         }, 3000);
+      },
+
+      onOpenModalDrawerButtonClick() {
+        this.mdcDrawerModalOpen = !this.mdcDrawerModalOpen;
       }
     }
   }

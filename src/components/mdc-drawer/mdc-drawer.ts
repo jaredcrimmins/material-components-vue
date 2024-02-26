@@ -29,8 +29,7 @@ export default baseMixins.extend({
   data() {
     return {
       cssClass: {
-        [cssClasses.DISMISSIBLE]: this.dismissible,
-        [cssClasses.MODAL]: this.modal
+
       },
       mdcFoundation: new MDCDismissibleDrawerFoundation(
         MDCDismissibleDrawerFoundation.defaultAdapter
@@ -40,6 +39,16 @@ export default baseMixins.extend({
   },
 
   watch: {
+    dismissible(value: boolean) {
+      if (value) this.init();
+      else this.deinit();
+    },
+
+    modal(value: boolean) {
+      if (value) this.init();
+      else this.deinit();
+    },
+
     value(value: boolean) {
       if (value) this.mdcFoundation.open();
       else this.mdcFoundation.close();
@@ -51,7 +60,13 @@ export default baseMixins.extend({
       'aside',
       {
         staticClass: cssClasses.ROOT,
-        class: this.cssClass,
+        class: {
+          ...{
+            [cssClasses.DISMISSIBLE]: this.dismissible,
+            [cssClasses.MODAL]: this.modal
+          },
+          ...this.cssClass
+        },
         on: {
           'keydown': this.onKeydown,
           'transitionend': this.onTransitionend
