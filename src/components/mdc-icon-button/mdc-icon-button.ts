@@ -145,6 +145,7 @@ export default baseMixins.extend({
 
     onClick() {
       this.mdcFoundation.handleClick();
+      this.$emit('click');
     },
 
     genToggleIcons(c: CreateElement) {
