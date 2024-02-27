@@ -59,6 +59,7 @@ const Configuration: UserConfig = {
         'tabs',
         'textfield',
         'tooltip',
+        'top-app-bar',
         'touch-target',
 
         // Mixins

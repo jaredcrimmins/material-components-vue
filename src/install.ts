@@ -71,6 +71,8 @@ export class MaterialComponentsVue {
     Vue.component('mdc-tab-bar', components.MDCTabBar);
     Vue.component('mdc-text-field', components.MDCTextField);
     Vue.component('mdc-textfield', components.MDCTextField);
+    Vue.component('mdc-top-app-bar', components.MDCTopAppBar);
+    Vue.component('mdc-top-app-bar-action-item', components.MDCTopAppBarActionItem);
     Vue.component('mdc-tooltip', components.MDCTooltip);
     Vue.component('mdc-tooltip-action', components.MDCTooltipAction);
     Vue.component('mdc-tooltip-content', components.MDCTooltipContent);

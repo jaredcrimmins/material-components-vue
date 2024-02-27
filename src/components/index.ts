@@ -29,4 +29,5 @@ export {MDCSwitch} from './mdc-switch';
 export {MDCTab, MDCTabBar} from './mdc-tabs';
 export {MDCTextField} from './mdc-textfield';
 export {MDCTooltip, MDCTooltipAction, MDCTooltipContent, MDCTooltipContentLink, MDCTooltipRichActions, MDCTooltipTitle, MDCTooltipWrapper} from './mdc-tooltip';
+export {MDCTopAppBar, MDCTopAppBarActionItem} from './mdc-top-app-bar';
 export {MDCTouchTargetWrapper} from './mdc-touch-target';
