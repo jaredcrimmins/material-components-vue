@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <mdc-drawer
-      modal
-      v-model="mdcDrawerModalOpen"
+      :modal="mdcDrawerIsModal"
+      :dismissible="!mdcDrawerIsModal"
+      v-model="mdcDrawerOpen"
     >
       <mdc-drawer-list>
         <mdc-drawer-list-item
@@ -16,84 +17,97 @@
       </mdc-drawer-list>
     </mdc-drawer>
 
-    <!-- <mdc-drawer
-      dismissible
-      v-model="mdcDrawerDismissibleOpen"
-    >
-      <mdc-drawer-list>
-        <mdc-drawer-list-item
-          tag="a"
-          to="#"
-        >
-          Inbox
-        </mdc-drawer-list-item>
-        <mdc-drawer-list-item>Outgoing</mdc-drawer-list-item>
-        <mdc-drawer-list-item>Drafts</mdc-drawer-list-item>
-      </mdc-drawer-list>
-    </mdc-drawer> -->
-
-    <mdc-drawer-scrim />
+    <mdc-drawer-scrim v-if="mdcDrawerIsModal" />
 
     <div class="mdc-drawer-app-content">
-      <button @click="onOpenModalDrawerButtonClick">
-        Open Modal Drawer
-      </button>
+      <mdc-top-app-bar
+        class="app-bar"
+        title="Page title"
+        navigation-icon
+        @navigation="mdcDrawerOpen = !mdcDrawerOpen"
+      >
+        <template #actions>
+          <mdc-top-app-bar-action-item
+            icon="favorite"
+            aria-label="Favorite"
+          />
+          <mdc-top-app-bar-action-item
+            icon="search"
+            aria-label="Search"
+          />
+          <mdc-top-app-bar-action-item
+            icon="more_vert"
+            aria-label="Options"
+          />
+        </template>
+      </mdc-top-app-bar>
 
-      <the-debug-mdc-banner />
+      <main class="main-content">
+        <div class="mdc-top-app-bar--fixed-adjust">
+          <button @click="onSwitchDrawerButtonClick">
+            {{ switchMdcDrawerButtonLabel }}
+          </button>
+          <button @click="onOpenDrawerButtonClick">
+            Open {{ activeMdcDrawer }} Drawer
+          </button>
 
-      <the-debug-mdc-button />
+          <the-debug-mdc-banner />
 
-      <the-debug-mdc-card />
+          <the-debug-mdc-button />
 
-      <the-debug-mdc-checkbox />
+          <the-debug-mdc-card />
 
-      <the-debug-mdc-chips />
+          <the-debug-mdc-checkbox />
 
-      <the-debug-mdc-circular-progress />
+          <the-debug-mdc-chips />
 
-      <the-debug-mdc-dialog />
+          <the-debug-mdc-circular-progress />
 
-    <the-debug-mdc-fab />
+          <the-debug-mdc-dialog />
 
-      <the-debug-mdc-drawer />
+          <the-debug-mdc-drawer />
 
-      <the-debug-mdc-form-field />
+          <the-debug-mdc-fab />
 
-      <the-debug-mdc-icon-button />
+          <the-debug-mdc-form-field />
 
-      <the-debug-mdc-image-list />
+          <the-debug-mdc-icon-button />
 
-      <the-debug-mdc-layout-grid />
+          <the-debug-mdc-image-list />
 
-      <the-debug-mdc-linear-progress />
+          <the-debug-mdc-layout-grid />
 
-      <the-debug-mdc-list />
+          <the-debug-mdc-linear-progress />
 
-      <the-debug-mdc-material-icon />
+          <the-debug-mdc-list />
 
-      <the-debug-mdc-menu />
+          <the-debug-mdc-material-icon />
 
-      <the-debug-mdc-radio />
+          <the-debug-mdc-menu />
 
-      <the-debug-mdc-ripple />
+          <the-debug-mdc-radio />
 
-      <the-debug-mdc-segmented-button />
+          <the-debug-mdc-ripple />
 
-      <the-debug-mdc-select />
+          <the-debug-mdc-segmented-button />
 
-      <the-debug-mdc-slider />
+          <the-debug-mdc-select />
 
-      <the-debug-mdc-snackbar />
+          <the-debug-mdc-slider />
 
-      <the-debug-mdc-switch />
+          <the-debug-mdc-snackbar />
 
-      <the-debug-mdc-tabs />
+          <the-debug-mdc-switch />
 
-      <the-debug-mdc-text-field />
+          <the-debug-mdc-tabs />
 
-      <the-debug-mdc-tooltip />
+          <the-debug-mdc-text-field />
 
-      <the-debug-mdc-touch-target />
+          <the-debug-mdc-tooltip />
+
+          <the-debug-mdc-touch-target />
+        </div>
+      </main>
     </div>
   </div>
 </template>
@@ -151,10 +165,27 @@
           }
         ],
         mdcDataTableItems: [],
+        mdcDrawerIsModal: true,
+        mdcDrawerOpen: false,
         mdcDrawerDismissibleOpen: false,
-        mdcDrawerModalOpen: false,
         mdcSnackbarOpen: true
       };
+    },
+
+    computed: {
+      activeMdcDrawer() {
+        return this.mdcDrawerIsModal ?
+          'Modal' :
+          'Dismissible';
+      },
+
+      switchMdcDrawerButtonLabel() {
+        const inactiveMdcDrawerType = this.mdcDrawerIsModal ?
+          'Dismissible' :
+          'Modal';
+
+        return `Switch to ${inactiveMdcDrawerType} Drawer`;
+      }
     },
 
     mounted() {
@@ -189,8 +220,12 @@
         }, 3000);
       },
 
-      onOpenModalDrawerButtonClick() {
-        this.mdcDrawerModalOpen = !this.mdcDrawerModalOpen;
+      onSwitchDrawerButtonClick() {
+        this.mdcDrawerIsModal = !this.mdcDrawerIsModal;
+      },
+
+      onOpenDrawerButtonClick() {
+        this.mdcDrawerOpen = !this.mdcDrawerOpen;
       }
     }
   }
@@ -226,6 +261,7 @@
   @use '@material/tab-indicator/_index.scss' as tab-indicator;
   @use '@material/tab-scroller/_index.scss' as tab-scroller;
   @use '@material/textfield/_index.scss' as textfield;
+  @use '@material/top-app-bar/mdc-top-app-bar';
   @use '@material/touch-target/mdc-touch-target';
 
   @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
@@ -281,5 +317,27 @@
       user-select: none;
       width: 200px;
     }
+  }
+
+  // MDCDrawer-MDCTopAppBar styles
+
+  body {
+    display: flex;
+    height: 100vh;
+  }
+
+  .mdc-drawer-app-content {
+    flex: auto;
+    overflow: auto;
+    position: relative;
+  }
+
+  .main-content {
+    overflow: auto;
+    height: 100%;
+  }
+
+  .app-bar {
+    position: absolute;
   }
 </style>

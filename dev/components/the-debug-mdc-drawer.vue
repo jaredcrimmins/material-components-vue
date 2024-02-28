@@ -10,11 +10,11 @@
         <mdc-drawer-subtitle>email@material.io</mdc-drawer-subtitle>
       </template>
 
-      <mdc-list tag="nav">
-        <mdc-list-item>Inbox</mdc-list-item>
-        <mdc-list-item>Outgoing</mdc-list-item>
-        <mdc-list-item>Drafts</mdc-list-item>
-      </mdc-list>
+      <mdc-drawer-list>
+        <mdc-drawer-list-item>Inbox</mdc-drawer-list-item>
+        <mdc-drawer-list-item>Outgoing</mdc-drawer-list-item>
+        <mdc-drawer-list-item>Drafts</mdc-drawer-list-item>
+      </mdc-drawer-list>
     </mdc-drawer>
 
     <button @click="onDismissibleButtonClick">
@@ -30,11 +30,11 @@
         <mdc-drawer-subtitle>email@material.io</mdc-drawer-subtitle>
       </template>
 
-      <mdc-list tag="nav">
-        <mdc-list-item>Inbox</mdc-list-item>
-        <mdc-list-item>Outgoing</mdc-list-item>
-        <mdc-list-item>Drafts</mdc-list-item>
-      </mdc-list>
+      <mdc-drawer-list>
+        <mdc-drawer-list-item>Inbox</mdc-drawer-list-item>
+        <mdc-drawer-list-item>Outgoing</mdc-drawer-list-item>
+        <mdc-drawer-list-item>Drafts</mdc-drawer-list-item>
+      </mdc-drawer-list>
     </mdc-drawer>
   </div>
 </template>
