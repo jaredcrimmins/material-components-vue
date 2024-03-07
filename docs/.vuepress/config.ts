@@ -81,7 +81,8 @@ export default defineConfig({
     logo: '/material-components-vue-logo.png',
     nav: [
       {text: 'Getting Started', link: '/getting-started/'},
-      {text: 'Components', link: '/components/'}
+      {text: 'Components', link: '/components/'},
+      {text: 'GitHub', link: 'https://github.com/jaredcrimmins/material-components-vue'}
     ]
   }
 });
