@@ -80,6 +80,7 @@ export default defineConfig({
   themeConfig: {
     logo: '/material-components-vue-logo.png',
     nav: [
+      {text: 'Getting Started', link: '/getting-started/'},
       {text: 'Components', link: '/components/'}
     ]
   }
