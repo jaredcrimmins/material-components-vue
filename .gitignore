@@ -17,6 +17,7 @@
 !.npmignore
 !.nvmrc
 !CHANGELOG.md
+!jest.config.js
 !package-lock.json
 !package.json
 !README.md
