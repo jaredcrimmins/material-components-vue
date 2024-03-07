@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.9](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.8...v0.7.9) (2024-03-07)
+
+
+### Features
+
+* **fab:** create `MdcFab` component ([bd92d51](https://github.com/jaredcrimmins/material-components-vue/commit/bd92d5172bc715fdedc11444c519b29eb385055d))
+* **top-app-bar:** create `MdcTopAppBar` components ([e5876cc](https://github.com/jaredcrimmins/material-components-vue/commit/e5876cc41030195a11ed8b8078e31522f3205abe))
+
+
+### Bug Fixes
+
+* **drawer:** modify init and deinit process ([2876082](https://github.com/jaredcrimmins/material-components-vue/commit/2876082e5717ee202ff3ce5d8d7a215ece2afaa5)), closes [#6](https://github.com/jaredcrimmins/material-components-vue/issues/6)
+* **icon-button:** emit `click` event ([38ec267](https://github.com/jaredcrimmins/material-components-vue/commit/38ec2679fc3fb768a6142b99ece19d44091dfb90))
+* **layout-grid:** properly check if `align` prop value equals `'bottom'` ([32eb2ae](https://github.com/jaredcrimmins/material-components-vue/commit/32eb2ae8686093dd104522d7f3d283169248a06c))
+
 ## [0.7.8](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.7...v0.7.8) (2024-02-16)
 
 
