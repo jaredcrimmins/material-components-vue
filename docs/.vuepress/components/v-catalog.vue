@@ -337,6 +337,18 @@
       </a>
     </li>
     <li class="mdc-image-list__item">
+      <a href="/components/top-app-bar/">
+        <div class="mdc-image-list__image-aspect-container">
+          <div class="mdc-image-list__image">
+            <img src="/images/catalog/top-app-bar.svg">
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">Top App Bar</span>
+        </div>
+      </a>
+    </li>
+    <li class="mdc-image-list__item">
       <a href="/components/touch-target/">
         <div class="mdc-image-list__image-aspect-container">
           <div class="mdc-image-list__image">
