@@ -16,6 +16,20 @@ export function removeKeys<T extends AnyObject, K extends keyof T>(
   return newObj as Pick<T, K>;
 }
 
+/**
+ * Remove nullish values from an object.
+ *
+ * See {@link https://developer.mozilla.org/en-US/docs/Glossary/Nullish}
+ */
+export function removeNullish<T extends {[key: string]: any}>(obj: T): T {
+  return Object.keys(obj).reduce((result: any, key) => {
+    if (obj[key] !== null && obj[key] !== undefined)
+      result[key] = obj[key];
+
+    return result;
+  }, {});
+}
+
 export function validateAnchorTarget(value: Element | string) {
   if (typeof value === 'string') return true;
   // Check if the value is an Element. Node.ELEMENT_NODE (1)

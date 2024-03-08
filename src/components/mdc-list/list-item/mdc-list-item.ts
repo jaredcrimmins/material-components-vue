@@ -1,5 +1,5 @@
 import {CreateElement, VueConstructor, VNode} from 'vue';
-import {ExtractVue, getSlot, hasSlot, mixins} from "../../../utils";
+import {ExtractVue, getSlot, hasSlot, mixins, removeNullish} from "../../../utils";
 import {MDCCheckbox} from "../../mdc-checkbox";
 import {MDCMaterialIcon} from "../../mdc-material-icon";
 import {MDCRadio} from "../../mdc-radio";
@@ -101,11 +101,11 @@ export default (<VueConstructor<ExtractVue<typeof baseMixins> & Injections>>base
                 props: {
                   to: this.to
                 },
-                attrs: {
+                attrs: removeNullish({
                   "data-value": this.value,
                   role: this.roleAttr,
                   href: this.href
-                },
+                }),
                 style,
                 on
               },

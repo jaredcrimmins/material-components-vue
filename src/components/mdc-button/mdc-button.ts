@@ -1,6 +1,6 @@
 import {MDCRipple} from '../mdc-ripple';
 import {VNode} from 'vue';
-import {getSlot, mixins} from '@/utils';
+import {getSlot, mixins, removeNullish} from '@/utils';
 import {buttonable, linkable, touchTargetWrappable} from '@/mixins';
 
 const baseMixins = mixins(linkable, buttonable, touchTargetWrappable);
@@ -40,10 +40,10 @@ export default baseMixins.extend({
                   'mdc-button--unelevated': this.unelevated,
                   'mdc-button--touch': this.hasTouchTargetWrapperParent
                 }, cssClass),
-                attrs: {
+                attrs: removeNullish({
                   disabled: isTagNameButton && this.disabled,
                   href: this.href
-                },
+                }),
                 style,
                 props: {
                   to: this.to

@@ -1,7 +1,7 @@
 import {CreateElement, VNode} from 'vue';
 import {MDCMaterialIcon} from '../mdc-material-icon';
 import {MDCRipple} from '../mdc-ripple';
-import {mixins} from '../../utils';
+import {mixins, removeNullish} from '../../utils';
 import {linkable, materialIconable, touchTargetWrappable} from '../../mixins';
 
 const baseMixins = mixins(linkable, materialIconable, touchTargetWrappable);
@@ -75,11 +75,11 @@ export default baseMixins.extend({
                 props: {
                   to: this.to
                 },
-                attrs: {
+                attrs: removeNullish({
                   disabled: this.disabled && this.isTagButton,
                   'aria-label': this.label && !this.extended ? this.label : null,
                   href: this.href
-                },
+                }),
                 style,
                 on: {
                   ...{

@@ -1,5 +1,5 @@
 import {VNode} from 'vue';
-import {getSlot} from '../../utils';
+import {getSlot, removeNullish} from '../../utils';
 import {linkable} from '../../mixins';
 import {mixins} from '../../utils';
 
@@ -28,7 +28,7 @@ export default baseMixins.extend({
       this.tag,
       {
         class: cssClass,
-        attrs: {...attrs, ...{href: this.href}},
+        attrs: removeNullish({...attrs, ...{href: this.href}}),
         props: {
           to: this.to
         }
