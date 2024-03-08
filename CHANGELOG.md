@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.10](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.9...v0.7.10) (2024-03-08)
+
+
+### Bug Fixes
+
+* **multiple:** remove attrs with nullish values from linkable components ([6ffaafb](https://github.com/jaredcrimmins/material-components-vue/commit/6ffaafbb0b6fd6b537a92881af2afd58912bba11))
+
 ## [0.7.9](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.8...v0.7.9) (2024-03-07)
 
 
