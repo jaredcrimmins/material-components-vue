@@ -7,6 +7,7 @@
 !dev/
 !docs/
 !src/
+!tests/
 
 # Files
 !.babelrc
