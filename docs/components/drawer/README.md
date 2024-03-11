@@ -288,7 +288,7 @@ This component does not accept any props or slots.
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| `tag` | `string` | `h6` | Tagname of the component's root element. |
+| `tag` | `string` | `'h6'` | Tagname of the component's root element. |
 
 ### Slots
 
@@ -302,7 +302,7 @@ This component does not accept any props or slots.
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| `tag` | `string` | `h3` | Tagname of the component's root element. |
+| `tag` | `string` | `'h3'` | Tagname of the component's root element. |
 
 ### Slots
 
