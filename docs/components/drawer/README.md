@@ -1,7 +1,7 @@
 ---
 title: Drawer
 description: Navigation drawers provide access to destinations in your app.
-canonicalUrl: /drawer/
+canonicalUrl: /components/drawer/
 ---
 
 # Drawer
