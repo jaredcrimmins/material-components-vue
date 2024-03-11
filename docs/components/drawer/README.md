@@ -6,6 +6,8 @@ canonicalUrl: /drawer/
 
 # Drawer
 
+[Material Components Web docs](https://github.com/material-components/material-components-web/tree/v10.0.0/packages/mdc-drawer#readme)
+
 Navigation drawers provide access to destinations in your app.
 
 <v-drawer-demo1 />
