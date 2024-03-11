@@ -152,6 +152,20 @@ This component does not accept any props or slots.
 | ---- | ------------|
 | `default` |
 
+## mdc-list-group-subheader
+
+### Props
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `tag` | `string` | `'h6'` | Tagname of the component's root element. |
+
+### Slots
+
+| Name | Description |
+| ---- | ------------|
+| `default` |
+
 ## mdc-list-item
 
 ### Props
