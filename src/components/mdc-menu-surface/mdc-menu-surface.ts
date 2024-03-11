@@ -228,6 +228,10 @@ export default Vue.extend({
       this.onClosed();
     },
 
+    notifyClosing() {
+      emitCustomEvent(this.$el, strings.CLOSING_EVENT, {});
+    },
+
     notifyOpen() {
       emitCustomEvent(this.$el, strings.OPENED_EVENT, {}, true);
       this.onOpened();
