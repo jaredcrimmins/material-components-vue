@@ -140,14 +140,6 @@ title: List
 | ---- | ------------|
 | `default` |
 
-## mdc-dialog-actions
-
-### Slots
-
-| Name | Description |
-| ---- | ------------|
-| `default` |
-
 ## mdc-list-divider
 
 This component does not accept any props or slots.
