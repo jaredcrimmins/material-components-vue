@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.11](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.10...v0.7.11) (2024-03-12)
+
+
+### Bug Fixes
+
+* **menu-surface:** add `notifyClosing` adapter method ([f4e4d54](https://github.com/jaredcrimmins/material-components-vue/commit/f4e4d54a44ecbef20247f9dae51002b36bcfded4))
+* **menu-surface:** set style using a Vue mechanism ([882b1bf](https://github.com/jaredcrimmins/material-components-vue/commit/882b1bfc3adb2eaf240f672b575e745481ef3364))
+* **select:** add/remove CSS classes from root el using `classList` ([f55d724](https://github.com/jaredcrimmins/material-components-vue/commit/f55d7246fb91ba9bb8d3e31b1ac679a6a3909009))
+* **select:** listen for `MDCMenuSurface:closing` event on anchor ([95de400](https://github.com/jaredcrimmins/material-components-vue/commit/95de40048269ad89eb1fe3a33331234e626e058c))
+
 ## [0.7.10](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.9...v0.7.10) (2024-03-08)
 
 
