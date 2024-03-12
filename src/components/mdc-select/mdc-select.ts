@@ -445,10 +445,22 @@ export default Vue.extend({
     //
 
     addClass(className: string) {
+      // Modifying the root element class list solely using a Vue mechanism
+      // causes the content element's height to be improperly measured when the
+      // component is opening.
+      // Modifying the root element class list solely using the
+      // Element.classList property allows the content element's height to be
+      // properly measured, but also opens up the possibility of the class list
+      // to be overwritten by a parent component.
+      // Combining the two approaches gives the best of both worlds: allowing
+      // the content element to be properly measured, and protecting the class
+      // list from being overwritten by the parent component.
+      this.$el.classList.add(className);
       this.cssClasses = {...this.cssClasses, [className]: true};
     },
 
     removeClass(className: string) {
+      this.$el.classList.remove(className);
       this.cssClasses = {...this.cssClasses, [className]: false};
     },
 
