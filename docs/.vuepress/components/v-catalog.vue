@@ -252,7 +252,7 @@
         </div>
       </a>
     </li>
-    <!-- <li class="mdc-image-list__item">
+    <li class="mdc-image-list__item">
       <a href="/components/select/">
         <div class="mdc-image-list__image-aspect-container">
           <div class="mdc-image-list__image">
@@ -263,7 +263,7 @@
           <span class="mdc-image-list__label">Select</span>
         </div>
       </a>
-    </li> -->
+    </li>
     <li class="mdc-image-list__item">
       <a href="/components/slider/">
         <div class="mdc-image-list__image-aspect-container">
