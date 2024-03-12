@@ -2,17 +2,13 @@ import {NativeEventListener} from '@/utils';
 import {MDCFloatingLabel} from '../mdc-floating-label';
 import {MDCNotchedOutline} from '../mdc-notched-outline';
 import {MDCLineRipple} from '../mdc-line-ripple';
-import {MDCTextFieldCharacterCounter} from './character-counter';
 import {MDCTextFieldFoundation, MDCTextFieldNativeInputElement, cssClasses} from '@material/textfield';
-import {MDCTextFieldHelperText} from './helper-text';
 import Vue, {CreateElement, PropType, VNode} from 'vue';
 import {events} from '@material/dom';
 
 let mdcTextFieldId_ = 0;
 
-type CharacterCounterRef = InstanceType<typeof MDCTextFieldCharacterCounter>;
 type FloatingLabelRef = InstanceType<typeof MDCFloatingLabel>;
-type HelperTextRef = InstanceType<typeof MDCTextFieldHelperText>;
 type InputElRef = HTMLInputElement;
 type NotchedOutlineRef = InstanceType<typeof MDCNotchedOutline>;
 type RootElRef = HTMLElement;
@@ -25,29 +21,16 @@ export default Vue.extend({
   components: {
     'mdc-floating-label': MDCFloatingLabel,
     'mdc-line-ripple': MDCLineRipple,
-    'mdc-notched-outline': MDCNotchedOutline,
-    'mdc-text-field-character-counter': MDCTextFieldCharacterCounter,
-    'mdc-text-field-helper-text': MDCTextFieldHelperText
+    'mdc-notched-outline': MDCNotchedOutline
   },
 
   props: {
-    characterCounter: Boolean,
     filled: Boolean,
     fullWidth: Boolean,
-    helperText: {
-      default() {
-        return {
-          persistent: false,
-          value: ''
-        };
-      },
-      type: Object
-    },
     label: {
       type: String,
       default: ''
     },
-    multiline: Boolean,
     outlined: Boolean,
     requiredAsterisk: {
       type: Boolean,
@@ -70,7 +53,6 @@ export default Vue.extend({
       type: <PropType<Number | null>>Number,
       default: null
     },
-    multiple: Boolean,
     name: {
       type: String,
       default: null
@@ -104,8 +86,6 @@ export default Vue.extend({
       cssClass: {} as {[className: string]: boolean},
       floatLabel_: false,
       labelRequired: false,
-      helperTextId: `__mdc-text-field-helper-text${mdcTextFieldId_}`,
-      helperTextValue_: this.helperText.value,
       internalValue: this.value,
       mdcFoundation: new MDCTextFieldFoundation(
         MDCTextFieldFoundation.defaultAdapter
@@ -122,7 +102,7 @@ export default Vue.extend({
 
   computed: {
     hasFloatingLabel(): boolean {
-      return !!(this.label && !this.fullWidth && !this.multiline && !this.outlined);
+      return !!(this.label && !this.outlined);
     },
 
     // If the label prop hasn't been provided, then a built-in label element is
@@ -130,7 +110,7 @@ export default Vue.extend({
     // props mean this component should render as a textarea, and textarea
     // versions of this component do not render label elements.
     hasLabelEl(): boolean {
-      return !!(this.label && !this.fullWidth && !this.multiline);
+      return !!this.label;
     },
 
     hasNothcedOutline(): boolean {
@@ -138,7 +118,7 @@ export default Vue.extend({
     },
 
     isOutlined(): boolean {
-      return this.outlined || this.multiline;
+      return this.outlined;
     }
   },
 
@@ -157,31 +137,24 @@ export default Vue.extend({
   render(c): VNode {
     return c(
       'div',
+      {
+        ref: 'rootEl',
+        staticClass: cssClasses.ROOT,
+        class: {...this.cssClass, ...{
+          [cssClasses.DISABLED]: this.disabled,
+          'mdc-text-field--filled': this.filled,
+          [cssClasses.NO_LABEL]: !this.hasLabelEl,
+          [cssClasses.OUTLINED]: this.outlined
+        }},
+        on: {
+          click: this.onClick
+        }
+      },
       [
-        c(
-          'div',
-          {
-            ref: 'rootEl',
-            staticClass: cssClasses.ROOT,
-            class: {...this.cssClass, ...{
-              [cssClasses.DISABLED]: this.disabled,
-              'mdc-text-field--filled': this.filled,
-              [cssClasses.NO_LABEL]: !this.hasLabelEl,
-              [cssClasses.OUTLINED]: this.outlined,
-              [cssClasses.TEXTAREA]: this.multiline
-            }},
-            on: {
-              click: this.onClick
-            }
-          },
-          [
-            this.genInput(c),
-            this.genLineRipple(c),
-            this.genNotchedOutline(c),
-            this.genFloatingLabel(c)
-          ]
-        ),
-        this.genHelperLine(c)
+        this.genInput(c),
+        this.genLineRipple(c),
+        this.genNotchedOutline(c),
+        this.genFloatingLabel(c)
       ]
     );
   },
@@ -192,10 +165,7 @@ export default Vue.extend({
     //
 
     init() {
-      this.mdcFoundation = new MDCTextFieldFoundation(this, {
-        characterCounter: (<CharacterCounterRef>this.$refs.characterCounter)?.mdcFoundation,
-        helperText: (<HelperTextRef>this.$refs.helperText)?.mdcFoundation,
-      });
+      this.mdcFoundation = new MDCTextFieldFoundation(this);
       this.mdcFoundation.init();
       this.mdcFoundation.setUseNativeValidation(this.useNativeValidation);
       this.mdcFoundation.setValid(this.valid);
@@ -206,36 +176,18 @@ export default Vue.extend({
     },
 
     genInput(c: CreateElement) {
-      const self = this;
       const baseAttrs = {
         autocomplete: this.autocomplete,
         disabled: this.disabled,
         maxlength: this.maxlength,
-        multiple: this.multiple,
         name: this.name,
         placeholder: this.placeholder,
         readonly: this.readonly,
         required: this.required,
         size: this.size,
         spellcheck: this.spellcheck,
-        ['aria-controls']: this.helperTextValue_ ? this.helperTextId : undefined,
-        ['aria-describedby']: this.helperTextValue_ ? this.helperTextId : undefined,
         ['aria-labeledby']: this.label ? this.labelId : undefined
       };
-
-      if (this.multiline) {
-        if (this.resizable) {
-          return c(
-            'span',
-            {
-              staticClass: 'mdc-text-field__resizer'
-            },
-            [genTextarea(c)]
-          );
-        }
-
-        return genTextarea(c);
-      }
 
       return c(
         'input',
@@ -259,32 +211,10 @@ export default Vue.extend({
           }
         }
       );
-
-      function genTextarea(c: CreateElement) {
-        return c(
-          'textarea',
-          {
-            ref: 'inputEl',
-            staticClass: 'mdc-text-field__input',
-            attrs: Object.assign(
-              {},
-              self.$attrs,
-              baseAttrs
-            ),
-            on: {
-              change: self.onInputElChange,
-              focus: self.onInputElFocus,
-              blur: self.onInputElBlur,
-              input: self.onInputElInput
-            }
-          },
-          self.internalValue
-        );
-      }
     },
 
     genLineRipple(c: CreateElement) {
-      if (!this.outlined && !this.multiline) {
+      if (!this.outlined) {
         return c(
           'mdc-line-ripple',
           {
@@ -336,52 +266,6 @@ export default Vue.extend({
       }
     },
 
-    genHelperLine(c: CreateElement) {
-      if (this.helperTextValue_ || this.characterCounter) {
-        return c(
-          'div',
-          {
-            staticClass: cssClasses.HELPER_LINE
-          },
-          [
-            this.genHelperText(c),
-            this.genCharacterCounter(c)
-          ]
-        );
-      }
-    },
-
-    genHelperText(c: CreateElement) {
-      if (this.helperTextValue_) {
-        return c(
-          'mdc-text-field-helper-text',
-          {
-            ref: 'helperText',
-            props: {
-              content: this.helperTextValue_,
-              id: this.helperTextId,
-              persistent: this.helperText.persistent
-            }
-          }
-        );
-      }
-    },
-
-    genCharacterCounter(c: CreateElement) {
-      if (this.characterCounter) {
-        return c(
-          'mdc-text-field-character-counter',
-          {
-            ref: 'characterCounter',
-            props: {
-              currentLength: this.value?.length,
-              maxLength: this.maxlength
-            }
-          }
-        );
-      }
-    },
-
     onClick() {
       this.mdcFoundation.handleTextFieldInteraction();
     },
@@ -425,11 +309,9 @@ export default Vue.extend({
         const ruleResult = this.rules[rule](this.internalValue);
 
         if (ruleResult === true) {
-          this.helperTextValue_ = '';
           if (!silent) this.valid = true;
         } else {
           evaluationResult = false;
-          this.helperTextValue_ = ruleResult;
           if (!silent) this.valid = false;
 
           break;
