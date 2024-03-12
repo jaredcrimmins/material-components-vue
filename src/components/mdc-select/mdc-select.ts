@@ -120,10 +120,7 @@ export default Vue.extend({
       'div',
       {
         staticClass: cssClasses.ROOT,
-        class: this.cssClasses,
-        on: {
-          keydown: this.onKeydown
-        }
+        class: this.cssClasses
       },
       [
         this.genAnchor(c),
@@ -180,7 +177,8 @@ export default Vue.extend({
           on: {
             blur: this.onBlur,
             click: this.onClick,
-            focus: this.onFocus
+            focus: this.onFocus,
+            keydown: this.onKeydown
           }
         },
         children
