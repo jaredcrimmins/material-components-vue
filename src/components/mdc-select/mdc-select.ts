@@ -331,7 +331,8 @@ export default Vue.extend({
           nativeOn: {
             [menuStrings.SELECTED_EVENT]: this.onMenuSelected,
             'MDCMenuSurface:opened': this.onMDCMenuSurfaceOpened,
-            'MDCMenuSurface:closed': this.onMDCMenuSurfaceClosed
+            'MDCMenuSurface:closed': this.onMDCMenuSurfaceClosed,
+            'MDCMenuSurface:closing': this.onMDCSurfaceMenuClosing,
           }
         },
         [
@@ -416,6 +417,10 @@ export default Vue.extend({
 
     onMDCMenuSurfaceClosed() {
       this.mdcFoundation.handleMenuClosed();
+    },
+
+    onMDCSurfaceMenuClosing() {
+      this.mdcFoundation.handleMenuClosing();
     },
 
     onMDCMenuSurfaceOpened() {
