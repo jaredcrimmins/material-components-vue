@@ -22,12 +22,7 @@ export default Vue.extend({
     fullWidth: Boolean,
     hoisted: Boolean,
     quickOpen: Boolean,
-    value: {
-      default() {
-        return false;
-      },
-      type: Boolean
-    }
+    value: Boolean
   },
 
   data() {
