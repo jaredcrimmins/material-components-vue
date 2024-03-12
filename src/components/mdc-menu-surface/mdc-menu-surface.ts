@@ -38,7 +38,8 @@ export default Vue.extend({
       } as {[className: string]: boolean},
       mdcFoundation: new MDCMenuSurfaceFoundation(MDCMenuSurfaceFoundation.defaultAdapter),
       open: false,
-      previousFocus: <HTMLElement | null>null
+      previousFocus: <HTMLElement | null>null,
+      style: {} as {[property: string]: string}
     };
   },
 
@@ -96,6 +97,7 @@ export default Vue.extend({
       {
         staticClass: cssClasses.ROOT,
         class: this.cssClasses,
+        style: this.style,
         on: {
           keydown: this.onKeydown,
           'MDCMenuSurface:closed': this.onClosed,
@@ -246,10 +248,9 @@ export default Vue.extend({
     },
 
     setTransformOrigin(value: string) {
-      const el = <HTMLElement>this.$el;
       const propertyName = `${getCorrectPropertyName(window, "transform")}-origin`;
 
-      el.style.setProperty(propertyName, value);
+      this.style = {...this.style, ...{[propertyName]: value}};
     },
 
     isFocused() {
@@ -300,18 +301,19 @@ export default Vue.extend({
     },
 
     setPosition(position: Partial<MDCMenuDistance>) {
-      const el = <HTMLElement>this.$el;
-
-      el.style.left = "left" in position ? `${ position.left }px` : "";
-      el.style.right = "right" in position ? `${ position.right }px` : "";
-      el.style.top = "top" in position ? `${ position.top }px` : "";
-      el.style.bottom = "bottom" in position ? `${ position.bottom }px` : "";
+      this.style = {
+        ...this.style,
+        ...{
+          left: "left" in position ? `${ position.left }px` : "",
+          right: "right" in position ? `${ position.right }px` : "",
+          top: "top" in position ? `${ position.top }px` : "",
+          bottom: "bottom" in position ? `${ position.bottom }px` : ""
+        }
+      };
     },
 
     setMaxHeight(height: string) {
-      const el = <HTMLElement>this.$el;
-
-      el.style.maxHeight = height;
+      this.style = {...this.style, ...{maxHeight: height}};
     }
   }
 });
