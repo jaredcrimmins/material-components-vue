@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.11...v0.8.0) (2024-03-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* **textfield:** remove helper line and textarea functionality
+
+### Features
+
+* **textfield:** remove helper line and textarea functionality ([ae96b04](https://github.com/jaredcrimmins/material-components-vue/commit/ae96b045df1cc732ecca6aa9babce64f18d30227))
+
+
+### Bug Fixes
+
+* **select:** locally register `mdc-menu-selection-group` component ([3b8fbfd](https://github.com/jaredcrimmins/material-components-vue/commit/3b8fbfdcb98e82bc2c31a8cfd9de7cc795942f32))
+* **textfield:** remove `resizable` prop ([9e1e6fe](https://github.com/jaredcrimmins/material-components-vue/commit/9e1e6fee1537f58f901cc634491afc3d832830d7))
+
 ## [0.7.11](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.10...v0.7.11) (2024-03-12)
 
 
