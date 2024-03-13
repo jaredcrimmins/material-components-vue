@@ -1,6 +1,6 @@
 import {Corner} from '@material/menu-surface';
 import {MDCFloatingLabel} from "./../mdc-floating-label";
-import {MDCMenu, MDCMenuItem} from "./../mdc-menu";
+import {MDCMenu, MDCMenuSelectionGroup, MDCMenuItem} from "./../mdc-menu";
 import {MDCSelectFoundation, cssClasses, strings} from "@material/select";
 import {MDCLineRipple} from "./../mdc-line-ripple";
 import {MDCMenuItemComponentEvent} from '@material/menu';
@@ -24,6 +24,7 @@ export default Vue.extend({
     "mdc-floating-label": MDCFloatingLabel,
     "mdc-menu": MDCMenu,
     "mdc-menu-item": MDCMenuItem,
+    "mdc-menu-selection-group": MDCMenuSelectionGroup,
     "mdc-line-ripple": MDCLineRipple,
     "mdc-notched-outline": MDCNotchedOutline
   },
