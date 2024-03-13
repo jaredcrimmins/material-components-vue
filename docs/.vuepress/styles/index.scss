@@ -6,14 +6,17 @@
 @use '@material/dialog/_index.scss' as dialog;
 @use '@material/drawer/index.scss' as drawer;
 @use '@material/fab';
+@use '@material/floating-label/mdc-floating-label';
 @use '@material/form-field/_index.scss' as form-field;
 @use '@material/icon-button/_index.scss' as icon-button;
 @use '@material/image-list/_index.scss' as image-list;
 @use '@material/layout-grid/mdc-layout-grid';
 @use '@material/linear-progress/_index.scss' as linear-progress;
+@use '@material/line-ripple/mdc-line-ripple';
 @use '@material/list/_index.scss' as list;
 @use '@material/menu/mdc-menu';
 @use '@material/menu-surface/mdc-menu-surface';
+@use '@material/notched-outline/mdc-notched-outline';
 @use '@material/radio/mdc-radio';
 @use '@material/ripple/styles' as ripple-styles;
 @use '@material/segmented-button/styles';
@@ -25,6 +28,7 @@
 @use '@material/tab-bar/_index.scss' as tab-bar;
 @use '@material/tab-indicator/_index.scss' as tab-indicator;
 @use '@material/tab-scroller/_index.scss' as tab-scroller;
+@use '@material/textfield/_index.scss' as textfield;
 @use '@material/tooltip/styles' as tooltip-styles;
 @use '@material/top-app-bar/mdc-top-app-bar';
 @use '@material/touch-target/mdc-touch-target';
@@ -46,6 +50,7 @@
 @include tab-bar.core-styles;
 @include tab-indicator.core-styles;
 @include tab-scroller.core-styles;
+@include textfield.core-styles;
 @include switch.core-styles;
 
 .mdc-image-list:not(--mdc-image-list--masonry) {
