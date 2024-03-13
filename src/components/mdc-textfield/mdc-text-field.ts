@@ -36,7 +36,6 @@ export default Vue.extend({
       type: Boolean,
       default: true
     },
-    resizable: Boolean,
     rules: {
       default: () => [],
       type: <PropType<((value: string) => boolean | string)[]>>Array
