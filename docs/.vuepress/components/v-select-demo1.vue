@@ -13,21 +13,3 @@
     />
   </v-demo-container>
 </template>
-
-<script>
-  export default {
-    name: 'v-select-demo1',
-
-    data() {
-      return {
-        open: false
-      };
-    },
-
-    methods: {
-      onButtonClick() {
-        this.open = !this.open;
-      }
-    }
-  }
-</script>
