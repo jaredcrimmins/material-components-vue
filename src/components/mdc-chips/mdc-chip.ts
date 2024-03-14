@@ -537,7 +537,8 @@ export default (<VueConstructor<ExtractVue<typeof baseMixins> & Injections>>base
     },
 
     removeTrailingActionFocus() {
-      (<TrailingActionRef>this.$refs.trailingAction).removeFocus();
+      if (this.trailingAction)
+        (<TrailingActionRef>this.$refs.trailingAction).removeFocus();
     },
 
     setTrailingActionAttr(attr: string, value: string) {
