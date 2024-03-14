@@ -48,7 +48,7 @@
         </div>
       </a>
     </li>
-    <!-- <li class="mdc-image-list__item">
+    <li class="mdc-image-list__item">
       <a href="/components/chips/">
         <div class="mdc-image-list__image-aspect-container">
           <div class="mdc-image-list__image">
@@ -59,7 +59,7 @@
           <span class="mdc-image-list__label">Chips</span>
         </div>
       </a>
-    </li> -->
+    </li>
     <li class="mdc-image-list__item">
       <a href="/components/circular-progress/">
         <div class="mdc-image-list__image-aspect-container">
