@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.8.0...v0.9.0) (2024-03-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **chips:** remove `chips` prop from the `MdcChipSet` component
+
+### Bug Fixes
+
+* **chips:** `MdcChip`, emit `input` event when selection state changes ([8803ef7](https://github.com/jaredcrimmins/material-components-vue/commit/8803ef70f9d168ffc72eb538ba56ad298852a5c5))
+* **chips:** remove `chips` prop from the `MdcChipSet` component ([d64f628](https://github.com/jaredcrimmins/material-components-vue/commit/d64f6280c35dfd091369413f2d3ab86cb4dd726c))
+* **chips:** verify trailing action exists before removing focus from it ([ee5c22e](https://github.com/jaredcrimmins/material-components-vue/commit/ee5c22e607bd2e5a80d65eb7cdb150191594974d))
+
 ## [0.8.0](https://github.com/jaredcrimmins/material-components-vue/compare/v0.7.11...v0.8.0) (2024-03-13)
 
 
