@@ -28,61 +28,10 @@ export type ChipListType = {
   select: (selected: boolean, shouldNotifyClients: boolean) => void;
 }[];
 
-type ChipsPropType = {
-  rippleDisabled?: boolean;
-  leadingIcon?: string;
-  hiddenLeadingIcon?: boolean;
-  trailingAction?: boolean;
-  trailingActionNavigable?: boolean;
-  value?: boolean;
-}[];
-
 export default Vue.extend({
   name: 'mdc-chip-set',
 
   props: {
-    chips: {
-      default: () => [],
-      validator(value: unknown) {
-        if (!Array.isArray(value)) return false;
-
-        for (const chip of value) {
-          if (!chip || typeof chip !== 'object') return false;
-
-          if (
-            'rippleDisabled' in chip
-            && typeof chip.rippleDisabled !== 'boolean'
-          ) return false;
-
-          if (
-            'leadingIcon' in chip
-            && typeof chip.leadingIcon !== 'string'
-          ) return false;
-
-          if (
-            'hiddenLeadingIcon' in chip
-            && typeof chip.hiddenLeadingIcon !== 'boolean'
-          ) return false;
-
-          if (
-            'trailingAction' in chip
-            && typeof chip.trailingAction !== 'boolean'
-          ) return false;
-
-          if (
-            'trailingActionNavigable' in chip
-            && typeof chip.trailingActionNavigable !== 'boolean'
-          ) return false;
-
-          if (
-            'value' in chip
-            && typeof chip.value !== 'boolean'
-          ) return false;
-        }
-
-        return true;
-      }
-    } as PropOptions<ChipsPropType>,
     choice: Boolean,
     filter: Boolean,
     input: Boolean,
