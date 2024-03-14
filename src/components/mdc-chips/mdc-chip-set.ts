@@ -138,11 +138,35 @@ export default Vue.extend({
       const {detail} = event;
 
       this.mdcFoundation.handleChipSelection(detail);
-      // this.$emit('input', detail.);
+
+      // Deep clone the value to avoid mutating the prop value itself.
+      const newValue = <number[]>JSON.parse(JSON.stringify(this.value));
+      const selectedChipIndex = this.getIndexOfChipById(detail.chipId);
+
+      if (selectedChipIndex !== -1) {
+        newValue.splice(
+          selectedChipIndex,
+          newValue.includes(selectedChipIndex) ? 1 : 0
+        );
+      }
+
+      this.$emit('input', newValue);
     },
 
     onRemoval(event: MDCChipRemovalEvent) {
       this.mdcFoundation.handleChipRemoval(event.detail);
+    },
+
+    //
+    // Private/adapter methods
+    //
+
+    getIndexOfChipById(chipId: string) {
+      for (let x = 0; x < this.chipList.length; x++) {
+        if (this.chipList[x].id === chipId) return x;
+      }
+
+      return -1;
     },
 
     //
@@ -163,14 +187,6 @@ export default Vue.extend({
 
     getChipListCount() {
       return this.chipList.length;
-    },
-
-    getIndexOfChipById(chipId: string) {
-      for (let x = 0; x < this.chipList.length; x++) {
-        if (this.chipList[x].id === chipId) return x;
-      }
-
-      return -1;
     },
 
     hasClass(className: string) {
